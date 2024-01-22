@@ -1,0 +1,38 @@
+.Header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 142px;
+  height: 66px;
+  background-color: #383838;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  height: 32px;
+
+  &__link {
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+
+    &:hover::after {
+      content: '';
+      display: block;
+      height: 2px;
+      background-color: #fff;
+    }
+  }
+}
+
+.sign-in {
+  width: 32px;
+  height: 32px;
+}

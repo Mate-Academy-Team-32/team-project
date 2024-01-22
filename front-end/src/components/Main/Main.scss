@@ -1,36 +1,86 @@
 .Main {
-  text-align: center;
-}
+  padding-top: 66px;
 
-.Main-logo {
-  height: 40vmin;
-  pointer-events: none;
+  &__catalog {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    padding: 48px 142px;
+  }
 
-  @media (prefers-reduced-motion: no-preference) {
-    animation: logo-spin infinite 20s linear;
+  &__panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 44px;
+  }
+
+  &__language-select {
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    color: #000;
+  }
+
+  &__logo {
+    text-decoration: none;
+    font-family: Kodchasan, sans-serif;
+    font-size: 40px;
+    font-weight: 500;
+    color: #525252;
+  }
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+
+    &--w-34 {
+      width: 34px;
+    }
+  }
+
+  &__categories {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__link {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 18px;
+    letter-spacing: 0.9px;
+    color: #383838;
+
+    &:hover::after {
+      content: '';
+      display: block;
+      position: relative;
+      top: 5px;
+      height: 1px;
+      background-color: #000;
+    }
   }
 }
 
-.Main-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+.input {
+  box-sizing: border-box;
+  padding: 10px 17px;
+  width: 684px;
+  height: 40px;
+  font-size: 14px;
+  border: 1px solid #898989;
+  border-radius: 4px;
+  color: #898989;
 
-.Main-link {
-  color: #61dafb;
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+  &--search::after {
+    content: '';
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    top: 8px;
+    right: 24px + 18px;
+    width: 24px;
+    height: 24px;
+    background-image: url('../../img/logo-search.svg');
   }
 }
