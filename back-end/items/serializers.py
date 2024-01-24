@@ -26,3 +26,68 @@ class ReviewSerializer(CoreModelSerializer, serializers.ModelSerializer):
     class Meta:
         model = Review
         fields = ("id", "rate", "text") + CoreModelSerializer.Meta.fields
+
+
+class ItemImageSerializer(CoreModelSerializer, serializers.ModelSerializer):
+    class Meta:
+        model = ItemImage
+        fields = ("id", "item", "image")
+
+
+class ItemSerializer(CoreModelSerializer, serializers.ModelSerializer):
+    class Meta:
+        model = Item
+        fields = (
+            "id",
+            "label",
+            "name",
+            "logo_img",
+            "gender",
+            "strength",
+            "size",
+            "description",
+            "release_date",
+            "country",
+            "tags",
+            "price",
+            "inventory",
+            "reviews",
+        ) + CoreModelSerializer.Meta.fields
+
+
+class ItemListSerializer(ItemSerializer):
+    rating_avg = serializers.IntegerField(read_only=True)
+    rating_count = serializers.IntegerField(read_only=True)
+
+    class Meta:
+        model = Item
+        fields = (
+            "id",
+            "name",
+            "logo_img",
+            "gender",
+            "size",
+            "price",
+            "rating_avg",
+            "rating_count",
+        )
+
+
+class ItemDetailSerializer(ItemSerializer):
+    rating_avg = serializers.IntegerField(read_only=True)
+    rating_count = serializers.IntegerField(read_only=True)
+    item_images = ItemImageSerializer(read_only=True)
+
+    class Meta:
+        model = Item
+        fields = (
+            "id",
+            "name",
+            "logo_img",
+            "gender",
+            "size",
+            "price",
+            "rating_avg",
+            "rating_count",
+            "item_images",
+        )
