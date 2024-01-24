@@ -1,7 +1,6 @@
 from rest_framework import serializers
 
-from .models import Item, Tag, Review, ItemImage
-
+from items.models import Item, Tag, Review, ItemImage
 from users.serializers import UserSerializer
 
 
@@ -76,7 +75,7 @@ class ItemListSerializer(ItemSerializer):
 class ItemDetailSerializer(ItemSerializer):
     rating_avg = serializers.IntegerField(read_only=True)
     rating_count = serializers.IntegerField(read_only=True)
-    item_images = ItemImageSerializer(read_only=True)
+    # item_images = ItemImageSerializer(read_only=True)
 
     class Meta:
         model = Item

@@ -1,8 +1,8 @@
 from django.db.models import Avg, Count
 from rest_framework import viewsets
 
-from .models import Item
-from .serializers import (
+from items.models import Item
+from items.serializers import (
     ItemSerializer,
     ItemListSerializer,
     ItemDetailSerializer,
