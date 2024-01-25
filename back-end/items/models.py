@@ -60,7 +60,7 @@ class Item(CoreModel):
     inventory = models.PositiveIntegerField()
 
     def __str__(self):
-        return f"{self.id}-{self.name}"
+        return f"{self.label}.{self.name}"
 
 
 class Review(CoreModel):
