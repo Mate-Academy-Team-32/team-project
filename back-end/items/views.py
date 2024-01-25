@@ -1,11 +1,13 @@
 from django.db.models import Avg, Count
 from rest_framework import viewsets
 
-from items.models import Item
+from items.models import Item, ItemImage
 from items.serializers import (
     ItemSerializer,
     ItemListSerializer,
     ItemDetailSerializer,
+    ItemImageSerializer,
+    ItemImageDetailSerializer,
 )
 
 
@@ -24,7 +26,7 @@ class ItemViewSet(CoreModelMixin, viewsets.ModelViewSet):
         )
 
         if self.action != "create":
-            queryset.select_related("reviews").prefetch_related("tags")
+            queryset.select_related("reviews", "item_images").prefetch_related("tags")
 
         return queryset
 
@@ -36,3 +38,8 @@ class ItemViewSet(CoreModelMixin, viewsets.ModelViewSet):
             return ItemDetailSerializer
 
         return ItemSerializer
+
+
+class ItemImageViewSet(CoreModelMixin, viewsets.ModelViewSet):
+    queryset = ItemImage.objects.all()
+    serializer_class = ItemImageDetailSerializer
