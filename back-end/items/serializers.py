@@ -36,7 +36,7 @@ class ItemImageSerializer(CoreModelSerializer, serializers.ModelSerializer):
 class ItemImageDetailSerializer(ItemImageSerializer):
     class Meta:
         model = ItemImage
-        fields = ("id", "item", "image")
+        fields = ("id", "item", "image") + CoreModelSerializer.Meta.fields
 
 
 class ItemSerializer(CoreModelSerializer, serializers.ModelSerializer):
