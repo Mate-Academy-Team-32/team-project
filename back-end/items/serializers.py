@@ -24,7 +24,7 @@ class TagSerializer(CoreModelSerializer, serializers.ModelSerializer):
 class ReviewSerializer(CoreModelSerializer, serializers.ModelSerializer):
     class Meta:
         model = Review
-        fields = ("id", "rate", "text") + CoreModelSerializer.Meta.fields
+        fields = ("id", "item", "rate", "text") + CoreModelSerializer.Meta.fields
 
 
 class ItemImageSerializer(CoreModelSerializer, serializers.ModelSerializer):
@@ -61,7 +61,7 @@ class ItemSerializer(CoreModelSerializer, serializers.ModelSerializer):
 
 
 class ItemListSerializer(ItemSerializer):
-    rating_avg = serializers.IntegerField(read_only=True)
+    rating_avg = serializers.FloatField(read_only=True)
     rating_count = serializers.IntegerField(read_only=True)
 
     class Meta:
@@ -79,7 +79,7 @@ class ItemListSerializer(ItemSerializer):
 
 
 class ItemDetailSerializer(ItemSerializer):
-    rating_avg = serializers.IntegerField(read_only=True)
+    rating_avg = serializers.FloatField(read_only=True)
     rating_count = serializers.IntegerField(read_only=True)
     item_images = ItemImageSerializer(many=True, read_only=True)
 
