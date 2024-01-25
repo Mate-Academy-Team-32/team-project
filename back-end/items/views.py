@@ -1,7 +1,8 @@
 from django.db.models import Avg, Count
+from django.db.models.functions import Round
 from rest_framework import viewsets
 
-from items.models import Item, ItemImage, Tag
+from items.models import Item, ItemImage, Tag, Review
 from items.serializers import (
     ItemSerializer,
     ItemListSerializer,
@@ -9,6 +10,7 @@ from items.serializers import (
     ItemImageSerializer,
     ItemImageDetailSerializer,
     TagSerializer,
+    ReviewSerializer,
 )
 
 
@@ -22,7 +24,7 @@ class ItemViewSet(CoreModelMixin, viewsets.ModelViewSet):
 
     def get_queryset(self):
         queryset = self.queryset.annotate(
-            rating_avg=(Avg("reviews__rate")),
+            rating_avg=(Round(Avg("reviews__rate"), 2)),
             rating_count=(Count("reviews")),
         )
 
@@ -49,3 +51,8 @@ class ItemImageViewSet(CoreModelMixin, viewsets.ModelViewSet):
 class TagViewSet(CoreModelMixin, viewsets.ModelViewSet):
     queryset = Tag.objects.all()
     serializer_class = TagSerializer
+
+
+class ReviewViewSet(CoreModelMixin, viewsets.ModelViewSet):
+    queryset = Review.objects.all()
+    serializer_class = ReviewSerializer
