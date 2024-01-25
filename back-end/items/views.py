@@ -1,13 +1,14 @@
 from django.db.models import Avg, Count
 from rest_framework import viewsets
 
-from items.models import Item, ItemImage
+from items.models import Item, ItemImage, Tag
 from items.serializers import (
     ItemSerializer,
     ItemListSerializer,
     ItemDetailSerializer,
     ItemImageSerializer,
     ItemImageDetailSerializer,
+    TagSerializer,
 )
 
 
@@ -43,3 +44,8 @@ class ItemViewSet(CoreModelMixin, viewsets.ModelViewSet):
 class ItemImageViewSet(CoreModelMixin, viewsets.ModelViewSet):
     queryset = ItemImage.objects.all()
     serializer_class = ItemImageDetailSerializer
+
+
+class TagViewSet(CoreModelMixin, viewsets.ModelViewSet):
+    queryset = Tag.objects.all()
+    serializer_class = TagSerializer
