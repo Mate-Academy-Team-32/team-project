@@ -68,6 +68,7 @@ class ItemListSerializer(ItemSerializer):
         model = Item
         fields = (
             "id",
+            "label",
             "name",
             "logo_img",
             "gender",
