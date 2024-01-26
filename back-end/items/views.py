@@ -29,6 +29,28 @@ class ItemViewSet(CoreModelMixin, viewsets.ModelViewSet):
             rating_count=(Count("reviews")),
         )
 
+        query_params = [
+            "label", "gender", "strength",
+            "size", "country", "tags",
+            ]
+
+        for param in query_params:
+            val = self.request.query_params.getlist(param)
+            print(f"Parameter: {param}, Values: {val}")
+
+            if val:
+                filter_kwargs = {f"{param}__in": val}
+                queryset = queryset.filter(**filter_kwargs)
+
+        min_price = self.request.query_params.get("min_price")
+        max_price = self.request.query_params.get("max_price")
+
+        if min_price:
+            queryset = queryset.filter(price__gt=min_price)
+
+        if max_price:
+            queryset = queryset.filter(price__lt=max_price)
+
         if self.action != "create":
             queryset.select_related("reviews", "item_images").prefetch_related("tags")
 
