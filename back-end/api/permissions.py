@@ -7,3 +7,11 @@ class IsAdminOrReadOnly(BasePermission):
             (request.user and request.user.is_staff)
             or request.method in SAFE_METHODS
         )
+
+
+class IsOwnerOrReadCreate(BasePermission):
+    def has_object_permission(self, request, view, obj):
+        return bool(
+            obj.created_by == request.user
+            or request.method in ("GET", "HEAD", "OPTIONS", "POST")
+        )
