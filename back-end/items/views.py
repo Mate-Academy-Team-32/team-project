@@ -23,16 +23,11 @@ class CoreModelMixin:
 class ItemViewSet(CoreModelMixin, viewsets.ModelViewSet):
     queryset = Item.objects.all()
 
-    def get_queryset(self):
-        queryset = self.queryset.annotate(
-            rating_avg=(Round(Avg("reviews__rate"), 2)),
-            rating_count=(Count("reviews")),
-        )
-
+    def filter_queryset(self, queryset):
         query_params = [
             "label", "gender", "strength",
             "size", "country", "tags",
-            ]
+        ]
 
         for param in query_params:
             val = self.request.query_params.getlist(param)
@@ -50,6 +45,16 @@ class ItemViewSet(CoreModelMixin, viewsets.ModelViewSet):
 
         if max_price:
             queryset = queryset.filter(price__lt=max_price)
+
+        return queryset
+
+    def get_queryset(self):
+        queryset = self.queryset.annotate(
+            rating_avg=(Round(Avg("reviews__rate"), 2)),
+            rating_count=(Count("reviews")),
+        )
+
+        queryset = self.filter_queryset(queryset)
 
         if self.action != "create":
             queryset.select_related("reviews", "item_images").prefetch_related("tags")
