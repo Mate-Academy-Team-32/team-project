@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "./static/css/main.bf49ac12.css",
-    "main.js": "./static/js/main.71d7ec14.js",
+    "main.css": "./static/css/main.2746135e.css",
+    "main.js": "./static/js/main.d33872ad.js",
     "static/media/logo-partners-chanel.svg": "./static/media/logo-partners-chanel.cb7be2fc34a5b00ddac74b6e6864b385.svg",
     "static/media/logo-partners-givenchy.svg": "./static/media/logo-partners-givenchy.66b25b36900e68bb56c5d63f90ca63a6.svg",
     "static/media/image-product.png": "./static/media/image-product.63425aebaafae3b4cabd.png",
@@ -10,25 +10,25 @@
     "static/media/logo-partners-pcd.svg": "./static/media/logo-partners-pcd.c2c6873a4b4ecbea2cb48a8118609f1b.svg",
     "static/media/logo-partners-sl.svg": "./static/media/logo-partners-sl.dd5d9b47ba8d852e5ab4b353e2a389f2.svg",
     "static/media/logo-partners-ga.svg": "./static/media/logo-partners-ga.ac28f839a4e84f7e873217cdd4e9a19f.svg",
-    "static/media/logo-bag.svg": "./static/media/logo-bag.8ff2c4a2e971e1298ac90a7cd49bbb78.svg",
     "static/media/icon-instagram.svg": "./static/media/icon-instagram.0ee19c132dab78b376d6.svg",
-    "static/media/logo-heart.svg": "./static/media/logo-heart.5045f384bb56d19511b85144db8b020d.svg",
+    "static/media/icon-bag-white.svg": "./static/media/icon-bag-white.75e9c6c25a1613a33b290d0691032439.svg",
+    "static/media/icon-heart-white.svg": "./static/media/icon-heart-white.6281d9516e4208e7e5c273eb5272c1d1.svg",
     "static/media/icon-heart.svg": "./static/media/icon-heart.d0e2385f498e426b8e2a.svg",
     "index.html": "./index.html",
     "static/media/icon-twitter.svg": "./static/media/icon-twitter.199e20438339db61c772.svg",
     "static/media/icon-linkedin.svg": "./static/media/icon-linkedin.00286d132042bfb3a688.svg",
-    "static/media/account.svg": "./static/media/account.396905ec9c8747b5ac45a9dc49b3ed40.svg",
+    "static/media/icon-account.svg": "./static/media/icon-account.396905ec9c8747b5ac45a9dc49b3ed40.svg",
     "static/media/icon-facebook.svg": "./static/media/icon-facebook.b3804e81e43be2cbee88.svg",
+    "static/media/icon-search-white.svg": "./static/media/icon-search-white.a2565681e97fa003d52f.svg",
     "static/media/icon-star.svg": "./static/media/icon-star.db848e7b3816303d7f858487f837dfd8.svg",
-    "static/media/logo-search.svg": "./static/media/logo-search.580a114d1084809f3ee3.svg",
     "static/media/tool-arrow.svg": "./static/media/tool-arrow.f0f7a1f1a8a445d8ebc30979738c799a.svg",
     "static/media/tool-circle-black.svg": "./static/media/tool-circle-black.4892133a277fabc702f9.svg",
     "static/media/tool-circle-gray.svg": "./static/media/tool-circle-gray.06b4d02e30543b1b1f56.svg",
-    "main.bf49ac12.css.map": "./static/css/main.bf49ac12.css.map",
-    "main.71d7ec14.js.map": "./static/js/main.71d7ec14.js.map"
+    "main.2746135e.css.map": "./static/css/main.2746135e.css.map",
+    "main.d33872ad.js.map": "./static/js/main.d33872ad.js.map"
   },
   "entrypoints": [
-    "static/css/main.bf49ac12.css",
-    "static/js/main.71d7ec14.js"
+    "static/css/main.2746135e.css",
+    "static/js/main.d33872ad.js"
   ]
 }
