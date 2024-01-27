@@ -33,8 +33,9 @@
 
   &__right-side {
     display: flex;
-    gap: 48px;
-    width: 300px;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
   }
 
   &__language-select {
@@ -93,24 +94,36 @@
   box-sizing: border-box;
   padding: 10px 0;
   width: 300px;
-  height: 40px;
+  height: 44px;
   font-family: 'Tenor Sans', sans-serif;
   font-size: 14px;
   border: none;
-  border-bottom: 1px solid #898989;
+  border-bottom: 1px solid #fff;
   outline: none;
   background-color: transparent;
   color: #a3a3a3;
+
+  &:focus {
+    background-color: #573737;
+  }
+
+  &--search {
+    display: flex;
+    align-items: center;
+  }
 
   &--search::after {
     content: '';
     cursor: pointer;
     display: block;
     position: relative;
-    top: -50%;
-    left: 270px;
+    right: 30px;
     width: 24px;
     height: 24px;
     background-image: url('../../img/icon-search-white.svg');
   }
+}
+
+.hidden {
+  display: none;
 }

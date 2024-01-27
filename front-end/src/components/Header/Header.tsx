@@ -5,6 +5,16 @@ import logoAccount from '../../img/icon-account.svg';
 import logoHeart from '../../img/icon-heart-white.svg';
 import logoBag from '../../img/icon-bag-white.svg';
 
+window.addEventListener('scroll', () => {
+  const part = document.querySelector('.Header__panel') as HTMLDivElement;
+
+  if (window.scrollY > 100) {
+    part.classList.add('hidden');
+  } else {
+    part.classList.remove('hidden');
+  }
+});
+
 export const Header: React.FC = () => (
   <header className="Header">
     <section className="Header__top-bar">
