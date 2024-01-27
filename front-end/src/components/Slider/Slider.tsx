@@ -13,32 +13,49 @@ type Props = {
 
 export const Slider: React.FC<Props> = ({ images, timeUpdate = 1 }) => {
   const [currentSlide, setCurrentSlide] = useState(1);
+  const [isPressed, setIsPressed] = useState(false);
   const countSlides = images.length;
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide(slide => {
-        if (slide >= countSlides) {
-          changeSelectedPage(0);
-          return 1;
-        } else {
-          changeSelectedPage(slide);
-          return slide + 1;
-        }
-      });
-    }, timeUpdate * 1000);
+    if (!isPressed) {
+      const interval = setInterval(() => {
+        setCurrentSlide(slide => {
+          if (slide >= countSlides) {
+            changeSelectedPage(0);
+            return 1;
+          } else {
+            changeSelectedPage(slide);
+            return slide + 1;
+          }
+        });
+      }, timeUpdate * 1000);
 
-    return () => clearInterval(interval);
+      return () => clearInterval(interval);
+    }
   });
 
   const handleClickBack = () => {
+    console.log(currentSlide);
+
     setCurrentSlide(slide => slide > 1 ? slide - 1 : countSlides);
-    changeSelectedPage(currentSlide);
+    setIsPressed(true);
+
+    if (currentSlide > 0 && currentSlide !== countSlides) {
+      changeSelectedPage(currentSlide);
+    } else {
+      changeSelectedPage(countSlides - 1);
+    }
   };
 
   const handleClickNext = () => {
     setCurrentSlide(slide => slide < countSlides ? slide + 1 : 1);
-    changeSelectedPage(currentSlide);
+    setIsPressed(true);
+
+    if (currentSlide < countSlides) {
+      changeSelectedPage(currentSlide - 1);
+    } else {
+      changeSelectedPage(-1);
+    }
   };
 
   const changeSelectedPage = (index: number) => {
@@ -48,7 +65,7 @@ export const Slider: React.FC<Props> = ({ images, timeUpdate = 1 }) => {
       pages[i].classList.remove('page--selected');
     }
 
-    pages[index].classList.add('page--selected');
+    pages[index + 1].classList.add('page--selected');
   };
   
   return (
