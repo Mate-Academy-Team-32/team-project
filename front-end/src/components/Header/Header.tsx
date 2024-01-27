@@ -1,9 +1,9 @@
 import React from 'react';
 import './Header.scss';
 import logoPerfume from '../../img/logo-perfume.svg';
-import logoAccount from '../../img/account.svg';
-import logoHeart from '../../img/logo-heart.svg';
-import logoBag from '../../img/logo-bag.svg';
+import logoAccount from '../../img/icon-account.svg';
+import logoHeart from '../../img/icon-heart-white.svg';
+import logoBag from '../../img/icon-bag-white.svg';
 
 export const Header: React.FC = () => (
   <header className="Header">
@@ -23,41 +23,45 @@ export const Header: React.FC = () => (
             alt="Sign in"
           />
         </a>
+
+        <a href="/" className='Header__language-select'>
+          Eng
+        </a>
       </nav>
     </section>
 
     <section className="Header__panel">
-      <a href="/" className="Header__logo">
-        <img src={logoPerfume} alt="Logo PerfuMe" />
-      </a>
-
-      <div className="input--search">
-        <input
-          className='input'
-          type="text"
-          placeholder='Hey, what are you looking for?'
-        />
+      <div className="Header__left-side">
+        <a href="/" className="Header__logo">
+          <img src={logoPerfume} alt="Logo PerfuMe" />
+        </a>
       </div>
 
-      <a href="/" className='Header__language-select'>
-        Eng
-      </a>
+      <div className="Header__right-side">
+        <div className="input--search">
+          <input
+            className='input'
+            type="text"
+            placeholder='Hey, what are you looking for?'
+          />
+        </div>
 
-      <a href="/">
-        <img
-          className='Header__icon'
-          src={logoHeart}
-          alt="Heart"
-        />
-      </a>
+        <a href="/">
+          <img
+            className='Header__icon'
+            src={logoHeart}
+            alt="Heart"
+          />
+        </a>
 
-      <a href="/">
-        <img
-          className='Header__icon Header__icon--w-34'
-          src={logoBag}
-          alt="Bag"
-        />
-      </a>
+        <a href="/">
+          <img
+            className='Header__icon Header__icon--w-34'
+            src={logoBag}
+            alt="Bag"
+          />
+        </a>
+      </div>
     </section>
   </header>
 );
