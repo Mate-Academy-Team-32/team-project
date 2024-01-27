@@ -21,10 +21,10 @@ export const Slider: React.FC<Props> = ({ images, timeUpdate = 1 }) => {
       const interval = setInterval(() => {
         setCurrentSlide(slide => {
           if (slide >= countSlides) {
-            changeSelectedPage(0);
+            changeSelectedPage(-1);
             return 1;
           } else {
-            changeSelectedPage(slide);
+            changeSelectedPage(slide - 1);
             return slide + 1;
           }
         });
