@@ -1,42 +1,11 @@
 .Main {
-  padding-top: 66px;
+  padding-top: 200px;
 
   &__catalog {
     display: flex;
     flex-direction: column;
     gap: 48px;
-    padding: 48px 142px;
-  }
-
-  &__panel {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 44px;
-  }
-
-  &__language-select {
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: 600;
-    color: #000;
-  }
-
-  &__logo {
-    text-decoration: none;
-    font-family: Kodchasan, sans-serif;
-    font-size: 40px;
-    font-weight: 500;
-    color: #525252;
-  }
-
-  &__icon {
-    width: 24px;
-    height: 24px;
-
-    &--w-34 {
-      width: 34px;
-    }
+    padding: 0 142px 48px 142px;
   }
 
   &__categories {
@@ -60,27 +29,29 @@
       background-color: #000;
     }
   }
-}
 
-.input {
-  box-sizing: border-box;
-  padding: 10px 17px;
-  width: 684px;
-  height: 40px;
-  font-size: 14px;
-  border: 1px solid #898989;
-  border-radius: 4px;
-  color: #898989;
+  &__partners {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 70px;
+    margin-bottom: 70px;
+    padding: 0 132px;
+  }
 
-  &--search::after {
-    content: '';
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
-    top: 8px;
-    right: 24px + 18px;
-    width: 24px;
-    height: 24px;
-    background-image: url('../../img/logo-search.svg');
+  &__line {
+    margin: 0 25px;
+    border: 1px solid #000;
+  }
+
+  &__store {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    padding: 46px 24px 84px;
+  }
+
+  &__store-browse {
+    display: flex;
+    flex-wrap: wrap;
   }
 }

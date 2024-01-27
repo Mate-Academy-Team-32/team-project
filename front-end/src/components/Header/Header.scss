@@ -1,14 +1,59 @@
+@import '../../utils/var';
+
 .Header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: center;
-  padding: 0 142px;
-  height: 66px;
-  background-color: #383838;
+  align-items: flex-start;
+  padding: 0 120px;
+  width: 100vw;
+  background-color: $main-color;
+  z-index: 1;
+  overflow-x: visible;
+
+  &__top-bar {
+    display: flex;
+    justify-content: space-between;
+    padding: 32px 0;
+    width: 80%;
+  }
+
+  &__panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 62px 0;
+    height: 44px;
+    width: 100%;
+  }
+
+  &__language-select {
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    color: #000;
+  }
+
+  &__logo {
+    text-decoration: none;
+    font-family: Kodchasan, sans-serif;
+    font-size: 40px;
+    font-weight: 500;
+    color: #525252;
+  }
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+
+    &--w-34 {
+      width: 34px;
+    }
+  }
 }
 
 .nav {
@@ -35,4 +80,28 @@
 .sign-in {
   width: 32px;
   height: 32px;
+}
+
+.input {
+  box-sizing: border-box;
+  padding: 10px 17px;
+  width: 684px;
+  height: 40px;
+  font-size: 14px;
+  border: 1px solid #898989;
+  border-radius: 4px;
+  background-color: transparent;
+  color: #898989;
+
+  &--search::after {
+    content: '';
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    top: 8px;
+    right: 24px + 18px;
+    width: 24px;
+    height: 24px;
+    background-image: url('../../img/logo-search.svg');
+  }
 }
