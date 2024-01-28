@@ -8,7 +8,7 @@ import logoBag from '../../img/icon-bag-white.svg';
 window.addEventListener('scroll', () => {
   const part = document.querySelector('.Header__panel') as HTMLDivElement;
 
-  if (window.scrollY > 100) {
+  if (window.scrollY > 0) {
     part.classList.add('hidden');
   } else {
     part.classList.remove('hidden');
