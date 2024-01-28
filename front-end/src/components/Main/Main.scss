@@ -21,7 +21,7 @@
     color: #383838;
 
     &:hover::after {
-      content: '';
+      content: "";
       display: block;
       position: relative;
       top: 5px;
@@ -42,6 +42,19 @@
   &__line {
     margin: 0 25px;
     border: 1px solid #000;
+
+    &--filter {
+      margin: 0;
+      border: 1px solid #d2d2d2;
+    }
+
+    &--input {
+      position: relative;
+      top: 15px;
+      width: 20px;
+      height: 0;
+      border-color: #c8c8c8;
+    }
   }
 
   &__store {
@@ -53,5 +66,110 @@
   &__store-browse {
     display: flex;
     flex-wrap: wrap;
+  }
+
+  &__filters {
+    &--name {
+      padding: 12px 28px;
+    }
+
+    &--category {
+      display: flex;
+      justify-content: space-between;
+      font-size: 16px;
+    }
+
+    &--header {
+      margin-left: 28px;
+      padding: 8px 0;
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    &--price {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 0;
+    }
+
+    &--info {
+      display: flex;
+    }
+  }
+
+  &__choice--checkbox {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    p {
+      display: inline;
+    }
+  }
+}
+
+.checkbox {
+  width: 24px;
+  height: 24px;
+}
+
+.arrow {
+  width: 24px;
+  height: 24px;
+  border: none;
+  background-color: transparent;
+  background-image: url("../../img/tool-arrow-down.svg");
+
+  &--reversed {
+    transform: rotate(180deg);
+  }
+}
+
+.input {
+  &--dollars {
+    &::after {
+      content: "USD";
+      position: relative;
+      left: 60px;
+      bottom: 25px;
+      font-size: 14px;
+    }
+  }
+
+  &--price {
+    box-sizing: border-box;
+    display: inline-block;
+    width: 90px;
+    height: 32px;
+    border: 1px solid #c8c8c8;
+    font-size: 14px;
+    text-align: center;
+  }
+}
+
+.price__input {
+  display: flex;
+  align-items: center;
+}
+
+.range {
+  appearance: none;
+  height: 3px;
+  cursor: pointer;
+  background: #d2d2d2;
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #000;
+  }
+
+  &--max {
+    margin-left: -5px;
+    z-index: 1;
   }
 }
