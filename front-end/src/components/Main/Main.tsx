@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './Main.scss';
 import { Slider } from '../Slider';
 import { Card } from '../Card';
+import { TwoThumbInputRange } from 'react-two-thumb-input-range';
 import logoPartner1 from '../../img/logo-partners-dg.svg';
 import logoPartner2 from '../../img/logo-partners-ga.svg';
 import logoPartner3 from '../../img/logo-partners-givenchy.svg';
@@ -20,6 +21,11 @@ export const Main: React.FC = () => {
     arrow.classList.toggle('arrow--reversed');
     filterOptions.classList.toggle('hidden');
   };
+
+  const onValueChange = (values: number[]) => {
+    setPriceMin(values[0]);
+    setPriceMax(values[1]);
+  }
 
   return (
     <main className="Main">
@@ -97,31 +103,26 @@ export const Main: React.FC = () => {
               <div className="Main__filters--price">
                 <div className="Main__filters--info">
                   <div className="input--dollars">
-                    <input type="number" className="input--price" value={priceMin} min={1} readOnly />
+                    <input type="number" className="input--price" value={priceMin} readOnly />
                   </div>
                   <hr className="Main__line Main__line--input" />
                   <div className="input--dollars">
-                    <input type="number" className="input--price" value={priceMax} max={100} readOnly />
+                    <input type="number" className="input--price" value={priceMax} readOnly />
                   </div>
                 </div>
 
                 <div className="price__input">
-                  <input
-                    type="range"
-                    className="range range--min"
-                    min={1}
-                    max={priceMax}
-                    defaultValue={priceMin}
-                    onChange={(e) => setPriceMin(+e.target.value)}
-                  />
-                  <input
-                    type="range"
-                    className="range range--max"
-                    min={50}
-                    max={100}
-                    defaultValue={priceMax}
-                    onChange={(e) => setPriceMax(+e.target.value)}
-                  />
+                  <div className="range_container">
+                    <TwoThumbInputRange
+                      values={[priceMin, priceMax]}
+                      min={1}
+                      max={100}
+                      onChange={onValueChange}
+                      showLabels={false}
+                      trackColor={'#000'}
+                      thumbColor={'#000'}
+                    />
+                  </div>
                 </div>
               </div>
             </div>
