@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "./static/css/main.4bf40eec.css",
-    "main.js": "./static/js/main.3df9f5c8.js",
+    "main.css": "./static/css/main.a3d975c2.css",
+    "main.js": "./static/js/main.1e6b0394.js",
     "static/media/logo-partners-chanel.svg": "./static/media/logo-partners-chanel.cb7be2fc34a5b00ddac74b6e6864b385.svg",
     "static/media/logo-partners-givenchy.svg": "./static/media/logo-partners-givenchy.66b25b36900e68bb56c5d63f90ca63a6.svg",
     "static/media/image-product.png": "./static/media/image-product.63425aebaafae3b4cabd.png",
@@ -22,13 +22,14 @@
     "static/media/icon-search-white.svg": "./static/media/icon-search-white.a2565681e97fa003d52f.svg",
     "static/media/icon-star.svg": "./static/media/icon-star.db848e7b3816303d7f858487f837dfd8.svg",
     "static/media/tool-arrow.svg": "./static/media/tool-arrow.f0f7a1f1a8a445d8ebc30979738c799a.svg",
+    "static/media/tool-arrow-down.svg": "./static/media/tool-arrow-down.7f321917885481627242.svg",
     "static/media/tool-circle-black.svg": "./static/media/tool-circle-black.4892133a277fabc702f9.svg",
     "static/media/tool-circle-gray.svg": "./static/media/tool-circle-gray.06b4d02e30543b1b1f56.svg",
-    "main.4bf40eec.css.map": "./static/css/main.4bf40eec.css.map",
-    "main.3df9f5c8.js.map": "./static/js/main.3df9f5c8.js.map"
+    "main.a3d975c2.css.map": "./static/css/main.a3d975c2.css.map",
+    "main.1e6b0394.js.map": "./static/js/main.1e6b0394.js.map"
   },
   "entrypoints": [
-    "static/css/main.4bf40eec.css",
-    "static/js/main.3df9f5c8.js"
+    "static/css/main.a3d975c2.css",
+    "static/js/main.1e6b0394.js"
   ]
 }
