@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "./static/css/main.b4fd97e8.css",
-    "main.js": "./static/js/main.c20c1db4.js",
+    "main.css": "./static/css/main.2bab1061.css",
+    "main.js": "./static/js/main.540a6739.js",
     "static/media/logo-partners-chanel.svg": "./static/media/logo-partners-chanel.cb7be2fc34a5b00ddac74b6e6864b385.svg",
     "static/media/logo-partners-givenchy.svg": "./static/media/logo-partners-givenchy.66b25b36900e68bb56c5d63f90ca63a6.svg",
     "static/media/image-product.png": "./static/media/image-product.63425aebaafae3b4cabd.png",
@@ -25,11 +25,11 @@
     "static/media/tool-arrow-down.svg": "./static/media/tool-arrow-down.7f321917885481627242.svg",
     "static/media/tool-circle-black.svg": "./static/media/tool-circle-black.4892133a277fabc702f9.svg",
     "static/media/tool-circle-gray.svg": "./static/media/tool-circle-gray.06b4d02e30543b1b1f56.svg",
-    "main.b4fd97e8.css.map": "./static/css/main.b4fd97e8.css.map",
-    "main.c20c1db4.js.map": "./static/js/main.c20c1db4.js.map"
+    "main.2bab1061.css.map": "./static/css/main.2bab1061.css.map",
+    "main.540a6739.js.map": "./static/js/main.540a6739.js.map"
   },
   "entrypoints": [
-    "static/css/main.b4fd97e8.css",
-    "static/js/main.c20c1db4.js"
+    "static/css/main.2bab1061.css",
+    "static/js/main.540a6739.js"
   ]
 }
