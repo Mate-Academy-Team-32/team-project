@@ -12,8 +12,7 @@
   padding: 0 120px;
   width: 100vw;
   background-color: $main-color;
-  z-index: 1;
-  overflow-x: visible;
+  z-index: 10;
 
   &__top-bar {
     display: flex;

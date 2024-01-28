@@ -21,10 +21,10 @@ export const Slider: React.FC<Props> = ({ images, timeUpdate = 1 }) => {
       const interval = setInterval(() => {
         setCurrentSlide(slide => {
           if (slide >= countSlides) {
-            changeSelectedPage(-1);
+            changeSelectedPage(0);
             return 1;
           } else {
-            changeSelectedPage(slide - 1);
+            changeSelectedPage(slide);
             return slide + 1;
           }
         });
@@ -35,15 +35,13 @@ export const Slider: React.FC<Props> = ({ images, timeUpdate = 1 }) => {
   });
 
   const handleClickBack = () => {
-    console.log(currentSlide);
-
     setCurrentSlide(slide => slide > 1 ? slide - 1 : countSlides);
     setIsPressed(true);
 
-    if (currentSlide > 0 && currentSlide !== countSlides) {
-      changeSelectedPage(currentSlide);
-    } else {
-      changeSelectedPage(countSlides - 1);
+    if (currentSlide > 0) {
+      changeSelectedPage(currentSlide - 1);
+    } else if (currentSlide === countSlides) {
+      changeSelectedPage(countSlides);
     }
   };
 
@@ -52,9 +50,9 @@ export const Slider: React.FC<Props> = ({ images, timeUpdate = 1 }) => {
     setIsPressed(true);
 
     if (currentSlide < countSlides) {
-      changeSelectedPage(currentSlide - 1);
+      changeSelectedPage(currentSlide);
     } else {
-      changeSelectedPage(-1);
+      changeSelectedPage(0);
     }
   };
 
@@ -65,7 +63,7 @@ export const Slider: React.FC<Props> = ({ images, timeUpdate = 1 }) => {
       pages[i].classList.remove('page--selected');
     }
 
-    pages[index + 1].classList.add('page--selected');
+    pages[index].classList.add('page--selected');
   };
   
   return (
