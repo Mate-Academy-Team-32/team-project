@@ -7,10 +7,11 @@ import logoBag from '../../img/icon-bag-white.svg';
 
 window.addEventListener('scroll', () => {
   const part = document.querySelector('.Header__panel') as HTMLDivElement;
+  const url = window.location.pathname;
 
-  if (window.scrollY > 0) {
+  if (window.scrollY > 0 && url === '/') {
     part.classList.add('hidden');
-  } else {
+  } else if (url === '/') {
     part.classList.remove('hidden');
   }
 });
@@ -41,7 +42,7 @@ export const Header: React.FC = () => (
         </nav>
       </section>
 
-      <section className="Header__panel">
+      <section className="Header__panel hidden">
         <div className="Header__left-side">
           <a href="/" className="Header__logo">
             <img src={logoPerfume} alt="Logo PerfuMe" />

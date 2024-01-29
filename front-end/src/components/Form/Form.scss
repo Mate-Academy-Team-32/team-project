@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   font-family: Roboto, sans-serif;
   
   &__content {
@@ -12,5 +13,44 @@
   &__head {
     font-size: 24px;
     font-weight: 500;
+  }
+
+  &__field {
+    margin: 16px 0 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #8a8a8f;
+  }
+
+  &__error-msg {
+    margin: 24px 0;
+    color: #fc0606;
+  }
+
+  &__input {
+    box-sizing: border-box;
+    outline: none;
+    padding: 12px 16px;
+    width: 400px;
+    height: 48px;
+    font-size: 16px;
+    border: none;
+    border-bottom: 1px solid #000;
+    color: #292929;
+
+    &:focus:invalid {
+      border-color: #fc0606;
+    }
+  }
+
+  &__submit {
+    margin-top: 20px;
+    width: 400px;
+    height: 48px;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: #000;
+    color: #fff;
   }
 }
