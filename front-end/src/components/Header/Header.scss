@@ -8,7 +8,6 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: flex-start;
   padding: 0 120px;
   width: 100vw;
   background-color: $main-color;
@@ -125,4 +124,8 @@
 
 .hidden {
   display: none;
+}
+
+.margin {
+  margin-top: 264px;
 }
