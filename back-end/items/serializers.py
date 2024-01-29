@@ -51,7 +51,6 @@ class ItemSerializer(CoreModelSerializer, serializers.ModelSerializer):
             "tags",
             "price",
             "inventory",
-            "reviews",
         ) + CoreModelSerializer.Meta.fields
 
 
@@ -69,6 +68,7 @@ class ItemListSerializer(ItemSerializer):
             "gender",
             "size",
             "price",
+            "reviews",
             "rating_avg",
             "rating_count",
         )
@@ -82,6 +82,7 @@ class ItemDetailSerializer(ItemSerializer):
     class Meta:
         model = Item
         fields = ItemSerializer.Meta.fields + (
+            "reviews",
             "rating_avg",
             "rating_count",
             "item_images",
