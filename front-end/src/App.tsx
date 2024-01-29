@@ -5,6 +5,7 @@ import {
   Route,
 } from 'react-router-dom';
 import { Header } from './components/Header';
+import { Footer } from './components/Footer';
 import { Home } from './pages';
 import { Sign } from './pages/sign';
 
@@ -22,5 +23,7 @@ export const App: React.FC = () => (
           element={<Sign />}
       />
     </Routes>
+
+    <Footer />
   </Router>
 );
