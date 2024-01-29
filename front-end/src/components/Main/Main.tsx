@@ -9,6 +9,9 @@ import logoPartner3 from '../../img/logo-partners-givenchy.svg';
 import logoPartner4 from '../../img/logo-partners-pcd.svg';
 import logoPartner5 from '../../img/logo-partners-sl.svg';
 import logoPartner6 from '../../img/logo-partners-chanel.svg';
+import imgOffer from '../../img/image-offer.png';
+import imgChanelWoman from '../../img/image-chanel-woman.png';
+import imgChanelBottle from '../../img/image-chanel-bottle.png';
 
 export const Main: React.FC = () => {
   const [priceMin, setPriceMin] = useState(4);
@@ -112,7 +115,7 @@ export const Main: React.FC = () => {
                 </div>
 
                 <div className="price__input">
-                  <div className="range_container">
+                  <div className="range__container">
                     <TwoThumbInputRange
                       values={[priceMin, priceMax]}
                       min={1}
@@ -262,6 +265,37 @@ export const Main: React.FC = () => {
 
         <div className="Main__store-browse">
           {Array.from(Array(6)).map((_el, i) => <Card key={i} />)}
+        </div>
+      </section>
+
+      <section className="Main__offer">
+        <img src={imgOffer} alt="Special offer" />
+        <article className="offer">
+          <h1 className="offer__header">Limited Time Offer: 25% OFF on Golden Angel Perfume!</h1>
+          <h2>
+            Golden Angel
+            <br />
+            <span>
+              Unleash Your Divine Glow
+            </span>
+          </h2>
+          <p>
+            Indulge in the divine allure of Golden Angel, a fragrance that embodies celestial elegance and radiance.
+          </p>
+          <button type="button" className="offer__button">Know more</button>
+        </article>
+      </section>
+
+      <section className="Main__chanel chanel">
+        <div className="chanel__logo">
+          CHANEL
+        </div>
+        <img className="chanel__woman" src={imgChanelWoman} alt="Chanel person" />
+        <img className="chanel__bottle" src={imgChanelBottle} alt="Chanel bottle" />
+        <div className="chanel__description">
+          <h1>Classic perfume</h1>
+          <p>This exclusive perfume with exquisite notes and persistent natural aroma will not leave anyone indifferent! Persistent aroma and original style. Quality that has been tested by time and the trust of people all over the world!</p>
+          <button type="button">Know More</button>
         </div>
       </section>
     </main>
