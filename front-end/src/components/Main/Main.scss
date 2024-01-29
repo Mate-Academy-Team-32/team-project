@@ -1,6 +1,8 @@
 @import '../../utils/var';
 
 .Main {
+  font-family: Roboto, sans-serif;
+
   &__catalog {
     display: flex;
     flex-direction: column;

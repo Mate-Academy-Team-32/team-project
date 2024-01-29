@@ -8,6 +8,7 @@ import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { Home } from './pages';
 import { Sign } from './pages/sign';
+import './App.scss';
 
 export const App: React.FC = () => (
   <Router>
@@ -19,8 +20,8 @@ export const App: React.FC = () => (
         element={<Home />}
       />
       <Route
-          path="/sign"
-          element={<Sign />}
+        path="/sign"
+        element={<Sign />}
       />
     </Routes>
 

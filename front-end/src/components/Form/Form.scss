@@ -1,0 +1,16 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: Roboto, sans-serif;
+  
+  &__content {
+    width: 560px;
+    height: 500px;
+  }
+
+  &__head {
+    font-size: 24px;
+    font-weight: 500;
+  }
+}
