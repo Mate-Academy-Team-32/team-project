@@ -1,7 +1,7 @@
 FROM python:3.11.4-alpine
 LABEL maintainer="o.chookity@gmail.com"
 
-WORKDIR /app
+WORKDIR /api
 
 
 ENV PYTHONDONTWRITEBYTECODE 1
