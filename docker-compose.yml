@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: back-end/Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./back-end:/app
+      - ./back-end/media:/vol/web/media
+    command: >
+      sh -c "python manage.py migrate &&
+             python manage.py runserver 0.0.0.0:8000"
