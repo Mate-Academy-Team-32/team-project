@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Main.scss';
 import { Slider } from '../Slider';
-import { Card } from '../../../../src/components/Card';
+import { Card } from '../Card';
 import { TwoThumbInputRange } from 'react-two-thumb-input-range';
 import logoPartner1 from '../../img/logo-partners-dg.svg';
 import logoPartner2 from '../../img/logo-partners-ga.svg';
