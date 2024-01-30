@@ -8,6 +8,7 @@ import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { Home } from './pages';
 import { Sign } from './pages/sign';
+import { Catalog } from './pages/catalog';
 import './App.scss';
 
 export const App: React.FC = () => (
@@ -22,6 +23,10 @@ export const App: React.FC = () => (
       <Route
         path="/sign"
         element={<Sign />}
+      />
+      <Route
+        path="/catalog"
+        element={<Catalog />}
       />
     </Routes>
 

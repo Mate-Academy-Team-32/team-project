@@ -21,11 +21,11 @@ export const Header: React.FC = () => (
 
           <a href="/" className="nav__link">Home</a>
 
-          <a href="/" className="nav__link">Catalog</a>
+          <a href="/catalog" className="nav__link">Catalog</a>
 
-          <a href="/" className="nav__link">About Us</a>
+          <a href="/about" className="nav__link">About Us</a>
 
-          <a href="/" className="nav__link">Contact Us</a>
+          <a href="/contacts" className="nav__link">Contact Us</a>
         </nav>
         <nav className="nav nav--sign">
           <div className="input--search">
@@ -44,7 +44,7 @@ export const Header: React.FC = () => (
             />
           </a>
 
-          <a href="/">
+          <a href="/likes">
             <img
               className="Header__icon"
               src={logoHeart}
@@ -52,7 +52,7 @@ export const Header: React.FC = () => (
             />
           </a>
 
-          <a href="/" id="bag">
+          <a href="/cart" id="bag">
             <img
               className="Header__icon Header__icon--w-34"
               src={logoBag}

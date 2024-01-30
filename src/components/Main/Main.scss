@@ -59,52 +59,6 @@
     }
   }
 
-  &__store {
-    display: grid;
-    grid-template-columns: 1fr 4fr;
-    padding: 46px 24px 84px;
-  }
-
-  &__store-browse {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  &__filters {
-    &--name {
-      padding: 12px 28px;
-    }
-
-    &--category {
-      display: flex;
-      justify-content: space-between;
-      font-size: 16px;
-    }
-
-    &--options {
-      margin-top: 10px
-    }
-
-    &--header {
-      margin-left: 28px;
-      padding: 8px 0;
-      font-size: 18px;
-      font-weight: 500;
-    }
-
-    &--price {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
-      padding: 14px 0;
-    }
-
-    &--info {
-      display: flex;
-    }
-  }
-
   &__choice--checkbox {
     display: flex;
     align-items: center;
@@ -123,24 +77,6 @@
 
   &__chanel {
     padding: 140px 130px 160px 140px;
-  }
-}
-
-.checkbox {
-  width: 24px;
-  height: 24px;
-  accent-color: #000;
-}
-
-.arrow {
-  width: 24px;
-  height: 24px;
-  border: none;
-  background-color: transparent;
-  background-image: url("../../img/tool-arrow-down.svg");
-
-  &--reversed {
-    transform: rotate(180deg);
   }
 }
 
@@ -164,11 +100,6 @@
     font-size: 14px;
     text-align: center;
   }
-}
-
-.price__input {
-  display: flex;
-  align-items: center;
 }
 
 .offer {
