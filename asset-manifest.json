@@ -1,13 +1,12 @@
 {
   "files": {
     "main.css": "./static/css/main.43034e41.css",
-    "main.js": "./static/js/main.4fa3391d.js",
+    "main.js": "./static/js/main.4e4dfafb.js",
     "static/media/image-offer.png": "./static/media/image-offer.af6c0cf3dcd3c5bb3e95.png",
     "static/media/image-chanel-woman.png": "./static/media/image-chanel-woman.a5e38b187a22c07f32db.png",
     "static/media/image-chanel-bottle.png": "./static/media/image-chanel-bottle.d88b9e08ae2a171250d9.png",
     "static/media/logo-partners-chanel.svg": "./static/media/logo-partners-chanel.cb7be2fc34a5b00ddac74b6e6864b385.svg",
     "static/media/logo-partners-givenchy.svg": "./static/media/logo-partners-givenchy.66b25b36900e68bb56c5d63f90ca63a6.svg",
-    "static/media/image-product.png": "./static/media/image-product.63425aebaafae3b4cabd.png",
     "static/media/logo-partners-dg.svg": "./static/media/logo-partners-dg.91bb706df0a8831ba3dcf5b321b4e0c5.svg",
     "static/media/logo-perfume.svg": "./static/media/logo-perfume.53a78999a76d67076aa9a7d250eaa47c.svg",
     "static/media/logo-partners-pcd.svg": "./static/media/logo-partners-pcd.c2c6873a4b4ecbea2cb48a8118609f1b.svg",
@@ -30,10 +29,10 @@
     "static/media/tool-circle-black.svg": "./static/media/tool-circle-black.4892133a277fabc702f9.svg",
     "static/media/tool-circle-gray.svg": "./static/media/tool-circle-gray.06b4d02e30543b1b1f56.svg",
     "main.43034e41.css.map": "./static/css/main.43034e41.css.map",
-    "main.4fa3391d.js.map": "./static/js/main.4fa3391d.js.map"
+    "main.4e4dfafb.js.map": "./static/js/main.4e4dfafb.js.map"
   },
   "entrypoints": [
     "static/css/main.43034e41.css",
-    "static/js/main.4fa3391d.js"
+    "static/js/main.4e4dfafb.js"
   ]
 }
