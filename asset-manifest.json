@@ -1,31 +1,30 @@
 {
   "files": {
-    "main.css": "./static/css/main.ca8e3610.css",
-    "main.js": "./static/js/main.0fc5baca.js",
+    "main.css": "./static/css/main.777cc4d8.css",
+    "main.js": "./static/js/main.482dc44e.js",
     "static/media/image-offer.png": "./static/media/image-offer.af6c0cf3dcd3c5bb3e95.png",
     "static/media/image-chanel-woman.png": "./static/media/image-chanel-woman.a5e38b187a22c07f32db.png",
     "static/media/image-chanel-bottle.png": "./static/media/image-chanel-bottle.d88b9e08ae2a171250d9.png",
+    "static/media/logo-partners-3.svg": "./static/media/logo-partners-3.04a81a9cccc17b5eeaa7b96261fdd0b2.svg",
+    "static/media/logo-partners-2.svg": "./static/media/logo-partners-2.2769b1749271a340d26422bad36fa4fe.svg",
+    "static/media/logo-partners-1.svg": "./static/media/logo-partners-1.0a50a268380a5bcfe05590d86e3f3b92.svg",
     "static/media/image-catalog-3.png": "./static/media/image-catalog-3.9fe1f876808cbfb7777e.png",
     "static/media/image-catalog-6.png": "./static/media/image-catalog-6.c25018290393c3dd0c6d.png",
-    "static/media/logo-partners-chanel.svg": "./static/media/logo-partners-chanel.cb7be2fc34a5b00ddac74b6e6864b385.svg",
+    "static/media/logo-partners-5.svg": "./static/media/logo-partners-5.17ee52ba47e41a2a5cb892a994c69e6a.svg",
     "static/media/image-catalog-1.png": "./static/media/image-catalog-1.fd6ecf36611254f95700.png",
     "static/media/image-catalog-2.png": "./static/media/image-catalog-2.510f8643d13068250f0b.png",
     "static/media/image-catalog-4.png": "./static/media/image-catalog-4.1556a01ec53d2d3dd2b6.png",
-    "static/media/logo-partners-givenchy.svg": "./static/media/logo-partners-givenchy.66b25b36900e68bb56c5d63f90ca63a6.svg",
+    "static/media/logo-partners-4.svg": "./static/media/logo-partners-4.1a82e48eb0fe4122a2bfce10a6636e99.svg",
     "static/media/image-catalog-5.png": "./static/media/image-catalog-5.df5807d46f56392a4db0.png",
-    "static/media/logo-partners-dg.svg": "./static/media/logo-partners-dg.91bb706df0a8831ba3dcf5b321b4e0c5.svg",
     "static/media/logo-perfume.svg": "./static/media/logo-perfume.53a78999a76d67076aa9a7d250eaa47c.svg",
-    "static/media/logo-partners-pcd.svg": "./static/media/logo-partners-pcd.c2c6873a4b4ecbea2cb48a8118609f1b.svg",
-    "static/media/logo-partners-sl.svg": "./static/media/logo-partners-sl.dd5d9b47ba8d852e5ab4b353e2a389f2.svg",
-    "static/media/logo-partners-ga.svg": "./static/media/logo-partners-ga.ac28f839a4e84f7e873217cdd4e9a19f.svg",
     "static/media/icon-instagram.svg": "./static/media/icon-instagram.0ee19c132dab78b376d6.svg",
     "static/media/icon-bag-white.svg": "./static/media/icon-bag-white.75e9c6c25a1613a33b290d0691032439.svg",
-    "static/media/icon-heart-white.svg": "./static/media/icon-heart-white.6281d9516e4208e7e5c273eb5272c1d1.svg",
+    "static/media/icon-heart-white.svg": "./static/media/icon-heart-white.6d97e4ca6deef668d406db3cf716c6fb.svg",
     "static/media/icon-heart.svg": "./static/media/icon-heart.d0e2385f498e426b8e2a.svg",
     "index.html": "./index.html",
     "static/media/icon-twitter.svg": "./static/media/icon-twitter.199e20438339db61c772.svg",
+    "static/media/icon-account.svg": "./static/media/icon-account.5dce8cadc48816d572922b12bd6ddfc5.svg",
     "static/media/icon-linkedin.svg": "./static/media/icon-linkedin.00286d132042bfb3a688.svg",
-    "static/media/icon-account.svg": "./static/media/icon-account.396905ec9c8747b5ac45a9dc49b3ed40.svg",
     "static/media/icon-password-eye.svg": "./static/media/icon-password-eye.798c36d55c90103134c0.svg",
     "static/media/icon-facebook.svg": "./static/media/icon-facebook.b3804e81e43be2cbee88.svg",
     "static/media/icon-search-white.svg": "./static/media/icon-search-white.a2565681e97fa003d52f.svg",
@@ -34,11 +33,11 @@
     "static/media/tool-arrow-down.svg": "./static/media/tool-arrow-down.7f321917885481627242.svg",
     "static/media/tool-circle-black.svg": "./static/media/tool-circle-black.4892133a277fabc702f9.svg",
     "static/media/tool-circle-gray.svg": "./static/media/tool-circle-gray.06b4d02e30543b1b1f56.svg",
-    "main.ca8e3610.css.map": "./static/css/main.ca8e3610.css.map",
-    "main.0fc5baca.js.map": "./static/js/main.0fc5baca.js.map"
+    "main.777cc4d8.css.map": "./static/css/main.777cc4d8.css.map",
+    "main.482dc44e.js.map": "./static/js/main.482dc44e.js.map"
   },
   "entrypoints": [
-    "static/css/main.ca8e3610.css",
-    "static/js/main.0fc5baca.js"
+    "static/css/main.777cc4d8.css",
+    "static/js/main.482dc44e.js"
   ]
 }
