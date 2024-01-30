@@ -12,6 +12,12 @@ import logoPartner6 from '../../img/logo-partners-chanel.svg';
 import imgOffer from '../../img/image-offer.png';
 import imgChanelWoman from '../../img/image-chanel-woman.png';
 import imgChanelBottle from '../../img/image-chanel-bottle.png';
+import imgCatalog1 from '../../img/image-catalog-1.png';
+import imgCatalog2 from '../../img/image-catalog-2.png';
+import imgCatalog3 from '../../img/image-catalog-3.png';
+import imgCatalog4 from '../../img/image-catalog-4.png';
+import imgCatalog5 from '../../img/image-catalog-5.png';
+import imgCatalog6 from '../../img/image-catalog-6.png';
 
 export const Main: React.FC = () => {
   const [priceMin, setPriceMin] = useState(4);
@@ -265,42 +271,42 @@ export const Main: React.FC = () => {
 
         <div className="Main__store-browse">
           <Card
-            imagePath={'../../image-offer.png'}
+            image={imgCatalog1}
             category={'top'}
             title={'Tiziana Terenzi Kirke'}
             price={200}
             volume={100}
           />
           <Card
-            imagePath={'../../image-offer.png'}
+            image={imgCatalog2}
             category={'top'}
             title={'D&G 3 L\'Imperatrice'}
             price={200}
             volume={100}
           />
           <Card
-            imagePath={'../../image-offer.png'}
+            image={imgCatalog3}
             category={'top'}
             title={'Extract Cuba Original'}
             price={200}
             volume={100}
           />
           <Card
-            imagePath={'../../image-offer.png'}
+            image={imgCatalog4}
             category={'top'}
             title={'Christian Dior J\'Adore Absolu'}
             price={200}
             volume={100}
           />
-            <Card
-              imagePath={'../../image-offer.png'}
-              category={'top'}
-              title={'D&G 3 L\'Imperatrice'}
-              price={200}
-              volume={100}
-            />
           <Card
-            imagePath={'../../image-offer.png'}
+            image={imgCatalog5}
+            category={'top'}
+            title={'D&G 3 L\'Imperatrice'}
+            price={200}
+            volume={100}
+          />
+          <Card
+            image={imgCatalog6}
             category={'top'}
             title={'Lacoste Eau de L.12.12.'}
             price={200}

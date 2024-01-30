@@ -274,8 +274,17 @@
       min-height: 48px;
       background-color: #000;
       border: none;
-      font-size: 16px;
+      font-size: 14px;
       color: #fff;
+      cursor: pointer;
+      user-select: none;
+      transition: all $transition-time;
+      transition-timing-function: linear;
+
+      &:hover {
+        border-radius: 10px;
+        font-size: 16px;
+      }
     }
   }
 }

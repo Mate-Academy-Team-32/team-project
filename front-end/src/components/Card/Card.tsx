@@ -2,7 +2,7 @@ import './Card.scss';
 import { Rate } from '../Rate';
 
 type Props = {
-  imagePath: string;
+  image: string;
   category: string;
   title: string;
   price: number;
@@ -12,7 +12,7 @@ type Props = {
 };
 
 export const Card: React.FC<Props> = ({
-  imagePath,
+  image,
   category,
   title,
   price,
@@ -26,7 +26,7 @@ export const Card: React.FC<Props> = ({
       <div className="Card__like"></div>
     </nav>
 
-    <img src={ imagePath } alt="Product" className="Card__product" />
+    <img src={ image } alt="Product" className="Card__product" />
 
     <div className="Card__description">
       <h1 className="Card__title">{ title }</h1>
