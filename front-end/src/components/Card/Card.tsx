@@ -1,24 +1,41 @@
 import './Card.scss';
 import { Rate } from '../Rate';
-import product from '../../img/image-product.png';
 
-export const Card: React.FC = () => (
+type Props = {
+  imagePath: string;
+  category: string;
+  title: string;
+  price: number;
+  volume: number;
+  countStars?: number;
+  countReviews?: number;
+};
+
+export const Card: React.FC<Props> = ({
+  imagePath,
+  category,
+  title,
+  price,
+  volume,
+  countStars = 5,
+  countReviews = 10,
+}) => (
   <section className="Card">
     <nav className="Card__top-bar">
-      <span className="Card__label">women</span>
+      <span className="Card__label">{ category }</span>
       <div className="Card__like"></div>
     </nav>
 
-    <img src={product} alt="Product" className="Card__product" />
+    <img src={ imagePath } alt="Product" className="Card__product" />
 
     <div className="Card__description">
-      <h1 className="Card__title">Gilded Elixir</h1>
+      <h1 className="Card__title">{ title }</h1>
 
-      <Rate countStars={5} countReviews={10} />
+      <Rate countStars={ countStars } countReviews={ countReviews } />
 
       <div className="Card__parameters">
-        <p className="Card__price">$ 200.00</p>
-        <p className="Card__volume">100ml</p>
+        <p className="Card__price">$ { price.toFixed(2) }</p>
+        <p className="Card__volume">{ volume }ml</p>
       </div>
     </div>
 
