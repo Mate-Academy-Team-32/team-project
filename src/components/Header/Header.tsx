@@ -5,6 +5,11 @@ import logoAccount from '../../img/icon-account.svg';
 import logoHeart from '../../img/icon-heart-white.svg';
 import logoBag from '../../img/icon-bag-white.svg';
 
+window.addEventListener('load', () => {
+  (document.querySelector('#bag') as HTMLAnchorElement)
+    .setAttribute('data-count', '0');
+});
+
 export const Header: React.FC = () => (
   <>
     <header className="Header">
@@ -25,7 +30,7 @@ export const Header: React.FC = () => (
         <nav className="nav nav--sign">
           <div className="input--search">
             <input
-              className='input'
+              className="input"
               type="text"
               placeholder='Hey, what are you looking for?'
             />
@@ -41,15 +46,15 @@ export const Header: React.FC = () => (
 
           <a href="/">
             <img
-              className='Header__icon'
+              className="Header__icon"
               src={logoHeart}
               alt="Heart"
             />
           </a>
 
-          <a href="/">
+          <a href="/" id="bag">
             <img
-              className='Header__icon Header__icon--w-34'
+              className="Header__icon Header__icon--w-34"
               src={logoBag}
               alt="Bag"
             />

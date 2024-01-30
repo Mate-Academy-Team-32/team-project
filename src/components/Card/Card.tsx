@@ -1,5 +1,6 @@
-import './Card.scss';
+import React, { useState } from 'react';
 import { Rate } from '../Rate';
+import './Card.scss';
 
 type Props = {
   image: string;
@@ -19,26 +20,41 @@ export const Card: React.FC<Props> = ({
   volume,
   countStars = 5,
   countReviews = 10,
-}) => (
-  <section className="Card">
-    <nav className="Card__top-bar">
-      <span className="Card__label">{ category }</span>
-      <div className="Card__like"></div>
-    </nav>
+}) => {
+  const [countProducts, setCountProducts] = useState(0);
 
-    <img src={ image } alt="Product" className="Card__product" />
+  return (
+    <section className="Card">
+      <nav className="Card__top-bar">
+        <span className="Card__label">{category}</span>
+        <div className="Card__like"></div>
+      </nav>
 
-    <div className="Card__description">
-      <h1 className="Card__title">{ title }</h1>
+      <img src={image} alt="Product" className="Card__product" />
 
-      <Rate countStars={ countStars } countReviews={ countReviews } />
+      <div className="Card__description">
+        <h1 className="Card__title">{title}</h1>
 
-      <div className="Card__parameters">
-        <p className="Card__price">$ { price.toFixed(2) }</p>
-        <p className="Card__volume">{ volume }ml</p>
+        <Rate countStars={countStars} countReviews={countReviews} />
+
+        <div className="Card__parameters">
+          <p className="Card__price">$ {price.toFixed(2)}</p>
+          <p className="Card__volume">{volume}ml</p>
+        </div>
       </div>
-    </div>
 
-    <button type="button" className="Card__button">Add to bag</button>
-  </section>
-);
+      <button
+        type="button"
+        className="Card__button"
+        onClick={() => {
+          const countBag = document.querySelector('#bag') as HTMLAnchorElement;
+
+          setCountProducts(currentCount => currentCount + 1);
+          countBag.setAttribute('data-count', (countProducts + 1).toString());
+        }}
+      >
+        Add to bag
+      </button>
+    </section>
+  );
+};
