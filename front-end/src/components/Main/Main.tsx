@@ -264,7 +264,48 @@ export const Main: React.FC = () => {
         </aside>
 
         <div className="Main__store-browse">
-          {Array.from(Array(6)).map((_el, i) => <Card key={i} />)}
+          <Card
+            imagePath={'../../image-offer.png'}
+            category={'top'}
+            title={'Tiziana Terenzi Kirke'}
+            price={200}
+            volume={100}
+          />
+          <Card
+            imagePath={'../../image-offer.png'}
+            category={'top'}
+            title={'D&G 3 L\'Imperatrice'}
+            price={200}
+            volume={100}
+          />
+          <Card
+            imagePath={'../../image-offer.png'}
+            category={'top'}
+            title={'Extract Cuba Original'}
+            price={200}
+            volume={100}
+          />
+          <Card
+            imagePath={'../../image-offer.png'}
+            category={'top'}
+            title={'Christian Dior J\'Adore Absolu'}
+            price={200}
+            volume={100}
+          />
+            <Card
+              imagePath={'../../image-offer.png'}
+              category={'top'}
+              title={'D&G 3 L\'Imperatrice'}
+              price={200}
+              volume={100}
+            />
+          <Card
+            imagePath={'../../image-offer.png'}
+            category={'top'}
+            title={'Lacoste Eau de L.12.12.'}
+            price={200}
+            volume={100}
+          />
         </div>
       </section>
 
