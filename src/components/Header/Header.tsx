@@ -5,51 +5,24 @@ import logoAccount from '../../img/icon-account.svg';
 import logoHeart from '../../img/icon-heart-white.svg';
 import logoBag from '../../img/icon-bag-white.svg';
 
-window.addEventListener('scroll', () => {
-  const part = document.querySelector('.Header__panel') as HTMLDivElement;
-  const url = window.location.pathname;
-
-  if (window.scrollY > 0 && url === '/') {
-    part.classList.add('hidden');
-  } else if (url === '/') {
-    part.classList.remove('hidden');
-  }
-});
-
 export const Header: React.FC = () => (
   <>
     <header className="Header">
       <section className="Header__top-bar">
         <nav className="nav nav--links">
-          <a href="/" className="nav__link">Home</a>
-          <a href="/" className="nav__link">About us</a>
-          <a href="/" className="nav__link">Delivery and payment</a>
-          <a href="/" className="nav__link">Blog</a>
-          <a href="/" className="nav__link">Contacts</a>
-        </nav>
-        <nav className="nav nav--sign">
-          <a href="/sign">
-            <img
-              className="sign-in"
-              src={logoAccount}
-              alt="Sign in"
-            />
-          </a>
-
-          <a href="/" className='Header__language-select'>
-            Eng
-          </a>
-        </nav>
-      </section>
-
-      <section className="Header__panel hidden">
-        <div className="Header__left-side">
           <a href="/" className="Header__logo">
             <img src={logoPerfume} alt="Logo PerfuMe" />
           </a>
-        </div>
 
-        <div className="Header__right-side">
+          <a href="/" className="nav__link">Home</a>
+
+          <a href="/" className="nav__link">Catalog</a>
+
+          <a href="/" className="nav__link">About Us</a>
+
+          <a href="/" className="nav__link">Contact Us</a>
+        </nav>
+        <nav className="nav nav--sign">
           <div className="input--search">
             <input
               className='input'
@@ -57,6 +30,14 @@ export const Header: React.FC = () => (
               placeholder='Hey, what are you looking for?'
             />
           </div>
+
+          <a href="/sign">
+            <img
+              className="sign-in"
+              src={logoAccount}
+              alt="Sign in"
+            />
+          </a>
 
           <a href="/">
             <img
@@ -73,9 +54,10 @@ export const Header: React.FC = () => (
               alt="Bag"
             />
           </a>
-        </div>
+        </nav>
       </section>
     </header>
+
     <div className="margin"></div>
   </>
 );
