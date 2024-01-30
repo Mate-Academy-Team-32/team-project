@@ -17,8 +17,8 @@ services:
   web:
     build:
       context: .
-      dockerfile: front-end/Dockerfile
+      dockerfile: ./Dockerfile
     ports:
         - "3000:3000"
     volumes:
-        - ./front-end:/front-end
+        - ./
