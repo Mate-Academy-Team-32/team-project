@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Header.scss';
 import logoPerfume from '../../img/logo-perfume.svg';
 import logoAccount from '../../img/icon-account.svg';
@@ -19,13 +20,13 @@ export const Header: React.FC = () => (
             <img src={logoPerfume} alt="Logo PerfuMe" />
           </a>
 
-          <a href="/" className="nav__link">Home</a>
+          <Link to="/" className="nav__link">Home</Link>
 
-          <a href="/catalog" className="nav__link">Catalog</a>
+          <Link to="/catalog" className="nav__link">Catalog</Link>
 
-          <a href="/about" className="nav__link">About Us</a>
+          <Link to="/about" className="nav__link">About Us</Link>
 
-          <a href="/contacts" className="nav__link">Contact Us</a>
+          <Link to="/contacts" className="nav__link">Contact Us</Link>
         </nav>
         <nav className="nav nav--sign">
           <div className="input--search">

@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import './Form.scss';
+import './Sign.scss';
 
 type Props = {
   setPage: (page: 'sign-in' | 'sign-up' | 'forgot') => void;
 };
 
-export const Form: React.FC = () => {
+export const Sign: React.FC = () => {
   const [page, setPage] = useState('sign-in');
 
   window.scrollTo(0, 0);
@@ -31,38 +31,38 @@ const SignIn: React.FC<Props> = ({ setPage }) => {
   };
 
   return (
-    <section className="Form">
+    <section className="Sign">
       <form
         action="/sign"
         method="post"
-        className="Form__content"
+        className="Sign__content"
         onSubmit={handleSubmit}
       >
-        <h1 className="Form__head">Login</h1>
+        <h1 className="Sign__head">Login</h1>
 
         {
           isError &&
-          <p className="Form__error-msg">
+          <p className="Sign__error-msg">
             E-mail and/or password fields are incorrectly filled!
           </p>
         }
 
-        <h2 className="Form__field">Email Address</h2>
+        <h2 className="Sign__field">Email Address</h2>
         <input
           type="email"
           name="email"
-          className="Form__input email"
+          className="Sign__input email"
           placeholder="example@gmail.com"
           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
           onInvalid={() => setIsError(true)}
           required
         />
 
-        <h2 className="Form__field">Password</h2>
+        <h2 className="Sign__field">Password</h2>
         <input
           type="password"
           name="password"
-          className="Form__input password"
+          className="Sign__input password"
           placeholder="●●●●●●●●"
           pattern="^(?=.*\d)(?=.*[a-z]).{8,16}$"
           onInvalid={() => setIsError(true)}
@@ -79,22 +79,22 @@ const SignIn: React.FC<Props> = ({ setPage }) => {
           }
         }}></span>
 
-        <span className="Form__forgot" onClick={() => setPage('forgot')}>Forgot Password?</span>
+        <span className="Sign__forgot" onClick={() => setPage('forgot')}>Forgot Password?</span>
 
-        <div className="Form__signed">
+        <div className="Sign__signed">
           <input
             type="checkbox"
             name="isSigned"
             id="isSigned"
-            className="Form__isSigned"
+            className="Sign__isSigned"
             defaultChecked
           />
-          <label htmlFor="isSigned" className="Form__isSigned-label">Keep me signed in</label>
+          <label htmlFor="isSigned" className="Sign__isSigned-label">Keep me signed in</label>
         </div>
 
-        <button type="submit" className="Form__submit">Login</button>
+        <button type="submit" className="Sign__submit">Login</button>
 
-        <div className="Form__account-options">
+        <div className="Sign__account-options">
           Don’t have an account?
           <span onClick={() => setPage('sign-up')}>Sign Up</span>
         </div>
@@ -126,56 +126,56 @@ const SignUp: React.FC<Props> = ({ setPage }) => {
       <form
         action="/sign"
         method="post"
-        className="Form__content"
+        className="Sign__content"
         onSubmit={handleSubmit}
       >
-        <h1 className="Form__head">Sign up</h1>
+        <h1 className="Sign__head">Sign up</h1>
 
         {
           isError &&
-          <p className="Form__error-msg">
+          <p className="Sign__error-msg">
             {errorMsg}
           </p>
         }
 
-        <h2 className="Form__field">Your name</h2>
+        <h2 className="Sign__field">Your name</h2>
         <input
           type="text"
           name="username"
-          className="Form__input name"
+          className="Sign__input name"
           placeholder="Barbara"
           pattern="\w{2,20}"
           onInvalid={() => setIsError(true)}
           required
         />
 
-        <h2 className="Form__field">Email Address</h2>
+        <h2 className="Sign__field">Email Address</h2>
         <input
           type="email"
           name="email"
-          className="Form__input email"
+          className="Sign__input email"
           placeholder="example@gmail.com"
           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
           onInvalid={() => setIsError(true)}
           required
         />
 
-        <h2 className="Form__field">Phone number</h2>
+        <h2 className="Sign__field">Phone number</h2>
         <input
           type="number"
           name="phone"
-          className="Form__input phone"
+          className="Sign__input phone"
           placeholder="+38 (050) 123-45-67"
           pattern="^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$"
           onInvalid={() => setIsError(true)}
           required
         />
 
-        <h2 className="Form__field">Password</h2>
+        <h2 className="Sign__field">Password</h2>
         <input
           type="password"
           name="password"
-          className="Form__input password"
+          className="Sign__input password"
           placeholder="●●●●●●●●"
           pattern="^(?=.*\d)(?=.*[a-z]).{8,16}$"
           onInvalid={() => setIsError(true)}
@@ -192,11 +192,11 @@ const SignUp: React.FC<Props> = ({ setPage }) => {
           }
         }}></span>
 
-        <h2 className="Form__field">Repeat password</h2>
+        <h2 className="Sign__field">Repeat password</h2>
         <input
           type="password"
           name="password"
-          className="Form__input password"
+          className="Sign__input password"
           placeholder="●●●●●●●●"
           pattern="^(?=.*\d)(?=.*[a-z]).{8,16}$"
           onInvalid={() => setIsError(true)}
@@ -213,15 +213,15 @@ const SignUp: React.FC<Props> = ({ setPage }) => {
           }
         }}></span>
 
-        <div className="Form__signed">
+        <div className="Sign__signed">
           <input
             type="checkbox"
             name="isSigned"
             id="isSigned"
-            className="Form__isSigned"
+            className="Sign__isSigned"
             required
           />
-          <label htmlFor="isSigned" className="Form__isSigned-label">
+          <label htmlFor="isSigned" className="Sign__isSigned-label">
             By continuing, you agree to our
             <br />
             <a href="/">
@@ -230,10 +230,10 @@ const SignUp: React.FC<Props> = ({ setPage }) => {
           </label>
         </div>
 
-        <button type="submit" className="Form__submit">Sign up</button>
+        <button type="submit" className="Sign__submit">Sign up</button>
           
           
-        <div className="Form__account-options">
+        <div className="Sign__account-options">
           Already have an account?
           <span onClick={() => setPage('sign-in')}>Sign in here</span>
         </div>
@@ -252,28 +252,28 @@ const Forgot: React.FC<Props> = ({ setPage }) => {
       <form
         action="/sign"
         method="post"
-        className="Form__content"
+        className="Sign__content"
         onSubmit={handleSubmit}
       >
-        <h1 className="Form__head Form__head--center">
+        <h1 className="Sign__head Sign__head--center">
           Enter your email address to get
           <br />
           the password reset link.
         </h1>
 
-        <h2 className="Form__field">Email Address</h2>
+        <h2 className="Sign__field">Email Address</h2>
         <input
           type="email"
           name="email"
-          className="Form__input email"
+          className="Sign__input email"
           placeholder="example@gmail.com"
           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
           required
         />
 
-        <button type="submit" className="Form__submit">Send password reset email</button>
+        <button type="submit" className="Sign__submit">Send password reset email</button>
 
-        <div className="Form__account-options">
+        <div className="Sign__account-options">
           Go back to
           <span onClick={() => setPage('sign-in')}>login</span>
         </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form } from '../components/Form';
+import { Sign as Form } from '../components/Sign';
 
 export const Sign: React.FC = () => (
   <Form />
