@@ -9,29 +9,34 @@ import logoPartner5 from '../../img/logo-partners-5.svg';
 import imgOffer from '../../img/image-offer.png';
 import imgChanelWoman from '../../img/image-chanel-woman.png';
 import imgChanelBottle from '../../img/image-chanel-bottle.png';
+import imgSlide1 from '../../img/image-slide-1.png';
+import imgSlide2 from '../../img/image-slide-2.png';
+import imgSlide3 from '../../img/image-slide-3.png';
+import imgSlide4 from '../../img/image-slide-4.png';
+import imgSlide5 from '../../img/image-slide-5.png';
 
 export const Main: React.FC = () => (
   <main className="Main">
     <Slider
       images={[
         {
-          path: './img/image-slide-1.png',
+          path: imgSlide1,
           id: 1,
         },
         {
-          path: './img/image-slide-2.png',
+          path: imgSlide2,
           id: 2,
         },
         {
-          path: './img/image-slide-3.png',
+          path: imgSlide3,
           id: 3,
         },
         {
-          path: './img/image-slide-4.png',
+          path: imgSlide4,
           id: 4,
         },
         {
-          path: './img/image-slide-5.png',
+          path: imgSlide5,
           id: 5,
         },
       ]}
