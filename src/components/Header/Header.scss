@@ -51,6 +51,7 @@
     font-size: 40px;
     font-weight: 500;
     color: #525252;
+    margin-right: 118px - 52px;
   }
 
   &__icon {
@@ -66,20 +67,25 @@
 .nav {
   display: flex;
   align-items: center;
-  gap: 36px;
+  gap: 52px;
   height: 32px;
 
   &__link {
     text-decoration: none;
-    font-size: 14px;
+    font-family: Montserrat, sans-serif;
+    font-size: 24px;
     font-weight: 400;
-    color: #fff;
+    color: #e2e2e2;
 
     &:hover::after {
       content: '';
       display: block;
       height: 2px;
       background-color: #fff;
+    }
+
+    &:focus {
+      color: #caa79e;
     }
   }
 }
@@ -92,7 +98,7 @@
 .input {
   box-sizing: border-box;
   padding: 10px 0;
-  width: 300px;
+  width: 700px;
   height: 44px;
   font-family: 'Tenor Sans', sans-serif;
   font-size: 14px;
@@ -101,25 +107,20 @@
   outline: none;
   background-color: transparent;
   color: #a3a3a3;
-
-  &:focus {
-    background-color: #573737;
-  }
+  user-select: none;
 
   &--search {
     display: flex;
     align-items: center;
-  }
 
-  &--search::after {
-    content: '';
-    cursor: pointer;
-    display: block;
-    position: relative;
-    right: 30px;
-    width: 24px;
-    height: 24px;
-    background-image: url('../../img/icon-search-white.svg');
+    &::after {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 24px;
+      background-image: url('../../img/icon-search-white.svg');
+      cursor: pointer;
+    }
   }
 }
 
