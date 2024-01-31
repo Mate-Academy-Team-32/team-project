@@ -63,6 +63,7 @@ export const Page404: React.FC = () => (
         <Link
           to="/"
           style={{
+            fontFamily: "Roboto, sans-serif",
             textDecoration: "none",
             color: "#000",
           }}
