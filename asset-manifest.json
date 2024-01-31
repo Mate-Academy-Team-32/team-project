@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/team-project/static/css/main.a565b765.css",
-    "main.js": "/team-project/static/js/main.51c69844.js",
+    "main.js": "/team-project/static/js/main.c9726cf0.js",
     "static/media/image-offer.png": "/team-project/static/media/image-offer.af6c0cf3dcd3c5bb3e95.png",
     "static/media/image-chanel-woman.png": "/team-project/static/media/image-chanel-woman.a5e38b187a22c07f32db.png",
     "static/media/image-chanel-bottle.png": "/team-project/static/media/image-chanel-bottle.d88b9e08ae2a171250d9.png",
@@ -34,10 +34,10 @@
     "static/media/tool-circle-black.svg": "/team-project/static/media/tool-circle-black.4892133a277fabc702f9.svg",
     "static/media/tool-circle-gray.svg": "/team-project/static/media/tool-circle-gray.06b4d02e30543b1b1f56.svg",
     "main.a565b765.css.map": "/team-project/static/css/main.a565b765.css.map",
-    "main.51c69844.js.map": "/team-project/static/js/main.51c69844.js.map"
+    "main.c9726cf0.js.map": "/team-project/static/js/main.c9726cf0.js.map"
   },
   "entrypoints": [
     "static/css/main.a565b765.css",
-    "static/js/main.51c69844.js"
+    "static/js/main.c9726cf0.js"
   ]
 }
