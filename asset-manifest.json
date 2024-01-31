@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "./static/css/main.379f033c.css",
-    "main.js": "./static/js/main.67642fd0.js",
+    "main.css": "./static/css/main.0a903971.css",
+    "main.js": "./static/js/main.79859562.js",
     "static/media/image-offer.png": "./static/media/image-offer.af6c0cf3dcd3c5bb3e95.png",
     "static/media/image-chanel-woman.png": "./static/media/image-chanel-woman.a5e38b187a22c07f32db.png",
     "static/media/image-chanel-bottle.png": "./static/media/image-chanel-bottle.d88b9e08ae2a171250d9.png",
@@ -33,11 +33,11 @@
     "static/media/tool-arrow-down.svg": "./static/media/tool-arrow-down.7f321917885481627242.svg",
     "static/media/tool-circle-black.svg": "./static/media/tool-circle-black.4892133a277fabc702f9.svg",
     "static/media/tool-circle-gray.svg": "./static/media/tool-circle-gray.06b4d02e30543b1b1f56.svg",
-    "main.379f033c.css.map": "./static/css/main.379f033c.css.map",
-    "main.67642fd0.js.map": "./static/js/main.67642fd0.js.map"
+    "main.0a903971.css.map": "./static/css/main.0a903971.css.map",
+    "main.79859562.js.map": "./static/js/main.79859562.js.map"
   },
   "entrypoints": [
-    "static/css/main.379f033c.css",
-    "static/js/main.67642fd0.js"
+    "static/css/main.0a903971.css",
+    "static/js/main.79859562.js"
   ]
 }
