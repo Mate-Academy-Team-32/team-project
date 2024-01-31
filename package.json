@@ -1,6 +1,6 @@
 {
   "name": "team_project",
-  "homepage": ".",
+  "homepage": "/subdir/",
   "version": "1.0.0",
   "private": true,
   "dependencies": {
