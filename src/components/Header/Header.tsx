@@ -16,17 +16,17 @@ export const Header: React.FC = () => (
     <header className="Header">
       <section className="Header__top-bar">
         <nav className="nav nav--links">
-          <a href="/" className="Header__logo">
+          <Link to="/" className="Header__logo">
             <img src={logoPerfume} alt="Logo PerfuMe" />
-          </a>
+          </Link>
 
-          <Link to="/" className="nav__link">Home</Link>
+          <Link to="/" relative="path" className="nav__link">Home</Link>
 
-          <Link to="/catalog" className="nav__link">Catalog</Link>
+          <Link to="/catalog" relative="path" className="nav__link">Catalog</Link>
 
-          <Link to="/about" className="nav__link">About Us</Link>
+          <Link to="/about" relative="path" className="nav__link">About Us</Link>
 
-          <Link to="/contacts" className="nav__link">Contact Us</Link>
+          <Link to="/contacts" relative="path" className="nav__link">Contact Us</Link>
         </nav>
         <nav className="nav nav--sign">
           <div className="input--search">
@@ -37,29 +37,29 @@ export const Header: React.FC = () => (
             />
           </div>
 
-          <a href="/sign">
+          <Link to="/sign">
             <img
               className="sign-in"
               src={logoAccount}
               alt="Sign in"
             />
-          </a>
+          </Link>
 
-          <a href="/likes">
+          <Link to="/likes">
             <img
               className="Header__icon"
               src={logoHeart}
               alt="Heart"
             />
-          </a>
+          </Link>
 
-          <a href="/cart" id="bag">
+          <Link to="/cart" id="bag">
             <img
               className="Header__icon Header__icon--w-34"
               src={logoBag}
               alt="Bag"
             />
-          </a>
+          </Link>
         </nav>
       </section>
     </header>
