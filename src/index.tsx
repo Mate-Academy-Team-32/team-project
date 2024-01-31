@@ -16,7 +16,7 @@ root.render(
   <>
     <Router>
       <Routes>
-        <Route path="/team-project/" element={<App />}>
+        <Route path="/" element={<App />}>
           <Route index element={<Home />} />
           <Route path="sign" element={<Sign />} />
           <Route path="catalog" element={<Catalog />} />

@@ -1,6 +1,6 @@
 {
   "name": "team_project",
-  "homepage": ".",
+  "homepage": "./team_project",
   "version": "1.0.0",
   "private": true,
   "dependencies": {
