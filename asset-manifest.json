@@ -1,14 +1,17 @@
 {
   "files": {
-    "main.css": "./static/css/main.0a903971.css",
-    "main.js": "./static/js/main.da163668.js",
-    "static/media/image-slide-2.png": "./static/media/image-slide-2.9c70d46e44be71d3a2ae.png",
+    "main.css": "./static/css/main.df5f8208.css",
+    "main.js": "./static/js/main.eeab747e.js",
     "static/media/image-slide-3.png": "./static/media/image-slide-3.0c804e13f3e7734562b6.png",
     "static/media/image-slide-5.png": "./static/media/image-slide-5.eb158229f54a71ac365e.png",
     "static/media/image-slide-4.png": "./static/media/image-slide-4.0a290123d9cc4efb5d1b.png",
+    "static/media/image-adv-1.png": "./static/media/image-adv-1.e6f2e9060704bfe7e10d.png",
+    "static/media/image-adv-3.png": "./static/media/image-adv-3.7aa86a7f4771fce46f6b.png",
+    "static/media/image-slide-1.png": "./static/media/image-slide-1.efbde3caece554fe9a93.png",
+    "static/media/image-adv-2.png": "./static/media/image-adv-2.0dab4686a0046957177d.png",
     "static/media/image-offer.png": "./static/media/image-offer.af6c0cf3dcd3c5bb3e95.png",
     "static/media/image-chanel-woman.png": "./static/media/image-chanel-woman.a5e38b187a22c07f32db.png",
-    "static/media/image-slide-1.png": "./static/media/image-slide-1.ac0dcc1ffdd62e85814a.png",
+    "static/media/image-slide-2.png": "./static/media/image-slide-2.ac0dcc1ffdd62e85814a.png",
     "static/media/image-chanel-bottle.png": "./static/media/image-chanel-bottle.d88b9e08ae2a171250d9.png",
     "static/media/logo-partners-3.svg": "./static/media/logo-partners-3.04a81a9cccc17b5eeaa7b96261fdd0b2.svg",
     "static/media/logo-partners-2.svg": "./static/media/logo-partners-2.2769b1749271a340d26422bad36fa4fe.svg",
@@ -36,13 +39,13 @@
     "static/media/icon-star.svg": "./static/media/icon-star.db848e7b3816303d7f858487f837dfd8.svg",
     "static/media/tool-arrow.svg": "./static/media/tool-arrow.f0f7a1f1a8a445d8ebc30979738c799a.svg",
     "static/media/tool-arrow-down.svg": "./static/media/tool-arrow-down.7f321917885481627242.svg",
-    "static/media/tool-circle-black.svg": "./static/media/tool-circle-black.4892133a277fabc702f9.svg",
-    "static/media/tool-circle-gray.svg": "./static/media/tool-circle-gray.06b4d02e30543b1b1f56.svg",
-    "main.0a903971.css.map": "./static/css/main.0a903971.css.map",
-    "main.da163668.js.map": "./static/js/main.da163668.js.map"
+    "static/media/tool-circle-gray.svg": "./static/media/tool-circle-gray.8b4b93fde2742e54b0c8.svg",
+    "static/media/tool-circle-white.svg": "./static/media/tool-circle-white.407e63f61213ff72a8f6.svg",
+    "main.df5f8208.css.map": "./static/css/main.df5f8208.css.map",
+    "main.eeab747e.js.map": "./static/js/main.eeab747e.js.map"
   },
   "entrypoints": [
-    "static/css/main.0a903971.css",
-    "static/js/main.da163668.js"
+    "static/css/main.df5f8208.css",
+    "static/js/main.eeab747e.js"
   ]
 }
