@@ -11,10 +11,11 @@ import { Catalog } from './pages/catalog';
 import { Page404 } from './pages/404';
 
 const root = createRoot(document.getElementById('root') as HTMLElement);
+const basename = document.querySelector('base')?.getAttribute('href') ?? '/';
 
 root.render(
   <>
-    <Router>
+    <Router basename={basename}>
       <Routes>
         <Route path="/" element={<App />}>
           <Route index element={<Home />} />
