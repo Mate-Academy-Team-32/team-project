@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "./static/css/main.777cc4d8.css",
-    "main.js": "./static/js/main.482dc44e.js",
+    "main.css": "./static/css/main.379f033c.css",
+    "main.js": "./static/js/main.67642fd0.js",
     "static/media/image-offer.png": "./static/media/image-offer.af6c0cf3dcd3c5bb3e95.png",
     "static/media/image-chanel-woman.png": "./static/media/image-chanel-woman.a5e38b187a22c07f32db.png",
     "static/media/image-chanel-bottle.png": "./static/media/image-chanel-bottle.d88b9e08ae2a171250d9.png",
@@ -20,8 +20,8 @@
     "static/media/icon-instagram.svg": "./static/media/icon-instagram.0ee19c132dab78b376d6.svg",
     "static/media/icon-bag-white.svg": "./static/media/icon-bag-white.75e9c6c25a1613a33b290d0691032439.svg",
     "static/media/icon-heart-white.svg": "./static/media/icon-heart-white.6d97e4ca6deef668d406db3cf716c6fb.svg",
-    "static/media/icon-heart.svg": "./static/media/icon-heart.d0e2385f498e426b8e2a.svg",
     "index.html": "./index.html",
+    "static/media/icon-heart.svg": "./static/media/icon-heart.d0e2385f498e426b8e2a.svg",
     "static/media/icon-twitter.svg": "./static/media/icon-twitter.199e20438339db61c772.svg",
     "static/media/icon-account.svg": "./static/media/icon-account.5dce8cadc48816d572922b12bd6ddfc5.svg",
     "static/media/icon-linkedin.svg": "./static/media/icon-linkedin.00286d132042bfb3a688.svg",
@@ -33,11 +33,11 @@
     "static/media/tool-arrow-down.svg": "./static/media/tool-arrow-down.7f321917885481627242.svg",
     "static/media/tool-circle-black.svg": "./static/media/tool-circle-black.4892133a277fabc702f9.svg",
     "static/media/tool-circle-gray.svg": "./static/media/tool-circle-gray.06b4d02e30543b1b1f56.svg",
-    "main.777cc4d8.css.map": "./static/css/main.777cc4d8.css.map",
-    "main.482dc44e.js.map": "./static/js/main.482dc44e.js.map"
+    "main.379f033c.css.map": "./static/css/main.379f033c.css.map",
+    "main.67642fd0.js.map": "./static/js/main.67642fd0.js.map"
   },
   "entrypoints": [
-    "static/css/main.777cc4d8.css",
-    "static/js/main.482dc44e.js"
+    "static/css/main.379f033c.css",
+    "static/js/main.67642fd0.js"
   ]
 }
