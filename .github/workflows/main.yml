@@ -8,6 +8,9 @@ on:
   workflow_dispatch:
 
 jobs:
+  runs:
+    using: 'node20'
+    main: 'src/index.tsx'
   build:
     runs-on: ubuntu-latest
     steps:
