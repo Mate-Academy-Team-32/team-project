@@ -4,8 +4,6 @@ services:
     env: docker
     buildCommand: |
       docker build -t $DOCKER_IMAGE_NAME -f back-end/Dockerfile .
-    startCommand: |
-      docker run -p $PORT:8000 -v $RENDER_WORKING_DIR/back-end:/api -v $RENDER_WORKING_DIR/back-end/media:/vol/web/media $DOCKER_IMAGE_NAME sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
     plan: starter
     # Add additional settings like environment variables, ports, and scaling as needed
 
@@ -14,6 +12,4 @@ services:
     env: docker
     buildCommand: |
       docker build -t $DOCKER_IMAGE_NAME -f front-end/Dockerfile .
-    startCommand: |
-      docker run -p $PORT:3000 $DOCKER_IMAGE_NAME
     plan: starter
