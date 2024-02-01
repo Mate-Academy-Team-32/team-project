@@ -82,6 +82,13 @@
   &__advantages {
     margin-top: 32px
   }
+
+  &__features {
+    display: flex;
+    justify-content: center;
+    gap: 120px;
+    padding: 70px 24px;
+  }
 }
 
 .offer {
@@ -205,6 +212,7 @@
 .advantages {
   display: flex;
   justify-content: center;
+  background-color: #f4f3f3;
 
   &__content {
     display: grid;
@@ -214,6 +222,8 @@
   }
 
   .cell {
+    box-sizing: border-box;
+    width: 450px;
     height: 400px;
 
     &--text {

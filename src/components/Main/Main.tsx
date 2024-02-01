@@ -17,6 +17,10 @@ import imgSlide5 from '../../img/image-slide-5.png';
 import imgAdv1 from '../../img/image-adv-1.png';
 import imgAdv2 from '../../img/image-adv-2.png';
 import imgAdv3 from '../../img/image-adv-3.png';
+import iconFeature1 from '../../img/icon-feature-1.svg';
+import iconFeature2 from '../../img/icon-feature-2.svg';
+import iconFeature3 from '../../img/icon-feature-3.svg';
+import iconFeature4 from '../../img/icon-feature-4.svg';
 
 export const Main: React.FC = () => (
   <main className="Main">
@@ -72,21 +76,28 @@ export const Main: React.FC = () => (
           From classic to exclusive! Over 20,000 tested perfumes. Only original products of global and Ukrainian manufacturers.
         </div>
         <div className="advantages__cell cell">
-          <img src={imgAdv1} alt="Advantages 2" />
+          <img src={imgAdv1} alt="Advantages 2" width="450" />
         </div>
         <div className="advantages__cell cell cell--text">
           Discover the world of reincarnations. Get inspired, admire, conspire. Don't miss the hot discounts!
         </div>
         <div className="advantages__cell cell">
-          <img src={imgAdv2} alt="Advantages 1" />
+          <img src={imgAdv2} alt="Advantages 1" width="450" />
         </div>
         <div className="advantages__cell cell cell--text cell--color--light">
           Join us! We want you to be interesting with us, so that you feel that with us, you can afford high-quality elite perfumery.
         </div>
         <div className="advantages__cell cell">
-          <img src={imgAdv3} alt="Advantages 3" />
+          <img src={imgAdv3} alt="Advantages 3" width="450" />
         </div>
       </div>
+    </section>
+
+    <section className="Main__features features">
+      <img src={iconFeature1} alt="" className="features__img" />
+      <img src={iconFeature2} alt="" className="features__img" />
+      <img src={iconFeature3} alt="" className="features__img" />
+      <img src={iconFeature4} alt="" className="features__img" />
     </section>
 
     <section className="Main__offer">
