@@ -1,5 +1,6 @@
 services:
-  - name: api
+  - type: web
+    name: api
     env: docker
     buildCommand: |
       docker build -t $DOCKER_IMAGE_NAME -f back-end/Dockerfile .
@@ -8,7 +9,8 @@ services:
     plan: starter
     # Add additional settings like environment variables, ports, and scaling as needed
 
-  - name: web
+  - type: web
+    name: web
     env: docker
     buildCommand: |
       docker build -t $DOCKER_IMAGE_NAME -f front-end/Dockerfile .
