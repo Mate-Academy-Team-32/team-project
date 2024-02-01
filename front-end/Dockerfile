@@ -1,11 +1,10 @@
-FROM node:14.17.3
+FROM node:16-alpine
 
-WORKDIR /front-end
+WORKDIR /app/frontend/
 
-COPY . .
+COPY front-end/. /app/frontend/
+RUN npm install --force
 
-RUN npm install
-
-EXPOSE 3000
+COPY . /app/frontend/
 
 CMD ["npm", "start"]

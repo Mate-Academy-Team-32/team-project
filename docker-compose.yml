@@ -20,5 +20,7 @@ services:
       dockerfile: front-end/Dockerfile
     ports:
         - "3000:3000"
-    volumes:
-        - ./front-end:/front-end
+
+    depends_on:
+      - api
+
