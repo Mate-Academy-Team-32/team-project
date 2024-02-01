@@ -1,0 +1,29 @@
+FROM python:3.11.4-alpine
+LABEL maintainer="o.chookity@gmail.com"
+
+WORKDIR /api
+
+
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
+
+RUN pip install --upgrade pip
+COPY back-end/requirements.txt requirements.txt
+RUN pip install -r requirements.txt
+RUN pip install django django-cors-headers
+
+
+COPY . .
+
+RUN mkdir -p /vol/web/media
+
+RUN adduser \
+    --disabled-password \
+    --no-create-home \
+    django-user
+
+RUN chown -R django-user:django-user /vol/
+RUN chmod -R 755 /vol/web/
+
+USER django-user

@@ -1,36 +1,241 @@
+@import '../../utils/var';
+
 .Main {
-  text-align: center;
-}
+  font-family: Roboto, sans-serif;
 
-.Main-logo {
-  height: 40vmin;
-  pointer-events: none;
+  &__catalog {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    padding: 0 142px 48px 142px;
+  }
 
-  @media (prefers-reduced-motion: no-preference) {
-    animation: logo-spin infinite 20s linear;
+  &__categories {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__link {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 18px;
+    letter-spacing: 0.9px;
+    color: #383838;
+
+    &:hover::after {
+      content: "";
+      display: block;
+      position: relative;
+      top: 5px;
+      height: 1px;
+      background-color: #000;
+    }
+  }
+
+  &__partners {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 0 24px;
+  }
+
+  &__line {
+    margin: 0 25px;
+    border: 1px solid #000;
+
+    &--filter {
+      margin: 0;
+      border: 1px solid #d2d2d2;
+    }
+
+    &--input {
+      position: relative;
+      top: 15px;
+      width: 20px;
+      height: 0;
+      border-color: #c8c8c8;
+    }
+  }
+
+  &__choice--checkbox {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    p {
+      display: inline;
+    }
+  }
+
+  &__offer {
+    display: flex;
+    flex-direction: row-reverse;
+    background-color: #ebebeb;
+  }
+
+  &__chanel {
+    padding: 140px 130px 160px 140px;
+  }
+
+  &__advantages {
+    margin-top: 32px
+  }
+
+  &__features {
+    display: flex;
+    justify-content: center;
+    gap: 120px;
+    padding: 70px 24px;
   }
 }
 
-.Main-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.offer {
+  position: absolute;
+  left: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+  gap: 40px;
+  width: 620px;
+  padding: 50px 0 0 140px;
 
-.Main-link {
-  color: #61dafb;
-}
+  h2 {
+    font-size: 50px;
+    color: #696967;
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+    span {
+      font-size: 36px;
+    }
   }
-  to {
-    transform: rotate(360deg);
+
+  p {
+    margin-bottom: 20px;
+    width: 500px;
+    font-size: 18px;
+    color: #7b7b7b;
+  }
+
+  &__header {
+    margin-bottom: 80px;
+    font-size: 48px;
+    color: #626262;
+  }
+
+  &__button {
+    width: 200px;
+    height: 48px;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 400;
+    border:1px solid #887d6f;
+    cursor: pointer;
+    user-select: none;
+    transition: all $transition-time;
+    transition-timing-function: linear;
+    color: #616060;
+    background-color: transparent;
+
+    &:hover {
+      border-radius: 10px;
+      font-size: 16px;
+    }
+  }
+}
+
+.chanel {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr 250px;
+  justify-content: space-between;
+
+  &__logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 566px;
+    height: 345px;
+    font-size: 50px;
+    letter-spacing: 5px;
+    background-color: #e8ecef;
+  }
+
+  &__woman {
+    grid-column: 2;
+    width: 550px;
+  }
+
+  &__bottle {
+    position: relative;
+    bottom: 270px;
+  }
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 550px;
+
+    h1 {
+      margin-top: 20px;
+      font-size: 56px;
+      color: #565656;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 27px;
+      color: #929090;
+    }
+
+    button {
+      margin: 0 auto;
+      width: 225px;
+      min-height: 48px;
+      background-color: #000;
+      border: none;
+      font-size: 14px;
+      color: #fff;
+      cursor: pointer;
+      user-select: none;
+      transition: all $transition-time;
+      transition-timing-function: linear;
+
+      &:hover {
+        border-radius: 10px;
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+.advantages {
+  display: flex;
+  justify-content: center;
+  background-color: #f4f3f3;
+
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(3, 448px);
+    grid-template-rows: repeat(2, 400px);
+    gap: 24px;
+  }
+
+  .cell {
+    box-sizing: border-box;
+    width: 450px;
+    height: 400px;
+
+    &--text {
+      padding: 105px 70px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 24px;
+      font-weight: 500;
+      background-color: #e9e9e9;
+    }
+
+    &--color--light {
+      background-color: #fff;
+    }
   }
 }

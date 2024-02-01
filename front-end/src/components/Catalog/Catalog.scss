@@ -1,0 +1,137 @@
+.Catalog {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  padding: 46px 24px 84px;
+  font-family: Roboto, sans-serif;
+
+  &__browse {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__filters {
+    &--name {
+      padding: 12px 28px;
+    }
+
+    &--category {
+      display: flex;
+      justify-content: space-between;
+      font-size: 16px;
+    }
+
+    &--options {
+      margin-top: 10px
+    }
+
+    &--header {
+      margin-left: 28px;
+      padding: 8px 0;
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    &--price {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 0;
+    }
+
+    &--info {
+      display: flex;
+    }
+  }
+
+  &__choice--checkbox {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+
+  &__line {
+    margin: 0 25px;
+    border: 1px solid #000;
+
+    &--filter {
+      margin: 0;
+      border: 1px solid #d2d2d2;
+    }
+
+    &--input {
+      position: relative;
+      top: 15px;
+      width: 20px;
+      height: 0;
+      border-color: #c8c8c8;
+    }
+  }
+}
+
+.arrow {
+  width: 24px;
+  height: 24px;
+  border: none;
+  background-color: transparent;
+  background-image: url("../../img/tool-arrow-down.svg");
+
+  &--reversed {
+    transform: rotate(180deg);
+  }
+}
+
+.checkbox {
+  width: 24px;
+  height: 24px;
+  accent-color: #000;
+}
+
+.input {
+  &--dollars {
+    &::after {
+      content: "USD";
+      position: relative;
+      left: 45px;
+      bottom: 25px;
+      font-size: 14px;
+    }
+  }
+
+  &--price {
+    box-sizing: border-box;
+    display: inline-block;
+    width: 80px;
+    height: 32px;
+    border: 1px solid #c8c8c8;
+    font-size: 14px;
+    text-align: center;
+  }
+}
+
+.price__input {
+  display: flex;
+  align-items: center;
+}
+
+.multi-range-slider {
+  width: 220px;
+  box-shadow: none;
+  border: none;
+
+  .bar-left,
+  .bar-right,
+  .bar-inner {
+    box-shadow: none;
+    height: 5px;
+    padding: 0;
+  }
+
+  .thumb::before {
+    top: 5px;
+    left: 2px;
+    width: 10px;
+    height: 10px;
+  }
+}
+
