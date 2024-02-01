@@ -1,6 +1,6 @@
 import { createRoot } from 'react-dom/client';
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Routes,
   Route
 } from 'react-router-dom';
