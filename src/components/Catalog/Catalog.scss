@@ -44,6 +44,12 @@
     }
   }
 
+  &__choice--checkbox {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+
   &__line {
     margin: 0 25px;
     border: 1px solid #000;
@@ -106,5 +112,26 @@
 .price__input {
   display: flex;
   align-items: center;
+}
+
+.multi-range-slider {
+  width: 220px;
+  box-shadow: none;
+  border: none;
+
+  .bar-left,
+  .bar-right,
+  .bar-inner {
+    box-shadow: none;
+    height: 5px;
+    padding: 0;
+  }
+
+  .thumb::before {
+    top: 5px;
+    left: 2px;
+    width: 10px;
+    height: 10px;
+  }
 }
 

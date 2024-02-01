@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TwoThumbInputRange } from 'react-two-thumb-input-range';
+import MultiRangeSlider from 'multi-range-slider-react';
 import { Card } from '../Card';
 import './Catalog.scss';
 import imgCatalog1 from '../../img/image-catalog-1.png';
@@ -20,11 +20,6 @@ export const Catalog: React.FC = () => {
     arrow.classList.toggle('arrow--reversed');
     filterOptions.classList.toggle('hidden');
   };
-
-  const onValueChange = (values: number[]) => {
-    setPriceMin(values[0]);
-    setPriceMax(values[1]);
-  }
 
   return (
     <section className="Catalog">
@@ -51,15 +46,23 @@ export const Catalog: React.FC = () => {
 
               <div className="price__input">
                 <div className="range__container">
-                  <TwoThumbInputRange
-                    values={[priceMin, priceMax]}
-                    min={1}
-                    max={100}
-                    onChange={onValueChange}
-                    showLabels={false}
-                    trackColor={'#000'}
-                    thumbColor={'#000'}
-                  />
+                  <MultiRangeSlider
+                    onInput={(e) => {
+                      setPriceMin(e.minValue);
+                      setPriceMax(e.maxValue);
+                    }}
+                    minValue={priceMin}
+                    maxValue={priceMax}
+                    label={false}
+                    ruler={false}
+                    step={1}
+                    canMinMaxValueSame={true}
+                    barLeftColor={'#d2d2d2'}
+                    barRightColor={'#d2d2d2'}
+                    barInnerColor={'#000'}
+                    thumbLeftColor={'#000'}
+                    thumbRightColor={'#000'}
+                    ></MultiRangeSlider>
                 </div>
               </div>
             </div>
