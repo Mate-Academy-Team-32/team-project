@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "./static/css/main.df5f8208.css",
-    "main.js": "./static/js/main.eeab747e.js",
+    "main.css": "./static/css/main.567321ae.css",
+    "main.js": "./static/js/main.c64b9a4d.js",
     "static/media/image-slide-3.png": "./static/media/image-slide-3.0c804e13f3e7734562b6.png",
     "static/media/image-slide-5.png": "./static/media/image-slide-5.eb158229f54a71ac365e.png",
     "static/media/image-slide-4.png": "./static/media/image-slide-4.0a290123d9cc4efb5d1b.png",
@@ -18,11 +18,15 @@
     "static/media/logo-partners-1.svg": "./static/media/logo-partners-1.0a50a268380a5bcfe05590d86e3f3b92.svg",
     "static/media/image-catalog-3.png": "./static/media/image-catalog-3.9fe1f876808cbfb7777e.png",
     "static/media/image-catalog-6.png": "./static/media/image-catalog-6.c25018290393c3dd0c6d.png",
+    "static/media/icon-feature-4.svg": "./static/media/icon-feature-4.4ed4161b8bda916ae4424dde9e648a77.svg",
+    "static/media/icon-feature-3.svg": "./static/media/icon-feature-3.365340f07e6a7c0e006e509edb9542bf.svg",
     "static/media/logo-partners-5.svg": "./static/media/logo-partners-5.17ee52ba47e41a2a5cb892a994c69e6a.svg",
     "static/media/image-catalog-1.png": "./static/media/image-catalog-1.fd6ecf36611254f95700.png",
     "static/media/image-catalog-2.png": "./static/media/image-catalog-2.510f8643d13068250f0b.png",
+    "static/media/icon-feature-2.svg": "./static/media/icon-feature-2.4df96e1274dc38bb6d4a040188505e67.svg",
     "static/media/image-catalog-4.png": "./static/media/image-catalog-4.1556a01ec53d2d3dd2b6.png",
     "static/media/logo-partners-4.svg": "./static/media/logo-partners-4.1a82e48eb0fe4122a2bfce10a6636e99.svg",
+    "static/media/icon-feature-1.svg": "./static/media/icon-feature-1.18ed320e2a7993bdbf6e3808cec79ea3.svg",
     "static/media/image-catalog-5.png": "./static/media/image-catalog-5.df5807d46f56392a4db0.png",
     "static/media/logo-perfume.svg": "./static/media/logo-perfume.53a78999a76d67076aa9a7d250eaa47c.svg",
     "static/media/icon-instagram.svg": "./static/media/icon-instagram.0ee19c132dab78b376d6.svg",
@@ -41,11 +45,11 @@
     "static/media/tool-arrow-down.svg": "./static/media/tool-arrow-down.7f321917885481627242.svg",
     "static/media/tool-circle-gray.svg": "./static/media/tool-circle-gray.8b4b93fde2742e54b0c8.svg",
     "static/media/tool-circle-white.svg": "./static/media/tool-circle-white.407e63f61213ff72a8f6.svg",
-    "main.df5f8208.css.map": "./static/css/main.df5f8208.css.map",
-    "main.eeab747e.js.map": "./static/js/main.eeab747e.js.map"
+    "main.567321ae.css.map": "./static/css/main.567321ae.css.map",
+    "main.c64b9a4d.js.map": "./static/js/main.c64b9a4d.js.map"
   },
   "entrypoints": [
-    "static/css/main.df5f8208.css",
-    "static/js/main.eeab747e.js"
+    "static/css/main.567321ae.css",
+    "static/js/main.c64b9a4d.js"
   ]
 }
