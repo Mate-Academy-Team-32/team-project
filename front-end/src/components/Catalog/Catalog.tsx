@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import classnames from 'classnames';
+import cn from 'classnames';
 import MultiRangeSlider from 'multi-range-slider-react';
 import { Card } from '../Card';
 import './Catalog.scss';
@@ -21,6 +21,7 @@ enum ProductCategory {
 
 export const Catalog: React.FC = () => {
   const [view, setView] = useState<View>('List');
+  const [isGrid, setIsGrid] = useState(false);
   const [priceMin, setPriceMin] = useState(4);
   const [priceMax, setPriceMax] = useState(50);
 
@@ -35,8 +36,10 @@ export const Catalog: React.FC = () => {
   const toggleView = () => {
     if (view === 'List') {
       setView('Grid');
+      setIsGrid(true);
     } else if (view === 'Grid') {
       setView('List');
+      setIsGrid(false);
     }
   };
 
@@ -49,7 +52,7 @@ export const Catalog: React.FC = () => {
         <button
           type="button"
           onClick={toggleView}
-          className={classnames(
+          className={cn(
             'Catalog__view',
             `Catalog__view--${view}`,
           )}
@@ -239,7 +242,7 @@ export const Catalog: React.FC = () => {
           </article>
         </aside>
 
-        <div className={classnames(
+        <div className={cn(
           'Catalog__browse',
           view === 'List' && 'Catalog__list',
           view === 'Grid' && 'Catalog__grid',
@@ -251,6 +254,7 @@ export const Catalog: React.FC = () => {
             price={200}
             volume={100}
             countStars={4}
+            isGrid={isGrid}
           />
           <Card
             image={imgCatalog2}
@@ -259,6 +263,7 @@ export const Catalog: React.FC = () => {
             price={200}
             volume={100}
             countStars={4}
+            isGrid={isGrid}
           />
           <Card
             image={imgCatalog3}
@@ -267,6 +272,7 @@ export const Catalog: React.FC = () => {
             price={200}
             volume={100}
             countStars={4}
+            isGrid={isGrid}
           />
           <Card
             image={imgCatalog4}
@@ -275,6 +281,7 @@ export const Catalog: React.FC = () => {
             price={200}
             volume={100}
             countStars={4}
+            isGrid={isGrid}
           />
           <Card
             image={imgCatalog5}
@@ -283,6 +290,7 @@ export const Catalog: React.FC = () => {
             price={200}
             volume={100}
             countStars={4}
+            isGrid={isGrid}
           />
           <Card
             image={imgCatalog6}
@@ -291,6 +299,7 @@ export const Catalog: React.FC = () => {
             price={200}
             volume={100}
             countStars={4}
+            isGrid={isGrid}
           />
         </div>
       </section>

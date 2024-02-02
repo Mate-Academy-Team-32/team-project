@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import cn from 'classnames';
 import { Rate } from '../Rate';
 import './Card.scss';
 
@@ -10,6 +11,7 @@ type Props = {
   volume: number;
   countStars?: number;
   countReviews?: number;
+  isGrid?: boolean;
 };
 
 export const Card: React.FC<Props> = ({
@@ -20,11 +22,16 @@ export const Card: React.FC<Props> = ({
   volume,
   countStars = 5,
   countReviews = 10,
+  isGrid = false,
 }) => {
   const [countProducts, setCountProducts] = useState(0);
 
   return (
-    <section className="Card">
+    <section className={cn(
+      'Card',
+      isGrid && 'Card--grid',
+      !isGrid && 'Card--list',
+    )}>
       <nav className="Card__top-bar">
         <span className="Card__label">{category}</span>
         <div className="Card__like"></div>

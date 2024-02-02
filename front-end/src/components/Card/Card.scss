@@ -8,6 +8,12 @@
   width: 330px;
   font-family: Roboto, sans-serif;
 
+  &--grid {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
   &__top-bar {
     display: flex;
     justify-content: space-between;
@@ -55,7 +61,7 @@
   &__description {
     margin-bottom: 36px;
   }
-  
+
   &__title {
     text-align: center;
     font-size: 20px;
