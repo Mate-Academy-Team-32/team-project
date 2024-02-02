@@ -1,4 +1,4 @@
-@import '../../utils/var';
+@import "../../utils/var";
 
 .Header {
   position: fixed;
@@ -39,7 +39,7 @@
 
   &__language-select {
     text-decoration: none;
-    font-family: 'Tenor Sans', sans-serif;
+    font-family: "Tenor Sans", sans-serif;
     font-size: 24px;
     font-weight: 400;
     color: #fff;
@@ -78,7 +78,7 @@
     color: #e2e2e2;
 
     &:hover::after {
-      content: '';
+      content: "";
       display: block;
       height: 2px;
       background-color: #fff;
@@ -97,15 +97,16 @@
 
 .input {
   box-sizing: border-box;
-  padding: 10px 0;
+  padding: 10px 52px;
   width: 700px;
   height: 44px;
-  font-family: 'Tenor Sans', sans-serif;
+  font-family: Montserrat, sans-serif;
   font-size: 14px;
+  font-weight: 400;
   border: none;
   border-bottom: 1px solid #fff;
   outline: none;
-  background-color: transparent;
+  background-color: #fff;
   color: #a3a3a3;
   user-select: none;
 
@@ -113,12 +114,21 @@
     display: flex;
     align-items: center;
 
-    &::after {
-      content: '';
-      display: block;
+    .lens {
+      position: relative;
+      left: 40px;
       width: 24px;
       height: 24px;
-      background-image: url('../../img/icon-search-white.svg');
+      background-image: url("../../img/icon-search-black.svg");
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      margin-left: 10px;
+      width: 24px;
+      height: 24px;
+      background-image: url("../../img/icon-search-white.svg");
       cursor: pointer;
     }
   }
@@ -134,7 +144,7 @@
 
 #bag {
   position: relative;
-  
+
   &::after {
     content: attr(data-count);
     box-sizing: border-box;
