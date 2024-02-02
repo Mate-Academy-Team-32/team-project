@@ -1,4 +1,4 @@
-@import '../../utils/var';
+@import "../../utils/var";
 
 .Footer {
   background-color: $main-color;
@@ -15,7 +15,8 @@
     display: flex;
     flex-direction: column;
     gap: 26px;
-    max-width: 330px;
+    max-width: 350px;
+    font-family: Montserrat, sans-serif;
     line-height: 19px;
     color: #808080;
   }
@@ -66,7 +67,7 @@
       width: 86px;
       height: 40px;
       border: none;
-      transition: all .5s;
+      transition: all 0.5s;
       font-size: 16px;
       color: #000;
 
@@ -93,19 +94,19 @@
     }
 
     &--twitter {
-      background-image: url('../../img/icon-twitter.svg');
+      background-image: url("../../img/icon-twitter.svg");
     }
 
     &--facebook {
-      background-image: url('../../img/icon-facebook.svg');
+      background-image: url("../../img/icon-facebook.svg");
     }
 
     &--linkedin {
-      background-image: url('../../img/icon-linkedin.svg');
+      background-image: url("../../img/icon-linkedin.svg");
     }
 
     &--instagram {
-      background-image: url('../../img/icon-instagram.svg');
+      background-image: url("../../img/icon-instagram.svg");
     }
   }
 
@@ -124,12 +125,14 @@
     justify-content: center;
     align-items: center;
     padding: 40px 0;
-    font-size: 11px;
+    font-family: Montserrat, sans-serif;
+    font-size: 12px;
+    font-weight: 400;
     letter-spacing: 1px;
     color: #fff;
 
     &::before {
-      content: '\00A9';
+      content: "\00A9";
       position: relative;
       right: 5px;
     }
@@ -144,8 +147,9 @@
   &__title {
     padding-left: 10px;
     line-height: 26px;
+    font-family: Montserrat, sans-serif;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 700;
     color: #b7b6b6;
   }
 
@@ -153,9 +157,10 @@
     padding-left: 10px;
     line-height: 20px;
     text-decoration: none;
+    font-family: Montserrat, sans-serif;
     font-size: 14px;
     font-weight: 300;
-    transition: all .2s;
+    transition: all 0.2s;
     color: #b7b6b6;
 
     &:hover {
@@ -163,7 +168,7 @@
     }
 
     &:hover::after {
-      content: '';
+      content: "";
       display: block;
       position: relative;
       top: 5px;

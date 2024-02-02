@@ -73,14 +73,14 @@ export const Footer: React.FC = () => {
         </section>
 
         <nav className="Footer__catalog catalog">
-          <h1 className="catalog__title">Catalog</h1>
+          <h1 className="catalog__title">My Account</h1>
           <a
             href="http://link.com"
             target="_blank"
             rel="noopener noreferrer"
             className='catalog__link'
           >
-            Women's Perfumery
+            Sign in
           </a>
           <a
             href="http://link.com"
@@ -88,7 +88,7 @@ export const Footer: React.FC = () => {
             rel="noopener noreferrer"
             className='catalog__link'
           >
-            Man's Perfumery
+            Register
           </a>
           <a
             href="http://link.com"
@@ -96,7 +96,19 @@ export const Footer: React.FC = () => {
             rel="noopener noreferrer"
             className='catalog__link'
           >
-            Children's  Perfumery
+            My orders
+          </a>
+        </nav>
+
+        <nav className="Footer__catalog catalog">
+          <h1 className="catalog__title">Pages</h1>
+          <a
+            href="http://link.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className='catalog__link'
+          >
+            Catalog
           </a>
           <a
             href="http://link.com"
@@ -104,7 +116,7 @@ export const Footer: React.FC = () => {
             rel="noopener noreferrer"
             className='catalog__link'
           >
-            New
+            About us
           </a>
           <a
             href="http://link.com"
@@ -112,15 +124,7 @@ export const Footer: React.FC = () => {
             rel="noopener noreferrer"
             className='catalog__link'
           >
-            Actions
-          </a>
-          <a
-            href="http://link.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className='catalog__link'
-          >
-            Gift Ideas
+            Contact us
           </a>
         </nav>
 
@@ -193,34 +197,6 @@ export const Footer: React.FC = () => {
             className='catalog__link'
           >
             Survey & feedback
-          </a>
-        </nav>
-
-        <nav className="Footer__catalog catalog">
-          <h1 className="catalog__title">Pages</h1>
-          <a
-            href="http://link.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className='catalog__link'
-          >
-            About Us
-          </a>
-          <a
-            href="http://link.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className='catalog__link'
-          >
-            Contact Us
-          </a>
-          <a
-            href="http://link.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className='catalog__link'
-          >
-            Blog
           </a>
         </nav>
       </article>
