@@ -1,7 +1,7 @@
 import React from 'react';
 import './Rate.scss';
 import starSelected from '../../img/icon-star.svg';
-import starDefault from '../../img/tool-arrow.svg';
+import starDefault from '../../img/icon-star-empty.svg';
 
 type Props = {
   countStars: number;
