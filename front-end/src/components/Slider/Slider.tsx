@@ -18,7 +18,7 @@ export const Slider: React.FC<Props> = ({ images, timeUpdate = 1 }) => {
 
   useEffect(() => {
     if (!isPressed) {
-      const interval = setInterval(() => {
+      setInterval(() => {
         setCurrentSlide(slide => {
           if (slide >= countSlides) {
             changeSelectedPage(0);
@@ -29,8 +29,6 @@ export const Slider: React.FC<Props> = ({ images, timeUpdate = 1 }) => {
           }
         });
       }, timeUpdate * 1000);
-
-      return () => clearInterval(interval);
     }
   });
 
