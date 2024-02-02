@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "./static/css/main.750efa68.css",
-    "main.js": "./static/js/main.c5303e99.js",
+    "main.css": "./static/css/main.60af219a.css",
+    "main.js": "./static/js/main.d07bed80.js",
     "static/media/image-slide-3.png": "./static/media/image-slide-3.0c804e13f3e7734562b6.png",
     "static/media/image-slide-5.png": "./static/media/image-slide-5.eb158229f54a71ac365e.png",
     "static/media/image-slide-4.png": "./static/media/image-slide-4.0a290123d9cc4efb5d1b.png",
@@ -9,10 +9,7 @@
     "static/media/image-adv-3.png": "./static/media/image-adv-3.7aa86a7f4771fce46f6b.png",
     "static/media/image-slide-1.png": "./static/media/image-slide-1.efbde3caece554fe9a93.png",
     "static/media/image-adv-2.png": "./static/media/image-adv-2.0dab4686a0046957177d.png",
-    "static/media/image-offer.png": "./static/media/image-offer.af6c0cf3dcd3c5bb3e95.png",
-    "static/media/image-chanel-woman.png": "./static/media/image-chanel-woman.a5e38b187a22c07f32db.png",
     "static/media/image-slide-2.png": "./static/media/image-slide-2.ac0dcc1ffdd62e85814a.png",
-    "static/media/image-chanel-bottle.png": "./static/media/image-chanel-bottle.d88b9e08ae2a171250d9.png",
     "static/media/logo-partners-3.svg": "./static/media/logo-partners-3.04a81a9cccc17b5eeaa7b96261fdd0b2.svg",
     "static/media/logo-partners-2.svg": "./static/media/logo-partners-2.2769b1749271a340d26422bad36fa4fe.svg",
     "static/media/logo-partners-1.svg": "./static/media/logo-partners-1.0a50a268380a5bcfe05590d86e3f3b92.svg",
@@ -39,17 +36,18 @@
     "static/media/icon-linkedin.svg": "./static/media/icon-linkedin.00286d132042bfb3a688.svg",
     "static/media/icon-password-eye.svg": "./static/media/icon-password-eye.798c36d55c90103134c0.svg",
     "static/media/icon-facebook.svg": "./static/media/icon-facebook.b3804e81e43be2cbee88.svg",
+    "static/media/icon-search-black.svg": "./static/media/icon-search-black.e56f4865b63d5443cf75.svg",
     "static/media/icon-search-white.svg": "./static/media/icon-search-white.a2565681e97fa003d52f.svg",
     "static/media/icon-star.svg": "./static/media/icon-star.db848e7b3816303d7f858487f837dfd8.svg",
     "static/media/tool-arrow.svg": "./static/media/tool-arrow.f0f7a1f1a8a445d8ebc30979738c799a.svg",
     "static/media/tool-arrow-down.svg": "./static/media/tool-arrow-down.7f321917885481627242.svg",
     "static/media/tool-circle-gray.svg": "./static/media/tool-circle-gray.8b4b93fde2742e54b0c8.svg",
     "static/media/tool-circle-white.svg": "./static/media/tool-circle-white.407e63f61213ff72a8f6.svg",
-    "main.750efa68.css.map": "./static/css/main.750efa68.css.map",
-    "main.c5303e99.js.map": "./static/js/main.c5303e99.js.map"
+    "main.60af219a.css.map": "./static/css/main.60af219a.css.map",
+    "main.d07bed80.js.map": "./static/js/main.d07bed80.js.map"
   },
   "entrypoints": [
-    "static/css/main.750efa68.css",
-    "static/js/main.c5303e99.js"
+    "static/css/main.60af219a.css",
+    "static/js/main.d07bed80.js"
   ]
 }
