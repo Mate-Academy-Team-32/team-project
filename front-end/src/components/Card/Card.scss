@@ -114,6 +114,7 @@
     width: 200px;
     transition: all $transition-time;
     user-select: none;
+    cursor: pointer;
 
     &:hover {
       transform: scale(1.1);

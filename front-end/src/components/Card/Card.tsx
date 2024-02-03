@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import cn from 'classnames';
 import { Rate } from '../Rate';
 import './Card.scss';
 
 type Props = {
+  id: number;
   image: string;
   category: string;
   title: string;
@@ -15,6 +17,7 @@ type Props = {
 };
 
 export const Card: React.FC<Props> = ({
+  id,
   image,
   category,
   title,
@@ -25,6 +28,7 @@ export const Card: React.FC<Props> = ({
   isGrid = false,
 }) => {
   const [countProducts, setCountProducts] = useState(0);
+  const navigate = useNavigate();
 
   return (
     <section className={cn(
@@ -37,7 +41,14 @@ export const Card: React.FC<Props> = ({
         <div className="Card__like"></div>
       </nav>
 
-      <img src={image} alt="Product" className="Card__product" />
+      <img
+        src={image}
+        alt="Product"
+        className="Card__product"
+        onClick={() => {
+          navigate(`/product?id=${id}`);
+        }}
+      />
 
       <div className="Card__description">
         <h1 className="Card__title">{title}</h1>

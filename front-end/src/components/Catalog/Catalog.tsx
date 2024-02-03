@@ -29,6 +29,7 @@ export const Catalog: React.FC = () => {
       .map((card, i) => (
         <Card
           key={card.id}
+          id={card.id}
           image={IMAGES[i]}
           category={card.category}
           title={card.title}
