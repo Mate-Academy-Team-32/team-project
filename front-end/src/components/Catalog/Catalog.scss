@@ -217,6 +217,10 @@
 .button {
   cursor: pointer;
 
+  &:disabled {
+    cursor: not-allowed;
+  }
+
   &--show-more {
     margin-left: 50px;
     margin-right: 32px + 2 * 5px;

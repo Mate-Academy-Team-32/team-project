@@ -1,29 +1,45 @@
-import React, { useState } from 'react';
+import React, { EffectCallback, useEffect, useState } from 'react';
 import cn from 'classnames';
 import MultiRangeSlider from 'multi-range-slider-react';
 import { Card } from '../Card';
 import './Catalog.scss';
+import priceDollar from '../../img/icon-dollar.svg';
+import cards from '../../data/cards.json';
 import imgCatalog1 from '../../img/image-catalog-1.png';
 import imgCatalog2 from '../../img/image-catalog-2.png';
 import imgCatalog3 from '../../img/image-catalog-3.png';
 import imgCatalog4 from '../../img/image-catalog-4.png';
 import imgCatalog5 from '../../img/image-catalog-5.png';
 import imgCatalog6 from '../../img/image-catalog-6.png';
-import priceDollar from '../../img/icon-dollar.svg';
+
+const IMAGES = [imgCatalog1, imgCatalog2, imgCatalog3, imgCatalog4, imgCatalog5, imgCatalog6];
 
 type View = 'List' | 'Grid';
-
-enum ProductCategory {
-  Top = 'top',
-  M = 'man',
-  W = 'woman',
-}
 
 export const Catalog: React.FC = () => {
   const [view, setView] = useState<View>('List');
   const [isGrid, setIsGrid] = useState(false);
+  const [numberOfProducts, setNumberOfProducts] = useState(6);
   const [priceMin, setPriceMin] = useState(4);
   const [priceMax, setPriceMax] = useState(50);
+
+  const loadCards = () => {
+    return cards
+      .filter((_card, i) => (i < numberOfProducts))
+      .map((card, i) => (
+        <Card
+          key={card.id}
+          image={IMAGES[i]}
+          category={card.category}
+          title={card.title}
+          price={card.price}
+          volume={card.volume}
+          countStars={card.countStars}
+          countReviews={card.countReviews}
+          isGrid={isGrid}
+        />
+      ));
+  };
 
   const toggleArrow = (index: number) => {
     const arrow = document.querySelectorAll('.arrow')[index];
@@ -247,66 +263,24 @@ export const Catalog: React.FC = () => {
           view === 'List' && 'Catalog__list',
           view === 'Grid' && 'Catalog__grid',
         )}>
-          <Card
-            image={imgCatalog1}
-            category={ProductCategory.Top}
-            title={'Tiziana Terenzi Kirke'}
-            price={200}
-            volume={100}
-            countStars={4}
-            isGrid={isGrid}
-          />
-          <Card
-            image={imgCatalog2}
-            category={ProductCategory.Top}
-            title={'D&G 3 L\'Imperatrice'}
-            price={200}
-            volume={100}
-            countStars={4}
-            isGrid={isGrid}
-          />
-          <Card
-            image={imgCatalog3}
-            category={ProductCategory.Top}
-            title={'Extract Cuba Original'}
-            price={200}
-            volume={100}
-            countStars={4}
-            isGrid={isGrid}
-          />
-          <Card
-            image={imgCatalog4}
-            category={ProductCategory.Top}
-            title={'Christian Dior J\'Adore Absolu'}
-            price={200}
-            volume={100}
-            countStars={4}
-            isGrid={isGrid}
-          />
-          <Card
-            image={imgCatalog5}
-            category={ProductCategory.Top}
-            title={'D&G 3 L\'Imperatrice'}
-            price={200}
-            volume={100}
-            countStars={4}
-            isGrid={isGrid}
-          />
-          <Card
-            image={imgCatalog6}
-            category={ProductCategory.Top}
-            title={'Lacoste Eau de L.12.12.'}
-            price={200}
-            volume={100}
-            countStars={4}
-            isGrid={isGrid}
-          />
+          {
+            loadCards()
+          }
         </div>
       </section>
 
       <div className="handling-menu">
-        <button type="button" className="button button--show-more">Show more</button>
-        <button type="button" className="button button--show">Show (12)</button>  
+        <button
+          type="button"
+          className="button button--show-more"
+          onClick={() => {
+            setNumberOfProducts(currentNumber => currentNumber + 3);
+          }}
+          disabled={numberOfProducts >= cards.length}
+        >
+          Show more
+        </button>
+        <button type="button" className="button button--show">Show (12)</button>
         <button type="button" className="button button--clear">Clear</button>
       </div>
     </>
