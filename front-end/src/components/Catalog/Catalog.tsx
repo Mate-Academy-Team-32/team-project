@@ -80,7 +80,14 @@ export const Catalog: React.FC = () => {
       <hr className="Catalog__line Catalog__line--filter Catalog__line--margin" />
 
       <section className="Catalog">
-        <aside className="Catalog__filters">
+        <form
+          action="./"
+          method="get"
+          onSubmit={(e) => {
+            e.preventDefault();
+          }}
+          className="Catalog__filters"
+        >
           <h2 className="Catalog__filters--header">Filters by parameters</h2>
           <hr className="Catalog__line Catalog__line--filter"></hr>
 
@@ -256,7 +263,7 @@ export const Catalog: React.FC = () => {
               </div>
             </div>
           </article>
-        </aside>
+        </form>
 
         <div className={cn(
           'Catalog__browse',
@@ -280,8 +287,17 @@ export const Catalog: React.FC = () => {
         >
           Show more
         </button>
-        <button type="button" className="button button--show">Show (12)</button>
-        <button type="button" className="button button--clear">Clear</button>
+        <button type="submit" className="button button--show">Show (12)</button>
+        <button
+          type="reset"
+          className="button button--clear"
+          onClick={() => {
+            const form = document.querySelector('.Catalog__filters') as HTMLFormElement;
+            form.reset();
+          }}
+        >
+          Clear
+        </button>
       </div>
     </>
   );
