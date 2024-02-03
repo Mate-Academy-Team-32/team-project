@@ -206,3 +206,56 @@
     color: #9a9caa;
   }
 }
+
+.handling-menu {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100%;
+  margin-bottom: 84px;
+}
+
+.button {
+  cursor: pointer;
+
+  &--show-more {
+    margin-left: 50px;
+    margin-right: 32px + 2 * 5px;
+    width: 75%;
+    height: 48px;
+    font-family: Montserrat, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    border: 1px solid #dedddd;
+    background-color: transparent;
+
+    &::before {
+      content: '';
+      position: relative;
+      top: 3px;
+      left: -10px;
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      background-image: url("../../img/icon-refresh.svg");
+    }
+  }
+
+  &--show {
+    margin-left: 18px;
+    width: 120px;
+    font-size: 16px;
+    border: none;
+    color: #fff;
+    background-color: #000;
+  }
+
+  &--clear {
+    margin-left: 50px;
+    width: 120px;
+    font-size: 16px;
+    border: 1px solid #dedddd;
+    color: #7a7a7a;
+    background-color: #fff;
+  }
+}

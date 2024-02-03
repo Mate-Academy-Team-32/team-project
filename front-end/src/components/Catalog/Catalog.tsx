@@ -303,6 +303,12 @@ export const Catalog: React.FC = () => {
           />
         </div>
       </section>
+
+      <div className="handling-menu">
+        <button type="button" className="button button--show-more">Show more</button>
+        <button type="button" className="button button--show">Show (12)</button>  
+        <button type="button" className="button button--clear">Clear</button>
+      </div>
     </>
   );
 };
