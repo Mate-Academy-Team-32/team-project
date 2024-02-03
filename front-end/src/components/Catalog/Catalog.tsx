@@ -1,4 +1,4 @@
-import React, { EffectCallback, useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import cn from 'classnames';
 import MultiRangeSlider from 'multi-range-slider-react';
 import { Card } from '../Card';
