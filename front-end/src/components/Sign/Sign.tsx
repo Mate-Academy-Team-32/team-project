@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Sign.scss';
+import { scrollToTop } from '../../utils/_scroll';
 
 type Props = {
   setPage: (page: 'sign-in' | 'sign-up' | 'forgot') => void;
@@ -8,7 +9,7 @@ type Props = {
 export const Sign: React.FC = () => {
   const [page, setPage] = useState('sign-in');
 
-  window.scrollTo(0, 0);
+  scrollToTop();
 
   if (page === 'sign-in') {
     return <SignIn setPage={setPage} />;

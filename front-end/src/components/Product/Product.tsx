@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Rate } from '../Rate';
 import { Review } from '../Review';
+import { scrollToTop } from '../../utils/_scroll';
 import './Product.scss';
 import imgProductMain from '../../img/image-product-main.png';
 import imgProductAdd1 from '../../img/image-product-add-1.png';
@@ -11,6 +12,8 @@ import like from '../../img/logo-heart.svg';
 
 export const Product: React.FC = () => {
   const [quantityProducts, setQuantityProducts] = useState(1);
+
+  scrollToTop();
 
   return (
     <>
