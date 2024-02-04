@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Rate } from '../Rate';
 import { Review } from '../Review';
 import { scrollToTop } from '../../utils/_scroll';
@@ -13,7 +13,9 @@ import like from '../../img/logo-heart.svg';
 export const Product: React.FC = () => {
   const [quantityProducts, setQuantityProducts] = useState(1);
 
-  scrollToTop();
+  useEffect(() => {
+    scrollToTop();
+  }, []);
 
   return (
     <>
@@ -52,16 +54,23 @@ export const Product: React.FC = () => {
 
         <div className="Product__readme">
           <div className="Product__description description">
-            <h1 className="description__title">Tiziana Terenzi Kirke</h1>
+            <div className="description__block">
+              <h1 className="description__title">Tiziana Terenzi Kirke</h1>
+              <span className="description__label">Top</span>
+            </div>
             <h2 className="description__name">Toilet water</h2>
-            <p className="description__price">4240 UAH</p>
+            <p className="description__price">4240 ₴</p>
             <div className="description__rate">
-              <Rate countStars={4} countReviews={562} />
-              <span>customer reviews</span>
+              <Rate countStars={4} />
+              <span>562 customer reviews</span>
             </div>
             <div className="description__text">
-              The exquisite fragrance of Kirke perfume from the famous Italian perfume house Tiziana Terenzi captivates and inspires, creating a magical aura of sophistication and sensuality.
-              The fruity and chypre elite composition chooses as its heroine a luxurious woman whose manners and education are admired by those around her. She is a real queen, owner of the sea, elements and earthly wealth. She is a goddess.
+              <p>
+                The exquisite fragrance of Kirke perfume from the famous Italian perfume house Tiziana Terenzi captivates and inspires, creating a magical aura of sophistication and sensuality.
+              </p>
+              <p>
+                The fruity and chypre elite composition chooses as its heroine a luxurious woman whose manners and education are admired by those around her. She is a real queen, owner of the sea, elements and earthly wealth. She is a goddess.
+              </p>
             </div>
           </div>
 
@@ -88,25 +97,27 @@ export const Product: React.FC = () => {
             method="post"
             className="Product__form-buy form-buy"
           >
-            <button
-              type="button"
-              className="form-buy__contols"
-              onClick={() => setQuantityProducts(
-                current => current > 1 ? current - 1 : current
-              )}
-            >
-              -
-            </button>
-            <span className="Products__quantity">{quantityProducts}</span>
-            <button
-              type="button"
-              className="form-buy__contols"
-              onClick={() => setQuantityProducts(
-                current => current + 1)
-              }
-            >
-              +
-            </button>
+            <div className="form-buy__plus-minus">
+              <button
+                type="button"
+                className="form-buy__controls"
+                onClick={() => setQuantityProducts(
+                  current => current > 1 ? current - 1 : current
+                )}
+              >
+                -
+              </button>
+              <span className="Product__quantity form-buy__quantity">{quantityProducts}</span>
+              <button
+                type="button"
+                className="form-buy__controls"
+                onClick={() => setQuantityProducts(
+                  current => current + 1)
+                }
+              >
+                +
+              </button>
+            </div>
             <button type="submit" className="form-buy__submit">Buy now</button>
             <button type="button" className="form-buy__like">
               <img src={like} alt="Like" />

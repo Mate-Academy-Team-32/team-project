@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Sign.scss';
 import { scrollToTop } from '../../utils/_scroll';
 
@@ -9,7 +9,9 @@ type Props = {
 export const Sign: React.FC = () => {
   const [page, setPage] = useState('sign-in');
 
-  scrollToTop();
+  useEffect(() => {
+    scrollToTop();
+  }, []);
 
   if (page === 'sign-in') {
     return <SignIn setPage={setPage} />;

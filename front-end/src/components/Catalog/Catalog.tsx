@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import cn from 'classnames';
+import { scrollToTop } from '../../utils/_scroll';
 import MultiRangeSlider from 'multi-range-slider-react';
 import { Card } from '../Card';
 import './Catalog.scss';
@@ -22,6 +23,10 @@ export const Catalog: React.FC = () => {
   const [numberOfProducts, setNumberOfProducts] = useState(6);
   const [priceMin, setPriceMin] = useState(4);
   const [priceMax, setPriceMax] = useState(50);
+
+  useEffect(() => {
+    scrollToTop();
+  }, []);
 
   const loadCards = () => {
     return cards
