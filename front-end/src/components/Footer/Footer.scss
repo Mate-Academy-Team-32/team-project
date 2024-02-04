@@ -61,19 +61,20 @@
     input:-webkit-autofill:focus {
       transition: background-color 0s 600000s, color 0s 600000s;
     }
+  }
 
-    button {
-      padding: 10px 16px;
-      width: 86px;
-      height: 40px;
-      border: none;
-      transition: all 0.5s;
-      font-size: 16px;
-      color: #000;
+  &__button {
+    padding: 5px 10px;
+    width: 86px;
+    height: 40px;
+    border: none;
+    transition: all 0.5s;
+    font-size: 16px;
+    background-color: #fff;
+    color: #000;
 
-      &:hover {
-        background-color: #71b360;
-      }
+    &:hover {
+      background-color: #71b360;
     }
   }
 

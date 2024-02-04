@@ -33,7 +33,7 @@ export const Footer: React.FC = () => {
               placeholder='Your email here'
               required
             />
-            <button type="submit">Submit</button>
+            <button type="submit" className="Footer__button">Submit</button>
           </form>
 
           <nav className="Footer__share">
