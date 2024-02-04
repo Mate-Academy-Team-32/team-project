@@ -6,6 +6,8 @@
 
   &__browse {
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
   }
 
@@ -31,7 +33,7 @@
     width: 120px;
     height: 48px;
     padding: 12px 8px;
-    border-color: #393939;
+    border: 1px solid #393939;
     background-color: transparent;
     cursor: pointer;
 
@@ -71,7 +73,10 @@
     }
 
     &--options {
-      margin-top: 10px
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 10px;
     }
 
     &--header {
@@ -139,7 +144,10 @@
 .checkbox {
   width: 24px;
   height: 24px;
-  accent-color: #000;
+
+  &:checked {
+    background-color: #000;
+  }
 }
 
 .input {
@@ -195,6 +203,10 @@
 
 .dollar {
   margin: 0 20px;
+}
+
+.hidden {
+  display: none;
 }
 
 .Navigation {
