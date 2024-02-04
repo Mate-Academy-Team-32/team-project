@@ -86,10 +86,10 @@ const SignIn: React.FC<Props> = ({ setPage }) => {
             type="checkbox"
             name="isSigned"
             id="isSigned"
-            className="Sign__isSigned"
+            className="Sign__is-signed focus:ring-transparent"
             defaultChecked
           />
-          <label htmlFor="isSigned" className="Sign__isSigned-label">Keep me signed in</label>
+          <label htmlFor="isSigned" className="Sign__is-signed-label">Keep me signed in</label>
         </div>
 
         <button type="submit" className="Sign__submit">Login</button>
@@ -113,7 +113,7 @@ const SignUp: React.FC<Props> = ({ setPage }) => {
       setErrorMsg('Password fields can’t be the same!');
       setIsError(true);
     }
-    
+
     if (!isError) {
       event.preventDefault();
       setIsError(false);
@@ -231,8 +231,8 @@ const SignUp: React.FC<Props> = ({ setPage }) => {
         </div>
 
         <button type="submit" className="Sign__submit">Sign up</button>
-          
-          
+
+
         <div className="Sign__account-options">
           Already have an account?
           <span onClick={() => setPage('sign-in')}>Sign in here</span>
