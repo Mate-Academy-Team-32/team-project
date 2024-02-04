@@ -30,7 +30,7 @@ export const Footer: React.FC = () => {
             <input
               type="email"
               name="email"
-              placeholder='Your email here'
+              placeholder="Your email here"
               required
             />
             <button type="submit" className="Footer__button">Submit</button>
