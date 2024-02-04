@@ -8,7 +8,7 @@ import { App } from './App';
 import { Home } from './pages';
 import { Sign } from './pages/sign';
 import { Catalog } from './pages/catalog';
-import { Product } from './components/Product';
+import { Product } from './pages/product';
 import { Page404 } from './pages/404';
 
 const root = createRoot(document.getElementById('root') as HTMLElement);
