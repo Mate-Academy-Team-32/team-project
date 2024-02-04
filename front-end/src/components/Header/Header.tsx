@@ -1,80 +1,99 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Header.scss';
 import logoPerfume from '../../img/logo-perfume.svg';
 import logoAccount from '../../img/icon-account.svg';
 import logoHeart from '../../img/icon-heart-white.svg';
 import logoBag from '../../img/icon-bag-white.svg';
 
-window.addEventListener('scroll', () => {
-  const part = document.querySelector('.Header__panel') as HTMLDivElement;
+export const Header: React.FC = () => {
+  const [isClickedSearch, setIsClickedSearch] = useState(false);
+  useEffect(() => {
+    (document.querySelector('#bag') as HTMLAnchorElement)
+      .setAttribute('data-count', '0');
 
-  if (window.scrollY > 0) {
-    part.classList.add('hidden');
-  } else {
-    part.classList.remove('hidden');
-  }
-});
+    const searchDiv = document.querySelector('.input--search') as HTMLDivElement;
+    const searchInput = document.querySelector('.input') as HTMLInputElement;
+    const textLinks = document.querySelectorAll('.nav__link') as NodeListOf<HTMLLinkElement>;
+    const header = document.querySelector('.Header') as HTMLDivElement;
+      
+    searchDiv.addEventListener('click', () => {
+      if (!isClickedSearch) {
+        textLinks.forEach((textLink) => {
+          textLink.classList.add('hidden');
+        });
+          
+        searchInput.classList.remove('hidden');
 
-export const Header: React.FC = () => (
-  <>
-    <header className="Header">
-      <section className="Header__top-bar">
-        <nav className="nav nav--links">
-          <a href="/" className="nav__link">Home</a>
-          <a href="/" className="nav__link">About us</a>
-          <a href="/" className="nav__link">Delivery and payment</a>
-          <a href="/" className="nav__link">Blog</a>
-          <a href="/" className="nav__link">Contacts</a>
-        </nav>
-        <nav className="nav nav--sign">
-          <a href="/sign">
-            <img
-              className="sign-in"
-              src={logoAccount}
-              alt="Sign in"
-            />
-          </a>
+        setIsClickedSearch(true);
+      }
+    });
 
-          <a href="/" className='Header__language-select'>
-            Eng
-          </a>
-        </nav>
-      </section>
+    header.addEventListener('mouseleave', () => {
+      textLinks.forEach((textLink) => {
+        textLink.classList.remove('hidden');
+      });
+        
+      searchInput.classList.add('hidden');
 
-      <section className="Header__panel">
-        <div className="Header__left-side">
-          <a href="/" className="Header__logo">
-            <img src={logoPerfume} alt="Logo PerfuMe" />
-          </a>
-        </div>
+      setIsClickedSearch(false);
+    });
+  });
 
-        <div className="Header__right-side">
-          <div className="input--search">
-            <input
-              className='input'
-              type="text"
-              placeholder='Hey, what are you looking for?'
-            />
-          </div>
+  return (
+    <>
+      <header className="Header">
+        <section className="Header__top-bar">
+          <nav className="nav nav--links">
+            <Link to="/" className="Header__logo">
+              <img src={logoPerfume} alt="Logo PerfuMe" />
+            </Link>
 
-          <a href="/">
-            <img
-              className='Header__icon'
-              src={logoHeart}
-              alt="Heart"
-            />
-          </a>
+            <Link to="/" relative="path" className="nav__link">Home</Link>
 
-          <a href="/">
-            <img
-              className='Header__icon Header__icon--w-34'
-              src={logoBag}
-              alt="Bag"
-            />
-          </a>
-        </div>
-      </section>
-    </header>
-    <div className="margin"></div>
-  </>
-);
+            <Link to="/catalog" relative="path" className="nav__link">Catalog</Link>
+
+            <Link to="/about" relative="path" className="nav__link">About Us</Link>
+
+            <Link to="/contacts" relative="path" className="nav__link">Contact Us</Link>
+          </nav>
+          <nav className="nav nav--sign">
+            <div className="input--search">
+              <input
+                className="input hidden"
+                type="text"
+                placeholder='Hey, what are you looking for?'
+              />
+            </div>
+
+            <Link to="/sign">
+              <img
+                className="sign-in"
+                src={logoAccount}
+                alt="Sign in"
+              />
+            </Link>
+
+            <Link to="/likes">
+              <img
+                className="Header__icon"
+                src={logoHeart}
+                alt="Heart"
+              />
+            </Link>
+
+            <Link to="/cart" id="bag">
+              <img
+                className="Header__icon Header__icon--w-34"
+                src={logoBag}
+                alt="Bag"
+              />
+            </Link>
+          </nav>
+        </section>
+      </header>
+
+      <div className="margin"></div>
+    </>
+  );
+};

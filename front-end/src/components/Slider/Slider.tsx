@@ -64,6 +64,7 @@ export const Slider: React.FC<Props> = ({ images, timeUpdate = 1 }) => {
     }
 
     pages[index].classList.add('page--selected');
+    setIsPressed(true);
   };
   
   return (
@@ -106,6 +107,7 @@ export const Slider: React.FC<Props> = ({ images, timeUpdate = 1 }) => {
               className="page page--selected"
               onClick={() => {
                 setCurrentSlide(image.id);
+                changeSelectedPage(image.id - 1);
               }}
             >
             </button>
@@ -115,6 +117,7 @@ export const Slider: React.FC<Props> = ({ images, timeUpdate = 1 }) => {
               className="page"
               onClick={() => {
                 setCurrentSlide(image.id);
+                changeSelectedPage(image.id - 1);
               }}
             >
             </button>
