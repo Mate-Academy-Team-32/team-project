@@ -82,9 +82,9 @@
     color: #bababa;
   }
 
-  &__image > img {
+  &__image>img {
     position: absolute;
-    top: 1.5px;
+    top: 0;
     right: 0;
     height: 500px;
     background-size: contain;
