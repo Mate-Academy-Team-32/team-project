@@ -1,30 +1,26 @@
 {
   "files": {
-    "main.css": "./static/css/main.27370cdf.css",
-    "main.js": "./static/js/main.d24f1aae.js",
-    "static/media/image-slide-3.png": "./static/media/image-slide-3.0c804e13f3e7734562b6.png",
-    "static/media/image-slide-5.png": "./static/media/image-slide-5.eb158229f54a71ac365e.png",
-    "static/media/image-slide-4.png": "./static/media/image-slide-4.0a290123d9cc4efb5d1b.png",
+    "main.css": "./static/css/main.73d73ca9.css",
+    "main.js": "./static/js/main.9ef5366b.js",
     "static/media/image-product-main.png": "./static/media/image-product-main.ff36eab4ad9af8b8a7b9.png",
     "static/media/image-adv-1.png": "./static/media/image-adv-1.e6f2e9060704bfe7e10d.png",
     "static/media/image-adv-3.png": "./static/media/image-adv-3.7aa86a7f4771fce46f6b.png",
     "static/media/image-slide-1.png": "./static/media/image-slide-1.efbde3caece554fe9a93.png",
     "static/media/image-adv-2.png": "./static/media/image-adv-2.0dab4686a0046957177d.png",
-    "static/media/image-slide-2.png": "./static/media/image-slide-2.ac0dcc1ffdd62e85814a.png",
     "static/media/logo-partners-3.svg": "./static/media/logo-partners-3.04a81a9cccc17b5eeaa7b96261fdd0b2.svg",
     "static/media/logo-partners-2.svg": "./static/media/logo-partners-2.2769b1749271a340d26422bad36fa4fe.svg",
     "static/media/logo-partners-1.svg": "./static/media/logo-partners-1.0a50a268380a5bcfe05590d86e3f3b92.svg",
     "static/media/image-catalog-3.png": "./static/media/image-catalog-3.9fe1f876808cbfb7777e.png",
     "static/media/image-catalog-6.png": "./static/media/image-catalog-6.c25018290393c3dd0c6d.png",
-    "static/media/icon-feature-4.svg": "./static/media/icon-feature-4.4ed4161b8bda916ae4424dde9e648a77.svg",
-    "static/media/icon-feature-3.svg": "./static/media/icon-feature-3.365340f07e6a7c0e006e509edb9542bf.svg",
+    "static/media/icon-feature-4.svg": "./static/media/icon-feature-4.b3df2e3cd5c5e4e33f426432de892324.svg",
+    "static/media/icon-feature-2.svg": "./static/media/icon-feature-2.01b64a082a21da0461f7ad4f7bc4929d.svg",
+    "static/media/icon-feature-3.svg": "./static/media/icon-feature-3.8d2b998419a827dcf6d0793d2df72034.svg",
     "static/media/logo-partners-5.svg": "./static/media/logo-partners-5.17ee52ba47e41a2a5cb892a994c69e6a.svg",
+    "static/media/icon-feature-1.svg": "./static/media/icon-feature-1.764878ca9712f8e8be663d6fee266191.svg",
     "static/media/image-catalog-1.png": "./static/media/image-catalog-1.fd6ecf36611254f95700.png",
     "static/media/image-catalog-2.png": "./static/media/image-catalog-2.510f8643d13068250f0b.png",
-    "static/media/icon-feature-2.svg": "./static/media/icon-feature-2.4df96e1274dc38bb6d4a040188505e67.svg",
     "static/media/image-catalog-4.png": "./static/media/image-catalog-4.1556a01ec53d2d3dd2b6.png",
     "static/media/logo-partners-4.svg": "./static/media/logo-partners-4.1a82e48eb0fe4122a2bfce10a6636e99.svg",
-    "static/media/icon-feature-1.svg": "./static/media/icon-feature-1.18ed320e2a7993bdbf6e3808cec79ea3.svg",
     "static/media/image-product-add-2.png": "./static/media/image-product-add-2.ed6416eba59e4f5483ba.png",
     "static/media/image-product-add-4.png": "./static/media/image-product-add-4.0430233ea39079136cb3.png",
     "static/media/image-product-add-3.png": "./static/media/image-product-add-3.8214516b36d8879607ea.png",
@@ -53,11 +49,11 @@
     "static/media/tool-arrow-white.svg": "./static/media/tool-arrow-white.4d1f6fa80f6f23722a4e.svg",
     "static/media/tool-circle-gray.svg": "./static/media/tool-circle-gray.8b4b93fde2742e54b0c8.svg",
     "static/media/tool-circle-white.svg": "./static/media/tool-circle-white.407e63f61213ff72a8f6.svg",
-    "main.27370cdf.css.map": "./static/css/main.27370cdf.css.map",
-    "main.d24f1aae.js.map": "./static/js/main.d24f1aae.js.map"
+    "main.73d73ca9.css.map": "./static/css/main.73d73ca9.css.map",
+    "main.9ef5366b.js.map": "./static/js/main.9ef5366b.js.map"
   },
   "entrypoints": [
-    "static/css/main.27370cdf.css",
-    "static/js/main.d24f1aae.js"
+    "static/css/main.73d73ca9.css",
+    "static/js/main.9ef5366b.js"
   ]
 }
