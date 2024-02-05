@@ -3,6 +3,7 @@ import { Rate } from '../Rate';
 import { Review } from '../Review';
 import { scrollToTop } from '../../utils/_scroll';
 import './Product.scss';
+import './PopUp.scss';
 import imgProductMain from '../../img/image-product-main.png';
 import imgProductAdd1 from '../../img/image-product-add-1.png';
 import imgProductAdd2 from '../../img/image-product-add-2.png';
@@ -93,9 +94,16 @@ export const Product: React.FC = () => {
           </div>
 
           <form
-            action="/"
+            action="/product"
             method="post"
             className="Product__form-buy form-buy"
+            onSubmit={(e) => {
+              e.preventDefault();
+
+              const popUp = document.querySelector('.Pop-up') as HTMLDivElement;
+
+              popUp.classList.toggle('hidden');
+            }}
           >
             <div className="form-buy__plus-minus">
               <button
@@ -131,6 +139,8 @@ export const Product: React.FC = () => {
         </div>
       </section>
 
+      <PopUp />
+
       <section className="Product__reviews-content">
         <h1 className="Product__title">Reviews</h1>
 
@@ -157,4 +167,15 @@ export const Product: React.FC = () => {
       </section>
     </>
   )
+};
+
+const PopUp: React.FC = () => {
+  return (
+    <article className="Pop-up hidden">
+      <h1 className="Pop-up__header">Shopping Cart</h1>
+      <hr />
+
+      <hr />
+    </article>
+  );
 };
