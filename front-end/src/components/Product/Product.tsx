@@ -93,7 +93,7 @@ export const Product: React.FC = () => {
           </div>
 
           <form
-            action="./"
+            action="/"
             method="post"
             className="Product__form-buy form-buy"
           >
