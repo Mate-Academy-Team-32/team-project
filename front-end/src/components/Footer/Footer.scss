@@ -45,13 +45,15 @@
   &__form {
     display: flex;
     align-items: center;
+    width: 344px;
 
     input {
       box-sizing: border-box;
       padding: 12px;
+      width: 75%;
       height: 40px;
       font-size: 14px;
-      border: 1px solid #fff;
+      border: 1px solid #444343;
       outline: none;
       background-color: transparent;
       color: #fff;
@@ -65,7 +67,7 @@
 
   &__button {
     padding: 5px 10px;
-    width: 86px;
+    width: 25%;
     height: 40px;
     border: none;
     transition: all 0.5s;
@@ -118,7 +120,7 @@
 
   &__line {
     margin: 0 $default-side-margins;
-    border: 1px solid #8c8c8c;
+    border: 1px solid #444343;
   }
 
   &__copyright {

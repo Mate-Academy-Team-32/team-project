@@ -7,10 +7,6 @@ import logoPartner3 from '../../img/logo-partners-3.svg';
 import logoPartner4 from '../../img/logo-partners-4.svg';
 import logoPartner5 from '../../img/logo-partners-5.svg';
 import imgSlide1 from '../../img/image-slide-1.png';
-import imgSlide2 from '../../img/image-slide-2.png';
-import imgSlide3 from '../../img/image-slide-3.png';
-import imgSlide4 from '../../img/image-slide-4.png';
-import imgSlide5 from '../../img/image-slide-5.png';
 import imgAdv1 from '../../img/image-adv-1.png';
 import imgAdv2 from '../../img/image-adv-2.png';
 import imgAdv3 from '../../img/image-adv-3.png';
@@ -28,19 +24,19 @@ export const Main: React.FC = () => (
           id: 1,
         },
         {
-          path: imgSlide2,
+          path: imgSlide1,
           id: 2,
         },
         {
-          path: imgSlide3,
+          path: imgSlide1,
           id: 3,
         },
         {
-          path: imgSlide4,
+          path: imgSlide1,
           id: 4,
         },
         {
-          path: imgSlide5,
+          path: imgSlide1,
           id: 5,
         },
       ]}
@@ -64,8 +60,6 @@ export const Main: React.FC = () => (
         <img src={logoPartner5} alt="5" />
       </a>
     </section>
-  
-    <hr className="Main__line" />
 
     <section className="Main__advantages advantages">
       <div className="advantages__content">

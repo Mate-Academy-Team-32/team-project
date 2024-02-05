@@ -18,27 +18,18 @@ export const Header: React.FC = () => {
     const lens = document.querySelector('.lens') as HTMLDivElement;
     const textLinks = document.querySelectorAll('.nav__link') as NodeListOf<HTMLLinkElement>;
     const header = document.querySelector('.Header') as HTMLDivElement;
-      
+
     searchDiv.addEventListener('click', () => {
       if (!isClickedSearch) {
         textLinks.forEach((textLink) => {
           textLink.classList.add('hidden');
         });
-        
+
         searchInput.classList.remove('hidden');
         searchInput.focus();
         lens.classList.remove('hidden');
 
         setIsClickedSearch(true);
-      } else {
-        textLinks.forEach((textLink) => {
-          textLink.classList.remove('hidden');
-        });
-    
-        lens.classList.add('hidden');
-        searchInput.classList.add('hidden');
-    
-        setIsClickedSearch(false);
       }
     });
 
@@ -46,10 +37,10 @@ export const Header: React.FC = () => {
       textLinks.forEach((textLink) => {
         textLink.classList.remove('hidden');
       });
-  
+
       lens.classList.add('hidden');
       searchInput.classList.add('hidden');
-  
+
       setIsClickedSearch(false);
     });
   });
