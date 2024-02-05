@@ -75,7 +75,7 @@ export const Footer: React.FC = () => {
         <nav className="Footer__catalog catalog">
           <h1 className="catalog__title">My Account</h1>
           <a
-            href="http://link.com"
+            href="/sign?type=in"
             target="_blank"
             rel="noopener noreferrer"
             className='catalog__link'
@@ -83,7 +83,7 @@ export const Footer: React.FC = () => {
             Sign in
           </a>
           <a
-            href="http://link.com"
+            href="/sign?type=up"
             target="_blank"
             rel="noopener noreferrer"
             className='catalog__link'
@@ -91,7 +91,7 @@ export const Footer: React.FC = () => {
             Register
           </a>
           <a
-            href="http://link.com"
+            href="/cart"
             target="_blank"
             rel="noopener noreferrer"
             className='catalog__link'
@@ -103,7 +103,7 @@ export const Footer: React.FC = () => {
         <nav className="Footer__catalog catalog">
           <h1 className="catalog__title">Pages</h1>
           <a
-            href="http://link.com"
+            href="/catalog"
             target="_blank"
             rel="noopener noreferrer"
             className='catalog__link'
@@ -111,7 +111,7 @@ export const Footer: React.FC = () => {
             Catalog
           </a>
           <a
-            href="http://link.com"
+            href="/about"
             target="_blank"
             rel="noopener noreferrer"
             className='catalog__link'
@@ -119,7 +119,7 @@ export const Footer: React.FC = () => {
             About us
           </a>
           <a
-            href="http://link.com"
+            href="/contacts"
             target="_blank"
             rel="noopener noreferrer"
             className='catalog__link'
@@ -131,7 +131,7 @@ export const Footer: React.FC = () => {
         <nav className="Footer__catalog catalog">
           <h1 className="catalog__title">Online Shopping</h1>
           <a
-            href="http://link.com"
+            href="/bla-bla"
             target="_blank"
             rel="noopener noreferrer"
             className='catalog__link'
@@ -139,7 +139,7 @@ export const Footer: React.FC = () => {
             Payments
           </a>
           <a
-            href="http://link.com"
+            href="/bla-bla"
             target="_blank"
             rel="noopener noreferrer"
             className='catalog__link'
@@ -147,7 +147,7 @@ export const Footer: React.FC = () => {
             Delivery options
           </a>
           <a
-            href="http://link.com"
+            href="/bla-bla"
             target="_blank"
             rel="noopener noreferrer"
             className='catalog__link'
@@ -159,7 +159,7 @@ export const Footer: React.FC = () => {
         <nav className="Footer__catalog catalog">
           <h1 className="catalog__title">Customer care</h1>
           <a
-            href="http://link.com"
+            href="/bla-bla"
             target="_blank"
             rel="noopener noreferrer"
             className='catalog__link'
@@ -167,7 +167,7 @@ export const Footer: React.FC = () => {
             Help center
           </a>
           <a
-            href="http://link.com"
+            href="/bla-bla"
             target="_blank"
             rel="noopener noreferrer"
             className='catalog__link'
@@ -175,7 +175,7 @@ export const Footer: React.FC = () => {
             Terms & Conditions
           </a>
           <a
-            href="http://link.com"
+            href="/bla-bla"
             target="_blank"
             rel="noopener noreferrer"
             className='catalog__link'
@@ -183,7 +183,7 @@ export const Footer: React.FC = () => {
             Privacy policy
           </a>
           <a
-            href="http://link.com"
+            href="/bla-bla"
             target="_blank"
             rel="noopener noreferrer"
             className='catalog__link'
@@ -191,7 +191,7 @@ export const Footer: React.FC = () => {
             Returns & refund
           </a>
           <a
-            href="http://link.com"
+            href="/bla-bla"
             target="_blank"
             rel="noopener noreferrer"
             className='catalog__link'
