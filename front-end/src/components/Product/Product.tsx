@@ -98,11 +98,10 @@ export const Product: React.FC = () => {
             method="post"
             className="Product__form-buy form-buy"
             onSubmit={(e) => {
-              e.preventDefault();
-
               const popUp = document.querySelector('.Pop-up') as HTMLDivElement;
 
               popUp.classList.toggle('hidden');
+              e.preventDefault();
             }}
           >
             <div className="form-buy__plus-minus">
