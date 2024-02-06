@@ -21,8 +21,8 @@ export const Catalog: React.FC = () => {
   const [view, setView] = useState<View>('List');
   const [isGrid, setIsGrid] = useState(false);
   const [numberOfProducts, setNumberOfProducts] = useState(6);
-  const [priceMin, setPriceMin] = useState(4);
-  const [priceMax, setPriceMax] = useState(50);
+  const [priceMin, setPriceMin] = useState(1);
+  const [priceMax, setPriceMax] = useState(400);
 
   useEffect(() => {
     scrollToTop();
@@ -124,7 +124,7 @@ export const Catalog: React.FC = () => {
                       maxValue={priceMax}
                       label={false}
                       ruler={false}
-                      step={1}
+                      step={10}
                       canMinMaxValueSame={true}
                       barLeftColor={'#d2d2d2'}
                       barRightColor={'#d2d2d2'}
