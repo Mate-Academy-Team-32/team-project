@@ -49,7 +49,6 @@ export const Card: React.FC<Props> = ({
           navigate(`/product?id=${id}`);
         }}
       />
-      <img src={image} alt="Product" className="Card__product" />
 
       <div className="Card__description">
         <h1 className="Card__title">{title}</h1>

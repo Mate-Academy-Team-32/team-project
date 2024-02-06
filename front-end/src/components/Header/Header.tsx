@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Header.scss';
 import logoPerfume from '../../img/logo-perfume.svg';
@@ -7,40 +7,35 @@ import logoHeart from '../../img/icon-heart-white.svg';
 import logoBag from '../../img/icon-bag-white.svg';
 
 export const Header: React.FC = () => {
-  const [isClickedSearch, setIsClickedSearch] = useState(false);
-
   useEffect(() => {
     (document.querySelector('#bag') as HTMLAnchorElement)
       .setAttribute('data-count', '0');
 
-    const searchDiv = document.querySelector('.input--search') as HTMLDivElement;
     const searchInput = document.querySelector('.input') as HTMLInputElement;
-    const lens = document.querySelector('.lens') as HTMLDivElement;
+    const lensOpen = document.querySelector('.lens--open') as HTMLDivElement;
+    const lensClose = document.querySelector('.lens--close') as HTMLDivElement;
     const textLinks = document.querySelectorAll('.nav__link') as NodeListOf<HTMLLinkElement>;
-    const header = document.querySelector('.Header') as HTMLDivElement;
-      
-    searchDiv.addEventListener('click', () => {
-      if (!isClickedSearch) {
-        textLinks.forEach((textLink) => {
-          textLink.classList.add('hidden');
-        });
-        searchInput.classList.remove('hidden');
-        searchInput.focus();
-        lens.classList.remove('hidden');
 
-        setIsClickedSearch(true);
-      }
+    lensOpen.addEventListener('click', () => {
+      textLinks.forEach((textLink) => {
+        textLink.classList.add('hidden');
+      });
+
+      searchInput.classList.remove('hidden');
+      searchInput.focus();
+      lensClose.classList.remove('hidden');
+      lensOpen.classList.add('hidden');
     });
 
-    header.addEventListener('mouseleave', () => {
+    lensClose.addEventListener('click', () => {
       textLinks.forEach((textLink) => {
         textLink.classList.remove('hidden');
       });
 
-      lens.classList.add('hidden');
       searchInput.classList.add('hidden');
-
-      setIsClickedSearch(false);
+      searchInput.focus();
+      lensClose.classList.add('hidden');
+      lensOpen.classList.remove('hidden');
     });
   });
 
@@ -63,13 +58,14 @@ export const Header: React.FC = () => {
           </nav>
           <nav className="nav nav--sign">
             <div className="input--search">
-              <div className="lens hidden"></div>
+              <div className="lens lens--close hidden"></div>
               <input
                 className="input hidden"
                 id="search"
                 type="text"
-                placeholder='Hey, what are you looking for?'
+                placeholder="Hey, what are you looking for?"
               />
+              <div className="lens lens--open"></div>
             </div>
 
             <Link to="/sign">

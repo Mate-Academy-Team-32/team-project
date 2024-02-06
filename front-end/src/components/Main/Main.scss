@@ -69,18 +69,8 @@
     }
   }
 
-  &__offer {
-    display: flex;
-    flex-direction: row-reverse;
-    background-color: #ebebeb;
-  }
-
-  &__chanel {
-    padding: 140px 130px 160px 140px;
-  }
-
   &__advantages {
-    margin-top: 32px;
+    margin-top: $default-side-margins;
   }
 
   &__features {
@@ -128,7 +118,7 @@
     text-transform: uppercase;
     font-size: 14px;
     font-weight: 400;
-    border:1px solid #887d6f;
+    border: 1px solid #887d6f;
     cursor: pointer;
     user-select: none;
     transition: all $transition-time;
