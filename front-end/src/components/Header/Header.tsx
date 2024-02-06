@@ -18,13 +18,14 @@ export const Header: React.FC = () => {
     const lens = document.querySelector('.lens') as HTMLDivElement;
     const textLinks = document.querySelectorAll('.nav__link') as NodeListOf<HTMLLinkElement>;
     const header = document.querySelector('.Header') as HTMLDivElement;
-
+    const textLinks = document.querySelectorAll('.nav__link') as NodeListOf<HTMLLinkElement>;
+    const header = document.querySelector('.Header') as HTMLDivElement;
+      
     searchDiv.addEventListener('click', () => {
       if (!isClickedSearch) {
         textLinks.forEach((textLink) => {
           textLink.classList.add('hidden');
         });
-
         searchInput.classList.remove('hidden');
         searchInput.focus();
         lens.classList.remove('hidden');

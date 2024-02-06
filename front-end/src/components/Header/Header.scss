@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 @import "../../utils/var";
+=======
+@import '../../utils/var';
+>>>>>>> main
 
 .Header {
   position: fixed;
@@ -8,7 +12,11 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+<<<<<<< HEAD
   padding: 0 $default-side-margins;
+=======
+  padding: 0 120px;
+>>>>>>> main
   width: 100vw;
   font-family: Roboto, sans-serif;
   background-color: $main-color;
@@ -17,7 +25,21 @@
   &__top-bar {
     display: flex;
     justify-content: space-between;
+<<<<<<< HEAD
     padding: 30px 0;
+=======
+    padding: 32px 0;
+    width: 80%;
+  }
+
+  &__panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 62px 0;
+    height: 44px;
+    width: 80%;
+>>>>>>> main
   }
 
   &__right-side {
@@ -29,7 +51,11 @@
 
   &__language-select {
     text-decoration: none;
+<<<<<<< HEAD
     font-family: "Tenor Sans", sans-serif;
+=======
+    font-family: 'Tenor Sans', sans-serif;
+>>>>>>> main
     font-size: 24px;
     font-weight: 400;
     color: #fff;
@@ -68,7 +94,11 @@
     color: #e2e2e2;
 
     &:hover::after {
+<<<<<<< HEAD
       content: "";
+=======
+      content: '';
+>>>>>>> main
       display: block;
       height: 2px;
       background-color: #fff;
@@ -78,11 +108,14 @@
       color: #caa79e;
     }
   }
+<<<<<<< HEAD
 
   &--sign {
     position: relative;
     left: -100px;
   }
+=======
+>>>>>>> main
 }
 
 .sign-in {
@@ -92,6 +125,7 @@
 
 .input {
   box-sizing: border-box;
+<<<<<<< HEAD
   padding: 10px 52px !important;
   width: 700px;
   height: 44px;
@@ -102,6 +136,17 @@
   border-bottom: 1px solid #fff;
   outline: none;
   background-color: #fff;
+=======
+  padding: 10px 0;
+  width: 700px;
+  height: 44px;
+  font-family: 'Tenor Sans', sans-serif;
+  font-size: 14px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background-color: transparent;
+>>>>>>> main
   color: #a3a3a3;
   user-select: none;
 
@@ -109,6 +154,7 @@
     display: flex;
     align-items: center;
 
+<<<<<<< HEAD
     .lens {
       position: relative;
       left: 40px;
@@ -124,6 +170,14 @@
       width: 24px;
       height: 24px;
       background-image: url("../../img/icon-search-white.svg");
+=======
+    &::after {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 24px;
+      background-image: url('../../img/icon-search-white.svg');
+>>>>>>> main
       cursor: pointer;
     }
   }
@@ -134,12 +188,20 @@
 }
 
 .margin {
+<<<<<<< HEAD
   margin-top: 92px;
+=======
+  margin-top: 100px;
+>>>>>>> main
 }
 
 #bag {
   position: relative;
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> main
   &::after {
     content: attr(data-count);
     box-sizing: border-box;
@@ -156,4 +218,8 @@
     background-color: #caa79e;
     color: #fff;
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> main

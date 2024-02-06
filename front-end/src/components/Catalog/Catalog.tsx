@@ -46,7 +46,6 @@ export const Catalog: React.FC = () => {
         />
       ));
   };
-
   const toggleArrow = (index: number) => {
     const arrow = document.querySelectorAll('.arrow')[index];
     const filterOptions = document.querySelectorAll('.Catalog__filters--options')[index];
