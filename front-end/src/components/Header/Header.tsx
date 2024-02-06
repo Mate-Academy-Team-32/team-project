@@ -43,11 +43,11 @@ export const Header: React.FC = () => {
     <>
       <header className="Header">
         <section className="Header__top-bar">
-          <nav className="nav nav--links">
-            <Link to="/" className="Header__logo">
-              <img src={logoPerfume} alt="Logo PerfuMe" />
-            </Link>
+          <Link to="/" className="Header__logo">
+            <img src={logoPerfume} alt="Logo PerfuMe" />
+          </Link>
 
+          <nav className="nav nav--links">
             <Link to="/" relative="path" className="nav__link">Home</Link>
 
             <Link to="/catalog" relative="path" className="nav__link">Catalog</Link>
@@ -56,6 +56,7 @@ export const Header: React.FC = () => {
 
             <Link to="/contacts" relative="path" className="nav__link">Contact Us</Link>
           </nav>
+
           <nav className="nav nav--sign">
             <div className="input--search">
               <div className="lens lens--close hidden"></div>
