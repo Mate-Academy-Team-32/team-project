@@ -3,7 +3,7 @@
     "id": 1,
     "category": "top",
     "title": "Tiziana Terenzi Kirke",
-    "price": 200,
+    "price": 140,
     "volume": 100,
     "countStars": 4,
     "countReviews": 10
@@ -12,45 +12,45 @@
     "id": 2,
     "category": "top",
     "title": "D&G 3 L'Imperatrice",
-    "price": 200,
+    "price": 250,
     "volume": 100,
-    "countStars": 4,
-    "countReviews": 10
+    "countStars": 3,
+    "countReviews": 23
   },
   {
     "id": 3,
     "category": "top",
     "title": "Extract Cuba Original",
-    "price": 200,
+    "price": 270,
     "volume": 100,
-    "countStars": 4,
-    "countReviews": 10
+    "countStars": 5,
+    "countReviews": 150
   },
   {
     "id": 4,
     "category": "top",
     "title": "Christian Dior J'Adore",
-    "price": 200,
+    "price": 440,
     "volume": 100,
-    "countStars": 4,
-    "countReviews": 10
+    "countStars": 5,
+    "countReviews": 37
   },
   {
     "id": 5,
     "category": "top",
     "title": "D&G 3 L'Imperatrice",
-    "price": 200,
+    "price": 250,
     "volume": 100,
-    "countStars": 4,
-    "countReviews": 10
+    "countStars": 3,
+    "countReviews": 80
   },
   {
     "id": 6,
     "category": "top",
     "title": "Lacoste Eau de L.12.12.",
-    "price": 200,
+    "price": 280,
     "volume": 100,
-    "countStars": 4,
-    "countReviews": 10
+    "countStars": 5,
+    "countReviews": 428
   }
 ]
