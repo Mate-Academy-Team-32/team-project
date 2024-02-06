@@ -5,11 +5,7 @@
   align-items: center;
   padding: 56px 80px;
   font-family: Roboto, sans-serif;
-<<<<<<< HEAD
 
-=======
-  
->>>>>>> main
   &__content {
     position: relative;
     display: flex;
@@ -52,11 +48,7 @@
     color: #292929;
 
     &:focus:invalid {
-<<<<<<< HEAD
       border-bottom: 2px solid #fc0606;
-=======
-      border-color: #fc0606;
->>>>>>> main
     }
   }
 
@@ -86,7 +78,6 @@
     gap: 16px;
   }
 
-<<<<<<< HEAD
   &__is-signed {
     width: 20px;
     height: 20px;
@@ -97,15 +88,6 @@
   }
 
   &__is-signed-label {
-=======
-  &__isSigned {
-    width: 20px;
-    height: 20px;
-    accent-color: #000;
-  }
-
-  &__isSigned-label {
->>>>>>> main
     user-select: none;
     font-size: 16px;
     font-weight: 300;
@@ -118,10 +100,7 @@
       color: #000;
     }
   }
-<<<<<<< HEAD
 
-=======
->>>>>>> main
   &__account-options {
     margin-bottom: 24px;
     text-align: center;

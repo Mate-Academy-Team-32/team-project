@@ -36,7 +36,6 @@
     position: absolute;
     right: 24px;
     cursor: pointer;
-<<<<<<< HEAD
     width: 56px;
     height: 56px;
     border: none;
@@ -51,22 +50,6 @@
     &:hover {
       box-shadow: 0 0 20px rgb(231, 241, 241);
       background-color: rgba(231, 241, 241, 0.5);
-=======
-    width: 52px;
-    height: 52px;
-    border: none;
-    border-radius: 50%;
-    background-image: url('../../img/tool-arrow.svg');
-    background-repeat: no-repeat;
-    background-position: center;
-    transition: all 1s;
-    background-color: #fff;
-    z-index: 1;
-
-    &:hover {
-      box-shadow: 0 0 20px #e7f1f1;
-      background-color: #e7f1f1;
->>>>>>> main
     }
 
     &--left {
@@ -99,15 +82,9 @@
     color: #bababa;
   }
 
-<<<<<<< HEAD
-  &__image>img {
+  &__image > img {
     position: absolute;
     top: 0;
-=======
-  &__image > img{
-    position: absolute;
-    top: 1.5px;
->>>>>>> main
     right: 0;
     height: 500px;
     background-size: contain;
@@ -118,16 +95,9 @@
   width: 10px;
   height: 10px;
   background-repeat: no-repeat;
-<<<<<<< HEAD
   background-image: url("../../img/tool-circle-gray.svg");
 
   &--selected {
     background-image: url("../../img/tool-circle-white.svg");
-=======
-  background-image: url('../../img/tool-circle-gray.svg');
-
-  &--selected {
-    background-image: url('../../img/tool-circle-white.svg');
->>>>>>> main
   }
 }

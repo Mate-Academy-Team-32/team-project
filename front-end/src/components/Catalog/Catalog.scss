@@ -1,16 +1,11 @@
 .Catalog {
   display: grid;
   grid-template-columns: 1fr 4fr;
-<<<<<<< HEAD
   padding: 46px 24px 32px;
-=======
-  padding: 46px 24px 84px;
->>>>>>> main
   font-family: Roboto, sans-serif;
 
   &__browse {
     display: flex;
-<<<<<<< HEAD
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
@@ -65,11 +60,6 @@
     width: 100%;
   }
 
-=======
-    flex-wrap: wrap;
-  }
-
->>>>>>> main
   &__filters {
     &--name {
       padding: 12px 28px;
@@ -78,22 +68,15 @@
     &--category {
       display: flex;
       justify-content: space-between;
-<<<<<<< HEAD
       align-items: center;
-=======
->>>>>>> main
       font-size: 16px;
     }
 
     &--options {
-<<<<<<< HEAD
       display: flex;
       flex-direction: column;
       gap: 14px;
       margin-top: 10px;
-=======
-      margin-top: 10px
->>>>>>> main
     }
 
     &--header {
@@ -113,10 +96,7 @@
 
     &--info {
       display: flex;
-<<<<<<< HEAD
       align-items: center;
-=======
->>>>>>> main
     }
   }
 
@@ -142,13 +122,10 @@
       height: 0;
       border-color: #c8c8c8;
     }
-<<<<<<< HEAD
 
     &--margin {
       margin: 20px 32px;
     }
-=======
->>>>>>> main
   }
 }
 
@@ -167,24 +144,17 @@
 .checkbox {
   width: 24px;
   height: 24px;
-<<<<<<< HEAD
 
   &:checked {
     background-color: #000;
   }
-=======
-  accent-color: #000;
->>>>>>> main
 }
 
 .input {
   &--dollars {
-<<<<<<< HEAD
     width: 80px;
     height: 32px;
 
-=======
->>>>>>> main
     &::after {
       content: "USD";
       position: relative;
@@ -231,7 +201,6 @@
   }
 }
 
-<<<<<<< HEAD
 .dollar {
   margin: 0 20px;
 }
@@ -307,5 +276,3 @@
     background-color: #fff;
   }
 }
-=======
->>>>>>> main

@@ -1,11 +1,6 @@
-<<<<<<< HEAD
 import React, { useEffect, useState } from 'react';
 import './Sign.scss';
 import { scrollToTop } from '../../utils/_scroll';
-=======
-import React, { useState } from 'react';
-import './Sign.scss';
->>>>>>> main
 
 type Props = {
   setPage: (page: 'sign-in' | 'sign-up' | 'forgot') => void;
@@ -14,13 +9,9 @@ type Props = {
 export const Sign: React.FC = () => {
   const [page, setPage] = useState('sign-in');
 
-<<<<<<< HEAD
   useEffect(() => {
     scrollToTop();
   }, []);
-=======
-  window.scrollTo(0, 0);
->>>>>>> main
 
   if (page === 'sign-in') {
     return <SignIn setPage={setPage} />;
@@ -98,17 +89,10 @@ const SignIn: React.FC<Props> = ({ setPage }) => {
             type="checkbox"
             name="isSigned"
             id="isSigned"
-<<<<<<< HEAD
             className="Sign__is-signed focus:ring-transparent"
             defaultChecked
           />
           <label htmlFor="isSigned" className="Sign__is-signed-label">Keep me signed in</label>
-=======
-            className="Sign__isSigned"
-            defaultChecked
-          />
-          <label htmlFor="isSigned" className="Sign__isSigned-label">Keep me signed in</label>
->>>>>>> main
         </div>
 
         <button type="submit" className="Sign__submit">Login</button>
@@ -132,11 +116,7 @@ const SignUp: React.FC<Props> = ({ setPage }) => {
       setErrorMsg('Password fields can’t be the same!');
       setIsError(true);
     }
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> main
     if (!isError) {
       event.preventDefault();
       setIsError(false);
@@ -254,13 +234,7 @@ const SignUp: React.FC<Props> = ({ setPage }) => {
         </div>
 
         <button type="submit" className="Sign__submit">Sign up</button>
-<<<<<<< HEAD
 
-
-=======
-          
-          
->>>>>>> main
         <div className="Sign__account-options">
           Already have an account?
           <span onClick={() => setPage('sign-in')}>Sign in here</span>
