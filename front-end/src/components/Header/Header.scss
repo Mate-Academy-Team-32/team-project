@@ -32,18 +32,8 @@
   }
 
   @include on-tablet {
-    .Header__logo {
-      width: 100%;
-    }
-
     .Header__menu {
       display: none;
-    }
-  }
-
-  @include on-laptop {
-    .Header__logo {
-      width: 100%;
     }
   }
 
