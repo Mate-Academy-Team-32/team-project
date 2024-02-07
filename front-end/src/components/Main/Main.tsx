@@ -64,19 +64,19 @@ export const Main: React.FC = () => (
     <section className="Main__advantages advantages">
       <div className="advantages__content">
         <div className="advantages__cell cell cell--text">
-          From classic to exclusive! Over 20,000 tested perfumes. Only original products of global and Ukrainian manufacturers.
+          From <span>classic</span> to <span>exclusive!</span> Over <span>20,000</span> tested perfumes. Only <span>original products</span> of global and Ukrainian manufacturers.
         </div>
         <div className="advantages__cell cell">
           <img src={imgAdv1} alt="Advantages 2" width="450" />
         </div>
         <div className="advantages__cell cell cell--text">
-          Discover the world of reincarnations. Get inspired, admire, conspire. Don't miss the hot discounts!
+          Discover the world of reincarnations. Get <span>inspired, admire, conspire.</span> Don't miss the <span>hot discounts!</span>
         </div>
         <div className="advantages__cell cell">
           <img src={imgAdv2} alt="Advantages 1" width="450" />
         </div>
         <div className="advantages__cell cell cell--text cell--color--light">
-          Join us! We want you to be interesting with us, so that you feel that with us, you can afford high-quality elite perfumery.
+          <span>Join us!</span> We want you to be interesting with us, so that you feel that with us, you can afford <span>high-quality elite perfumery.</span>
         </div>
         <div className="advantages__cell cell">
           <img src={imgAdv3} alt="Advantages 3" width="450" />
