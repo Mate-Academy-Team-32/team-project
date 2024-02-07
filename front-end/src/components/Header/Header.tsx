@@ -43,6 +43,8 @@ export const Header: React.FC = () => {
     <>
       <header className="Header">
         <section className="Header__top-bar">
+          <img src="" alt="burger-menu" className="Header__menu" />
+
           <Link to="/" className="Header__logo">
             <img src={logoPerfume} alt="Logo PerfuMe" />
           </Link>
@@ -77,7 +79,7 @@ export const Header: React.FC = () => {
               />
             </Link>
 
-            <Link to="/likes">
+            <Link to="/likes" id="icon--like">
               <img
                 className="Header__icon"
                 src={logoHeart}

@@ -1,4 +1,5 @@
-@import "../../utils/var";
+@import "../../utils/vars";
+@import "../../utils/mixins";
 
 .Header {
   position: fixed;
@@ -11,9 +12,51 @@
   padding: 0 $default-side-margins;
   width: 100vw;
   height: 198px;
-  font-family: Roboto, sans-serif;
+  font-family: Montserrat, sans-serif;
   background-color: $main-color;
   z-index: 10;
+
+  @include on-phone {
+    .nav--links {
+      display: none;
+    }
+
+    .nav--sign {
+      width: 100%;
+      justify-content: center;
+    }
+
+    #icon--like {
+      display: none;
+    }
+  }
+
+  @include on-tablet {
+    .Header__logo {
+      width: 100%;
+    }
+
+    .Header__menu {
+      display: none;
+    }
+  }
+
+  @include on-laptop {
+    .Header__logo {
+      width: 100%;
+    }
+  }
+
+  .Header__logo {
+    display: flex;
+    align-items: center;
+    height: 30px;
+  }
+
+  .Header__menu {
+    width: 24px;
+    height: 24px;
+  }
 
   &__top-bar {
     display: flex;
