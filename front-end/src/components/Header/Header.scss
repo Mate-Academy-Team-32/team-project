@@ -102,6 +102,10 @@
   color: #a3a3a3;
   user-select: none;
 
+  &:focus {
+    color: #000;
+  }
+
   &--search {
     display: flex;
     align-items: center;
