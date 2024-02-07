@@ -1,36 +1,32 @@
 import React, { useEffect, useState } from 'react';
+import { useLocation, Link } from 'react-router-dom';
 import './Sign.scss';
 import { scrollToTop } from '../../utils/_scroll';
 
-type Props = {
-  setPage: (page: 'sign-in' | 'sign-up' | 'forgot') => void;
-};
-
 export const Sign: React.FC = () => {
-  const [page, setPage] = useState('sign-in');
+  const searchPath = useLocation().search;
 
   useEffect(() => {
     scrollToTop();
   }, []);
 
-  if (page === 'sign-in') {
-    return <SignIn setPage={setPage} />;
-  } else if (page === 'sign-up') {
-    return <SignUp setPage={setPage} />;
-  } else if (page === 'forgot') {
-    return <Forgot setPage={setPage} />;
+  if (searchPath === '?type=in') {
+    return <SignIn />;
+  } else if (searchPath === '?type=up') {
+    return <SignUp />;
+  } else if (searchPath === '?type=forgot') {
+    return <Forgot />;
+  } else {
+    return <SignIn />;
   }
-
-  return <></>;
 };
 
-const SignIn: React.FC<Props> = ({ setPage }) => {
+const SignIn: React.FC = () => {
   const [isError, setIsError] = useState(false);
 
   const handleSubmit = (event: React.ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
     setIsError(false);
-    // (document.querySelector('.Form') as HTMLFormElement).reset();
   };
 
   return (
@@ -82,7 +78,7 @@ const SignIn: React.FC<Props> = ({ setPage }) => {
           }
         }}></span>
 
-        <span className="Sign__forgot" onClick={() => setPage('forgot')}>Forgot Password?</span>
+        <Link to="/sign?type=forgot" relative="path" className="nav__link">Forgot Password?</Link>
 
         <div className="Sign__signed">
           <input
@@ -99,13 +95,14 @@ const SignIn: React.FC<Props> = ({ setPage }) => {
 
         <div className="Sign__account-options">
           Don’t have an account?
-          <span onClick={() => setPage('sign-up')}>Sign Up</span>
+          <Link to="/sign?type=up" relative="path" className="nav__link">Sign Up</Link>
         </div>
       </form>
     </section>
   );
 };
-const SignUp: React.FC<Props> = ({ setPage }) => {
+
+const SignUp: React.FC = () => {
   const [isError, setIsError] = useState(false);
   const [errorMsg, setErrorMsg] = useState('E-mail and/or password fields are incorrectly filled!');
 
@@ -120,7 +117,6 @@ const SignUp: React.FC<Props> = ({ setPage }) => {
     if (!isError) {
       event.preventDefault();
       setIsError(false);
-      // (document.querySelector('.Form') as HTMLFormElement).reset();
     }
   };
 
@@ -237,14 +233,14 @@ const SignUp: React.FC<Props> = ({ setPage }) => {
 
         <div className="Sign__account-options">
           Already have an account?
-          <span onClick={() => setPage('sign-in')}>Sign in here</span>
+          <Link to="/sign?type=in" relative="path" className="nav__link">Sign in here</Link>
         </div>
       </form>
     </section>
   );
 };
 
-const Forgot: React.FC<Props> = ({ setPage }) => {
+const Forgot: React.FC = () => {
   const handleSubmit = (event: React.ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
   };
@@ -277,7 +273,7 @@ const Forgot: React.FC<Props> = ({ setPage }) => {
 
         <div className="Sign__account-options">
           Go back to
-          <span onClick={() => setPage('sign-in')}>login</span>
+          <Link to="/sign?type=up" relative="path" className="nav__link">login</Link>
         </div>
       </form>
     </section>
