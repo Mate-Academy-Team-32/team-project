@@ -31,6 +31,7 @@ export const Footer: React.FC = () => {
               type="email"
               name="email"
               placeholder="Your email here"
+              className="focus:ring-transparent"
               required
             />
             <button type="submit" className="Footer__button">Submit</button>

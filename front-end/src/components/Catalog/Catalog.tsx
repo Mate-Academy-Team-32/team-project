@@ -21,6 +21,7 @@ export const Catalog: React.FC = () => {
   const [view, setView] = useState<View>('List');
   const [isGrid, setIsGrid] = useState(false);
   const [numberOfProducts, setNumberOfProducts] = useState(6);
+  const [countProductsState, setCountProductsState] = useState(1);
   const [priceMin, setPriceMin] = useState(1);
   const [priceMax, setPriceMax] = useState(400);
 
@@ -40,6 +41,7 @@ export const Catalog: React.FC = () => {
           title={card.title}
           price={card.price}
           volume={card.volume}
+          countProducts={[countProductsState, setCountProductsState]}
           countStars={card.countStars}
           countReviews={card.countReviews}
           isGrid={isGrid}
@@ -142,11 +144,50 @@ export const Catalog: React.FC = () => {
 
           <article className="Catalog__filters--name">
             <div className="Catalog__filters--category">
-              <h2>Producer</h2>
+              <h2>Brands</h2>
               <button className="arrow" onClick={() => toggleArrow(1)}></button>
             </div>
             <div className="Catalog__filters--options hidden">
-
+              <div className="Catalog__choice--checkbox">
+                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <p>Brand (12)</p>
+              </div>
+              <div className="Catalog__choice--checkbox">
+                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <p>Brand (1)</p>
+              </div>
+              <div className="Catalog__choice--checkbox">
+                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <p>Brand (12)</p>
+              </div>
+              <div className="Catalog__choice--checkbox">
+                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <p>Brand (2)</p>
+              </div>
+              <div className="Catalog__choice--checkbox">
+                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <p>Brand (4)</p>
+              </div>
+              <div className="Catalog__choice--checkbox">
+                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <p>Brand (13)</p>
+              </div>
+              <div className="Catalog__choice--checkbox">
+                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <p>Brand (9)</p>
+              </div>
+              <div className="Catalog__choice--checkbox">
+                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <p>Brand (7)</p>
+              </div>
+              <div className="Catalog__choice--checkbox">
+                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <p>Brand (11)</p>
+              </div>
+              <div className="Catalog__choice--checkbox">
+                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <p>Brand (10)</p>
+              </div>
             </div>
           </article>
 
@@ -158,7 +199,46 @@ export const Catalog: React.FC = () => {
               <button className="arrow" onClick={() => toggleArrow(2)}></button>
             </div>
             <div className="Catalog__filters--options hidden">
-
+              <div className="Catalog__choice--checkbox">
+                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <p>Country</p>
+              </div>
+              <div className="Catalog__choice--checkbox">
+                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <p>Country</p>
+              </div>
+              <div className="Catalog__choice--checkbox">
+                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <p>Country</p>
+              </div>
+              <div className="Catalog__choice--checkbox">
+                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <p>Country</p>
+              </div>
+              <div className="Catalog__choice--checkbox">
+                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <p>Country</p>
+              </div>
+              <div className="Catalog__choice--checkbox">
+                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <p>Country</p>
+              </div>
+              <div className="Catalog__choice--checkbox">
+                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <p>Country</p>
+              </div>
+              <div className="Catalog__choice--checkbox">
+                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <p>Country</p>
+              </div>
+              <div className="Catalog__choice--checkbox">
+                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <p>Country</p>
+              </div>
+              <div className="Catalog__choice--checkbox">
+                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <p>Country</p>
+              </div>
             </div>
           </article>
 
@@ -170,7 +250,22 @@ export const Catalog: React.FC = () => {
               <button className="arrow" onClick={() => toggleArrow(3)}></button>
             </div>
             <div className="Catalog__filters--options hidden">
-
+              <div className="Catalog__choice--checkbox">
+                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <p>Parfume</p>
+              </div>
+              <div className="Catalog__choice--checkbox">
+                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <p>Parfumed water</p>
+              </div>
+              <div className="Catalog__choice--checkbox">
+                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <p>Toiled water</p>
+              </div>
+              <div className="Catalog__choice--checkbox">
+                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <p>Cologne</p>
+              </div>
             </div>
           </article>
 
@@ -182,7 +277,18 @@ export const Catalog: React.FC = () => {
               <button className="arrow" onClick={() => toggleArrow(4)}></button>
             </div>
             <div className="Catalog__filters--options hidden">
-
+              <div className="Catalog__choice--checkbox">
+                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <p>30 ml</p>
+              </div>
+              <div className="Catalog__choice--checkbox">
+                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <p>50 ml</p>
+              </div>
+              <div className="Catalog__choice--checkbox">
+                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <p>100 ml</p>
+              </div>
             </div>
           </article>
 
@@ -196,11 +302,15 @@ export const Catalog: React.FC = () => {
             <div className="Catalog__filters--options hidden">
               <div className="Catalog__choice--checkbox">
                 <input type="checkbox" className="checkbox focus:ring-transparent" />
-                <p>Male (100)</p>
+                <p>Women's (100)</p>
               </div>
               <div className="Catalog__choice--checkbox">
                 <input type="checkbox" className="checkbox focus:ring-transparent" />
-                <p>Female (200)</p>
+                <p>Men's</p>
+              </div>
+              <div className="Catalog__choice--checkbox">
+                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <p>Unisex</p>
               </div>
             </div>
           </article>
@@ -209,7 +319,7 @@ export const Catalog: React.FC = () => {
 
           <article className="Catalog__filters--name">
             <div className="Catalog__filters--category">
-              <h2>Type of fragrance</h2>
+              <h2>Type of aroma</h2>
               <button className="arrow arrow--reversed" onClick={() => toggleArrow(6)}></button>
             </div>
             <div className="Catalog__filters--options">

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Dispatch, SetStateAction } from 'react';
 import { useNavigate } from 'react-router-dom';
 import cn from 'classnames';
 import { Rate } from '../Rate';
@@ -11,6 +11,7 @@ type Props = {
   title: string;
   price: number;
   volume: number;
+  countProducts: [number, Dispatch<SetStateAction<number>>],
   countStars?: number;
   countReviews?: number;
   isGrid?: boolean;
@@ -23,11 +24,11 @@ export const Card: React.FC<Props> = ({
   title,
   price,
   volume,
+  countProducts,
   countStars = 5,
   countReviews = 10,
   isGrid = false,
 }) => {
-  const [countProducts, setCountProducts] = useState(0);
   const navigate = useNavigate();
 
   return (
@@ -73,8 +74,9 @@ export const Card: React.FC<Props> = ({
         onClick={() => {
           const countBag = document.querySelector('#bag') as HTMLAnchorElement;
 
-          setCountProducts(currentCount => currentCount + 1);
-          countBag.setAttribute('data-count', (countProducts + 1).toString());
+          countProducts[1](currentCount => currentCount + 1);
+
+          countBag.setAttribute('data-count', countProducts[0].toString());
         }}
       >
         Add to bag

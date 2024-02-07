@@ -2,9 +2,10 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Header.scss';
 import logoPerfume from '../../img/logo-perfume.svg';
-import logoAccount from '../../img/icon-account.svg';
-import logoHeart from '../../img/icon-heart-white.svg';
-import logoBag from '../../img/icon-bag-white.svg';
+import iconAccount from '../../img/icon-account.svg';
+import iconHeart from '../../img/icon-heart-white.svg';
+import iconBag from '../../img/icon-bag-white.svg';
+import iconBurger from '../../img/icon-burger.svg';
 
 export const Header: React.FC = () => {
   useEffect(() => {
@@ -43,7 +44,7 @@ export const Header: React.FC = () => {
     <>
       <header className="Header">
         <section className="Header__top-bar">
-          <img src="" alt="burger-menu" className="Header__menu" />
+          <img src={iconBurger} alt="burger-menu" className="Header__menu" />
 
           <Link to="/" className="Header__logo">
             <img src={logoPerfume} alt="Logo PerfuMe" />
@@ -63,7 +64,7 @@ export const Header: React.FC = () => {
             <div className="input--search">
               <div className="lens lens--close hidden"></div>
               <input
-                className="input hidden"
+                className="input hidden focus:ring-transparent"
                 id="search"
                 type="text"
                 placeholder="Hey, what are you looking for?"
@@ -74,7 +75,7 @@ export const Header: React.FC = () => {
             <Link to="/sign">
               <img
                 className="sign-in"
-                src={logoAccount}
+                src={iconAccount}
                 alt="Sign in"
               />
             </Link>
@@ -82,7 +83,7 @@ export const Header: React.FC = () => {
             <Link to="/likes" id="icon--like">
               <img
                 className="Header__icon"
-                src={logoHeart}
+                src={iconHeart}
                 alt="Heart"
               />
             </Link>
@@ -90,7 +91,7 @@ export const Header: React.FC = () => {
             <Link to="/cart" id="bag">
               <img
                 className="Header__icon Header__icon--w-34"
-                src={logoBag}
+                src={iconBag}
                 alt="Bag"
               />
             </Link>

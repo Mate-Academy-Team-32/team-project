@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: 1fr 4fr;
   padding: 46px 24px 32px;
-  font-family: Roboto, sans-serif;
+  font-family: Montserrat, sans-serif;
 
   &__browse {
     display: flex;
@@ -40,7 +40,7 @@
     cursor: pointer;
 
     &::before {
-      content: '';
+      content: "";
       position: relative;
       display: block;
       width: 24px;
@@ -229,6 +229,7 @@
 }
 
 .button {
+  font-family: Monrserrat, sans-serif;
   cursor: pointer;
 
   &:disabled {
@@ -249,7 +250,7 @@
     background-color: transparent;
 
     &::before {
-      content: '';
+      content: "";
       position: relative;
       top: 3px;
       left: -10px;
