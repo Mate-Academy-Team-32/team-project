@@ -5,7 +5,7 @@
 }
 
 @mixin on-tablet {
-  @media (min-width: $tablet-min-width) {
+  @media (min-width: $phone-min-width-2) and (max-width: $tablet-min-width) {
     @content;
   }
 }

@@ -143,6 +143,18 @@
   }
 }
 
+.logo {
+  font-family: Kodchasan, sans-serif;
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 52px;
+  color: #fff;
+
+  &__highlight {
+    color: #caa79e;
+  }
+}
+
 .catalog {
   display: flex;
   flex-direction: column;

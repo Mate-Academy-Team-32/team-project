@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Header.scss';
-import logoPerfume from '../../img/logo-perfume.svg';
 import iconAccount from '../../img/icon-account.svg';
 import iconHeart from '../../img/icon-heart-white.svg';
 import iconBag from '../../img/icon-bag-white.svg';
@@ -47,7 +46,10 @@ export const Header: React.FC = () => {
           <img src={iconBurger} alt="burger-menu" className="Header__menu" />
 
           <Link to="/" className="Header__logo">
-            <img src={logoPerfume} alt="Logo PerfuMe" />
+            <div className="logo">
+              Perfu
+              <span className="logo__highlight">Me</span>
+            </div>
           </Link>
 
           <nav className="nav nav--links">

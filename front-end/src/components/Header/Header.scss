@@ -35,17 +35,23 @@
     .Header__menu {
       display: none;
     }
+
+    .nav__link {
+      font-size: 14px;
+    }
   }
 
-  .Header__logo {
+  &__logo {
     display: flex;
     align-items: center;
     height: 30px;
   }
 
-  .Header__menu {
+  &__menu {
     width: 24px;
     height: 24px;
+    margin-right: 24px;
+    cursor: pointer;
   }
 
   &__top-bar {
@@ -84,6 +90,18 @@
     &--w-34 {
       width: 34px;
     }
+  }
+}
+
+.logo {
+  font-family: Kodchasan, sans-serif;
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 52px;
+  color: #fff;
+
+  &__highlight {
+    color: #caa79e;
   }
 }
 

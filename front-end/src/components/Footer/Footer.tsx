@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Footer.scss';
-import logoPerfume from '../../img/logo-perfume.svg';
 
 export const Footer: React.FC = () => {
   const handleSubmit = (event: React.ChangeEvent<HTMLFormElement>) => {
@@ -14,7 +13,10 @@ export const Footer: React.FC = () => {
       <article className="Footer__info">
         <section className="Footer__subscribe">
           <Link to="/" className="Footer__logo">
-            <img src={logoPerfume} alt="Logo PerfuMe" />
+            <div className="logo">
+              Perfu
+              <span className="logo__highlight">Me</span>
+            </div>
           </Link>
 
           <p className="Footer__text Footer__text--size-24 Footer__text--color-light">
