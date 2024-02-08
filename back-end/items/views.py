@@ -1,5 +1,7 @@
 from django.db.models import Avg, Count
 from django.db.models.functions import Round
+from drf_spectacular.types import OpenApiTypes
+from drf_spectacular.utils import extend_schema, OpenApiParameter
 from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
@@ -69,6 +71,27 @@ class ItemViewSet(CoreModelMixin, viewsets.ModelViewSet):
             return ItemDetailSerializer
 
         return ItemSerializer
+
+    @extend_schema(
+        parameters=[
+            OpenApiParameter(
+                name,
+                type=type_,
+                description=f"Filter by {name} (ex. ?{name}={example})",
+            ) for name, type_, example in [
+                ("min_price", OpenApiTypes.DECIMAL, 100),
+                ("max_price", OpenApiTypes.DECIMAL, 100),
+                ("label", OpenApiTypes.STR, "Chanel"),
+                ("country", OpenApiTypes.STR, "France"),
+                ("strength", OpenApiTypes.INT, 2),
+                ("gender", OpenApiTypes.STR, "F"),
+                ("size", OpenApiTypes.INT, 250),
+                ("tags", OpenApiTypes.INT, 2),
+            ]
+        ]
+    )
+    def list(self, request, *args, **kwargs):
+        return super().list(request, *args, **kwargs)
 
 
 class ItemImageViewSet(CoreModelMixin, viewsets.ModelViewSet):
