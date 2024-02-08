@@ -1,8 +1,10 @@
-import React, { Dispatch, SetStateAction } from 'react';
+import React, { Dispatch, SetStateAction, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import cn from 'classnames';
 import { Rate } from '../Rate';
 import './Card.scss';
+import like from '../../img/icon-heart.svg';
+import likeFocused from '../../img/icon-heart-focused.svg';
 
 type Props = {
   id: number;
@@ -30,6 +32,7 @@ export const Card: React.FC<Props> = ({
   isGrid = false,
 }) => {
   const navigate = useNavigate();
+  const [isLiked, setIsLiked] = useState(true);
 
   return (
     <section className={cn(
@@ -39,7 +42,13 @@ export const Card: React.FC<Props> = ({
     )}>
       <nav className="Card__top-bar">
         <span className="Card__label">{category}</span>
-        <div className="Card__like"></div>
+        <div className="Card__like">
+          <img
+            src={!isLiked ? like : likeFocused}
+            alt="Like"
+            onClick={() => setIsLiked(prevValue => !prevValue)}
+          />
+        </div>
       </nav>
 
       <img

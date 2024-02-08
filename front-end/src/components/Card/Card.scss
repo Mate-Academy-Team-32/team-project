@@ -6,7 +6,7 @@
   justify-content: center;
   align-items: center;
   padding: 10px 30px 20px;
-  width: 330px;
+  min-width: 370px;
   min-height: 550px;
   font-family: Montserrat, sans-serif;
 
@@ -101,13 +101,7 @@
   &__like {
     width: 20px;
     height: 20px;
-    background-image: url('../../img/icon-heart.svg');
-    background-size: 20px 20px;
     cursor: pointer;
-
-    &:hover {
-      background-color: red;
-    }
   }
 
   &__product {

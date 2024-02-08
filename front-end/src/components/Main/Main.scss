@@ -198,15 +198,17 @@
 }
 
 .advantages {
+  box-sizing: border-box;
   display: flex;
   justify-content: center;
   margin: 0 $default-side-margins;
   background-color: #f4f3f3;
 
   &__content {
+    width: 100%;
     display: grid;
-    grid-template-columns: repeat(3, 448px);
-    grid-template-rows: repeat(2, 400px);
+    grid-template-columns: repeat(3, 482px);
+    grid-template-rows: repeat(2, 402px);
     gap: 24px;
   }
 
