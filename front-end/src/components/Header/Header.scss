@@ -41,6 +41,12 @@
     }
   }
 
+  @include on-laptop {
+    .Header__menu {
+      display: none;
+    }
+  }
+
   &__logo {
     display: flex;
     align-items: center;
