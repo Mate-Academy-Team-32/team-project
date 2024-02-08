@@ -74,7 +74,7 @@
   &__features {
     display: flex;
     justify-content: center;
-    gap: 120px;
+    gap: 40px;
     padding: 70px 24px;
   }
 }
@@ -209,6 +209,7 @@
     display: grid;
     grid-template-columns: repeat(3, 482px);
     grid-template-rows: repeat(2, 402px);
+    justify-content: center;
     gap: 24px;
   }
 
