@@ -7,10 +7,15 @@
 Before you start your [local server](http://localhost:3000/) at 3000 port, you have to:
 
 1 - Download NPM (Node Packet Manager) at least v14 or newer;
-2 - Clone that project on your computer: git clone https://github.com/Mate-Academy-Team-32/team-project.git;
-3 - Run command to install required dependencies: npm i;
-4 - Run command to start local server: npm start;
-5 - The project will be opened after last command.
+2 - Clone that project on your computer:
+  > git clone https://github.com/Mate-Academy-Team-32/team-project.git;
+3 - Run command to change directory:
+  > cd ./front-end
+4 - Run command to install required dependencies:
+  > npm i;
+5 - Run command to start local server:
+  > npm start;
+6 - The project will be opened after last command.
 
 Yes, you did it. Congratulation!
 
