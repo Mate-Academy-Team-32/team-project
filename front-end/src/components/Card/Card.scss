@@ -27,7 +27,6 @@
     align-items: flex-start;
     padding: 24px;
     padding-bottom: 0;
-    width: 1000px;
     height: min-content;
     min-height: inherit;
     margin-left: 20px;
@@ -35,8 +34,12 @@
     box-shadow: 0 0 10px #979797;
 
     .Card__top-bar {
-      margin-left: 100px;
+      margin: 0 50px;
       gap: 18px;
+    }
+
+    .Card__product {
+      margin-right: 50px;
     }
 
     .Card__description {
@@ -102,6 +105,11 @@
     width: 20px;
     height: 20px;
     cursor: pointer;
+    transition: all $transition-time;
+
+    &:hover {
+      transform: scale(1.2);
+    }
   }
 
   &__product {
@@ -171,12 +179,6 @@
 
     &:hover {
       font-size: 16px;
-      border-radius: 10px;
-    }
-
-    &:active {
-      background-color: #d4ecd4;
-      transition: none;
     }
   }
 }
