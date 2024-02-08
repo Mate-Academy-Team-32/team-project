@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import cn from 'classnames';
 import { Rate } from '../Rate';
 import './Card.scss';
-import like from '../../img/icon-heart.svg';
+import like from '../../img/icon-heart-no-filled.svg';
 import likeFocused from '../../img/icon-heart-focused.svg';
 
 type Props = {

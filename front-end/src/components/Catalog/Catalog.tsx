@@ -122,6 +122,8 @@ export const Catalog: React.FC = () => {
                         setPriceMin(e.minValue);
                         setPriceMax(e.maxValue);
                       }}
+                      min={1}
+                      max={400}
                       minValue={priceMin}
                       maxValue={priceMax}
                       label={false}

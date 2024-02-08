@@ -79,6 +79,17 @@
   }
 }
 
+.features {
+  &__img {
+    cursor: pointer;
+    transition: all $transition-time;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
 .offer {
   position: absolute;
   left: 0;
@@ -207,14 +218,14 @@
   &__content {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(3, 482px);
-    grid-template-rows: repeat(2, 402px);
-    justify-content: center;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    justify-items: center;
+    align-content: center;
     gap: 24px;
   }
 
   .cell {
-    box-sizing: border-box;
     width: 450px;
     height: 400px;
 
