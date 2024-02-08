@@ -33,7 +33,7 @@ Before you start your [local server](http://localhost:3000/) at 3000 port, you h
 
 6. The project will be opened after last command.
 
-> - Yes, you did it. Congratulation!
+> Yes, you did it. Congratulation!
 
 ### Back-End part
 
