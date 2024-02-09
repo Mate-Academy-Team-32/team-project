@@ -96,7 +96,6 @@ export const Catalog: React.FC = () => {
           className="Catalog__filters"
         >
           <h2 className="Catalog__filters--header">Filters by parameters</h2>
-          <hr className="Catalog__line Catalog__line--filter"></hr>
 
           <article className="Catalog__filters--name">
             <div className="Catalog__filters--category">
@@ -387,6 +386,20 @@ export const Catalog: React.FC = () => {
               </div>
             </div>
           </article>
+
+          <section className="handling-menu">
+            <button
+              type="reset"
+              className="button button--clear"
+              onClick={() => {
+                const form = document.querySelector('.Catalog__filters') as HTMLFormElement;
+                form.reset();
+              }}
+            >
+              Clear
+            </button>
+            <button type="submit" className="button button--show">Show (12)</button>
+          </section>
         </form>
 
         <div className={cn(
@@ -400,7 +413,7 @@ export const Catalog: React.FC = () => {
         </div>
       </section>
 
-      <div className="handling-menu">
+      <section className="handling-menu handling-menu--reverse">
         <button
           type="button"
           className="button button--show-more"
@@ -411,18 +424,7 @@ export const Catalog: React.FC = () => {
         >
           Show more
         </button>
-        <button type="submit" className="button button--show">Show (12)</button>
-        <button
-          type="reset"
-          className="button button--clear"
-          onClick={() => {
-            const form = document.querySelector('.Catalog__filters') as HTMLFormElement;
-            form.reset();
-          }}
-        >
-          Clear
-        </button>
-      </div>
+      </section>
     </>
   );
 };
