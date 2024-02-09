@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Footer.scss';
 
 export const Footer: React.FC = () => {
@@ -11,7 +12,12 @@ export const Footer: React.FC = () => {
     <footer className="Footer">
       <article className="Footer__info">
         <section className="Footer__subscribe">
-          <a href="/" className="Footer__logo">PerfuMe</a>
+          <Link to="/" className="Footer__logo">
+            <div className="logo">
+              Perfu
+              <span className="logo__highlight">Me</span>
+            </div>
+          </Link>
 
           <p className="Footer__text Footer__text--size-24 Footer__text--color-light">
             Subscribe to Our Newsletter:
@@ -30,10 +36,11 @@ export const Footer: React.FC = () => {
             <input
               type="email"
               name="email"
-              placeholder='Your email here'
+              placeholder="Your email here"
+              className="focus:ring-transparent"
               required
             />
-            <button type="submit">Submit</button>
+            <button type="submit" className="Footer__button">Submit</button>
           </form>
 
           <nav className="Footer__share">
@@ -73,61 +80,65 @@ export const Footer: React.FC = () => {
         </section>
 
         <nav className="Footer__catalog catalog">
-          <h1 className="catalog__title">Catalog</h1>
+          <h1 className="catalog__title">My Account</h1>
           <a
-            href="http://link.com"
+            href="/sign?type=in"
             target="_blank"
             rel="noopener noreferrer"
             className='catalog__link'
           >
-            Women's Perfumery
+            Sign in
           </a>
           <a
-            href="http://link.com"
+            href="/sign?type=up"
             target="_blank"
             rel="noopener noreferrer"
             className='catalog__link'
           >
-            Man's Perfumery
+            Register
           </a>
           <a
-            href="http://link.com"
+            href="/cart"
             target="_blank"
             rel="noopener noreferrer"
             className='catalog__link'
           >
-            Children's  Perfumery
+            My orders
+          </a>
+        </nav>
+
+        <nav className="Footer__catalog catalog">
+          <h1 className="catalog__title">Pages</h1>
+          <a
+            href="/catalog"
+            target="_blank"
+            rel="noopener noreferrer"
+            className='catalog__link'
+          >
+            Catalog
           </a>
           <a
-            href="http://link.com"
+            href="/about"
             target="_blank"
             rel="noopener noreferrer"
             className='catalog__link'
           >
-            New
+            About us
           </a>
           <a
-            href="http://link.com"
+            href="/contacts"
             target="_blank"
             rel="noopener noreferrer"
             className='catalog__link'
           >
-            Actions
-          </a>
-          <a
-            href="http://link.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className='catalog__link'
-          >
-            Gift Ideas
+            Contact us
           </a>
         </nav>
 
         <nav className="Footer__catalog catalog">
           <h1 className="catalog__title">Online Shopping</h1>
           <a
-            href="http://link.com"
+            href="/bla-bla"
             target="_blank"
             rel="noopener noreferrer"
             className='catalog__link'
@@ -135,7 +146,7 @@ export const Footer: React.FC = () => {
             Payments
           </a>
           <a
-            href="http://link.com"
+            href="/bla-bla"
             target="_blank"
             rel="noopener noreferrer"
             className='catalog__link'
@@ -143,7 +154,7 @@ export const Footer: React.FC = () => {
             Delivery options
           </a>
           <a
-            href="http://link.com"
+            href="/bla-bla"
             target="_blank"
             rel="noopener noreferrer"
             className='catalog__link'
@@ -155,7 +166,7 @@ export const Footer: React.FC = () => {
         <nav className="Footer__catalog catalog">
           <h1 className="catalog__title">Customer care</h1>
           <a
-            href="http://link.com"
+            href="/bla-bla"
             target="_blank"
             rel="noopener noreferrer"
             className='catalog__link'
@@ -163,7 +174,7 @@ export const Footer: React.FC = () => {
             Help center
           </a>
           <a
-            href="http://link.com"
+            href="/bla-bla"
             target="_blank"
             rel="noopener noreferrer"
             className='catalog__link'
@@ -171,7 +182,7 @@ export const Footer: React.FC = () => {
             Terms & Conditions
           </a>
           <a
-            href="http://link.com"
+            href="/bla-bla"
             target="_blank"
             rel="noopener noreferrer"
             className='catalog__link'
@@ -179,7 +190,7 @@ export const Footer: React.FC = () => {
             Privacy policy
           </a>
           <a
-            href="http://link.com"
+            href="/bla-bla"
             target="_blank"
             rel="noopener noreferrer"
             className='catalog__link'
@@ -187,40 +198,12 @@ export const Footer: React.FC = () => {
             Returns & refund
           </a>
           <a
-            href="http://link.com"
+            href="/bla-bla"
             target="_blank"
             rel="noopener noreferrer"
             className='catalog__link'
           >
             Survey & feedback
-          </a>
-        </nav>
-
-        <nav className="Footer__catalog catalog">
-          <h1 className="catalog__title">Pages</h1>
-          <a
-            href="http://link.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className='catalog__link'
-          >
-            About Us
-          </a>
-          <a
-            href="http://link.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className='catalog__link'
-          >
-            Contact Us
-          </a>
-          <a
-            href="http://link.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className='catalog__link'
-          >
-            Blog
           </a>
         </nav>
       </article>

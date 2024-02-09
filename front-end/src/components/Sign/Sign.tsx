@@ -1,33 +1,32 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useLocation, Link } from 'react-router-dom';
 import './Sign.scss';
-
-type Props = {
-  setPage: (page: 'sign-in' | 'sign-up' | 'forgot') => void;
-};
+import { scrollToTop } from '../../utils/_scroll';
 
 export const Sign: React.FC = () => {
-  const [page, setPage] = useState('sign-in');
+  const searchPath = useLocation().search;
 
-  window.scrollTo(0, 0);
+  useEffect(() => {
+    scrollToTop();
+  }, []);
 
-  if (page === 'sign-in') {
-    return <SignIn setPage={setPage} />;
-  } else if (page === 'sign-up') {
-    return <SignUp setPage={setPage} />;
-  } else if (page === 'forgot') {
-    return <Forgot setPage={setPage} />;
+  if (searchPath === '?type=in') {
+    return <SignIn />;
+  } else if (searchPath === '?type=up') {
+    return <SignUp />;
+  } else if (searchPath === '?type=forgot') {
+    return <Forgot />;
+  } else {
+    return <SignIn />;
   }
-
-  return <></>;
 };
 
-const SignIn: React.FC<Props> = ({ setPage }) => {
+const SignIn: React.FC = () => {
   const [isError, setIsError] = useState(false);
 
   const handleSubmit = (event: React.ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
     setIsError(false);
-    // (document.querySelector('.Form') as HTMLFormElement).reset();
   };
 
   return (
@@ -79,30 +78,31 @@ const SignIn: React.FC<Props> = ({ setPage }) => {
           }
         }}></span>
 
-        <span className="Sign__forgot" onClick={() => setPage('forgot')}>Forgot Password?</span>
+        <Link to="/sign?type=forgot" relative="path" className="nav__link">Forgot Password?</Link>
 
         <div className="Sign__signed">
           <input
             type="checkbox"
             name="isSigned"
             id="isSigned"
-            className="Sign__isSigned"
+            className="Sign__is-signed focus:ring-transparent"
             defaultChecked
           />
-          <label htmlFor="isSigned" className="Sign__isSigned-label">Keep me signed in</label>
+          <label htmlFor="isSigned" className="Sign__is-signed-label">Keep me signed in</label>
         </div>
 
         <button type="submit" className="Sign__submit">Login</button>
 
         <div className="Sign__account-options">
           Don’t have an account?
-          <span onClick={() => setPage('sign-up')}>Sign Up</span>
+          <Link to="/sign?type=up" relative="path" className="nav__link">Sign Up</Link>
         </div>
       </form>
     </section>
   );
 };
-const SignUp: React.FC<Props> = ({ setPage }) => {
+
+const SignUp: React.FC = () => {
   const [isError, setIsError] = useState(false);
   const [errorMsg, setErrorMsg] = useState('E-mail and/or password fields are incorrectly filled!');
 
@@ -113,11 +113,10 @@ const SignUp: React.FC<Props> = ({ setPage }) => {
       setErrorMsg('Password fields can’t be the same!');
       setIsError(true);
     }
-    
+
     if (!isError) {
       event.preventDefault();
       setIsError(false);
-      // (document.querySelector('.Form') as HTMLFormElement).reset();
     }
   };
 
@@ -231,18 +230,17 @@ const SignUp: React.FC<Props> = ({ setPage }) => {
         </div>
 
         <button type="submit" className="Sign__submit">Sign up</button>
-          
-          
+
         <div className="Sign__account-options">
           Already have an account?
-          <span onClick={() => setPage('sign-in')}>Sign in here</span>
+          <Link to="/sign?type=in" relative="path" className="nav__link">Sign in here</Link>
         </div>
       </form>
     </section>
   );
 };
 
-const Forgot: React.FC<Props> = ({ setPage }) => {
+const Forgot: React.FC = () => {
   const handleSubmit = (event: React.ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
   };
@@ -275,7 +273,7 @@ const Forgot: React.FC<Props> = ({ setPage }) => {
 
         <div className="Sign__account-options">
           Go back to
-          <span onClick={() => setPage('sign-in')}>login</span>
+          <Link to="/sign?type=up" relative="path" className="nav__link">login</Link>
         </div>
       </form>
     </section>
