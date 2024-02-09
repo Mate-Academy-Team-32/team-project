@@ -195,7 +195,13 @@
     width: 10px;
     height: 10px;
   }
+
+  .min-caption,
+  .max-caption {
+    display: none;
+  }
 }
+
 
 .dollar {
   margin: 0 20px;
@@ -239,9 +245,8 @@
 
   &--show-more {
     margin-right: 40px;
-    width: 75%;
+    width: 75vw;
     height: 48px;
-    font-family: Montserrat, sans-serif;
     font-size: 14px;
     font-weight: 500;
     text-transform: uppercase;

@@ -134,7 +134,7 @@ export const Catalog: React.FC = () => {
                       barInnerColor={'#000'}
                       thumbLeftColor={'#000'}
                       thumbRightColor={'#000'}
-                    ></MultiRangeSlider>
+                    />
                   </div>
                 </div>
               </div>
