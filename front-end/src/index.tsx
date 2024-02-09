@@ -25,8 +25,7 @@ root.render(
         <Route path="cart" element={<Cart />} />
       </Route>
 
-      {/* Temporary component off */}
-      {/* <Route path="*" element={<Page404 />} /> */}
+      <Route path="*" element={<Page404 />} />
     </Routes>
   </Router>
 );
