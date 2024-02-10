@@ -456,7 +456,7 @@ export const Catalog: React.FC = () => {
             </div>
           </article>
 
-          <section className="handling-menu">
+          <section className="handling-menu handling-menu--filters">
             <button
               type="reset"
               className="button button--clear"

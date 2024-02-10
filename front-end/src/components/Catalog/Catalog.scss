@@ -238,7 +238,6 @@
   }
 }
 
-
 .dollar {
   margin: 0 20px;
 }
@@ -267,6 +266,11 @@
 
   &--reverse {
     justify-content: flex-end;
+  }
+
+  &--filters {
+    margin-top: 20px;
+    margin-bottom: 0;
   }
 }
 
