@@ -16,6 +16,7 @@ import imgCatalog6 from '../../img/image-catalog-6.png';
 const IMAGES = [imgCatalog1, imgCatalog2, imgCatalog3, imgCatalog4, imgCatalog5, imgCatalog6];
 
 type View = 'List' | 'Grid';
+type Sort = 'popularity' | 'price-low' | 'price-high';
 
 export const Catalog: React.FC = () => {
   const [view, setView] = useState<View>('List');
@@ -24,6 +25,8 @@ export const Catalog: React.FC = () => {
   const [countProductsState, setCountProductsState] = useState(1);
   const [priceMin, setPriceMin] = useState(1);
   const [priceMax, setPriceMax] = useState(400);
+  const [sortBy, setSortBy] = useState<Sort>('popularity');
+  const [isClickedSort, setIsClickedSort] = useState(false);
 
   useEffect(() => {
     scrollToTop();
@@ -46,8 +49,28 @@ export const Catalog: React.FC = () => {
           countReviews={card.countReviews}
           isGrid={isGrid}
         />
-      ));
+      ))
+      .sort(sortType(sortBy));
   };
+
+  const sortType = (sort: Sort) => {
+    return (a: any, b: any) => {
+      const A = a.props;
+      const B = b.props;
+
+      switch (sort) {
+        case 'popularity':
+          return B.countStars - A.countStars;
+        case 'price-low':
+          return A.price - B.price;
+        case 'price-high':
+          return B.price - A.price;
+        default:
+          return A.id - B.id;
+      }
+    };
+  };
+
   const toggleArrow = (index: number) => {
     const arrow = document.querySelectorAll('.arrow')[index];
     const filterOptions = document.querySelectorAll('.Catalog__filters--options')[index];
@@ -72,16 +95,62 @@ export const Catalog: React.FC = () => {
 
       <section className="Catalog__pre">
         <h1 className="Catalog__head">Top 10 fragrances of the season</h1>
-        <button
-          type="button"
-          onClick={toggleView}
-          className={cn(
-            'Catalog__view',
-            `Catalog__view--${view}`,
-          )}
-        >
-          {view} View
-        </button>
+        <div className="Catalog__buttons">
+          <section
+            className={
+              cn(
+                "dropdown z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700",
+                !isClickedSort && "hidden"
+              )
+            }
+          >
+            <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+              <li>
+                <div className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white hover:cursor-pointer" onClick={() => {
+                  setSortBy('popularity');
+                  setIsClickedSort(false);
+                }}>Popularity</div>
+              </li>
+              <li>
+                <div className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white hover:cursor-pointer" onClick={() => {
+                  setSortBy('price-low');
+                  setIsClickedSort(false);
+                }}>Price, low to high</div>
+              </li>
+              <li>
+                <div className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white hover:cursor-pointer" onClick={() => {
+                  setSortBy('price-high');
+                  setIsClickedSort(false);
+                }}>Price, high to low</div>
+              </li>
+            </ul>
+          </section>
+
+          <button
+            data-dropdown-toggle="dropdown"
+            type="button"
+            className={
+              cn(
+                "Catalog__button-sort",
+                isClickedSort && "Catalog__button-sort--clicked"
+              )
+            }
+            onClick={() => setIsClickedSort(currentState => !currentState)}
+          >
+            Sort by:
+          </button>
+
+          <button
+            type="button"
+            onClick={toggleView}
+            className={cn(
+              'Catalog__view',
+              `Catalog__view--${view}`,
+            )}
+          >
+            {view} View
+          </button>
+        </div>
       </section>
 
       <hr className="Catalog__line Catalog__line--filter Catalog__line--margin" />

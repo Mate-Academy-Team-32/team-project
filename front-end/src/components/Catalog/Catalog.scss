@@ -32,7 +32,7 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    width: 120px;
+    width: 200px;
     height: 48px;
     padding: 12px 8px;
     border: 1px solid #393939;
@@ -128,6 +128,42 @@
       margin: 20px 32px;
     }
   }
+
+  &__buttons {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+  }
+
+  &__button-sort {
+    width: 100%;
+    font-family: Montserrat, sans-serif;
+
+    &::after {
+      content: "";
+      position: relative;
+      top: 7px;
+      left: 10px;
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      background-image: url("../../img/tool-arrow-down.svg");
+    }
+
+    &--clicked {
+      &::after {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
+
+.dropdown {
+  position: absolute;
+  top: 325px;
+  right: 140px;
+  font-family: Montserrat, sans-serif;
+  z-index: 0;
 }
 
 .arrow {
