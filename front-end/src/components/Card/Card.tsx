@@ -32,7 +32,7 @@ export const Card: React.FC<Props> = ({
   isGrid = false,
 }) => {
   const navigate = useNavigate();
-  const [isLiked, setIsLiked] = useState(true);
+  const [isLiked, setIsLiked] = useState(false);
 
   return (
     <section className={cn(
