@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "./static/css/main.d04a0e3b.css",
-    "main.js": "./static/js/main.7ce2d538.js",
+    "main.css": "./static/css/main.e5e4407f.css",
+    "main.js": "./static/js/main.35d7a033.js",
     "static/media/image-product-main.png": "./static/media/image-product-main.ff36eab4ad9af8b8a7b9.png",
     "static/media/image-adv-1.png": "./static/media/image-adv-1.e6f2e9060704bfe7e10d.png",
     "static/media/image-adv-3.png": "./static/media/image-adv-3.7aa86a7f4771fce46f6b.png",
@@ -50,11 +50,11 @@
     "static/media/tool-arrow-white.svg": "./static/media/tool-arrow-white.4d1f6fa80f6f23722a4e.svg",
     "static/media/tool-circle-gray.svg": "./static/media/tool-circle-gray.8b4b93fde2742e54b0c8.svg",
     "static/media/tool-circle-white.svg": "./static/media/tool-circle-white.407e63f61213ff72a8f6.svg",
-    "main.d04a0e3b.css.map": "./static/css/main.d04a0e3b.css.map",
-    "main.7ce2d538.js.map": "./static/js/main.7ce2d538.js.map"
+    "main.e5e4407f.css.map": "./static/css/main.e5e4407f.css.map",
+    "main.35d7a033.js.map": "./static/js/main.35d7a033.js.map"
   },
   "entrypoints": [
-    "static/css/main.d04a0e3b.css",
-    "static/js/main.7ce2d538.js"
+    "static/css/main.e5e4407f.css",
+    "static/js/main.35d7a033.js"
   ]
 }
