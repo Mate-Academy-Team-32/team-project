@@ -173,7 +173,7 @@ const SignUp: React.FC = () => {
         className="Sign__content"
         onSubmit={handleSubmit}
       >
-        <h1 className="Sign__head">Sign up</h1>
+        <h1 className="Sign__head">Sign Up</h1>
 
         {
           isError &&
@@ -270,12 +270,12 @@ const SignUp: React.FC = () => {
           </label>
         </div>
 
-        <button type="submit" className="Sign__submit">Sign up</button>
+        <button type="submit" className="Sign__submit">Sign Up</button>
 
         <div className="Sign__account-options">
           Already have an account?
           {' '}
-          <Link to="/sign?type=in" relative="path" className="Sign__link">Sign in here</Link>
+          <Link to="/sign?type=in" relative="path" className="Sign__link Sign__link--bold">Sign in here</Link>
         </div>
       </form>
     </section>
@@ -288,7 +288,7 @@ const Forgot: React.FC = () => {
   };
 
   return (
-    <section className="Form">
+    <section className="Sign">
       <form
         action="/sign"
         method="post"
@@ -313,9 +313,10 @@ const Forgot: React.FC = () => {
 
         <button type="submit" className="Sign__submit">Send password reset email</button>
 
-        <div className="Sign__account-options">
+        <div className="Sign__account-options Sign__account-options--color--black">
           Go back to
-          <Link to="/sign?type=up" relative="path" className="nav__link">login</Link>
+          {' '}
+          <Link to="/sign?type=in" relative="path" className="Sign__link">Sign In</Link>
         </div>
       </form>
     </section>

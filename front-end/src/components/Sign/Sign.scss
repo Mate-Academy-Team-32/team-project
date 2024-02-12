@@ -119,6 +119,10 @@
     text-align: center;
     color: #8b98b0;
 
+    &--color--black {
+      color: #000;
+    }
+
     span {
       margin-left: 5px;
       font-weight: 600;
@@ -133,6 +137,10 @@
     font-weight: 500;
     line-height: 16px;
     color: #393939;
+
+    &:hover {
+      text-decoration: underline;
+    }
 
     &--pos-right {
       text-align: right;
