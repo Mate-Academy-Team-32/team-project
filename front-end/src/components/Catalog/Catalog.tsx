@@ -214,7 +214,7 @@ export const Catalog: React.FC = () => {
 
           <article className="Catalog__filters--name">
             <div className="Catalog__filters--category">
-              <h2>Brands</h2>
+              <h2>Brand</h2>
               <button className="arrow" onClick={() => toggleArrow(1)}></button>
             </div>
             <div className="Catalog__filters--options hidden">
