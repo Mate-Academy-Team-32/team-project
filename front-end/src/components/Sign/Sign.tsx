@@ -113,7 +113,7 @@ const SignIn: React.FC = () => {
             type="checkbox"
             name="isSigned"
             id="isSigned"
-            className="Sign__is-signed focus:ring-transparent"
+            className="Sign__is-signed"
             defaultChecked
           />
           <label htmlFor="isSigned" className="Sign__is-signed-label">Keep me signed in</label>

@@ -219,43 +219,43 @@ export const Catalog: React.FC = () => {
             </div>
             <div className="Catalog__filters--options hidden">
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <input type="checkbox" className="checkbox" />
                 <p>Brand (12)</p>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <input type="checkbox" className="checkbox" />
                 <p>Brand (1)</p>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <input type="checkbox" className="checkbox" />
                 <p>Brand (12)</p>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <input type="checkbox" className="checkbox" />
                 <p>Brand (2)</p>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <input type="checkbox" className="checkbox" />
                 <p>Brand (4)</p>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <input type="checkbox" className="checkbox" />
                 <p>Brand (13)</p>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <input type="checkbox" className="checkbox" />
                 <p>Brand (9)</p>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <input type="checkbox" className="checkbox" />
                 <p>Brand (7)</p>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <input type="checkbox" className="checkbox" />
                 <p>Brand (11)</p>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <input type="checkbox" className="checkbox" />
                 <p>Brand (10)</p>
               </div>
             </div>
@@ -270,43 +270,43 @@ export const Catalog: React.FC = () => {
             </div>
             <div className="Catalog__filters--options hidden">
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <input type="checkbox" className="checkbox" />
                 <p>Country</p>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <input type="checkbox" className="checkbox" />
                 <p>Country</p>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <input type="checkbox" className="checkbox" />
                 <p>Country</p>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <input type="checkbox" className="checkbox" />
                 <p>Country</p>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <input type="checkbox" className="checkbox" />
                 <p>Country</p>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <input type="checkbox" className="checkbox" />
                 <p>Country</p>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <input type="checkbox" className="checkbox" />
                 <p>Country</p>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <input type="checkbox" className="checkbox" />
                 <p>Country</p>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <input type="checkbox" className="checkbox" />
                 <p>Country</p>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <input type="checkbox" className="checkbox" />
                 <p>Country</p>
               </div>
             </div>
@@ -321,19 +321,19 @@ export const Catalog: React.FC = () => {
             </div>
             <div className="Catalog__filters--options hidden">
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <input type="checkbox" className="checkbox" />
                 <p>Parfume</p>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <input type="checkbox" className="checkbox" />
                 <p>Parfumed water</p>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <input type="checkbox" className="checkbox" />
                 <p>Toiled water</p>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <input type="checkbox" className="checkbox" />
                 <p>Cologne</p>
               </div>
             </div>
@@ -348,15 +348,15 @@ export const Catalog: React.FC = () => {
             </div>
             <div className="Catalog__filters--options hidden">
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <input type="checkbox" className="checkbox" />
                 <p>30 ml</p>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <input type="checkbox" className="checkbox" />
                 <p>50 ml</p>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <input type="checkbox" className="checkbox" />
                 <p>100 ml</p>
               </div>
             </div>
@@ -371,15 +371,15 @@ export const Catalog: React.FC = () => {
             </div>
             <div className="Catalog__filters--options hidden">
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <input type="checkbox" className="checkbox" />
                 <p>Women's (100)</p>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <input type="checkbox" className="checkbox" />
                 <p>Men's</p>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <input type="checkbox" className="checkbox" />
                 <p>Unisex</p>
               </div>
             </div>
@@ -394,63 +394,63 @@ export const Catalog: React.FC = () => {
             </div>
             <div className="Catalog__filters--options">
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <input type="checkbox" className="checkbox" />
                 <p>Floral (12)</p>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <input type="checkbox" className="checkbox" />
                 <p>Aldehydic (41)</p>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <input type="checkbox" className="checkbox" />
                 <p>Aromatic (120)</p>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <input type="checkbox" className="checkbox" />
                 <p>Water (22)</p>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <input type="checkbox" className="checkbox" />
                 <p>Gourmet (304)</p>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <input type="checkbox" className="checkbox" />
                 <p>Woody (213)</p>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <input type="checkbox" className="checkbox" />
                 <p>Musky (292)</p>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <input type="checkbox" className="checkbox" />
                 <p>Spice (87)</p>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <input type="checkbox" className="checkbox" />
                 <p>Eastern (112)</p>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <input type="checkbox" className="checkbox" />
                 <p>Fruity (130)</p>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <input type="checkbox" className="checkbox" />
                 <p>Fougere (93)</p>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <input type="checkbox" className="checkbox" />
                 <p>Citrus fruit (822)</p>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <input type="checkbox" className="checkbox" />
                 <p>Chypres (200)</p>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <input type="checkbox" className="checkbox" />
                 <p>Leather (170)</p>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox focus:ring-transparent" />
+                <input type="checkbox" className="checkbox" />
                 <p>Others (96)</p>
               </div>
             </div>
