@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react';
 import './Slider.scss';
 
 type Image = {
-  path: string;
   id: number;
+  color: string;
+  pathImg: string;
+  pathText: string;
 };
 
 type Props = {
@@ -64,27 +66,31 @@ export const Slider: React.FC<Props> = ({ images, timeUpdate = 1 }) => {
     pages[index].classList.add('page--selected');
     setIsPressed(true);
   };
-  
+
   return (
-    <section className='Slider'>
+    <section className='Slider' style={{ backgroundColor: images[currentSlide - 1].color }}>
       <div className="Slider__content">
         <button className="Slider__button Slider__button--left" onClick={handleClickBack}></button>
 
         <div className="Slider__description">
-          <h1 className="Slider__title">
-            Welcome to the wonderful world of perfumery PerfuMe!
-          </h1>
-          
-          <p className="Slider__text">
-            Our online store specializes in selling original perfumes. We offer a large selection of fragrances of popular and well-known brands, the quality of which is beyond doubt. We work exclusively with verified distributors and verified partners. Our prices will pleasantly surprise you!
-          </p>
+          {images.map((image, index) => {
+            if (currentSlide === index + 1) {
+              return <img
+                src={image.pathText}
+                alt={(index + 1).toString()}
+                key={image.id}
+              />;
+            }
+
+            return '';
+          })}
         </div>
 
         <div className="Slider__image">
           {images.map((image, index) => {
             if (currentSlide === index + 1) {
               return <img
-                src={image.path}
+                src={image.pathImg}
                 alt={(index + 1).toString()}
                 key={image.id}
               />;
