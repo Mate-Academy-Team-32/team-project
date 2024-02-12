@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "./static/css/main.a15476c4.css",
-    "main.js": "./static/js/main.fad9dd1a.js",
+    "main.css": "./static/css/main.c99520dd.css",
+    "main.js": "./static/js/main.1e1ba9a5.js",
     "static/media/image-slide-2.png": "./static/media/image-slide-2.ae3bb55bb22de5787590.png",
     "static/media/image-slide-4.png": "./static/media/image-slide-4.04d20f0adf158c2b3090.png",
     "static/media/image-slide-3.png": "./static/media/image-slide-3.29a69ba148dbd20462b1.png",
@@ -35,6 +35,7 @@
     "static/media/image-product-add-3.png": "./static/media/image-product-add-3.8214516b36d8879607ea.png",
     "static/media/image-catalog-5.png": "./static/media/image-catalog-5.df5807d46f56392a4db0.png",
     "static/media/icon-instagram.svg": "./static/media/icon-instagram.0ee19c132dab78b376d6.svg",
+    "static/media/icon-password-eye-closed.svg": "./static/media/icon-password-eye-closed.e82c71925d02b40e1818.svg",
     "static/media/icon-bag-white.svg": "./static/media/icon-bag-white.75e9c6c25a1613a33b290d0691032439.svg",
     "static/media/icon-heart-white.svg": "./static/media/icon-heart-white.6d97e4ca6deef668d406db3cf716c6fb.svg",
     "static/media/logo-heart.svg": "./static/media/logo-heart.5045f384bb56d19511b85144db8b020d.svg",
@@ -43,6 +44,7 @@
     "static/media/icon-heart-no-filled.svg": "./static/media/icon-heart-no-filled.64c792abcb3e23c8318ed904bb603ccf.svg",
     "static/media/icon-refresh.svg": "./static/media/icon-refresh.a28c7320bacce47853bb.svg",
     "static/media/icon-twitter.svg": "./static/media/icon-twitter.199e20438339db61c772.svg",
+    "static/media/icon-form-error.svg": "./static/media/icon-form-error.f8269417464a79307aba.svg",
     "static/media/icon-account.svg": "./static/media/icon-account.5dce8cadc48816d572922b12bd6ddfc5.svg",
     "static/media/icon-linkedin.svg": "./static/media/icon-linkedin.00286d132042bfb3a688.svg",
     "static/media/icon-star-empty.svg": "./static/media/icon-star-empty.6353ff7c0d38f390cbe419b987df9d1e.svg",
@@ -59,11 +61,11 @@
     "static/media/tool-arrow-white.svg": "./static/media/tool-arrow-white.4d1f6fa80f6f23722a4e.svg",
     "static/media/tool-circle-gray.svg": "./static/media/tool-circle-gray.8b4b93fde2742e54b0c8.svg",
     "static/media/tool-circle-white.svg": "./static/media/tool-circle-white.407e63f61213ff72a8f6.svg",
-    "main.a15476c4.css.map": "./static/css/main.a15476c4.css.map",
-    "main.fad9dd1a.js.map": "./static/js/main.fad9dd1a.js.map"
+    "main.c99520dd.css.map": "./static/css/main.c99520dd.css.map",
+    "main.1e1ba9a5.js.map": "./static/js/main.1e1ba9a5.js.map"
   },
   "entrypoints": [
-    "static/css/main.a15476c4.css",
-    "static/js/main.fad9dd1a.js"
+    "static/css/main.c99520dd.css",
+    "static/js/main.1e1ba9a5.js"
   ]
 }
