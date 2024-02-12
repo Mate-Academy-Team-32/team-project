@@ -113,7 +113,7 @@ const SignIn: React.FC = () => {
             type="checkbox"
             name="isSigned"
             id="isSigned"
-            className="Sign__is-signed focus:ring-transparent"
+            className="Sign__is-signed"
             defaultChecked
           />
           <label htmlFor="isSigned" className="Sign__is-signed-label">Keep me signed in</label>
@@ -134,6 +134,7 @@ const SignIn: React.FC = () => {
 const SignUp: React.FC = () => {
   const [isError, setIsError] = useState(false);
   const [errorMsg, setErrorMsg] = useState('E-mail and/or password fields are incorrectly filled!');
+  const [typeOfInput, setTypeOfInput] = useState<Input>('password');
 
   const handleSubmit = (event: React.ChangeEvent<HTMLFormElement>) => {
     const password = document.getElementsByName('password') as NodeListOf<HTMLInputElement>;
@@ -149,8 +150,23 @@ const SignUp: React.FC = () => {
     }
   };
 
+  const toggleInput = (): any => {
+    const x = document.querySelectorAll('.password') as NodeListOf<HTMLInputElement>;
+    let inputType = x[0].type as Input;
+
+    if (inputType === 'password') {
+      inputType = 'text';
+    } else {
+      inputType = 'password';
+    }
+
+    x[0].type = inputType;
+    x[1].type = inputType;
+    setTypeOfInput(inputType);
+  };
+
   return (
-    <section className="Form">
+    <section className="Sign">
       <form
         action="/sign"
         method="post"
@@ -210,15 +226,13 @@ const SignUp: React.FC = () => {
           maxLength={16}
           required
         />
-        <span className="password__ui password__ui--reg--1" onClick={() => {
-          const x = document.querySelectorAll('.password')[0] as HTMLInputElement;
-
-          if (x.type === 'password') {
-            x.type = 'text';
-          } else {
-            x.type = 'password';
-          }
-        }}></span>
+        <span
+          className={cn(
+            "password__ui password__ui--reg--up--1",
+            typeOfInput === "text" && "password__ui--open"
+          )}
+          onClick={toggleInput}
+        ></span>
 
         <h2 className="Sign__field">Repeat password</h2>
         <input
@@ -231,25 +245,23 @@ const SignUp: React.FC = () => {
           maxLength={16}
           required
         />
-        <span className="password__ui password__ui--reg--2" onClick={() => {
-          const x = document.querySelectorAll('.password')[1] as HTMLInputElement;
-
-          if (x.type === 'password') {
-            x.type = 'text';
-          } else {
-            x.type = 'password';
-          }
-        }}></span>
+        <span
+          className={cn(
+            "password__ui password__ui--reg--up--2",
+            typeOfInput === "text" && "password__ui--open"
+          )}
+          onClick={toggleInput}
+        ></span>
 
         <div className="Sign__signed">
           <input
             type="checkbox"
             name="isSigned"
             id="isSigned"
-            className="Sign__isSigned"
+            className="Sign__is-signed"
             required
           />
-          <label htmlFor="isSigned" className="Sign__isSigned-label">
+          <label htmlFor="isSigned" className="Sign__is-signed-label">
             By continuing, you agree to our
             <br />
             <a href="/">
@@ -262,7 +274,8 @@ const SignUp: React.FC = () => {
 
         <div className="Sign__account-options">
           Already have an account?
-          <Link to="/sign?type=in" relative="path" className="nav__link">Sign in here</Link>
+          {' '}
+          <Link to="/sign?type=in" relative="path" className="Sign__link">Sign in here</Link>
         </div>
       </form>
     </section>

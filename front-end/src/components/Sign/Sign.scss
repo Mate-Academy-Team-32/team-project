@@ -69,6 +69,7 @@
     width: 400px;
     height: 48px;
     border: none;
+    font-family: Montserrat, sans-serif;
     font-size: 16px;
     font-weight: 600;
     background-color: #000;
@@ -127,6 +128,7 @@
   }
 
   &__link {
+    text-decoration: none;
     font-size: 14px;
     font-weight: 500;
     line-height: 16px;
@@ -166,6 +168,14 @@
 
     &--reg--2 {
       top: 520px;
+    }
+
+    &--reg--up--1 {
+      top: 430px;
+    }
+
+    &--reg--up--2 {
+      top: 545px;
     }
   }
 }
