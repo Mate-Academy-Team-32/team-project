@@ -34,9 +34,10 @@
     justify-content: center;
     align-items: center;
     gap: 8px;
-    width: 225px;
-    height: 48px;
     padding: 12px 8px;
+    width: 150px;
+    height: 48px;
+    font-family: Montserrat, sans-serif;
     border: 1px solid #393939;
     background-color: transparent;
     cursor: pointer;
@@ -138,13 +139,13 @@
   }
 
   &__button-sort {
-    width: 100%;
+    display: flex;
     font-family: Montserrat, sans-serif;
 
     &::after {
       content: "";
       position: relative;
-      top: 7px;
+      bottom: 3px;
       left: 10px;
       display: inline-block;
       width: 24px;
