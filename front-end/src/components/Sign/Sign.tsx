@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, Link } from 'react-router-dom';
+import cn from 'classnames';
 import './Sign.scss';
 import { scrollToTop } from '../../utils/_scroll';
+
+type Input = 'password' | 'text';
 
 export const Sign: React.FC = () => {
   const searchPath = useLocation().search;
@@ -23,10 +26,25 @@ export const Sign: React.FC = () => {
 
 const SignIn: React.FC = () => {
   const [isError, setIsError] = useState(false);
+  const [typeOfInput, setTypeOfInput] = useState<Input>('password');
 
   const handleSubmit = (event: React.ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
     setIsError(false);
+  };
+
+  const toggleEye = () => {
+    const x = document.querySelectorAll('.password')[0] as HTMLInputElement;
+    let inputType = x.type as Input;
+
+    if (inputType === 'password') {
+      inputType = 'text';
+    } else {
+      inputType = 'password';
+    }
+
+    x.type = inputType;
+    setTypeOfInput(inputType);
   };
 
   return (
@@ -37,20 +55,16 @@ const SignIn: React.FC = () => {
         className="Sign__content"
         onSubmit={handleSubmit}
       >
-        <h1 className="Sign__head">Login</h1>
-
-        {
-          isError &&
-          <p className="Sign__error-msg">
-            E-mail and/or password fields are incorrectly filled!
-          </p>
-        }
+        <h1 className="Sign__head">Sign In</h1>
 
         <h2 className="Sign__field">Email Address</h2>
         <input
           type="email"
           name="email"
-          className="Sign__input email"
+          className={cn(
+            "Sign__input email",
+            isError && "Sign__input--error"
+          )}
           placeholder="example@gmail.com"
           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
           onInvalid={() => setIsError(true)}
@@ -61,24 +75,38 @@ const SignIn: React.FC = () => {
         <input
           type="password"
           name="password"
-          className="Sign__input password"
+          className={cn(
+            "Sign__input password",
+            isError && "Sign__input--error"
+          )}
           placeholder="●●●●●●●●"
           pattern="^(?=.*\d)(?=.*[a-z]).{8,16}$"
           onInvalid={() => setIsError(true)}
           maxLength={16}
           required
         />
-        <span className="password__ui password__ui--login" onClick={() => {
-          const x = document.querySelectorAll('.password')[0] as HTMLInputElement;
+        <span
+          className={cn(
+            "password__ui password__ui--login",
+            typeOfInput === "text" && "password__ui--open"
+          )}
+          onClick={toggleEye}
+        ></span>
 
-          if (x.type === 'password') {
-            x.type = 'text';
-          } else {
-            x.type = 'password';
-          }
-        }}></span>
+        {
+          isError &&
+          <p className="Sign__error-msg">
+            E-mail and/or password fields are incorrectly filled!
+          </p>
+        }
 
-        <Link to="/sign?type=forgot" relative="path" className="nav__link">Forgot Password?</Link>
+        <Link
+          to="/sign?type=forgot"
+          relative="path"
+          className="Sign__link Sign__link--pos-right"
+        >
+          Forgot Password?
+        </Link>
 
         <div className="Sign__signed">
           <input
@@ -91,11 +119,12 @@ const SignIn: React.FC = () => {
           <label htmlFor="isSigned" className="Sign__is-signed-label">Keep me signed in</label>
         </div>
 
-        <button type="submit" className="Sign__submit">Login</button>
+        <button type="submit" className="Sign__submit">Sign In</button>
 
         <div className="Sign__account-options">
           Don’t have an account?
-          <Link to="/sign?type=up" relative="path" className="nav__link">Sign Up</Link>
+          {' '}
+          <Link to="/sign?type=up" relative="path" className="Sign__link Sign__link--bold">Sign Up</Link>
         </div>
       </form>
     </section>
