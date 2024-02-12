@@ -11,7 +11,7 @@ export const Sign: React.FC = () => {
 
   useEffect(() => {
     scrollToTop();
-  }, []);
+  }, [searchPath]);
 
   if (searchPath === '?type=in') {
     return <SignIn />;
