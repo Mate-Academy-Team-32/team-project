@@ -4,7 +4,7 @@
   justify-content: center;
   align-items: center;
   padding: 56px 80px;
-  font-family: Roboto, sans-serif;
+  font-family: Montserrat, sans-serif;
 
   &__content {
     position: relative;
@@ -14,6 +14,7 @@
   }
 
   &__head {
+    margin-bottom: 30px;
     font-size: 24px;
     font-weight: 500;
     line-height: 26px;
@@ -31,8 +32,19 @@
   }
 
   &__error-msg {
-    margin: 24px 0;
+    display: flex;
+    font-size: 14px;
+    margin: 0 0 24px;
     color: #fc0606;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 18px;
+      height: 18px;
+      margin-right: 6px;
+      background-image: url("../../img/icon-form-error.svg");
+    }
   }
 
   &__input {
@@ -47,7 +59,7 @@
     border-bottom: 1px solid #000;
     color: #292929;
 
-    &:focus:invalid {
+    &--error:invalid {
       border-bottom: 2px solid #fc0606;
     }
   }
@@ -113,6 +125,22 @@
       cursor: pointer;
     }
   }
+
+  &__link {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    color: #393939;
+
+    &--pos-right {
+      text-align: right;
+    }
+
+    &--bold {
+      font-size: 16px;
+      font-weight: 600;
+    }
+  }
 }
 
 .password {
@@ -121,11 +149,15 @@
     right: 20px;
     width: 24px;
     height: 24px;
-    background-image: url('../../img/icon-password-eye.svg');
     cursor: pointer;
+    background-image: url('../../img/icon-password-eye-closed.svg');
+
+    &--open {
+      background-image: url('../../img/icon-password-eye.svg');
+    }
 
     &--login {
-      top: 190px;
+      top: 217px;
     }
 
     &--reg--1 {
