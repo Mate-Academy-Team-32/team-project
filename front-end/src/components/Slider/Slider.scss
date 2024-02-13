@@ -1,3 +1,6 @@
+@import '../../utils/vars';
+@import '../../utils/mixins';
+
 .Slider {
   box-sizing: border-box;
   position: relative;
@@ -68,6 +71,10 @@
 
     &>img {
       max-width: 550px;
+
+      @include on-phone {
+        max-width: 300px;
+      }
     }
   }
 

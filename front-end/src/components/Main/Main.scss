@@ -1,4 +1,5 @@
 @import '../../utils/vars';
+@import '../../utils/mixins';
 
 .Main {
   font-family: Montserrat, sans-serif;
@@ -34,7 +35,9 @@
 
   &__partners {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
     align-items: flex-end;
     margin: 30px $default-side-margins;
   }
@@ -73,6 +76,7 @@
 
   &__features {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 40px;
     padding: 70px 24px;
@@ -223,11 +227,29 @@
     justify-items: center;
     align-content: center;
     gap: 24px;
+
+    @include on-phone {
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-rows: repeat(6, 1fr);
+    }
+
+    @include on-tablet {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+    }
   }
 
   .cell {
     width: 450px;
     height: 400px;
+
+    @include on-phone {
+      max-width: 400px;
+
+      img {
+        max-width: 400px;
+      }
+    }
 
     &--text {
       padding: 80px 60px;
