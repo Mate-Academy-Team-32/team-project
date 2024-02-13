@@ -29,6 +29,7 @@
     align-items: center;
     padding-left: 120px;
     height: 100%;
+    cursor: pointer;
   }
 
   &__button {
@@ -64,6 +65,10 @@
     gap: 24px;
     width: 650px;
     z-index: 2;
+
+    &>img {
+      max-width: 550px;
+    }
   }
 
   &__title {
