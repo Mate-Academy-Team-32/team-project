@@ -16,7 +16,7 @@ export const Header: React.FC = () => {
     const lensClose = document.querySelector('.lens--close') as HTMLDivElement;
     const textLinks = document.querySelectorAll('.nav__link') as NodeListOf<HTMLLinkElement>;
 
-    lensOpen.addEventListener('click', () => {
+    const showSearch = () => {
       textLinks.forEach((textLink) => {
         textLink.classList.add('hidden');
       });
@@ -25,9 +25,9 @@ export const Header: React.FC = () => {
       searchInput.focus();
       lensClose.classList.remove('hidden');
       lensOpen.classList.add('hidden');
-    });
+    };
 
-    lensClose.addEventListener('click', () => {
+    const hideSearch = () => {
       textLinks.forEach((textLink) => {
         textLink.classList.remove('hidden');
       });
@@ -36,6 +36,18 @@ export const Header: React.FC = () => {
       searchInput.focus();
       lensClose.classList.add('hidden');
       lensOpen.classList.remove('hidden');
+    };
+
+    lensOpen.addEventListener('click', () => {
+      showSearch();
+    });
+
+    lensClose.addEventListener('click', () => {
+      hideSearch();
+    });
+
+    searchInput.addEventListener('blur', () => {
+      hideSearch();
     });
   });
 
@@ -66,7 +78,7 @@ export const Header: React.FC = () => {
             <div className="input--search">
               <div className="lens lens--close hidden"></div>
               <input
-                className="input hidden focus:ring-transparent"
+                className="input hidden"
                 id="search"
                 type="text"
                 placeholder="Hey, what are you looking for?"
