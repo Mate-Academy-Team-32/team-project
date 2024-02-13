@@ -251,6 +251,12 @@
       }
     }
 
+    @include on-laptop {
+      img {
+        width: 448px;
+      }
+    }
+
     &--text {
       padding: 80px 60px;
       font-family: 'Montserrat', sans-serif;
