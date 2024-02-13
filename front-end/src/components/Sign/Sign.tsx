@@ -298,7 +298,7 @@ const Forgot: React.FC = () => {
         <h1 className="Sign__head Sign__head--center">
           Enter your email address to get
           <br />
-          the password reset link.
+          the password reset link
         </h1>
 
         <h2 className="Sign__field">Email Address</h2>

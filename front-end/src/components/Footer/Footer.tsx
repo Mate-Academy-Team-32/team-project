@@ -87,7 +87,7 @@ export const Footer: React.FC = () => {
             rel="noopener noreferrer"
             className='catalog__link'
           >
-            Sign in
+            Sign In
           </a>
           <a
             href="/sign?type=up"
@@ -95,7 +95,7 @@ export const Footer: React.FC = () => {
             rel="noopener noreferrer"
             className='catalog__link'
           >
-            Register
+            Sign Up
           </a>
           <a
             href="/cart"
