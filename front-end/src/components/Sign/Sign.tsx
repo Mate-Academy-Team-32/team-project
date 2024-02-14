@@ -275,7 +275,7 @@ const SignUp: React.FC = () => {
         <div className="Sign__account-options">
           Already have an account?
           {' '}
-          <Link to="/sign?type=in" relative="path" className="Sign__link Sign__link--bold">Sign in here</Link>
+          <Link to="/sign?type=in" relative="path" className="Sign__link Sign__link--bold">Sign In here</Link>
         </div>
       </form>
     </section>
