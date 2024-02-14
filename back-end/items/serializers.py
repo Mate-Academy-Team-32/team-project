@@ -1,15 +1,6 @@
 from rest_framework import serializers
 
-from items.models import (
-    Item,
-    Tag,
-    Review,
-    ItemImage,
-    Brand,
-    StockItem,
-    Note,
-    NoteCategory,
-)
+from items.models import Item, Tag, Review, ItemImage, Brand, StockItem
 
 
 class CoreModelSerializer(serializers.Serializer):
@@ -25,16 +16,14 @@ class TagSerializer(CoreModelSerializer, serializers.ModelSerializer):
         fields = ("id", "name") + CoreModelSerializer.Meta.fields
 
 
-class NoteSerializer(CoreModelSerializer, serializers.ModelSerializer):
-    class Meta:
-        model = Note
-        fields = ("id", "name", "tag") + CoreModelSerializer.Meta.fields
-
-
 class BrandSerializer(CoreModelSerializer, serializers.ModelSerializer):
     class Meta:
         model = Brand
-        fields = ("id", "label", "logo_img") + CoreModelSerializer.Meta.fields
+        fields = (
+            "id",
+            "label",
+            "logo_img",
+        ) + CoreModelSerializer.Meta.fields
 
 
 class ReviewSerializer(CoreModelSerializer, serializers.ModelSerializer):
@@ -55,19 +44,7 @@ class ItemImageDetailSerializer(ItemImageSerializer):
         fields = ("id", "item", "image") + CoreModelSerializer.Meta.fields
 
 
-class NoteCategorySerializer(CoreModelSerializer, serializers.ModelSerializer):
-    notes = serializers.SlugRelatedField(slug_field="name", many=True, read_only=True)
-
-    class Meta:
-        model = NoteCategory
-        fields = ("id", "notes", "category") + CoreModelSerializer.Meta.fields
-
-
 class ItemSerializer(CoreModelSerializer, serializers.ModelSerializer):
-    tags = serializers.SerializerMethodField(read_only=True)
-    rating_avg = serializers.SerializerMethodField(read_only=True)
-    rating_count = serializers.SerializerMethodField(read_only=True)
-
     class Meta:
         model = Item
         fields = (
@@ -76,8 +53,6 @@ class ItemSerializer(CoreModelSerializer, serializers.ModelSerializer):
             "name",
             "logo_img",
             "gender",
-            "rating_avg",
-            "rating_count",
             "strength",
             "description",
             "release_date",
@@ -85,23 +60,11 @@ class ItemSerializer(CoreModelSerializer, serializers.ModelSerializer):
             "tags",
         ) + CoreModelSerializer.Meta.fields
 
-    def get_rating_avg(self, obj):
-        reviews = obj.reviews.all()
-        total_rating = sum(review.rate for review in reviews)
-        avg_rating = total_rating / len(reviews) if reviews else 0
-
-        return round(avg_rating, 2)
-
-    def get_tags(self, obj):
-        note_categories = obj.note_categories.all()
-        tags = note_categories.values_list("notes__tag", flat=True).distinct()
-        return list(tags)
-
-    def get_rating_count(self, obj):
-        return obj.reviews.count()
-
 
 class ItemListSerializer(ItemSerializer):
+    rating_avg = serializers.FloatField(read_only=True)
+    rating_count = serializers.IntegerField(read_only=True)
+
     class Meta:
         model = Item
         fields = (
@@ -110,30 +73,25 @@ class ItemListSerializer(ItemSerializer):
             "name",
             "logo_img",
             "gender",
+            "reviews",
             "rating_avg",
             "rating_count",
-            "tags",
         )
 
 
 class ItemDetailSerializer(ItemSerializer):
+    rating_avg = serializers.FloatField(read_only=True)
+    rating_count = serializers.IntegerField(read_only=True)
     item_images = ItemImageSerializer(many=True, read_only=True)
-    note_categories = NoteCategorySerializer(many=True, read_only=True)
-    strength = serializers.CharField(source="get_strength_display", read_only=True)
-    gender = serializers.CharField(source="get_gender_display", read_only=True)
 
     class Meta:
         model = Item
         fields = ItemSerializer.Meta.fields + (
             "reviews",
+            "rating_avg",
+            "rating_count",
             "item_images",
-            "note_categories",
         )
-
-    def get_tags(self, obj):
-        note_categories = obj.note_categories.all()
-        tags = note_categories.values_list("notes__tag__name", flat=True).distinct()
-        return list(tags)
 
 
 class StockItemSerializer(CoreModelSerializer, serializers.ModelSerializer):
@@ -162,3 +120,16 @@ class StockItemDetailSerializer(StockItemSerializer):
     class Meta:
         model = StockItem
         fields = StockItemSerializer.Meta.fields
+
+
+class ItemShortSerializer(ItemSerializer):
+
+    class Meta:
+        model = Item
+        fields = (
+            "id",
+            "label",
+            "name",
+            "logo_img",
+            "price"
+        )
