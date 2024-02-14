@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import cn from 'classnames';
 import './Sign.scss';
@@ -95,7 +95,7 @@ const SignIn: React.FC = () => {
 
         {
           isError &&
-          <p className="Sign__error-msg">
+          <p className="Sign__error-msg Sign__error-msg--sign-in">
             E-mail and/or password fields are incorrectly filled!
           </p>
         }
@@ -136,19 +136,18 @@ const SignUp: React.FC = () => {
   const [errorMsg, setErrorMsg] = useState('E-mail and/or password fields are incorrectly filled!');
   const [typeOfInput, setTypeOfInput] = useState<Input>('password');
 
-  const handleSubmit = (event: React.ChangeEvent<HTMLFormElement>) => {
-    const password = document.getElementsByName('password') as NodeListOf<HTMLInputElement>;
-
-    if (password[0].value !== password[1].value) {
-      setErrorMsg('Password fields can’t be the same!');
-      setIsError(true);
-    }
+  const handleSubmit = useCallback((event: React.ChangeEvent<HTMLFormElement>) => {
+    const passwords = document.getElementsByName('password') as NodeListOf<HTMLInputElement>;
 
     if (!isError) {
       event.preventDefault();
-      setIsError(false);
     }
-  };
+
+    if (passwords[0].value === passwords[1].value) {
+      setErrorMsg('Password fields can’t be the same!');
+      setIsError(true);
+    }
+  }, [isError]);
 
   const toggleInput = (): any => {
     const x = document.querySelectorAll('.password') as NodeListOf<HTMLInputElement>;
@@ -164,6 +163,8 @@ const SignUp: React.FC = () => {
     x[1].type = inputType;
     setTypeOfInput(inputType);
   };
+
+  useEffect(() => {}, [handleSubmit]);
 
   return (
     <section className="Sign">
@@ -186,7 +187,10 @@ const SignUp: React.FC = () => {
         <input
           type="text"
           name="username"
-          className="Sign__input name"
+          className={cn(
+            "Sign__input name",
+            isError && "Sign__input--error"
+          )}
           placeholder="Barbara"
           pattern="\w{2,20}"
           onInvalid={() => setIsError(true)}
@@ -197,7 +201,10 @@ const SignUp: React.FC = () => {
         <input
           type="email"
           name="email"
-          className="Sign__input email"
+          className={cn(
+            "Sign__input email",
+            isError && "Sign__input--error"
+          )}
           placeholder="example@gmail.com"
           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
           onInvalid={() => setIsError(true)}
@@ -208,7 +215,10 @@ const SignUp: React.FC = () => {
         <input
           type="number"
           name="phone"
-          className="Sign__input phone"
+          className={cn(
+            "Sign__input phone",
+            isError && "Sign__input--error"
+          )}
           placeholder="+38 (050) 123-45-67"
           pattern="^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$"
           onInvalid={() => setIsError(true)}
@@ -219,7 +229,10 @@ const SignUp: React.FC = () => {
         <input
           type="password"
           name="password"
-          className="Sign__input password"
+          className={cn(
+            "Sign__input password",
+            isError && "Sign__input--error"
+          )}
           placeholder="●●●●●●●●"
           pattern="^(?=.*\d)(?=.*[a-z]).{8,16}$"
           onInvalid={() => setIsError(true)}
@@ -238,7 +251,10 @@ const SignUp: React.FC = () => {
         <input
           type="password"
           name="password"
-          className="Sign__input password"
+          className={cn(
+            "Sign__input password",
+            isError && "Sign__input--error"
+          )}
           placeholder="●●●●●●●●"
           pattern="^(?=.*\d)(?=.*[a-z]).{8,16}$"
           onInvalid={() => setIsError(true)}

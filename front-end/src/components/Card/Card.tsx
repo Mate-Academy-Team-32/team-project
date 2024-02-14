@@ -51,45 +51,49 @@ export const Card: React.FC<Props> = ({
         </div>
       </nav>
 
-      <img
-        src={image}
-        alt="Product"
-        className="Card__product"
+      <article
+        className="Card__content"
         onClick={() => {
           navigate(`/product?id=${id}`);
         }}
-      />
-
-      <div className="Card__description">
-        <h1 className="Card__title">{title}</h1>
-        {
-          isGrid &&
-          <p className="Card__text">
-            The exquisite fragrance of Kirke perfume from the famous Italian perfume house Tiziana Terenzi captivates and inspires, creating a magical aura of sophistication and sensuality.
-          </p>
-        }
-
-        <Rate className="Card__rate" countStars={countStars} countReviews={countReviews} />
-
-        <div className="Card__parameters">
-          <p className="Card__price">$ {price.toFixed(2)}</p>
-          <p className="Card__volume">{volume}ml</p>
-        </div>
-      </div>
-
-      <button
-        type="button"
-        className="Card__button"
-        onClick={() => {
-          const countBag = document.querySelector('#bag') as HTMLAnchorElement;
-
-          countProducts[1](currentCount => currentCount + 1);
-
-          countBag.setAttribute('data-count', countProducts[0].toString());
-        }}
       >
-        Add to bag
-      </button>
+        <img
+          src={image}
+          alt="Product"
+          className="Card__product"
+        />
+
+        <div className="Card__description">
+          <h1 className="Card__title">{title}</h1>
+          {
+            isGrid &&
+            <p className="Card__text">
+              The exquisite fragrance of Kirke perfume from the famous Italian perfume house Tiziana Terenzi captivates and inspires, creating a magical aura of sophistication and sensuality.
+            </p>
+          }
+
+          <Rate className="Card__rate" countStars={countStars} countReviews={countReviews} />
+
+          <div className="Card__parameters">
+            <p className="Card__price">$ {price.toFixed(2)}</p>
+            <p className="Card__volume">{volume}ml</p>
+          </div>
+        </div>
+
+        <button
+          type="button"
+          className="Card__button"
+          onClick={() => {
+            const countBag = document.querySelector('#bag') as HTMLAnchorElement;
+
+            countProducts[1](currentCount => currentCount + 1);
+
+            countBag.setAttribute('data-count', countProducts[0].toString());
+          }}
+        >
+          Add to bag
+        </button>
+      </article>
     </section>
   );
 };

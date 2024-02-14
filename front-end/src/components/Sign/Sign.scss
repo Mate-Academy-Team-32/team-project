@@ -34,7 +34,6 @@
   &__error-msg {
     display: flex;
     font-size: 14px;
-    margin: 0 0 24px;
     color: #fc0606;
 
     &::before {
@@ -45,12 +44,15 @@
       margin-right: 6px;
       background-image: url("../../img/icon-form-error.svg");
     }
+
+    &--sign-in {
+      margin-top: 24px;
+    }
   }
 
   &__input {
     box-sizing: border-box;
     outline: none;
-    margin: 8px 0 24px;
     padding: 12px 16px;
     width: 400px;
     height: 48px;
@@ -87,17 +89,32 @@
   }
 
   &__signed {
+    position: relative;
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 8px;
+    margin-top: 14px;
   }
 
   &__is-signed {
+    box-sizing: content-box;
+    margin: 0;
     width: 20px;
     height: 20px;
+    appearance: none;
+    border: 2px solid #000;
+    cursor: pointer;
 
     &:checked {
-      accent-color: #000;
+      background-color: #000;
+
+      &::before {
+        content: "";
+        display: block;
+        width: 20px;
+        height: 20px;
+        background-image: url("../../img/icon-checkmark.svg");
+      }
     }
   }
 
@@ -107,6 +124,7 @@
     font-weight: 300;
     line-height: 20px;
     color: #8b98b0;
+    cursor: pointer;
 
     a {
       text-decoration: none;
@@ -144,6 +162,7 @@
     }
 
     &--pos-right {
+      margin-top: 14px;
       text-align: right;
     }
 
@@ -168,23 +187,15 @@
     }
 
     &--login {
-      top: 217px;
-    }
-
-    &--reg--1 {
-      top: 410px;
-    }
-
-    &--reg--2 {
-      top: 520px;
+      top: 175px;
     }
 
     &--reg--up--1 {
-      top: 430px;
+      top: 330px;
     }
 
     &--reg--up--2 {
-      top: 545px;
+      top: 410px;
     }
   }
 }

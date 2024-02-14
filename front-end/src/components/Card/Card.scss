@@ -9,6 +9,7 @@
   min-width: 370px;
   min-height: 550px;
   font-family: Montserrat, sans-serif;
+  cursor: pointer;
 
   &--list {
     max-width: 320px;
@@ -71,6 +72,12 @@
     }
   }
 
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
   &__text {
     margin-bottom: 14px;
   }
@@ -112,8 +119,8 @@
   }
 
   &__product {
+    margin-top: 24px;
     margin-bottom: 24px;
-    width: 200px;
     transition: all $transition-time;
     user-select: none;
     cursor: pointer;
