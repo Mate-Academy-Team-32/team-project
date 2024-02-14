@@ -55,7 +55,6 @@ export const Slider: React.FC<Props> = ({ images, timeUpdate = 1 }) => {
     if (isPressed) return;
 
     const intervalId = setInterval(() => {
-      console.log('lol');
       setTimeStart(timeStart + 1);
       setCurrentSlide(slide => {
         if (slide >= countSlides) {
