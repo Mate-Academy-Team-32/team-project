@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import './Slider.scss';
 
 type Image = {
@@ -17,22 +17,7 @@ export const Slider: React.FC<Props> = ({ images, timeUpdate = 1 }) => {
   const [currentSlide, setCurrentSlide] = useState(1);
   const [isPressed, setIsPressed] = useState(false);
   const countSlides = images.length;
-
-  useEffect(() => {
-    if (!isPressed) {
-      setInterval(() => {
-        setCurrentSlide(slide => {
-          if (slide >= countSlides) {
-            changeSelectedPage(0);
-            return 1;
-          } else {
-            changeSelectedPage(slide);
-            return slide + 1;
-          }
-        });
-      }, timeUpdate * 1000);
-    }
-  });
+  const [timeStart, setTimeStart] = useState(0);
 
   const handleClickBack = () => {
     setCurrentSlide(slide => slide > 1 ? slide - 1 : countSlides);
@@ -56,7 +41,7 @@ export const Slider: React.FC<Props> = ({ images, timeUpdate = 1 }) => {
     }
   };
 
-  const changeSelectedPage = (index: number) => {
+  const changeSelectedPage = useCallback((index: number) => {
     const pages = document.querySelectorAll('.page') as NodeListOf<HTMLButtonElement>;
 
     for (let i = 0; i < countSlides; i++) {
@@ -64,8 +49,27 @@ export const Slider: React.FC<Props> = ({ images, timeUpdate = 1 }) => {
     }
 
     pages[index].classList.add('page--selected');
-    setIsPressed(true);
-  };
+  }, [countSlides]);
+
+  useEffect(() => {
+    if (isPressed) return;
+
+    const intervalId = setInterval(() => {
+      console.log('lol');
+      setTimeStart(timeStart + 1);
+      setCurrentSlide(slide => {
+        if (slide >= countSlides) {
+          changeSelectedPage(0);
+          return 1;
+        } else {
+          changeSelectedPage(slide);
+          return slide + 1;
+        }
+      });
+    }, timeUpdate * 1000);
+
+    return () => clearInterval(intervalId);
+  }, [timeStart, changeSelectedPage, countSlides, isPressed, timeUpdate]);
 
   return (
     <section className='Slider' style={{ backgroundColor: images[currentSlide - 1].color }}>
@@ -79,6 +83,7 @@ export const Slider: React.FC<Props> = ({ images, timeUpdate = 1 }) => {
                 src={image.pathText}
                 alt={(index + 1).toString()}
                 key={image.id}
+                className={`Slider__image Slider__image--id--${image.id}`}
               />;
             }
 

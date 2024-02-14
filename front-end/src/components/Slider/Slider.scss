@@ -68,15 +68,23 @@
     gap: 24px;
     width: 650px;
     z-index: 2;
+  }
 
-    &>img {
-      max-width: 550px;
 
-      @include on-phone {
-        max-width: 300px;
+  &__image {
+    max-width: 550px;
+
+    @include on-phone {
+      max-width: 300px;
+    }
+
+    &--id {
+      &--1 {
+        max-width: 700px;
       }
     }
   }
+
 
   &__title {
     width: 700px;
