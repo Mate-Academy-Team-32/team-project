@@ -87,3 +87,16 @@ class ItemDetailSerializer(ItemSerializer):
             "rating_count",
             "item_images",
         )
+
+
+class ItemShortSerializer(ItemSerializer):
+
+    class Meta:
+        model = Item
+        fields = (
+            "id",
+            "label",
+            "name",
+            "logo_img",
+            "price"
+        )
