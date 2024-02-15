@@ -200,10 +200,10 @@
 
   &::after {
     content: attr(data-count);
-    box-sizing: border-box;
+    box-sizing: content-box;
     position: absolute;
-    top: 0;
-    right: 0;
+    top: -5px;
+    right: -5px;
     width: 16px;
     height: 16px;
     padding: 2px;
