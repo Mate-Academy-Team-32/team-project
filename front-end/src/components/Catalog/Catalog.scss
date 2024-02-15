@@ -40,6 +40,8 @@
     width: 150px;
     height: 48px;
     font-family: Montserrat, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
     border: 1px solid #393939;
     background-color: transparent;
     cursor: pointer;
@@ -146,9 +148,6 @@
 
     &::after {
       content: "";
-      position: relative;
-      bottom: 3px;
-      left: 10px;
       display: inline-block;
       width: 24px;
       height: 24px;
@@ -164,11 +163,12 @@
 }
 
 .dropdown {
-  position: absolute;
-  top: 325px;
-  right: 140px;
   font-family: Montserrat, sans-serif;
   z-index: 0;
+
+  &-item {
+    cursor: pointer;
+  }
 }
 
 .arrow {

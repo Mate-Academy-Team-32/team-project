@@ -89,57 +89,54 @@ export const Catalog: React.FC = () => {
     }
   };
 
+  const chooseSort = (sortType: Sort): void => {
+    setSortBy(sortType);
+    setIsClickedSort(false);
+  };
+
   return (
     <>
       <h2 className="Navigation__head">Home {'>'} Top 10</h2>
 
       <section className="Catalog__pre">
         <h1 className="Catalog__head">Top 10 fragrances of the season</h1>
-        {/* That dropdown written on Tailwind will be deleted */}
-        <div className="Catalog__buttons">
-          <section
-            className={
-              cn(
-                "dropdown z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700",
-                !isClickedSort && "hidden"
-              )
-            }
-          >
-            <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
-              <li>
-                <div className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white hover:cursor-pointer" onClick={() => {
-                  setSortBy('popularity');
-                  setIsClickedSort(false);
-                }}>Popularity</div>
-              </li>
-              <li>
-                <div className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white hover:cursor-pointer" onClick={() => {
-                  setSortBy('price-low');
-                  setIsClickedSort(false);
-                }}>Price, low to high</div>
-              </li>
-              <li>
-                <div className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white hover:cursor-pointer" onClick={() => {
-                  setSortBy('price-high');
-                  setIsClickedSort(false);
-                }}>Price, high to low</div>
-              </li>
-            </ul>
-          </section>
 
-          <button
-            data-dropdown-toggle="dropdown"
-            type="button"
-            className={
-              cn(
-                "Catalog__button-sort",
-                isClickedSort && "Catalog__button-sort--clicked"
-              )
-            }
-            onClick={() => setIsClickedSort(currentState => !currentState)}
-          >
-            Sort by:
-          </button>
+        <div className="Catalog__buttons">
+          <div className={cn(
+            "dropdown",
+            isClickedSort && "is-active"
+          )}>
+            <div className="dropdown-trigger">
+              <button
+                className={
+                  cn(
+                    "Catalog__button-sort button",
+                    !isClickedSort && "Catalog__button-sort--clicked"
+                  )
+                }
+                onClick={() => setIsClickedSort(currentState => !currentState)}
+                aria-haspopup="true"
+                aria-controls="dropdown-menu2"
+              >
+                <span>Sort by</span>
+              </button>
+            </div>
+            <div className="dropdown-menu" id="dropdown-menu2" role="menu">
+              <div className="dropdown-content">
+                <div className="dropdown-item" onClick={() => chooseSort('popularity')}>
+                  <p>Popularity</p>
+                </div>
+                <hr className="dropdown-divider" />
+                <div className="dropdown-item" onClick={() => chooseSort('price-low')}>
+                  <p>Price, low to high</p>
+                </div>
+                <hr className="dropdown-divider" />
+                <div className="dropdown-item" onClick={() => chooseSort('price-high')}>
+                  <p>Price, high to low</p>
+                </div>
+              </div>
+            </div>
+          </div>
 
           <button
             type="button"
@@ -151,32 +148,6 @@ export const Catalog: React.FC = () => {
           >
             {view} View
           </button>
-        </div>
-
-        <div className="dropdown is-active">
-          <div className="dropdown-trigger">
-            <button className="button" aria-haspopup="true" aria-controls="dropdown-menu2">
-              <span>Content</span>
-              <span className="icon is-small">
-                <i className="fas fa-angle-down" aria-hidden="true"></i>
-              </span>
-            </button>
-          </div>
-          <div className="dropdown-menu" id="dropdown-menu2" role="menu">
-            <div className="dropdown-content">
-              <div className="dropdown-item">
-                <p>You can insert <strong>any type of content</strong> within the dropdown menu.</p>
-              </div>
-              <hr className="dropdown-divider" />
-              <div className="dropdown-item">
-                <p>You simply need to use a <code>&lt;div&gt;</code> instead.</p>
-              </div>
-              <hr className="dropdown-divider" />
-              <a href="/" className="dropdown-item">
-                This is a link
-              </a>
-            </div>
-          </div>
         </div>
       </section>
 
