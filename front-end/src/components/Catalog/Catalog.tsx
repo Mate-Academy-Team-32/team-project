@@ -111,7 +111,7 @@ export const Catalog: React.FC = () => {
                 className={
                   cn(
                     "Catalog__button-sort button",
-                    !isClickedSort && "Catalog__button-sort--clicked"
+                    isClickedSort && "Catalog__button-sort--clicked"
                   )
                 }
                 onClick={() => setIsClickedSort(currentState => !currentState)}

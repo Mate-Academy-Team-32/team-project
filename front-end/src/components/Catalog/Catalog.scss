@@ -9,7 +9,6 @@
   &__browse {
     display: flex;
     justify-content: center;
-    align-items: center;
     align-content: flex-start;
     column-gap: 20px;
     row-gap: 40px;
@@ -163,6 +162,7 @@
 }
 
 .dropdown {
+  border: none;
   font-family: Montserrat, sans-serif;
   z-index: 0;
 
