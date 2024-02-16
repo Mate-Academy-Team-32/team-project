@@ -5,7 +5,7 @@ type Image = {
   id: number;
   color: string;
   pathImg: string;
-  pathText: string;
+  pathText?: string;
 };
 
 type Props = {
@@ -77,7 +77,7 @@ export const Slider: React.FC<Props> = ({ images, timeUpdate = 1 }) => {
 
         <div className="Slider__description">
           {images.map((image, index) => {
-            if (currentSlide === index + 1) {
+            if (currentSlide === index + 1 && image.pathText) {
               return <img
                 src={image.pathText}
                 alt={(index + 1).toString()}

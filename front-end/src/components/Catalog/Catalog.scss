@@ -184,11 +184,24 @@
 }
 
 .checkbox {
+  margin: 0;
   width: 24px;
   height: 24px;
+  appearance: none;
+  border: 2px solid #dedddd;
+  cursor: pointer;
 
   &:checked {
-    accent-color: #000;
+    border-color: transparent;
+    background-color: #000;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 20px;
+      height: 20px;
+      background-image: url("../../img/icon-checkmark.svg");
+    }
   }
 }
 
@@ -226,7 +239,7 @@
   .bar-right,
   .bar-inner {
     box-shadow: none;
-    height: 5px;
+    height: 2px;
     padding: 0;
   }
 

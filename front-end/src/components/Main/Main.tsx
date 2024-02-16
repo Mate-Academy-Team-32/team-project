@@ -11,11 +11,6 @@ import imgSlide2 from '../../img/image-slide-2.png';
 import imgSlide3 from '../../img/image-slide-3.png';
 import imgSlide4 from '../../img/image-slide-4.png';
 import imgSlide5 from '../../img/image-slide-5.png';
-import textSlide1 from '../../img/text-slide-1.svg';
-import textSlide2 from '../../img/text-slide-2.svg';
-import textSlide3 from '../../img/text-slide-3.svg';
-import textSlide4 from '../../img/text-slide-4.svg';
-import textSlide5 from '../../img/text-slide-5.svg';
 import imgAdv1 from '../../img/image-adv-1.png';
 import imgAdv2 from '../../img/image-adv-2.png';
 import imgAdv3 from '../../img/image-adv-3.png';
@@ -32,31 +27,26 @@ export const Main: React.FC = () => (
           id: 1,
           color: '#000000',
           pathImg: imgSlide1,
-          pathText: textSlide1,
         },
         {
           id: 2,
           color: '#ffffff',
           pathImg: imgSlide2,
-          pathText: textSlide2,
         },
         {
           id: 3,
           color: '#000000',
           pathImg: imgSlide3,
-          pathText: textSlide3,
         },
         {
           id: 4,
           color: '#f4d2b7',
           pathImg: imgSlide4,
-          pathText: textSlide4,
         },
         {
           id: 5,
           color: '#eedde3',
           pathImg: imgSlide5,
-          pathText: textSlide5,
         },
       ]}
       timeUpdate={3}

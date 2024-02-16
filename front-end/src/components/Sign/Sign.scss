@@ -102,10 +102,11 @@
     width: 20px;
     height: 20px;
     appearance: none;
-    border: 2px solid #000;
+    border: 2px solid #dedddd;
     cursor: pointer;
 
     &:checked {
+      border-color: transparent;
       background-color: #000;
 
       &::before {

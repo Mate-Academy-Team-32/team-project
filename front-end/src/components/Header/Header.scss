@@ -142,11 +142,8 @@
   height: 24px;
 }
 
-.input {
-  position: absolute;
-  left: 20vw;
-  box-sizing: border-box;
-  padding: 10px 52px !important;
+.nav__input {
+  padding: 10px 52px;
   width: 60vw;
   height: 44px;
   font-family: Montserrat, sans-serif;
@@ -158,6 +155,7 @@
   background-color: #fff;
   color: #a3a3a3;
   user-select: none;
+  transform: translate(-150%);
 
   &:focus {
     color: #000;
