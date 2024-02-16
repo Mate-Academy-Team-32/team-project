@@ -143,6 +143,8 @@
 }
 
 .nav__input {
+  position: absolute;
+  left: 20vw;
   padding: 10px 52px;
   width: 60vw;
   height: 44px;
@@ -170,6 +172,7 @@
       height: 24px;
       background-image: url("../../img/icon-search-black.svg");
       cursor: pointer;
+      background-color: transparent;
 
       &--open {
         background-image: url("../../img/icon-search-white.svg");
