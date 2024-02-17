@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-9@#+2+d)^(us(jc%=dlw1v8y*&g$co%8517s&i+a&tz@k62s_l
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["0.0.0.0", "localhost"]
+ALLOWED_HOSTS = ["0.0.0.0", "localhost", "127.0.0.1"]
 
 
 # Application definition
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework",
+    "django_rest_passwordreset",
     "drf_spectacular",
     "users",
     "items",
@@ -160,3 +161,10 @@ SIMPLE_JWT = {
 }
 
 CORS_ORIGIN_WHITELIST = ["http://localhost:3000"]
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = ""  # todo: Define mail
+EMAIL_HOST_PASSWORD = ""  # todo: Get App password
