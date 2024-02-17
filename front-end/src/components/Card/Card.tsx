@@ -3,13 +3,14 @@ import { useNavigate } from 'react-router-dom';
 import cn from 'classnames';
 import { Rate } from '../Rate';
 import './Card.scss';
+import { Label } from '../../types/types';
 import like from '../../img/icon-heart-no-filled.svg';
 import likeFocused from '../../img/icon-heart-focused.svg';
 
 type Props = {
   id: number;
   image: string;
-  category: string;
+  category: Label;
   title: string;
   price: number;
   volume: number;
@@ -41,7 +42,16 @@ export const Card: React.FC<Props> = ({
       !isGrid && 'Card--list',
     )}>
       <nav className="Card__top-bar">
-        <span className="Card__label">{category}</span>
+        <span
+          className={cn(
+            "Card__label",
+            category === 'top' && "Card__label--top",
+            category === 'women' && "Card__label--women",
+            category === 'men' && "Card__label--men",
+            category === 'new' && "Card__label--new",
+            category === 'actions' && "Card__label--actions",
+          )}
+        >{category}</span>
         <div className="Card__like">
           <img
             src={!isLiked ? like : likeFocused}

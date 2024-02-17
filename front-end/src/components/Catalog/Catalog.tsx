@@ -4,6 +4,7 @@ import { scrollToTop } from '../../utils/_scroll';
 import MultiRangeSlider from 'multi-range-slider-react';
 import { Card } from '../Card';
 import './Catalog.scss';
+import { View, Sort, Label } from '../../types/types';
 import priceDollar from '../../img/icon-dollar.svg';
 import cards from '../../data/cards.json';
 import imgCatalog1 from '../../img/image-catalog-1.png';
@@ -14,9 +15,6 @@ import imgCatalog5 from '../../img/image-catalog-5.png';
 import imgCatalog6 from '../../img/image-catalog-6.png';
 
 const IMAGES = [imgCatalog1, imgCatalog2, imgCatalog3, imgCatalog4, imgCatalog5, imgCatalog6];
-
-type View = 'List' | 'Grid';
-type Sort = 'popularity' | 'price-low' | 'price-high';
 
 export const Catalog: React.FC = () => {
   const [view, setView] = useState<View>('List');
@@ -40,7 +38,7 @@ export const Catalog: React.FC = () => {
           key={card.id}
           id={card.id}
           image={IMAGES[i]}
-          category={card.category}
+          category={card.category as Label}
           title={card.title}
           price={card.price}
           volume={card.volume}

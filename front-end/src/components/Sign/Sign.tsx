@@ -3,8 +3,7 @@ import { useLocation, Link } from 'react-router-dom';
 import cn from 'classnames';
 import './Sign.scss';
 import { scrollToTop } from '../../utils/_scroll';
-
-type Input = 'password' | 'text';
+import { Input } from '../../types/types';
 
 export const Sign: React.FC = () => {
   const searchPath = useLocation().search;

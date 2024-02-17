@@ -1,12 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import './Slider.scss';
-
-type Image = {
-  id: number;
-  color: string;
-  pathImg: string;
-  pathText?: string;
-};
+import { Image } from '../../types/types';
 
 type Props = {
   images: Image[];

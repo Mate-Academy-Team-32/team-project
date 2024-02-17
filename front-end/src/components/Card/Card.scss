@@ -98,7 +98,7 @@
   &__label {
     box-sizing: border-box;
     padding: 5px 8px;
-    width: 54px;
+    width: 70px;
     text-transform: uppercase;
     text-align: center;
     font-family: Montserrat, sans-serif;
@@ -106,7 +106,27 @@
     font-weight: 700;
     user-select: none;
     color: #fff;
-    background-color: #e09a88;
+    background-color: #000;
+
+    &--top {
+      background-color: #e09a88;
+    }
+
+    &--women {
+      background-color: #d78ba6;
+    }
+
+    &--men {
+      background-color: #5873a3;
+    }
+
+    &--new {
+      background-color: #393939;
+    }
+
+    &--actions {
+      background-color: #f37373;
+    }
   }
 
   &__like {
