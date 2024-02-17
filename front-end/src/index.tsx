@@ -1,4 +1,3 @@
-import React from 'react';
 import { createRoot } from 'react-dom/client';
 import {
   BrowserRouter as Router,
@@ -7,6 +6,7 @@ import {
 } from 'react-router-dom';
 import { App } from './App';
 import { Home } from './pages';
+import { Account } from './pages/account';
 import { Sign } from './pages/sign';
 import { Catalog } from './pages/catalog';
 import { Product } from './pages/product';
@@ -20,6 +20,7 @@ root.render(
     <Routes>
       <Route path="/" element={<App />}>
         <Route index element={<Home />} />
+        <Route path="account" element={<Account />} />
         <Route path="sign" element={<Sign />} />
         <Route path="catalog" element={<Catalog />} />
         <Route path="product" element={<Product />} />

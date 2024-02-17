@@ -116,7 +116,7 @@ export const Header: React.FC = () => {
               <button type="button" className="lens lens--open"></button>
             </div>
 
-            <Link to="/sign">
+            <Link to="/account">
               <div className={cn(
                 "dropdown",
                 isClickedSign && "is-active"
