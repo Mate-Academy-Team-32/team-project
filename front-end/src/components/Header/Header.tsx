@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Header.scss';
 import iconAccount from '../../img/icon-account.svg';
@@ -7,6 +7,8 @@ import iconBag from '../../img/icon-bag-white.svg';
 import iconBurger from '../../img/icon-burger.svg';
 
 export const Header: React.FC = () => {
+  const [headerHight, setHeaderHeight] = useState(300);
+
   useEffect(() => {
     (document.querySelector('#bag') as HTMLAnchorElement)
       .setAttribute('data-count', '0');
@@ -15,6 +17,9 @@ export const Header: React.FC = () => {
     const lensOpen = document.querySelector('.lens--open') as HTMLDivElement;
     const lensClose = document.querySelector('.lens--close') as HTMLDivElement;
     const textLinks = document.querySelectorAll('.nav__link') as NodeListOf<HTMLLinkElement>;
+    const catalogLink = document.querySelector('#catalog') as HTMLLinkElement;
+    const catalogBlock = document.querySelector('.nav--catalog') as HTMLDivElement;
+    const header = document.querySelector('.Header') as HTMLDivElement;
 
     const showSearch = () => {
       textLinks.forEach((textLink) => {
@@ -49,11 +54,21 @@ export const Header: React.FC = () => {
     searchInput.addEventListener('blur', () => {
       hideSearch();
     });
+
+    catalogLink.addEventListener('mouseenter', () => {
+      catalogBlock.classList.remove('hidden');
+      setHeaderHeight(500);
+    });
+
+    header.addEventListener('mouseleave', () => {
+      catalogBlock.classList.add('hidden');
+      setHeaderHeight(300);
+    });
   });
 
   return (
     <>
-      <header className="Header">
+      <header className="Header" style={{ height: headerHight }}>
         <section className="Header__top-bar">
           <img src={iconBurger} alt="burger-menu" className="Header__menu" />
 
@@ -66,12 +81,17 @@ export const Header: React.FC = () => {
 
           <nav className="nav nav--links">
             <Link to="/" relative="path" className="nav__link">Home</Link>
-
-            <Link to="/catalog" relative="path" className="nav__link">Catalog</Link>
-
+            <Link to="/catalog" relative="path" className="nav__link" id="catalog">Catalog</Link>
             <Link to="/about" relative="path" className="nav__link">About Us</Link>
-
             <Link to="/contacts" relative="path" className="nav__link">Contact Us</Link>
+          </nav>
+
+          <nav className="nav nav--catalog hidden">
+            <Link to="/" relative="path" className="nav__link">Top 10</Link>
+            <Link to="/" relative="path" className="nav__link">Women`s perfumery</Link>
+            <Link to="/" relative="path" className="nav__link">Men`s perfumery</Link>
+            <Link to="/" relative="path" className="nav__link">New</Link>
+            <Link to="/" relative="path" className="nav__link">Actions</Link>
           </nav>
 
           <nav className="nav nav--sign">
@@ -113,7 +133,7 @@ export const Header: React.FC = () => {
         </section>
       </header>
 
-      <div className="margin"></div>
+      <div className="margin" style={{ marginTop: headerHight }}></div>
     </>
   );
 };

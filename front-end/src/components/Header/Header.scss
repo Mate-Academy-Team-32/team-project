@@ -8,10 +8,9 @@
   right: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   padding: 0 $default-side-margins;
   width: 100vw;
-  height: 198px;
+  padding: 100px 32px;
   font-family: Montserrat, sans-serif;
   background-color: $main-color;
   z-index: 10;
@@ -117,6 +116,19 @@
   gap: 32px;
   height: 32px;
 
+  &--links {
+    flex-direction: row;
+  }
+
+  &--catalog {
+    position: absolute;
+    top: 180px;
+    left: 610px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
   &__link {
     text-decoration: none;
     font-family: Montserrat, sans-serif;
@@ -190,10 +202,6 @@
 
 .hidden {
   display: none;
-}
-
-.margin {
-  margin-top: 198px;
 }
 
 #bag {
