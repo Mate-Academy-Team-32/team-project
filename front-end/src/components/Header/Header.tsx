@@ -7,7 +7,7 @@ import iconBag from '../../img/icon-bag-white.svg';
 import iconBurger from '../../img/icon-burger.svg';
 
 export const Header: React.FC = () => {
-  const [headerHight, setHeaderHeight] = useState(300);
+  const [headerHight, setHeaderHeight] = useState(200);
 
   useEffect(() => {
     (document.querySelector('#bag') as HTMLAnchorElement)
@@ -62,7 +62,7 @@ export const Header: React.FC = () => {
 
     header.addEventListener('mouseleave', () => {
       catalogBlock.classList.add('hidden');
-      setHeaderHeight(300);
+      setHeaderHeight(200);
     });
   });
 
