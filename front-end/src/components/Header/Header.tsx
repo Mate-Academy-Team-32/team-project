@@ -8,8 +8,11 @@ import iconBag from '../../img/icon-bag-white.svg';
 import iconBurger from '../../img/icon-burger.svg';
 
 export const Header: React.FC = () => {
+  const [isSigned] = useState(false);
   const [headerHight, setHeaderHeight] = useState(200);
   const [isClickedSign, setIsClickedSign] = useState(false);
+
+  document.cookie = `isSigned=${isSigned}`;
 
   useEffect(() => {
     (document.querySelector('#bag') as HTMLAnchorElement)
@@ -126,21 +129,37 @@ export const Header: React.FC = () => {
                     onMouseEnter={() => setIsClickedSign(currentState => !currentState)}
                   />
                 </div>
-                <div className="dropdown-menu" id="dropdown-menu1" role="menu">
-                  <div className="dropdown-content">
-                    <div className="dropdown-item" onClick={() => setIsClickedSign(false)}>
-                      <p>Account details</p>
+                {isSigned
+                  ? (
+                    <div className="dropdown-menu" id="dropdown-menu1" role="menu">
+                      <div className="dropdown-content">
+                        <div className="dropdown-item" onClick={() => setIsClickedSign(false)}>
+                          <p>Account details</p>
+                        </div>
+                        <hr className="dropdown-divider" />
+                        <div className="dropdown-item" onClick={() => setIsClickedSign(false)}>
+                          <p>My orders</p>
+                        </div>
+                        <hr className="dropdown-divider" />
+                        <div className="dropdown-item" onClick={() => setIsClickedSign(false)}>
+                          <p>Sign out</p>
+                        </div>
+                      </div>
                     </div>
-                    <hr className="dropdown-divider" />
-                    <div className="dropdown-item" onClick={() => setIsClickedSign(false)}>
-                      <p>My orders</p>
+                  ) : (
+                    <div className="dropdown-menu" id="dropdown-menu1" role="menu">
+                      <div className="dropdown-content">
+                        <div className="dropdown-item" onClick={() => setIsClickedSign(false)}>
+                          <p>Sign In</p>
+                        </div>
+                        <hr className="dropdown-divider" />
+                        <div className="dropdown-item" onClick={() => setIsClickedSign(false)}>
+                          <p>Don`t have an account?<Link to="/sign?type=up">Sign Up</Link></p>
+                        </div>
+                      </div>
                     </div>
-                    <hr className="dropdown-divider" />
-                    <div className="dropdown-item" onClick={() => setIsClickedSign(false)}>
-                      <p>Sign out</p>
-                    </div>
-                  </div>
-                </div>
+                  )
+                }
               </div>
             </Link>
 
@@ -161,7 +180,7 @@ export const Header: React.FC = () => {
             </Link>
           </nav>
         </section>
-      </header>
+      </header >
 
       <div className="margin" style={{ marginTop: headerHight }}></div>
     </>
