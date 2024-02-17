@@ -122,7 +122,7 @@
 
   &--catalog {
     position: absolute;
-    top: 180px;
+    top: 150px;
     left: 610px;
     flex-direction: column;
     align-items: flex-start;
@@ -146,58 +146,65 @@
     &:focus {
       color: #caa79e;
     }
+
+    &--upper {
+      text-transform: uppercase;
+      font-size: 18px;
+    }
+  }
+
+  &__input {
+    position: absolute;
+    left: 1700px;
+    padding: 10px 52px;
+    width: 60vw;
+    height: 44px;
+    font-family: Montserrat, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background-color: #fff;
+    color: #a3a3a3;
+    user-select: none;
+    transform: translate(-150%);
+    z-index: 1;
+
+    &:focus {
+      color: #000;
+    }
+
+    &--search {
+      display: flex;
+      align-items: center;
+
+      .lens {
+        width: 24px;
+        height: 24px;
+        background-image: url("../../img/icon-search-black.svg");
+        cursor: pointer;
+        background-color: transparent;
+        border: none;
+
+        &--open {
+          background-image: url("../../img/icon-search-white.svg");
+        }
+
+        &--close {
+          position: absolute;
+          left: 320px;
+          transform: translateX(15px);
+          z-index: 2;
+        }
+      }
+    }
   }
 }
 
 .sign-in {
   width: 24px;
   height: 24px;
-}
-
-.nav__input {
-  position: absolute;
-  left: 20vw;
-  padding: 10px 52px;
-  width: 60vw;
-  height: 44px;
-  font-family: Montserrat, sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  border: none;
-  border-bottom: 1px solid #fff;
-  outline: none;
-  background-color: #fff;
-  color: #a3a3a3;
-  user-select: none;
-  transform: translate(-150%);
-
-  &:focus {
-    color: #000;
-  }
-
-  &--search {
-    display: flex;
-    align-items: center;
-
-    .lens {
-      width: 24px;
-      height: 24px;
-      background-image: url("../../img/icon-search-black.svg");
-      cursor: pointer;
-      background-color: transparent;
-
-      &--open {
-        background-image: url("../../img/icon-search-white.svg");
-      }
-
-      &--close {
-        position: absolute;
-        left: 20vw;
-        transform: translateX(15px);
-        z-index: 1;
-      }
-    }
-  }
 }
 
 .hidden {
@@ -223,4 +230,11 @@
     background-color: #caa79e;
     color: #fff;
   }
+}
+
+.dropdown-content {
+  position: relative;
+  top: 20px;
+  right: 60px;
+  width: 220px;
 }

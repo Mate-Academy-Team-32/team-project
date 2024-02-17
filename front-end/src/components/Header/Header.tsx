@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import cn from 'classnames';
 import './Header.scss';
 import iconAccount from '../../img/icon-account.svg';
 import iconHeart from '../../img/icon-heart-white.svg';
@@ -8,6 +9,7 @@ import iconBurger from '../../img/icon-burger.svg';
 
 export const Header: React.FC = () => {
   const [headerHight, setHeaderHeight] = useState(200);
+  const [isClickedSign, setIsClickedSign] = useState(false);
 
   useEffect(() => {
     (document.querySelector('#bag') as HTMLAnchorElement)
@@ -20,6 +22,7 @@ export const Header: React.FC = () => {
     const catalogLink = document.querySelector('#catalog') as HTMLLinkElement;
     const catalogBlock = document.querySelector('.nav--catalog') as HTMLDivElement;
     const header = document.querySelector('.Header') as HTMLDivElement;
+    const dropdown = document.querySelector('.dropdown') as HTMLDivElement;
 
     const showSearch = () => {
       textLinks.forEach((textLink) => {
@@ -57,12 +60,16 @@ export const Header: React.FC = () => {
 
     catalogLink.addEventListener('mouseenter', () => {
       catalogBlock.classList.remove('hidden');
-      setHeaderHeight(500);
+      setHeaderHeight(450);
     });
 
     header.addEventListener('mouseleave', () => {
       catalogBlock.classList.add('hidden');
       setHeaderHeight(200);
+    });
+
+    dropdown.addEventListener('mouseleave', () => {
+      dropdown.classList.remove('is-active');
     });
   });
 
@@ -87,11 +94,11 @@ export const Header: React.FC = () => {
           </nav>
 
           <nav className="nav nav--catalog hidden">
-            <Link to="/" relative="path" className="nav__link">Top 10</Link>
-            <Link to="/" relative="path" className="nav__link">Women`s perfumery</Link>
-            <Link to="/" relative="path" className="nav__link">Men`s perfumery</Link>
-            <Link to="/" relative="path" className="nav__link">New</Link>
-            <Link to="/" relative="path" className="nav__link">Actions</Link>
+            <Link to="/" relative="path" className="nav__link nav__link--upper">Top 10</Link>
+            <Link to="/" relative="path" className="nav__link nav__link--upper">Women`s perfumery</Link>
+            <Link to="/" relative="path" className="nav__link nav__link--upper">Men`s perfumery</Link>
+            <Link to="/" relative="path" className="nav__link nav__link--upper">New</Link>
+            <Link to="/" relative="path" className="nav__link nav__link--upper">Actions</Link>
           </nav>
 
           <nav className="nav nav--sign">
@@ -107,11 +114,34 @@ export const Header: React.FC = () => {
             </div>
 
             <Link to="/sign">
-              <img
-                className="sign-in"
-                src={iconAccount}
-                alt="Sign in"
-              />
+              <div className={cn(
+                "dropdown",
+                isClickedSign && "is-active"
+              )}>
+                <div className="dropdown-trigger">
+                  <img
+                    className="sign-in"
+                    src={iconAccount}
+                    alt="Sign in"
+                    onMouseEnter={() => setIsClickedSign(currentState => !currentState)}
+                  />
+                </div>
+                <div className="dropdown-menu" id="dropdown-menu1" role="menu">
+                  <div className="dropdown-content">
+                    <div className="dropdown-item" onClick={() => setIsClickedSign(false)}>
+                      <p>Account details</p>
+                    </div>
+                    <hr className="dropdown-divider" />
+                    <div className="dropdown-item" onClick={() => setIsClickedSign(false)}>
+                      <p>My orders</p>
+                    </div>
+                    <hr className="dropdown-divider" />
+                    <div className="dropdown-item" onClick={() => setIsClickedSign(false)}>
+                      <p>Sign out</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </Link>
 
             <Link to="/likes" id="icon--like">
