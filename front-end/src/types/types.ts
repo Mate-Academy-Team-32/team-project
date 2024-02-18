@@ -1,4 +1,4 @@
-export type Label = 'top' | 'women' | 'men' | 'new' | 'actions';
+export type Label = 'top' | 'women' | 'men' | 'new' | 'sale';
 
 export type View = 'List' | 'Grid';
 export type Sort = 'popularity' | 'price-low' | 'price-high';

@@ -49,7 +49,7 @@ export const Card: React.FC<Props> = ({
             category === 'women' && "Card__label--women",
             category === 'men' && "Card__label--men",
             category === 'new' && "Card__label--new",
-            category === 'actions' && "Card__label--actions",
+            category === 'sale' && "Card__label--sale",
           )}
         >{category}</span>
         <div className="Card__like">
