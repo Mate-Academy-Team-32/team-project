@@ -7,6 +7,7 @@
   font-family: Montserrat, sans-serif;
 
   &__content {
+    max-width: 400px;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -14,10 +15,21 @@
   }
 
   &__head {
+    width: 450px;
     margin-bottom: 30px;
     font-size: 24px;
     font-weight: 500;
     line-height: 26px;
+
+    &--center {
+      text-align: center;
+    }
+  }
+
+  &__paragraph {
+    margin-bottom: 40px;
+    font-size: 16px;
+    color: #393939;
 
     &--center {
       text-align: center;

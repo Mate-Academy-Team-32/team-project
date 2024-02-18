@@ -163,7 +163,7 @@ const SignUp: React.FC = () => {
     setTypeOfInput(inputType);
   };
 
-  useEffect(() => {}, [handleSubmit]);
+  useEffect(() => { }, [handleSubmit]);
 
   return (
     <section className="Sign">
@@ -311,10 +311,14 @@ const Forgot: React.FC = () => {
         onSubmit={handleSubmit}
       >
         <h1 className="Sign__head Sign__head--center">
-          Enter your email address to get
-          <br />
-          the password reset link
+          Have you Forgotten Your Password ?
         </h1>
+
+        <p className="Sign__paragraph Sign__paragraph--center">
+          If you've forgotten your password, enter your
+          <br />
+          e-mail address and we'll send you an e-mail
+        </p>
 
         <h2 className="Sign__field">Email Address</h2>
         <input
@@ -326,7 +330,7 @@ const Forgot: React.FC = () => {
           required
         />
 
-        <button type="submit" className="Sign__submit">Send password reset email</button>
+        <button type="submit" className="Sign__submit">Reset password</button>
 
         <div className="Sign__account-options Sign__account-options--color--black">
           Go back to
