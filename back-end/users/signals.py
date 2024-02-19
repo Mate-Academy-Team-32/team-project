@@ -23,7 +23,7 @@ def password_reset_token_created(
     """
     context = {
         "current_user": reset_password_token.user,
-        "username": reset_password_token.user.first_name + reset_password_token.user.last_name,
+        "username": f"{reset_password_token.user.first_name} {reset_password_token.user.last_name}",
         "email": reset_password_token.user.email,
         "reset_password_url": "{}?token={}".format(
             instance.request.build_absolute_uri(
@@ -35,9 +35,16 @@ def password_reset_token_created(
 
     # email_html_message = render_to_string("email/password_reset_email.html", context)
     # todo: Create html for reset password letter
-    email_plaintext_message = f"Hello {context.get('username')}, " \
-                              f"we've received a request to reset your password. Please click on the link " \
-                              f"below to reset your password: {context.get('reset_password_url')}"
+    greeting_text = (
+        f"Hello {context.get('username')}"
+        if context.get("username").strip()
+        else "Hello"
+    )
+    email_plaintext_message = (
+        f"{greeting_text}, "
+        f"we've received a request to reset your password. Please click on the link "
+        f"below to reset your password: {context.get('reset_password_url')}"
+    )
 
     msg = EmailMultiAlternatives(
         "Password reset for PerfuMe",
