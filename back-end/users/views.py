@@ -4,7 +4,12 @@ from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
 from rest_framework_simplejwt.authentication import JWTAuthentication
 
-from users.serializers import UserSerializer, UserProfileSerializer, ChangePasswordSerializer
+from users.serializers import (
+    UserSerializer,
+    UserProfileSerializer,
+    ChangePasswordSerializer,
+    SubscriptionSerializer,
+)
 
 
 class RegisterView(generics.CreateAPIView):
@@ -24,7 +29,7 @@ class UserProfileViewSet(
 
 
 class ChangePasswordView(generics.CreateAPIView):
-    permission_classes = (IsAuthenticated, )
+    permission_classes = (IsAuthenticated,)
     serializer_class = ChangePasswordSerializer
 
     def post(self, request, *args, **kwargs):
@@ -46,8 +51,18 @@ class ChangePasswordView(generics.CreateAPIView):
                 )
 
             return Response(
-                {"error": "Incorrect old password."},
-                status=status.HTTP_400_BAD_REQUEST
+                {"error": "Incorrect old password."}, status=status.HTTP_400_BAD_REQUEST
             )
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class SubscriptionViewSet(
+    mixins.RetrieveModelMixin, mixins.UpdateModelMixin, viewsets.GenericViewSet
+):
+    permission_classes = (IsAuthenticated,)
+    authentication_classes = (JWTAuthentication,)
+    serializer_class = SubscriptionSerializer
+
+    def get_object(self):
+        return self.request.user
