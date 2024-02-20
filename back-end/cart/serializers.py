@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from models import CartItem
+from cart.models import CartItem, FavoriteItem
 from items.serializers import ItemShortSerializer
 
 
@@ -12,12 +12,16 @@ class CoreModelSerializer(serializers.Serializer):
 
 
 class FavoriteListSerializer(CoreModelSerializer, serializers.ModelSerializer):
-    item = ItemShortSerializer()
+    item_info = ItemShortSerializer(read_only=True)
+
+    class Meta:
+        model = FavoriteItem
+        fields = ("id", "item", "item_info")
 
 
 class CartSerializer(CoreModelSerializer, serializers.ModelSerializer):
-    stock_item = ItemShortSerializer()  # Change to StockItem when done
+    # stock_item = ItemShortSerializer()  # Change to StockItem when done
 
     class Meta:
         model = CartItem
-        fields = ("id", "item", "quantity") + CoreModelSerializer.Meta.fields
+        fields = ("id", "stock_item", "quantity") + CoreModelSerializer.Meta.fields
