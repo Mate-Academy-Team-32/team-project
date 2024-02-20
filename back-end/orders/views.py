@@ -1,9 +1,7 @@
 from rest_framework import mixins, viewsets
-from rest_framework.decorators import action
 from rest_framework.permissions import IsAuthenticated
 
 from carts.models import CartItem
-from items.views import CoreModelMixin
 from orders.models import Order, OrderItem
 from orders.serializers import OrderSerializer
 
