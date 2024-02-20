@@ -29,7 +29,7 @@ export const Account: React.FC = () => {
           placeholder="Display name*"
           required
         />
-        <p>This will be how your name will be displayed in the account section and in reviews.</p>
+        <p className="form__description">This will be how your name will be displayed in the account section and in reviews.</p>
         <input
           type="email"
           name="email"

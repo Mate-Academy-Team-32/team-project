@@ -335,7 +335,7 @@ const Forgot: React.FC = () => {
         <div className="Sign__account-options Sign__account-options--color--black">
           Go back to
           {' '}
-          <Link to="/sign?type=in" relative="path" className="Sign__link Sign__link--size--16">Sign In</Link>
+          <Link to="/sign?type=in" relative="path" className="Sign__link Sign__link--size--16 Sign__link--bold">Sign In</Link>
         </div>
       </form>
     </section>

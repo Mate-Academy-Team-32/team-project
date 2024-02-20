@@ -97,11 +97,11 @@ export const Header: React.FC = () => {
           </nav>
 
           <nav className="nav nav--catalog hidden">
-            <Link to="/" relative="path" className="nav__link nav__link--upper">Top 10</Link>
-            <Link to="/" relative="path" className="nav__link nav__link--upper">Women`s perfumery</Link>
-            <Link to="/" relative="path" className="nav__link nav__link--upper">Men`s perfumery</Link>
-            <Link to="/" relative="path" className="nav__link nav__link--upper">New</Link>
-            <Link to="/" relative="path" className="nav__link nav__link--upper">Actions</Link>
+            <Link to="/catalog?filter=top-10" relative="path" className="nav__link nav__link--upper">Top 10</Link>
+            <Link to="/catalog?filter=women" relative="path" className="nav__link nav__link--upper">Women`s perfumery</Link>
+            <Link to="/catalog?filter=men" relative="path" className="nav__link nav__link--upper">Men`s perfumery</Link>
+            <Link to="/catalog?filter=new" relative="path" className="nav__link nav__link--upper">New</Link>
+            <Link to="/catalog?filter=actions" relative="path" className="nav__link nav__link--upper">Actions</Link>
           </nav>
 
           <nav className="nav nav--sign">
@@ -150,11 +150,14 @@ export const Header: React.FC = () => {
                     <div className="dropdown-menu" id="dropdown-menu1" role="menu">
                       <div className="dropdown-content">
                         <div className="dropdown-item" onClick={() => setIsClickedSign(false)}>
-                          <p>Sign In</p>
+                          <p><Link to="/sign?type=in" className="dropdown__text dropdown__text--size--16">Sign In</Link></p>
                         </div>
                         <hr className="dropdown-divider" />
                         <div className="dropdown-item" onClick={() => setIsClickedSign(false)}>
-                          <p>Don`t have an account?<Link to="/sign?type=up">Sign Up</Link></p>
+                          <p className="dropdown__text dropdown__text--color--light">
+                            Don`t have an account?
+                            {' '}
+                            <Link to="/sign?type=up" className="dropdown__text dropdown__text--bold">Sign Up</Link></p>
                         </div>
                       </div>
                     </div>

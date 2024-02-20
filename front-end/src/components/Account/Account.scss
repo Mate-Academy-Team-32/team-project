@@ -1,16 +1,19 @@
 .Account {
   display: flex;
   justify-content: center;
+  margin: 250px 0 120px;
   font-family: Montserrat, sans-serif;
 
   &__form {
     display: flex;
     flex-direction: column;
+    gap: 20px;
 
     input {
       width: 100%;
       border: none;
       border-bottom: 1px solid #d8d8d8;
+      padding-bottom: 13px;
     }
 
     h1 {
@@ -27,11 +30,23 @@
 
   &__submit {
     width: 500px;
+    height: 54px;
     align-self: center;
     text-transform: uppercase;
     font-size: 16px;
     font-weight: 700;
     background-color: #000;
     color: #fff;
+    cursor: pointer;
+  }
+}
+
+.form {
+  &__description {
+    position: relative;
+    top: -10px;
+    font-size: 12px;
+    font-weight: 400;
+    color: #707070;
   }
 }

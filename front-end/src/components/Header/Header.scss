@@ -235,6 +235,27 @@
 .dropdown-content {
   position: relative;
   top: 20px;
-  right: 60px;
-  width: 220px;
+  right: 70px;
+  width: 230px;
+}
+
+.dropdown {
+  &__text {
+    font-weight: 500;
+    color: #393939;
+
+    &--size--16 {
+      font-size: 16px;
+    }
+
+    &--color--light {
+      font-size: 12px;
+      font-weight: 300;
+      color: #575656;
+    }
+
+    &--bold {
+      font-weight: 700;
+    }
+  }
 }
