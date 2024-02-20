@@ -9,7 +9,7 @@ import iconBurger from '../../img/icon-burger.svg';
 
 export const Header: React.FC = () => {
   const [isSigned] = useState(false);
-  const [headerHight, setHeaderHeight] = useState(200);
+  const [headerHight, setHeaderHeight] = useState(90);
   const [isClickedSign, setIsClickedSign] = useState(false);
 
   document.cookie = `isSigned=${isSigned}`;
@@ -63,12 +63,12 @@ export const Header: React.FC = () => {
 
     catalogLink.addEventListener('mouseenter', () => {
       catalogBlock.classList.remove('hidden');
-      setHeaderHeight(450);
+      setHeaderHeight(360);
     });
 
     header.addEventListener('mouseleave', () => {
       catalogBlock.classList.add('hidden');
-      setHeaderHeight(200);
+      setHeaderHeight(90);
     });
 
     dropdown.addEventListener('mouseleave', () => {
