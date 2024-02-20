@@ -8,8 +8,8 @@ urlpatterns = [
         include("items.urls", namespace="item"),
     ),
     path(
-        "cart/",
-        include("cart.urls", namespace="cart")
+        "",
+        include("carts.urls", namespace="carts")
     ),
     path("doc/", SpectacularAPIView.as_view(), name="schema"),
     path(
@@ -17,4 +17,8 @@ urlpatterns = [
         SpectacularSwaggerView.as_view(url_name="schema"),
         name="swagger-ui",
     ),
+    path(
+        "",
+        include("orders.urls", namespace="orders")
+    )
 ]
