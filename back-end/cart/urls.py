@@ -1,10 +1,10 @@
 from rest_framework import routers
 
-from views import CartViewSet, FavoriteListViewSet
+from cart.views import CartViewSet, FavoriteListViewSet
 
 router = routers.DefaultRouter()
-router.register("images", CartViewSet)
-router.register("tags", FavoriteListViewSet)
+router.register("cart", CartViewSet)
+router.register("favorite", FavoriteListViewSet)
 
 urlpatterns = router.urls
 
