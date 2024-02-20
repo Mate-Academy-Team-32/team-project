@@ -307,7 +307,7 @@ const Forgot: React.FC = () => {
       <form
         action="/sign"
         method="post"
-        className="Sign__content"
+        className="Sign__content Sign__content--forgot--center"
         onSubmit={handleSubmit}
       >
         <h1 className="Sign__head Sign__head--center">
