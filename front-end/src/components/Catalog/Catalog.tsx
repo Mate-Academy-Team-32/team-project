@@ -163,9 +163,9 @@ export const Catalog: React.FC = () => {
           <h2 className="Catalog__filters--header">Filters by parameters</h2>
 
           <article className="Catalog__filters--name">
-            <div className="Catalog__filters--category">
+            <div className="Catalog__filters--category" onClick={() => toggleArrow(0)}>
               <h2>Price</h2>
-              <button className="arrow arrow--reversed" onClick={() => toggleArrow(0)}></button>
+              <button className="arrow arrow--reversed"></button>
             </div>
             <div className="Catalog__filters--options">
               <div className="Catalog__filters--price">
@@ -209,9 +209,9 @@ export const Catalog: React.FC = () => {
           <hr className="Catalog__line Catalog__line--filter"></hr>
 
           <article className="Catalog__filters--name">
-            <div className="Catalog__filters--category">
+            <div className="Catalog__filters--category" onClick={() => toggleArrow(1)}>
               <h2>Brand</h2>
-              <button className="arrow" onClick={() => toggleArrow(1)}></button>
+              <button className="arrow"></button>
             </div>
             <div className="Catalog__filters--options hidden">
               <div className="Catalog__choice--checkbox">
@@ -260,9 +260,9 @@ export const Catalog: React.FC = () => {
           <hr className="Catalog__line Catalog__line--filter"></hr>
 
           <article className="Catalog__filters--name">
-            <div className="Catalog__filters--category">
+            <div className="Catalog__filters--category" onClick={() => toggleArrow(2)}>
               <h2>Country</h2>
-              <button className="arrow" onClick={() => toggleArrow(2)}></button>
+              <button className="arrow"></button>
             </div>
             <div className="Catalog__filters--options hidden">
               <div className="Catalog__choice--checkbox">
@@ -311,9 +311,9 @@ export const Catalog: React.FC = () => {
           <hr className="Catalog__line Catalog__line--filter"></hr>
 
           <article className="Catalog__filters--name">
-            <div className="Catalog__filters--category">
+            <div className="Catalog__filters--category" onClick={() => toggleArrow(3)}>
               <h2>Classification</h2>
-              <button className="arrow" onClick={() => toggleArrow(3)}></button>
+              <button className="arrow"></button>
             </div>
             <div className="Catalog__filters--options hidden">
               <div className="Catalog__choice--checkbox">
@@ -338,9 +338,9 @@ export const Catalog: React.FC = () => {
           <hr className="Catalog__line Catalog__line--filter"></hr>
 
           <article className="Catalog__filters--name">
-            <div className="Catalog__filters--category">
+            <div className="Catalog__filters--category" onClick={() => toggleArrow(4)}>
               <h2>Volume</h2>
-              <button className="arrow" onClick={() => toggleArrow(4)}></button>
+              <button className="arrow"></button>
             </div>
             <div className="Catalog__filters--options hidden">
               <div className="Catalog__choice--checkbox">
@@ -361,9 +361,9 @@ export const Catalog: React.FC = () => {
           <hr className="Catalog__line Catalog__line--filter"></hr>
 
           <article className="Catalog__filters--name">
-            <div className="Catalog__filters--category">
+            <div className="Catalog__filters--category" onClick={() => toggleArrow(5)}>
               <h2>Gender</h2>
-              <button className="arrow" onClick={() => toggleArrow(5)}></button>
+              <button className="arrow"></button>
             </div>
             <div className="Catalog__filters--options hidden">
               <div className="Catalog__choice--checkbox">
@@ -384,9 +384,9 @@ export const Catalog: React.FC = () => {
           <hr className="Catalog__line Catalog__line--filter"></hr>
 
           <article className="Catalog__filters--name">
-            <div className="Catalog__filters--category">
+            <div className="Catalog__filters--category" onClick={() => toggleArrow(6)}>
               <h2>Type of aroma</h2>
-              <button className="arrow arrow--reversed" onClick={() => toggleArrow(6)}></button>
+              <button className="arrow arrow--reversed"></button>
             </div>
             <div className="Catalog__filters--options">
               <div className="Catalog__choice--checkbox">
