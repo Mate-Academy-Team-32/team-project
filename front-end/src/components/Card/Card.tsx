@@ -61,32 +61,31 @@ export const Card: React.FC<Props> = ({
         </div>
       </nav>
 
-      <article
-        className="Card__content"
-        onClick={() => {
-          navigate(`/product?id=${id}`);
-        }}
-      >
-        <img
-          src={image}
-          alt="Product"
-          className="Card__product"
-        />
-
-        <div className="Card__description">
-          <h1 className="Card__title">{title}</h1>
-          {
-            isGrid &&
-            <p className="Card__text">
-              The exquisite fragrance of Kirke perfume from the famous Italian perfume house Tiziana Terenzi captivates and inspires, creating a magical aura of sophistication and sensuality.
-            </p>
-          }
-
-          <Rate className="Card__rate" countStars={countStars} countReviews={countReviews} />
-
-          <div className="Card__parameters">
-            <p className="Card__price">$ {price.toFixed(2)}</p>
-            <p className="Card__volume">{volume}ml</p>
+      <article className="Card__content">
+        <div
+          className="Card__info"
+          onClick={() => {
+            navigate(`/product?id=${id}`);
+          }}
+        >
+          <img
+            src={image}
+            alt="Product"
+            className="Card__product"
+          />
+          <div className="Card__description">
+            <h1 className="Card__title">{title}</h1>
+            {
+              isGrid &&
+              <p className="Card__text">
+                The exquisite fragrance of Kirke perfume from the famous Italian perfume house Tiziana Terenzi captivates and inspires, creating a magical aura of sophistication and sensuality.
+              </p>
+            }
+            <Rate className="Card__rate" countStars={countStars} countReviews={countReviews} />
+            <div className="Card__parameters">
+              <p className="Card__price">$ {price.toFixed(2)}</p>
+              <p className="Card__volume">{volume}ml</p>
+            </div>
           </div>
         </div>
 
