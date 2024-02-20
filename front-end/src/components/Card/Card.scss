@@ -80,6 +80,12 @@
     align-items: center;
   }
 
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   &__text {
     margin-bottom: 14px;
   }
