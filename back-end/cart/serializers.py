@@ -1,14 +1,7 @@
 from rest_framework import serializers
 
 from cart.models import CartItem, FavoriteItem
-from items.serializers import ItemShortSerializer
-
-
-class CoreModelSerializer(serializers.Serializer):
-    created_at = serializers.DateTimeField(read_only=True)
-
-    class Meta:
-        fields = ("created_at",)
+from items.serializers import ItemShortSerializer, CoreModelSerializer
 
 
 class FavoriteListSerializer(CoreModelSerializer, serializers.ModelSerializer):
