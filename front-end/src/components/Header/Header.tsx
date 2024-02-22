@@ -63,7 +63,7 @@ export const Header: React.FC = () => {
 
     catalogLink.addEventListener('mouseenter', () => {
       catalogBlock.classList.remove('hidden');
-      setHeaderHeight(360);
+      setHeaderHeight(320);
     });
 
     header.addEventListener('mouseleave', () => {
@@ -100,8 +100,7 @@ export const Header: React.FC = () => {
             <Link to="/catalog?filter=top-10" relative="path" className="nav__link nav__link--upper">Top 10</Link>
             <Link to="/catalog?filter=women" relative="path" className="nav__link nav__link--upper">Women`s perfumery</Link>
             <Link to="/catalog?filter=men" relative="path" className="nav__link nav__link--upper">Men`s perfumery</Link>
-            <Link to="/catalog?filter=new" relative="path" className="nav__link nav__link--upper">New</Link>
-            <Link to="/catalog?filter=actions" relative="path" className="nav__link nav__link--upper">Actions</Link>
+            <Link to="/catalog?filter=unisex" relative="path" className="nav__link nav__link--upper">Unisex</Link>
           </nav>
 
           <nav className="nav nav--sign">
