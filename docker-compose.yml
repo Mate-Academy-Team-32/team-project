@@ -16,6 +16,25 @@ services:
     env_file:
       - ./back-end/.env
 
+  worker:
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: back-end/Dockerfile
+    volumes:
+      - ./back-end:/api
+    command: celery -A PerfuMe_API worker -l info
+    env_file:
+      - ./back-end/.env
+    depends_on:
+      - api
+      - redis
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+
   web:
     build:
       context: .
