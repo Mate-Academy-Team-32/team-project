@@ -92,16 +92,16 @@ export const Header: React.FC = () => {
           <nav className="nav nav--links">
             <Link to="/" relative="path" className="nav__link">Home</Link>
             <Link to="/catalog" relative="path" className="nav__link" id="catalog">Catalog</Link>
+            <nav className="nav nav--catalog hidden">
+              <Link to="/catalog?filter=top-10" relative="path" className="nav__link nav__link--upper">Top 10</Link>
+              <Link to="/catalog?filter=women" relative="path" className="nav__link nav__link--upper">Women`s perfumery</Link>
+              <Link to="/catalog?filter=men" relative="path" className="nav__link nav__link--upper">Men`s perfumery</Link>
+              <Link to="/catalog?filter=unisex" relative="path" className="nav__link nav__link--upper">Unisex</Link>
+            </nav>
             <Link to="/about" relative="path" className="nav__link">About Us</Link>
             <Link to="/contacts" relative="path" className="nav__link">Contact Us</Link>
           </nav>
 
-          <nav className="nav nav--catalog hidden">
-            <Link to="/catalog?filter=top-10" relative="path" className="nav__link nav__link--upper">Top 10</Link>
-            <Link to="/catalog?filter=women" relative="path" className="nav__link nav__link--upper">Women`s perfumery</Link>
-            <Link to="/catalog?filter=men" relative="path" className="nav__link nav__link--upper">Men`s perfumery</Link>
-            <Link to="/catalog?filter=unisex" relative="path" className="nav__link nav__link--upper">Unisex</Link>
-          </nav>
 
           <nav className="nav nav--sign">
             <div className="nav__input--search">
