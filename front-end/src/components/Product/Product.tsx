@@ -145,12 +145,7 @@ export const Product: React.FC = () => {
             action="/product"
             method="post"
             className="Product__form-buy form-buy"
-            onSubmit={(e) => {
-              const popUp = document.querySelector('.Pop-up') as HTMLDivElement;
-
-              popUp.classList.toggle('hidden');
-              e.preventDefault();
-            }}
+            onSubmit={(e) => e.preventDefault()}
           >
             <div className="form-buy__plus-minus">
               <button
@@ -222,7 +217,6 @@ export const Product: React.FC = () => {
           />
         </div>
 
-
         <div className="Product__leave-review">
           <button type="button" className="Product__leave-review-button">Leave a review</button>
         </div>
@@ -231,23 +225,59 @@ export const Product: React.FC = () => {
       <PopUp>
         <div className="Pop-up__top-bar">
           <h1 className="Pop-up__head">Leave a review</h1>
-          <span className="Pop-up__close">&times;</span>
+          <span className="Pop-up__close"></span>
         </div>
+
+        <hr className="Pop-up__line" />
 
         <form
           action="/"
           method="post"
           className="Pop-up__review"
-          onSubmit={(e) => e.preventDefault()}
+          onSubmit={(e) => { e.preventDefault() }}
         >
-          <label htmlFor="" className="Pop-up__head Pop-up__head--2">Your rating</label>
-          <label htmlFor="" className="Pop-up__head Pop-up__head--2">Display name</label>
-          <label htmlFor="" className="Pop-up__head Pop-up__head--2">Text message</label>
-          <label htmlFor="" className="Pop-up__head Pop-up__head--2">Add image</label>
+          <div className="Pop-up__field">
+            <label htmlFor="stars" className="Pop-up__head Pop-up__head--2">Your rating</label>
+            <div className="Pop-up__stars" id="stars">
+              <div className="Pop-up__star-icon"></div>
+              <div className="Pop-up__star-icon"></div>
+              <div className="Pop-up__star-icon"></div>
+              <div className="Pop-up__star-icon"></div>
+              <div className="Pop-up__star-icon"></div>
+            </div>
+          </div>
+
+          <div className="Pop-up__field">
+            <label htmlFor="name" className="Pop-up__head Pop-up__head--2">Display name</label>
+            <input
+              type="text"
+              className="Pop-up__input Pop-up__input--name"
+              id="name"
+              placeholder="Name"
+            />
+          </div>
+
+          <div className="Pop-up__field">
+            <label htmlFor="message" className="Pop-up__head Pop-up__head--2">Text message</label>
+            <textarea id="message" className="Pop-up__input Pop-up__input--message"></textarea>
+          </div>
+
+          <div className="Pop-up__field Pop-up__field--row">
+            <input
+              type="file"
+              className="Pop-up__input Pop-up__input--upload"
+              id="image"
+              accept="image/*"
+            />
+            <label htmlFor="image" className="Pop-up__head Pop-up__head--2 Pop-up__head--upload"> 
+              <div className="Pop-up__image-picture"></div>
+              Add image
+            </label>
+          </div>
 
           <div className="Pop-up__buttons">
-            <button type="submit">Add review</button>
-            <button type="reset">Clear</button>
+            <button type="submit" className="Pop-up__button Pop-up__button--submit">Add review</button>
+            <button type="reset" className="Pop-up__button Pop-up__button--clear">Clear</button>
           </div>
         </form>
       </PopUp>
