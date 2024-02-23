@@ -1,20 +1,64 @@
 import React, { useEffect, useState } from 'react';
 import { Rate } from '../Rate';
 import { Review } from '../Review';
+import { PopUp } from '../PopUp';
 import { scrollToTop } from '../../utils/_scroll';
 import './Product.scss';
-import './PopUp.scss';
-import imgProductMain from '../../img/image-product-main.png';
+import imgProductMain1 from '../../img/image-product-main.png';
+import imgProductMain2 from '../../img/image-product-main-2.png';
+import imgProductMain3 from '../../img/image-product-main-3.png';
+import imgProductMain4 from '../../img/image-product-main-4.png';
 import imgProductAdd1 from '../../img/image-product-add-1.png';
 import imgProductAdd2 from '../../img/image-product-add-2.png';
 import imgProductAdd3 from '../../img/image-product-add-3.png';
 import imgProductAdd4 from '../../img/image-product-add-4.png';
 import like from '../../img/logo-heart.svg';
+import arrowSlide from '../../img/tool-arrow-slide-right.svg';
+
+const MAIN_IMAGES = [imgProductMain1, imgProductMain2, imgProductMain3, imgProductMain4];
 
 export const Product: React.FC = () => {
   const [quantityProducts, setQuantityProducts] = useState(1);
+  const [selectedImage, setSelectedImage] = useState(0);
+  const [startPosReview, setStartPosReview] = useState(0);
+
+  const showReviews = () => {
+    const element = Array(6)
+      .fill(0)
+      .map((_el, i) => {
+        return (
+          <Review
+            from={"Courtney Henry " + i}
+            timeAgo={2}
+            countStars={4}
+            feedback={"Consequat velit qui adipisicing sunt do rependerit ad laborum tempor ullamco exercitation. Ullamco tempor adipisicing et voluptate duis sit esse aliqua Consequat velit qui adipisicing sunt do rependerit ad laborum tempor ullamco exercitation. Ullamco tempor adipisicing etUllamco tempor adipisicing et voluptate duis sit esse aliqua"}
+          />
+        );
+      })
+      .filter((_el, i) => i >= startPosReview && i < startPosReview + 3);
+
+    return element;
+  };
 
   useEffect(() => {
+    const popup = document.querySelector('.Pop-up') as HTMLDivElement;
+    const showButton = document.querySelector('.Product__leave-review-button') as HTMLButtonElement;
+    const closeButton = document.querySelector('.Pop-up__close') as HTMLSpanElement;
+
+    showButton.addEventListener('click', () => {
+      popup.classList.remove('hidden');
+    });
+
+    closeButton.addEventListener('click', () => {
+      popup.classList.add('hidden');
+    });
+
+    window.addEventListener('click', (e) => {
+      if (e.target === popup) {
+        popup.classList.add('hidden');
+      }
+    });
+
     scrollToTop();
   }, []);
 
@@ -25,7 +69,7 @@ export const Product: React.FC = () => {
       <section className="Product">
         <div className="Product__collage">
           <img
-            src={imgProductMain}
+            src={MAIN_IMAGES[selectedImage]}
             alt="Main product"
             className="Product__image Product__image--primary"
           />
@@ -34,21 +78,25 @@ export const Product: React.FC = () => {
               src={imgProductAdd1}
               alt="Main product"
               className="Product__image Product__image--additional"
+              onClick={() => setSelectedImage(0)}
             />
             <img
               src={imgProductAdd2}
               alt="Main product"
               className="Product__image Product__image--additional"
+              onClick={() => setSelectedImage(1)}
             />
             <img
               src={imgProductAdd3}
               alt="Main product"
               className="Product__image Product__image--additional"
+              onClick={() => setSelectedImage(2)}
             />
             <img
               src={imgProductAdd4}
               alt="Main product"
               className="Product__image Product__image--additional"
+              onClick={() => setSelectedImage(3)}
             />
           </aside>
         </div>
@@ -138,43 +186,71 @@ export const Product: React.FC = () => {
         </div>
       </section>
 
-      <PopUp />
-
       <section className="Product__reviews-content">
         <h1 className="Product__title">Reviews</h1>
 
         <main className="Product__reviews">
-          <Review
-            from={"Courtney Henry"}
-            timeAgo={2}
-            countStars={4}
-            feedback={"Consequat velit qui adipisicing sunt do rependerit ad laborum tempor ullamco exercitation. Ullamco tempor adipisicing et voluptate duis sit esse aliqua Consequat velit qui adipisicing sunt do rependerit ad laborum tempor ullamco exercitation. Ullamco tempor adipisicing etUllamco tempor adipisicing et voluptate duis sit esse aliqua"}
-          />
-          <Review
-            from={"Courtney Henry"}
-            timeAgo={2}
-            countStars={4}
-            feedback={"Consequat velit qui adipisicing sunt do rependerit ad laborum tempor ullamco exercitation. Ullamco tempor adipisicing et voluptate duis sit esse aliqua Consequat velit qui adipisicing sunt do rependerit ad laborum tempor ullamco exercitation. Ullamco tempor adipisicing etUllamco tempor adipisicing et voluptate duis sit esse aliqua"}
-          />
-          <Review
-            from={"Courtney Henry"}
-            timeAgo={2}
-            countStars={4}
-            feedback={"Consequat velit qui adipisicing sunt do rependerit ad laborum tempor ullamco exercitation. Ullamco tempor adipisicing et voluptate duis sit esse aliqua Consequat velit qui adipisicing sunt do rependerit ad laborum tempor ullamco exercitation. Ullamco tempor adipisicing etUllamco tempor adipisicing et voluptate duis sit esse aliqua"}
-          />
+          {
+            showReviews()
+          }
         </main>
+
+        <div className="Product__arrows">
+          <img
+            src={arrowSlide}
+            alt="Arrow left"
+            className="Product__arrow Product__arrow--left"
+            onClick={() => setStartPosReview(currentState => {
+              if (currentState > 0) {
+                return currentState - 3;
+              }
+
+              return currentState;
+            })}
+          />
+          <img
+            src={arrowSlide}
+            alt="Arrow right"
+            className="Product__arrow Product__arrow--right"
+            onClick={() => setStartPosReview(currentState => {
+              if (currentState < 3) {
+                return currentState + 3;
+              }
+
+              return currentState;
+            })}
+          />
+        </div>
+
+
+        <div className="Product__leave-review">
+          <button type="button" className="Product__leave-review-button">Leave a review</button>
+        </div>
       </section>
+
+      <PopUp>
+        <div className="Pop-up__top-bar">
+          <h1 className="Pop-up__head">Leave a review</h1>
+          <span className="Pop-up__close">&times;</span>
+        </div>
+
+        <form
+          action="/"
+          method="post"
+          className="Pop-up__review"
+          onSubmit={(e) => e.preventDefault()}
+        >
+          <label htmlFor="" className="Pop-up__head Pop-up__head--2">Your rating</label>
+          <label htmlFor="" className="Pop-up__head Pop-up__head--2">Display name</label>
+          <label htmlFor="" className="Pop-up__head Pop-up__head--2">Text message</label>
+          <label htmlFor="" className="Pop-up__head Pop-up__head--2">Add image</label>
+
+          <div className="Pop-up__buttons">
+            <button type="submit">Add review</button>
+            <button type="reset">Clear</button>
+          </div>
+        </form>
+      </PopUp>
     </>
   )
-};
-
-const PopUp: React.FC = () => {
-  return (
-    <article className="Pop-up hidden">
-      <h1 className="Pop-up__header">Shopping Cart</h1>
-      <hr />
-
-      <hr />
-    </article>
-  );
 };

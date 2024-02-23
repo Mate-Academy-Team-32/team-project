@@ -28,13 +28,15 @@
     align-items: flex-start;
     padding: 24px;
     padding-bottom: 0;
+    max-width: 1000px;
     height: min-content;
     min-height: inherit;
     margin-left: 20px;
-    box-shadow: 0 0 10px #979797;
+    box-shadow: 0 0 20px #b6b6b640;
 
     .Card__top-bar {
-      margin: 0 150px 0 20px;
+      margin-left: 100px;
+      margin-right: 20px;
       gap: 18px;
     }
 
