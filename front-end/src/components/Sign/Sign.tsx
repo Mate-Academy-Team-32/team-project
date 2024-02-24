@@ -320,7 +320,7 @@ const Forgot: React.FC = () => {
           e-mail address and we'll send you an e-mail
         </p>
 
-        <h2 className="Sign__field">Email Address</h2>
+        <h2 className="Sign__field is-align-self-flex-start">Email Address</h2>
         <input
           type="email"
           name="email"
