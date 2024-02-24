@@ -189,6 +189,7 @@
   &__parameters {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 10px;
   }
 
@@ -203,7 +204,7 @@
   }
 
   &__volume {
-    color: #979797;
+    color: #787878 !important;
   }
 
   &__button {
@@ -221,6 +222,17 @@
     transition-timing-function: linear;
 
     &:hover {
+      font-size: 16px;
+    }
+  }
+
+  .select{
+    display: flex;
+    align-items: center;
+
+    select {
+      padding-right: 30px !important;
+      border: none;
       font-size: 16px;
     }
   }

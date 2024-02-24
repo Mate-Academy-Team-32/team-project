@@ -3,8 +3,8 @@
     "id": 1,
     "category": "women",
     "title": "Tiziana Terenzi Kirke",
-    "price": 140,
-    "volume": 100,
+    "price": [140, 70, 35],
+    "volume": [100, 50, 30],
     "countStars": 4,
     "countReviews": 10
   },
@@ -12,8 +12,8 @@
     "id": 2,
     "category": "sale",
     "title": "D&G 3 L'Imperatrice",
-    "price": 250,
-    "volume": 100,
+    "price": [250, 125, 60],
+    "volume": [100, 50, 30],
     "countStars": 3,
     "countReviews": 23
   },
@@ -21,8 +21,8 @@
     "id": 3,
     "category": "top",
     "title": "Extract Cuba Original",
-    "price": 270,
-    "volume": 100,
+    "price": [270, 135, 65],
+    "volume": [100, 50, 30],
     "countStars": 5,
     "countReviews": 150
   },
@@ -30,8 +30,8 @@
     "id": 4,
     "category": "men",
     "title": "Christian Dior J'Adore",
-    "price": 440,
-    "volume": 100,
+    "price": [440, 220, 110],
+    "volume": [100, 50, 30],
     "countStars": 5,
     "countReviews": 37
   },
@@ -39,8 +39,8 @@
     "id": 5,
     "category": "women",
     "title": "D&G 3 L'Imperatrice",
-    "price": 250,
-    "volume": 100,
+    "price": [250, 125, 60],
+    "volume": [100, 50, 30],
     "countStars": 3,
     "countReviews": 80
   },
@@ -48,8 +48,8 @@
     "id": 6,
     "category": "new",
     "title": "Lacoste Eau de L.12.12.",
-    "price": 280,
-    "volume": 100,
+    "price": [280, 140, 70],
+    "volume": [100, 50, 30],
     "countStars": 5,
     "countReviews": 428
   }

@@ -21,6 +21,8 @@ export const Product: React.FC = () => {
   const [quantityProducts, setQuantityProducts] = useState(1);
   const [selectedImage, setSelectedImage] = useState(0);
   const [startPosReview, setStartPosReview] = useState(0);
+  const [countReviewStars, setCountReviewStars] = useState(0);
+  const [isValidReview, setIsValidReview] = useState(false);
 
   const showReviews = () => {
     const element = Array(6)
@@ -141,6 +143,16 @@ export const Product: React.FC = () => {
             </div>
           </div>
 
+          <div className="Product__volume">
+            <div className="select is-primary">
+              <select>
+                <option>100ml</option>
+                <option>50ml</option>
+                <option>30ml</option>
+              </select>
+            </div>
+          </div>
+
           <form
             action="/product"
             method="post"
@@ -234,16 +246,59 @@ export const Product: React.FC = () => {
           action="/"
           method="post"
           className="Pop-up__review"
-          onSubmit={(e) => { e.preventDefault() }}
+          onSubmit={(e) => {
+            if (!isValidReview) {
+              return;
+            }
+
+            e.preventDefault()
+          }}
         >
           <div className="Pop-up__field">
             <label htmlFor="stars" className="Pop-up__head Pop-up__head--2">Your rating</label>
+            <input
+              type="number"
+              id="stars"
+              className="Pop-up__input Pop-up__input--stars"
+              value={countReviewStars}
+              required
+            />
             <div className="Pop-up__stars" id="stars">
-              <div className="Pop-up__star-icon"></div>
-              <div className="Pop-up__star-icon"></div>
-              <div className="Pop-up__star-icon"></div>
-              <div className="Pop-up__star-icon"></div>
-              <div className="Pop-up__star-icon"></div>
+              <div
+                className="Pop-up__star-icon" 
+                onClick={() => {
+                  setCountReviewStars(1);
+                  setIsValidReview(true);
+                }}
+              ></div>
+              <div
+                className="Pop-up__star-icon"
+                onClick={() => {
+                  setCountReviewStars(2);
+                  setIsValidReview(true);
+                }}
+              ></div>
+              <div
+                className="Pop-up__star-icon"
+                onClick={() => {
+                  setCountReviewStars(3);
+                  setIsValidReview(true);
+                }}
+              ></div>
+              <div
+                className="Pop-up__star-icon"
+                onClick={() => {
+                  setCountReviewStars(4);
+                  setIsValidReview(true);
+                }}
+              ></div>
+              <div
+                className="Pop-up__star-icon"
+                onClick={() => {
+                  setCountReviewStars(5);
+                  setIsValidReview(true);
+                }}
+              ></div>
             </div>
           </div>
 
@@ -254,6 +309,7 @@ export const Product: React.FC = () => {
               className="Pop-up__input Pop-up__input--name"
               id="name"
               placeholder="Name"
+              required
             />
           </div>
 

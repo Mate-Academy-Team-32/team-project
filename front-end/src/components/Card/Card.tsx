@@ -12,8 +12,8 @@ type Props = {
   image: string;
   category: Label;
   title: string;
-  price: number;
-  volume: number;
+  price: number[];
+  volume: number[];
   countProducts: [number, Dispatch<SetStateAction<number>>],
   countStars?: number;
   countReviews?: number;
@@ -34,6 +34,7 @@ export const Card: React.FC<Props> = ({
 }) => {
   const navigate = useNavigate();
   const [isLiked, setIsLiked] = useState(false);
+  const [volumeIndex, setVolumeIndex] = useState(0);
 
   return (
     <section className={cn(
@@ -62,16 +63,14 @@ export const Card: React.FC<Props> = ({
       </nav>
 
       <article className="Card__content">
-        <div
-          className="Card__info"
-          onClick={() => {
-            navigate(`/product?id=${id}`);
-          }}
-        >
+        <div className="Card__info">
           <img
             src={image}
             alt="Product"
             className="Card__product"
+            onClick={() => {
+              navigate(`/product?id=${id}`);
+            }}
           />
           <div className="Card__description">
             <h1 className="Card__title">{title}</h1>
@@ -83,8 +82,32 @@ export const Card: React.FC<Props> = ({
             }
             <Rate className="Card__rate" countStars={countStars} countReviews={countReviews} />
             <div className="Card__parameters">
-              <p className="Card__price">$ {price.toFixed(2)}</p>
-              <p className="Card__volume">{volume}ml</p>
+              <p className="Card__price">$ {price[volumeIndex].toFixed(2)}</p>
+              <div className="select is-primary">
+                <select
+                  onChange={(e) => {
+                    let index: number = 0;
+
+                    switch (e.target.value) {
+                      case '100ml':
+                        index = 0;
+                        break;
+                      case '50ml':
+                        index = 1;
+                        break;
+                      case '30ml':
+                        index = 2;
+                        break;
+                    }
+
+                    setVolumeIndex(index);
+                  }}
+                >
+                  <option className="Card__volume">{volume[0]}ml</option>
+                  <option className="Card__volume">{volume[1]}ml</option>
+                  <option className="Card__volume">{volume[2]}ml</option>
+                </select>
+              </div>
             </div>
           </div>
         </div>
@@ -96,7 +119,6 @@ export const Card: React.FC<Props> = ({
             const countBag = document.querySelector('#bag') as HTMLAnchorElement;
 
             countProducts[1](currentCount => currentCount + 1);
-
             countBag.setAttribute('data-count', countProducts[0].toString());
           }}
         >

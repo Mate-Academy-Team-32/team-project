@@ -50,6 +50,20 @@
     top: 20px;
   }
 
+  &__volume {
+    margin: 32px 0;
+    
+    select {
+      width: 462px;
+      border-radius: 0;
+      border: 1px solid #e2e2e2;
+      font-family: Montserrat, sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      color: $dark-gray-color-2;
+    }
+  }
+
   &__form-buy {
     margin: 32px 0;
   }
@@ -201,6 +215,10 @@
 
     &::placeholder {
       color: #b0b0b0;
+    }
+
+    &--stars {
+      display: none;
     }
 
     &--name {
