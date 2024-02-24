@@ -41,13 +41,11 @@ export const Account: React.FC = () => {
           type="password"
           name="password-current"
           placeholder="Current password (leave blank to leave unchanged)"
-          required
         />
         <input
           type="password"
           name="password-new"
           placeholder="New password (leave blank to leave unchanged)"
-          required
         />
         <input
           type="password"
