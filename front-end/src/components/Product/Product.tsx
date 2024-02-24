@@ -14,6 +14,7 @@ import imgProductAdd3 from '../../img/image-product-add-3.png';
 import imgProductAdd4 from '../../img/image-product-add-4.png';
 import like from '../../img/logo-heart.svg';
 import arrowSlide from '../../img/tool-arrow-slide-right.svg';
+import recycleBin from '../../img/icon-recycle-bin.svg';
 
 const MAIN_IMAGES = [imgProductMain1, imgProductMain2, imgProductMain3, imgProductMain4];
 
@@ -43,21 +44,35 @@ export const Product: React.FC = () => {
   };
 
   useEffect(() => {
-    const popup = document.querySelector('.Pop-up') as HTMLDivElement;
-    const showButton = document.querySelector('.Product__leave-review-button') as HTMLButtonElement;
-    const closeButton = document.querySelector('.Pop-up__close') as HTMLSpanElement;
+    const popupReview = document.querySelector('.Pop-up--review') as HTMLDivElement;
+    const popupBuy = document.querySelector('.Pop-up--buy') as HTMLDivElement;
+    const showButtonReview = document.querySelector('.Product__leave-review-button') as HTMLButtonElement;
+    const showButtonBuy = document.querySelector('.Product__buy-now-button') as HTMLButtonElement;
+    const closeButtonReview = document.querySelectorAll('.Pop-up__close')[0] as HTMLSpanElement;
+    const closeButtonBuy = document.querySelectorAll('.Pop-up__close')[1] as HTMLSpanElement;
 
-    showButton.addEventListener('click', () => {
-      popup.classList.remove('hidden');
+    showButtonReview.addEventListener('click', () => {
+      popupReview.classList.remove('hidden');
+    });
+    
+    showButtonBuy.addEventListener('click', () => {
+      popupBuy.classList.remove('hidden');
     });
 
-    closeButton.addEventListener('click', () => {
-      popup.classList.add('hidden');
+    closeButtonReview.addEventListener('click', () => {
+      popupReview.classList.add('hidden');
+    });
+
+    closeButtonBuy.addEventListener('click', () => {
+      popupBuy.classList.add('hidden');
     });
 
     window.addEventListener('click', (e) => {
-      if (e.target === popup) {
-        popup.classList.add('hidden');
+      if (e.target === popupReview) {
+        popupReview.classList.add('hidden');
+      }
+      if (e.target === popupBuy) {
+        popupBuy.classList.add('hidden');
       }
     });
 
@@ -180,7 +195,7 @@ export const Product: React.FC = () => {
                 +
               </button>
             </div>
-            <button type="submit" className="form-buy__submit">Buy now</button>
+            <button type="submit" className="Product__buy-now-button form-buy__submit">Buy now</button>
             <button type="button" className="form-buy__like">
               <img src={like} alt="Like" />
             </button>
@@ -234,7 +249,7 @@ export const Product: React.FC = () => {
         </div>
       </section>
 
-      <PopUp>
+      <PopUp className="Pop-up--review">
         <div className="Pop-up__top-bar">
           <h1 className="Pop-up__head">Leave a review</h1>
           <span className="Pop-up__close"></span>
@@ -335,6 +350,86 @@ export const Product: React.FC = () => {
             <button type="submit" className="Pop-up__button Pop-up__button--submit">Add review</button>
             <button type="reset" className="Pop-up__button Pop-up__button--clear">Clear</button>
           </div>
+        </form>
+      </PopUp>
+
+      <PopUp className="Pop-up--buy">
+        <div className="Pop-up__top-bar">
+          <h1 className="Pop-up__head">Shopping Cart</h1>
+          <span className="Pop-up__close"></span>
+        </div>
+
+        <hr className="Pop-up__line" />
+
+        <form
+          action="/"
+          method="post"
+          className="Pop-up__buy"
+          onSubmit={(e) => e.preventDefault()}
+        >
+          <div className="Pop-up__picture">
+            <img
+              src={imgProductAdd1}
+              alt="Product image"
+              className="Pop-up__image"
+            />
+          </div>
+
+          <div className="Pop-up__description">
+            <h2 className="Pop-up__head">Tiziana Terenzi Kirke</h2>
+            <p className="Pop-up__text">Toilet water</p>
+            <p className="Pop-up__volume">100ml</p>
+          </div>
+
+          <div className="form-buy__plus-minus">
+              <button
+                type="button"
+                className="form-buy__controls"
+                onClick={() => setQuantityProducts(
+                  current => current > 1 ? current - 1 : current
+                )}
+              >
+                -
+              </button>
+              <span className="Product__quantity form-buy__quantity">{quantityProducts}</span>
+              <button
+                type="button"
+                className="form-buy__controls"
+                onClick={() => setQuantityProducts(
+                  current => current + 1)
+                }
+              >
+                +
+              </button>
+            </div>
+
+            <div className="Pop-up__options">
+              <div className="Pop-up__price">
+                <p>4240 ₴</p>
+              </div>
+
+              <div className="Pop-up__remove">
+                <img src={recycleBin} alt="Remove" />
+              </div>
+            </div>
+
+            <div className="Pop-up__checkout">
+              <div className="Pop-up__amount">
+                <p>Order amount</p>
+                <p>4240 ₴</p>
+              </div>
+
+              <hr className="Pop-up__line" />
+
+              <div className="Pop-up__total">
+                <p>Total</p>
+                <p>4240 ₴</p>
+              </div>
+
+              <hr className="Pop-up__line" />
+
+              <button className="Pop-up__submit">Checkout</button>
+            </div>
         </form>
       </PopUp>
     </>
