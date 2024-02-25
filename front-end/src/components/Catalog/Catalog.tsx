@@ -153,7 +153,7 @@ export const Catalog: React.FC = () => {
 
       <section className="Catalog">
         <form
-          action=""
+          action="/catalog"
           method="get"
           className="Catalog__filters"
         >
