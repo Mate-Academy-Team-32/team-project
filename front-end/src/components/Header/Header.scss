@@ -153,10 +153,10 @@
   }
 
   &__input {
-    position: absolute;
-    left: 1700px;
+    position: relative;
+    left: 1050px;
     padding: 10px 52px;
-    width: 60vw;
+    width: 800px;
     height: 44px;
     font-family: Montserrat, sans-serif;
     font-size: 14px;
@@ -191,9 +191,7 @@
         }
 
         &--close {
-          position: absolute;
-          left: 320px;
-          transform: translateX(15px);
+          transform: translateX(-110px);
           z-index: 2;
         }
       }
