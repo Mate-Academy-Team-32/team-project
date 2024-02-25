@@ -153,11 +153,8 @@ export const Catalog: React.FC = () => {
 
       <section className="Catalog">
         <form
-          action="./"
+          action=""
           method="get"
-          onSubmit={(e) => {
-            e.preventDefault();
-          }}
           className="Catalog__filters"
         >
           <h2 className="Catalog__filters--header">Filters by parameters</h2>
@@ -171,11 +168,11 @@ export const Catalog: React.FC = () => {
               <div className="Catalog__filters--price">
                 <div className="Catalog__filters--info">
                   <div className="input--dollars">
-                    <input type="number" className="input--price" value={priceMin} readOnly />
+                    <input type="number" className="input--price" value={priceMin} name="price-min" readOnly />
                   </div>
                   <img className="dollar" src={priceDollar} alt="Line" />
                   <div className="input--dollars">
-                    <input type="number" className="input--price" value={priceMax} readOnly />
+                    <input type="number" className="input--price" value={priceMax} name="price-max" readOnly />
                   </div>
                 </div>
 
@@ -215,43 +212,43 @@ export const Catalog: React.FC = () => {
             </div>
             <div className="Catalog__filters--options hidden">
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox" id="option--1" />
+                <input type="checkbox" className="checkbox" id="option--1" name="brand" />
                 <label htmlFor="option--1">Brand (12)</label>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox" id="option--2" />
+                <input type="checkbox" className="checkbox" id="option--2" name="brand" />
                 <label htmlFor="option--2">Brand (1)</label>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox" id="option--3" />
+                <input type="checkbox" className="checkbox" id="option--3" name="brand" />
                 <label htmlFor="option--3">Brand (12)</label>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox" id="option--4" />
+                <input type="checkbox" className="checkbox" id="option--4" name="brand" />
                 <label htmlFor="option--4">Brand (2)</label>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox" id="option--5" />
+                <input type="checkbox" className="checkbox" id="option--5" name="brand" />
                 <label htmlFor="option--5">Brand (4)</label>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox" id="option--6" />
+                <input type="checkbox" className="checkbox" id="option--6" name="brand" />
                 <label htmlFor="option--6">Brand (13)</label>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox" id="option--7" />
+                <input type="checkbox" className="checkbox" id="option--7" name="brand" />
                 <label htmlFor="option--7">Brand (9)</label>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox" id="option--8" />
+                <input type="checkbox" className="checkbox" id="option--8" name="brand" />
                 <label htmlFor="option--8">Brand (7)</label>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox" id="option--9" />
+                <input type="checkbox" className="checkbox" id="option--9" name="brand" />
                 <label htmlFor="option--9">Brand (11)</label>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox" id="option--10" />
+                <input type="checkbox" className="checkbox" id="option--10" name="brand" />
                 <label htmlFor="option--10">Brand (10)</label>
               </div>
             </div>
@@ -266,43 +263,43 @@ export const Catalog: React.FC = () => {
             </div>
             <div className="Catalog__filters--options hidden">
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox" id="option--11" />
+                <input type="checkbox" className="checkbox" id="option--11" name="country" />
                 <label htmlFor="option--11">Country</label>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox" id="option--12" />
+                <input type="checkbox" className="checkbox" id="option--12" name="country" />
                 <label htmlFor="option--12">Country</label>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox" id="option--13" />
+                <input type="checkbox" className="checkbox" id="option--13" name="country" />
                 <label htmlFor="option--13">Country</label>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox" id="option--14" />
+                <input type="checkbox" className="checkbox" id="option--14" name="country" />
                 <label htmlFor="option--14">Country</label>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox" id="option--15" />
+                <input type="checkbox" className="checkbox" id="option--15" name="country" />
                 <label htmlFor="option--15">Country</label>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox" id="option--16" />
+                <input type="checkbox" className="checkbox" id="option--16" name="country" />
                 <label htmlFor="option--16">Country</label>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox" id="option--17" />
+                <input type="checkbox" className="checkbox" id="option--17" name="country" />
                 <label htmlFor="option--17">Country</label>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox" id="option--18" />
+                <input type="checkbox" className="checkbox" id="option--18" name="country" />
                 <label htmlFor="option--18">Country</label>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox" id="option--19" />
+                <input type="checkbox" className="checkbox" id="option--19" name="country" />
                 <label htmlFor="option--19">Country</label>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox" id="option--20" />
+                <input type="checkbox" className="checkbox" id="option--20" name="country" />
                 <label htmlFor="option--20">Country</label>
               </div>
             </div>
@@ -317,19 +314,19 @@ export const Catalog: React.FC = () => {
             </div>
             <div className="Catalog__filters--options hidden">
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox" id="option--21" />
+                <input type="checkbox" className="checkbox" id="option--21" name="parfume" />
                 <label htmlFor="option--21">Parfume</label>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox" id="option--22" />
+                <input type="checkbox" className="checkbox" id="option--22" name="parfumed-water" />
                 <label htmlFor="option--22">Parfumed water</label>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox" id="option--23" />
+                <input type="checkbox" className="checkbox" id="option--23" name="toilet-water" />
                 <label htmlFor="option--23">Toiled water</label>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox" id="option--24" />
+                <input type="checkbox" className="checkbox" id="option--24" name="cologne" />
                 <label htmlFor="option--24">Cologne</label>
               </div>
             </div>
@@ -344,15 +341,15 @@ export const Catalog: React.FC = () => {
             </div>
             <div className="Catalog__filters--options hidden">
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox" id="option--25" />
+                <input type="checkbox" className="checkbox" id="option--25" name="volume-30ml" />
                 <label htmlFor="option--25">30 ml</label>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox" id="option--26" />
+                <input type="checkbox" className="checkbox" id="option--26" name="volume-50ml" />
                 <label htmlFor="option--26">50 ml</label>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox" id="option--27" />
+                <input type="checkbox" className="checkbox" id="option--27" name="volume-100ml" />
                 <label htmlFor="option--27">100 ml</label>
               </div>
             </div>
@@ -367,15 +364,15 @@ export const Catalog: React.FC = () => {
             </div>
             <div className="Catalog__filters--options hidden">
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox" id="option--28" />
+                <input type="checkbox" className="checkbox" id="option--28" name="women" />
                 <label htmlFor="option--28">Women's</label>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox" id="option--29" />
+                <input type="checkbox" className="checkbox" id="option--29" name="men" />
                 <label htmlFor="option--29">Men`s</label>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox" id="option--30" />
+                <input type="checkbox" className="checkbox" id="option--30" name="unisex" />
                 <label htmlFor="option--30">Unisex</label>
               </div>
             </div>
@@ -390,63 +387,63 @@ export const Catalog: React.FC = () => {
             </div>
             <div className="Catalog__filters--options">
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox" id="option--31" />
+                <input type="checkbox" className="checkbox" id="option--31" name="floral" />
                 <label htmlFor="option--31">Floral (12)</label>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox" id="option--32" />
+                <input type="checkbox" className="checkbox" id="option--32" name="aldehydic" />
                 <label htmlFor="option--32">Aldehydic (41)</label>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox" id="option--33" />
+                <input type="checkbox" className="checkbox" id="option--33" name="aromatic" />
                 <label htmlFor="option--33">Aromatic (120)</label>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox" id="option--34" />
+                <input type="checkbox" className="checkbox" id="option--34" name="water" />
                 <label htmlFor="option--34">Water (22)</label>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox" id="option--35" />
+                <input type="checkbox" className="checkbox" id="option--35" name="gourmet" />
                 <label htmlFor="option--35">Gourmet (304)</label>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox" id="option--36" />
+                <input type="checkbox" className="checkbox" id="option--36" name="woody" />
                 <label htmlFor="option--36">Woody (213)</label>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox" id="option--37" />
+                <input type="checkbox" className="checkbox" id="option--37" name="musky" />
                 <label htmlFor="option--37">Musky (292)</label>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox" id="option--38" />
+                <input type="checkbox" className="checkbox" id="option--38" name="spice" />
                 <label htmlFor="option--38">Spice (87)</label>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox" id="option--39" />
+                <input type="checkbox" className="checkbox" id="option--39" name="eastern" />
                 <label htmlFor="option--39">Eastern (112)</label>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox" id="option--40" />
+                <input type="checkbox" className="checkbox" id="option--40" name="fruity" />
                 <label htmlFor="option--40">Fruity (130)</label>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox" id="option--41" />
+                <input type="checkbox" className="checkbox" id="option--41" name="fougere" />
                 <label htmlFor="option--41">Fougere (93)</label>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox" id="option--42" />
+                <input type="checkbox" className="checkbox" id="option--42" name="citrus-fruit" />
                 <label htmlFor="option--42">Citrus fruit (822)</label>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox" id="option--43" />
+                <input type="checkbox" className="checkbox" id="option--43" name="chypres" />
                 <label htmlFor="option--43">Chypres (200)</label>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox" id="option--44" />
+                <input type="checkbox" className="checkbox" id="option--44" name="leather" />
                 <label htmlFor="option--44">Leather (170)</label>
               </div>
               <div className="Catalog__choice--checkbox">
-                <input type="checkbox" className="checkbox" id="option--45" />
+                <input type="checkbox" className="checkbox" id="option--45" name="others" />
                 <label htmlFor="option--45">Others (96)</label>
               </div>
             </div>
