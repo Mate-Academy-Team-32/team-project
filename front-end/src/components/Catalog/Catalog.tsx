@@ -60,9 +60,9 @@ export const Catalog: React.FC = () => {
         case 'popularity':
           return B.countStars - A.countStars;
         case 'price-low':
-          return A.price - B.price;
+          return A.price[0] - B.price[0];
         case 'price-high':
-          return B.price - A.price;
+          return B.price[0] - A.price[0];
         default:
           return A.id - B.id;
       }
