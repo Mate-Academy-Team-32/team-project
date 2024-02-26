@@ -1,0 +1,222 @@
+.Sign {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 56px 80px;
+  font-family: Montserrat, sans-serif;
+
+  &__content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 400px;
+
+    &--forgot--center {
+      align-items: center;
+    }
+  }
+
+  &__head {
+    width: 450px;
+    margin-bottom: 30px;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 26px;
+
+    &--center {
+      text-align: center;
+    }
+  }
+
+  &__paragraph {
+    margin-bottom: 40px;
+    font-size: 16px;
+    color: #393939;
+
+    &--center {
+      text-align: center;
+    }
+  }
+
+  &__field {
+    margin-top: 16px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #8a8a8f;
+  }
+
+  &__error-msg {
+    display: flex;
+    font-size: 14px;
+    color: #fc0606;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 18px;
+      height: 18px;
+      margin-right: 6px;
+      background-image: url("/public/img/icon-form-error.svg");
+    }
+
+    &--sign-in {
+      margin-top: 24px;
+    }
+  }
+
+  &__input {
+    box-sizing: border-box;
+    outline: none;
+    padding: 12px 16px;
+    width: 400px;
+    height: 48px;
+    font-size: 16px;
+    border: none;
+    border-bottom: 1px solid #000;
+    color: #292929;
+
+    &--error:invalid {
+      border-bottom: 2px solid #fc0606;
+    }
+  }
+
+  &__submit {
+    margin: 32px 0;
+    width: 400px;
+    height: 48px;
+    border: none;
+    font-family: Montserrat, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  &__forgot {
+    font-size: 14px;
+    font-weight: 500;
+    text-align: right;
+    text-decoration: none;
+    color: #292929;
+    cursor: pointer;
+  }
+
+  &__signed {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 14px;
+  }
+
+  &__is-signed {
+    box-sizing: content-box;
+    margin: 0;
+    width: 20px;
+    height: 20px;
+    appearance: none;
+    border: 2px solid #dedddd;
+    cursor: pointer;
+
+    &:checked {
+      border-color: transparent;
+      background-color: #000;
+
+      &::before {
+        content: "";
+        display: block;
+        width: 20px;
+        height: 20px;
+        background-image: url("/pub;ic/img/icon-checkmark.svg");
+      }
+    }
+  }
+
+  &__is-signed-label {
+    user-select: none;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 20px;
+    color: #8b98b0;
+    cursor: pointer;
+
+    a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #000;
+    }
+  }
+
+  &__account-options {
+    margin-bottom: 24px;
+    text-align: center;
+    color: #8b98b0;
+
+    &--color--black {
+      color: #000;
+    }
+
+    span {
+      margin-left: 5px;
+      font-weight: 600;
+      color: #000;
+      cursor: pointer;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    color: #393939;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &--size--16 {
+      font-size: 16px;
+    }
+
+    &--pos-right {
+      margin-top: 14px;
+      text-align: right;
+    }
+
+    &--bold {
+      font-size: 16px;
+      font-weight: 600;
+    }
+  }
+}
+
+.password {
+  &__ui {
+    position: absolute;
+    right: 20px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    background-image: url('/public/img/icon-password-eye-closed.svg');
+
+    &--open {
+      background-image: url('/public/img/icon-password-eye.svg');
+    }
+
+    &--login {
+      top: 190px;
+    }
+
+    &--reg--up--1 {
+      top: 360px;
+    }
+
+    &--reg--up--2 {
+      top: 445px;
+    }
+  }
+}
