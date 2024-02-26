@@ -17,19 +17,24 @@ class CoreModelAdmin(admin.ModelAdmin):
         obj.save()
 
 
+@admin.register(Brand)
+class BrandAdmin(CoreModelAdmin):
+    search_fields = ("label",) + CoreModelAdmin.search_fields
+    list_display = ("label",) + CoreModelAdmin.list_display
+
+
 @admin.register(Item)
 class ItemAdmin(CoreModelAdmin):
     list_display = (
-        "label",
+        "brand",
         "name",
-        "inventory",
     ) + CoreModelAdmin.list_display
     search_fields = (
-        "label",
+        "brand",
         "name",
     ) + CoreModelAdmin.search_fields
     ordering = (
-        "label",
+        "brand",
         "name",
     ) + CoreModelAdmin.ordering
 
