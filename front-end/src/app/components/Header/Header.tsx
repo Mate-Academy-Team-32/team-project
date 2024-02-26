@@ -13,7 +13,7 @@ export const Header: React.FC = () => {
   const [headerHight, setHeaderHeight] = useState(90);
   const [isClickedSign, setIsClickedSign] = useState(false);
 
-  document.cookie = `isSigned=${isSigned}`;
+  // document.cookie = `isSigned=${isSigned}`;
 
   useEffect(() => {
     (document.querySelector('#bag') as HTMLAnchorElement)
