@@ -64,11 +64,24 @@ class Item(CoreModel):
     release_date = models.DateField(blank=True, null=True)
     country = models.CharField(max_length=64)
     tags = models.ManyToManyField(Tag, related_name="items", blank=True)
-    price = models.DecimalField(max_digits=6, decimal_places=2)
-    inventory = models.PositiveIntegerField()
 
     def __str__(self):
-        return f"{self.label}.{self.name}"
+        return f"{self.brand}. {self.name}"
+
+
+class StockItem(CoreModel):
+    item = models.ForeignKey(Item, on_delete=models.CASCADE, related_name="stock_items")
+    volume = models.PositiveIntegerField()
+    price = models.DecimalField(max_digits=6, decimal_places=2)
+    stock = models.PositiveIntegerField()
+
+    class Meta:
+        constraints = [
+            UniqueConstraint(fields=["item", "volume"], name="unique_volume_stock_item")
+        ]
+
+    def __str__(self):
+        return f"{self.item.name} - Vol: {self.volume}, Price: {self.price}, Stock: {self.stock}"
 
 
 class Review(CoreModel):
