@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import './Review.scss';
 import { Rate } from '../Rate';
 import avatarDefault from '/public/img/image-avatar-default.png';
@@ -19,7 +20,7 @@ export const Review: React.FC<Props> = ({
   return (
     <section className="Review">
       <header className="Review__header">
-        <img src={avatarDefault} alt="Avatar" />
+        <Image src={avatarDefault} alt="Avatar" />
 
         <aside className="Review__status">
           <div className="Review__from">{from}</div>

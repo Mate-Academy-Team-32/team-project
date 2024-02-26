@@ -75,7 +75,7 @@ export const Main: React.FC = () => (
           <Image src={imgAdv1} alt="Advantages 2" />
         </div>
         <div className="advantages__cell cell cell--text">
-          Discover the world of reincarnations. Get <span>inspired, admire, conspire.</span> Don't miss the <span>hot discounts!</span>
+          Discover the world of reincarnations. Get <span>inspired, admire, conspire.</span> Don&apos;t miss the <span>hot discounts!</span>
         </div>
         <div className="advantages__cell cell">
           <Image src={imgAdv2} alt="Advantages 1" />

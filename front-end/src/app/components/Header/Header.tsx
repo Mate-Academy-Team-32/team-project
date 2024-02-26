@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import cn from 'classnames';
+import Image from 'next/image';
 import './Header.scss';
 import iconAccount from '/public/img/icon-account.svg';
 import iconHeart from '/public/img/icon-heart-white.svg';
@@ -80,7 +81,7 @@ export const Header: React.FC = () => {
     <>
       <header className="Header" style={{ height: headerHight }}>
         <section className="Header__top-bar">
-          <img src={iconBurger} alt="burger-menu" className="Header__menu" />
+          <Image src={iconBurger} alt="burger-menu" className="Header__menu" />
 
           <Link to="/" className="Header__logo">
             <div className="logo">
@@ -121,7 +122,7 @@ export const Header: React.FC = () => {
                 isClickedSign && "is-active"
               )}>
                 <div className="dropdown-trigger">
-                  <img
+                  <Image
                     className="sign-in"
                     src={iconAccount}
                     alt="Sign in"
@@ -166,7 +167,7 @@ export const Header: React.FC = () => {
             </Link>
 
             <Link to="/likes" id="icon--like">
-              <img
+              <Image
                 className="Header__icon"
                 src={iconHeart}
                 alt="Heart"
@@ -174,7 +175,7 @@ export const Header: React.FC = () => {
             </Link>
 
             <Link to="/cart" id="bag">
-              <img
+              <Image
                 className="Header__icon Header__icon--w-34"
                 src={iconBag}
                 alt="Bag"

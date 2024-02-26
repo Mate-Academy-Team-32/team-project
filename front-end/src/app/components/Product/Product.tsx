@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Image from 'next/image';
 import { Rate } from '../Rate';
 import { Review } from '../Review';
 import { PopUp } from '../PopUp';
@@ -31,6 +32,7 @@ export const Product: React.FC = () => {
       .map((_el, i) => {
         return (
           <Review
+            key={i}
             from={"Courtney Henry " + i}
             timeAgo={2}
             countStars={4}
@@ -85,31 +87,31 @@ export const Product: React.FC = () => {
 
       <section className="Product">
         <div className="Product__collage">
-          <img
+          <Image
             src={MAIN_IMAGES[selectedImage]}
             alt="Main product"
             className="Product__image Product__image--primary"
           />
           <aside className="Product__main-line">
-            <img
+            <Image
               src={imgProductAdd1}
               alt="Main product"
               className="Product__image Product__image--additional"
               onClick={() => setSelectedImage(0)}
             />
-            <img
+            <Image
               src={imgProductAdd2}
               alt="Main product"
               className="Product__image Product__image--additional"
               onClick={() => setSelectedImage(1)}
             />
-            <img
+            <Image
               src={imgProductAdd3}
               alt="Main product"
               className="Product__image Product__image--additional"
               onClick={() => setSelectedImage(2)}
             />
-            <img
+            <Image
               src={imgProductAdd4}
               alt="Main product"
               className="Product__image Product__image--additional"
@@ -197,7 +199,7 @@ export const Product: React.FC = () => {
             </div>
             <button type="submit" className="Product__buy-now-button form-buy__submit">Buy now</button>
             <button type="button" className="form-buy__like">
-              <img src={like} alt="Like" />
+              <Image src={like} alt="Like" />
             </button>
           </form>
 
@@ -218,7 +220,7 @@ export const Product: React.FC = () => {
         </main>
 
         <div className="Product__arrows">
-          <img
+          <Image
             src={arrowSlide}
             alt="Arrow left"
             className="Product__arrow Product__arrow--left"
@@ -230,7 +232,7 @@ export const Product: React.FC = () => {
               return currentState;
             })}
           />
-          <img
+          <Image
             src={arrowSlide}
             alt="Arrow right"
             className="Product__arrow Product__arrow--right"
@@ -368,7 +370,7 @@ export const Product: React.FC = () => {
           onSubmit={(e) => e.preventDefault()}
         >
           <div className="Pop-up__picture">
-            <img
+            <Image
               src={imgProductAdd1}
               alt="Product image"
               className="Pop-up__image"
@@ -409,7 +411,7 @@ export const Product: React.FC = () => {
               </div>
 
               <div className="Pop-up__remove">
-                <img src={recycleBin} alt="Remove" />
+                <Image src={recycleBin} alt="Remove" />
               </div>
             </div>
 

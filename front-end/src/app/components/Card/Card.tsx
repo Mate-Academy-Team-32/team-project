@@ -1,5 +1,6 @@
 import React, { Dispatch, SetStateAction, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Image from 'next/image';
 import cn from 'classnames';
 import { Rate } from '../Rate';
 import './Card.scss';
@@ -54,8 +55,10 @@ export const Card: React.FC<Props> = ({
           )}
         >{category}</span>
         <div className="Card__like">
-          <img
+          <Image
             src={!isLiked ? like : likeFocused}
+            width={24}
+            height={24}
             alt="Like"
             onClick={() => setIsLiked(prevValue => !prevValue)}
           />
@@ -64,8 +67,10 @@ export const Card: React.FC<Props> = ({
 
       <article className="Card__content">
         <div className="Card__info">
-          <img
+          <Image
             src={image}
+            width={100}
+            height={200}
             alt="Product"
             className="Card__product"
             onClick={() => {

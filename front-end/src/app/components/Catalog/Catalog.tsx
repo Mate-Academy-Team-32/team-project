@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import cn from 'classnames';
+import Image from 'next/image';
 import { scrollToTop } from '../../utils/_scroll';
 import MultiRangeSlider from 'multi-range-slider-react';
 import { Card } from '../Card';
@@ -7,14 +8,15 @@ import './Catalog.scss';
 import { View, Sort, Label } from '../../types/types';
 import priceDollar from '/public/img/icon-dollar.svg';
 import cards from '../../data/cards.json';
-import imgCatalog1 from '/public/img/image-catalog-1.png';
-import imgCatalog2 from '/public/img/image-catalog-2.png';
-import imgCatalog3 from '/public/img/image-catalog-3.png';
-import imgCatalog4 from '/public/img/image-catalog-4.png';
-import imgCatalog5 from '/public/img/image-catalog-5.png';
-import imgCatalog6 from '/public/img/image-catalog-6.png';
 
-const IMAGES = [imgCatalog1, imgCatalog2, imgCatalog3, imgCatalog4, imgCatalog5, imgCatalog6];
+const IMAGES = [
+  '/public/img/image-catalog-1.png',
+  '/public/img/image-catalog-2.png',
+  '/public/img/image-catalog-3.png',
+  '/public/img/image-catalog-4.png',
+  '/public/img/image-catalog-5.png',
+  '/public/img/image-catalog-6.png'
+];
 
 export const Catalog: React.FC = () => {
   const [view, setView] = useState<View>('List');
@@ -170,7 +172,7 @@ export const Catalog: React.FC = () => {
                   <div className="input--dollars">
                     <input type="number" className="input--price" value={priceMin} name="price-min" readOnly />
                   </div>
-                  <img className="dollar" src={priceDollar} alt="Line" />
+                  <Image className="dollar" src={priceDollar} alt="Line" />
                   <div className="input--dollars">
                     <input type="number" className="input--price" value={priceMax} name="price-max" readOnly />
                   </div>
@@ -365,11 +367,11 @@ export const Catalog: React.FC = () => {
             <div className="Catalog__filters--options hidden">
               <div className="Catalog__choice--checkbox">
                 <input type="checkbox" className="checkbox" id="option--28" name="women" />
-                <label htmlFor="option--28">Women's</label>
+                <label htmlFor="option--28">Women&apos;s</label>
               </div>
               <div className="Catalog__choice--checkbox">
                 <input type="checkbox" className="checkbox" id="option--29" name="men" />
-                <label htmlFor="option--29">Men`s</label>
+                <label htmlFor="option--29">Men&apos;s</label>
               </div>
               <div className="Catalog__choice--checkbox">
                 <input type="checkbox" className="checkbox" id="option--30" name="unisex" />
