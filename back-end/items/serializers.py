@@ -69,12 +69,10 @@ class ItemListSerializer(ItemSerializer):
         model = Item
         fields = (
             "id",
-            "label",
+            "brand",
             "name",
             "logo_img",
             "gender",
-            "size",
-            "price",
             "reviews",
             "rating_avg",
             "rating_count",
@@ -94,3 +92,15 @@ class ItemDetailSerializer(ItemSerializer):
             "rating_count",
             "item_images",
         )
+
+
+class StockItemSerializer(CoreModelSerializer, serializers.ModelSerializer):
+    class Meta:
+        model = StockItem
+        fields = (
+            "id",
+            "volume",
+            "price",
+            "item",
+            "stock",
+        ) + CoreModelSerializer.Meta.fields
