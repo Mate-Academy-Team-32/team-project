@@ -1,5 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
+import Image from 'next/image';
 import './Rate.scss';
 import starSelected from '/public/img/icon-star.svg';
 import starDefault from '/public/img/icon-star-empty.svg';
@@ -19,11 +20,11 @@ export const Rate: React.FC<Props> = ({ countStars, countReviews, className }) =
   )}>
     {Array
       .from('x'.repeat(countStars))
-      .map((_el, i) => <img key={i} src={starSelected} alt="Star" className="Rate__star" />)
+      .map((_el, i) => <Image key={i} src={starSelected} alt="Star" className="Rate__star" />)
     }
     {Array
       .from('x'.repeat(COMPONENT_STARS_COUNT - countStars))
-      .map((_el, i) => <img key={i} src={starDefault} alt="Star" className="Rate__star" />)
+      .map((_el, i) => <Image key={i} src={starDefault} alt="Star" className="Rate__star" />)
     }
     {countReviews &&
       <div className="Rate__reviews">({countReviews})</div>

@@ -315,9 +315,9 @@ const Forgot: React.FC = () => {
         </h1>
 
         <p className="Sign__paragraph Sign__paragraph--center">
-          If you've forgotten your password, enter your
+          If you&apos;ve forgotten your password, enter your
           <br />
-          e-mail address and we'll send you an e-mail
+          e-mail address and we&apos;ll send you an e-mail
         </p>
 
         <h2 className="Sign__field is-align-self-flex-start">Email Address</h2>
