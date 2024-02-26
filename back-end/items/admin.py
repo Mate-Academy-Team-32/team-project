@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from items.models import Tag, Review, Item, ItemImage
+from items.models import Tag, Review, Item, ItemImage, Brand, StockItem
 
 
 class CoreModelAdmin(admin.ModelAdmin):
@@ -36,6 +36,26 @@ class ItemAdmin(CoreModelAdmin):
     ordering = (
         "brand",
         "name",
+    ) + CoreModelAdmin.ordering
+
+
+@admin.register(StockItem)
+class StockItemAdmin(CoreModelAdmin):
+    list_display = (
+        "item",
+        "volume",
+        "price",
+        "stock",
+    ) + CoreModelAdmin.list_display
+    search_fields = (
+        "item__name",
+        "volume",
+        "price",
+        "stock",
+    ) + CoreModelAdmin.search_fields
+    ordering = (
+        "item__name",
+        "-volume",
     ) + CoreModelAdmin.ordering
 
 
