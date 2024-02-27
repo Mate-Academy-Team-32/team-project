@@ -11,7 +11,6 @@ ENV PYTHONUNBUFFERED 1
 RUN pip install --upgrade pip
 COPY back-end/requirements.txt requirements.txt
 RUN pip install -r requirements.txt
-RUN pip install django django-cors-headers
 
 
 COPY . .
