@@ -181,13 +181,13 @@
       .lens {
         width: 24px;
         height: 24px;
-        background-image: url("/public/img/icon-search-black.svg");
+        background-image: url("/front-end/src/app/img/icon-search-black.svg");
         cursor: pointer;
         background-color: transparent;
         border: none;
 
         &--open {
-          background-image: url("/public/img/icon-search-white.svg");
+          background-image: url("/front-end/src/app/img/icon-search-white.svg");
         }
 
         &--close {

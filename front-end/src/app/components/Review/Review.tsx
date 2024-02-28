@@ -1,8 +1,9 @@
-import React from 'react';
+'use client';
+
 import Image from 'next/image';
-import './Review.scss';
-import { Rate } from '../Rate';
-import avatarDefault from '/public/img/image-avatar-default.png';
+import '@/app/components/Review/Review.scss';
+import { Rate } from '@/app/components/Rate';
+import avatarDefault from '@/app/img/image-avatar-default.png';
 
 type Props = {
   from: string;
@@ -11,12 +12,12 @@ type Props = {
   feedback: string;
 };
 
-export const Review: React.FC<Props> = ({
+export function Review({
   from,
   timeAgo,
   countStars,
   feedback
-}) => {
+}: Props) {
   return (
     <section className="Review">
       <header className="Review__header">
@@ -41,4 +42,4 @@ export const Review: React.FC<Props> = ({
       </main>
     </section>
   );
-};
+}

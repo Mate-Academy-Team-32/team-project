@@ -1,4 +1,5 @@
-import React from 'react';
+'use client';
+
 import cn from 'classnames';
 
 type Props = {
@@ -6,7 +7,7 @@ type Props = {
   className: string;
 };
 
-export const PopUp: React.FC<Props> = ({ children, className }) => {
+export function PopUp({ children, className }: Props) {
   return (
     <article className={cn("Pop-up hidden", className)}>
       <section className="Pop-up__content">
@@ -14,4 +15,4 @@ export const PopUp: React.FC<Props> = ({ children, className }) => {
       </section>
     </article>
   );
-};
+}

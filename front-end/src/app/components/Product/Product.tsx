@@ -1,25 +1,27 @@
-import React, { useEffect, useState } from 'react';
+'use client';
+
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { Rate } from '../Rate';
-import { Review } from '../Review';
-import { PopUp } from '../PopUp';
-import { scrollToTop } from '../../utils/_scroll';
-import './Product.scss';
-import imgProductMain1 from '/public/img/image-product-main.png';
-import imgProductMain2 from '/public/img/image-product-main-2.png';
-import imgProductMain3 from '/public/img/image-product-main-3.png';
-import imgProductMain4 from '/public/img/image-product-main-4.png';
-import imgProductAdd1 from '/public/img/image-product-add-1.png';
-import imgProductAdd2 from '/public/img/image-product-add-2.png';
-import imgProductAdd3 from '/public/img/image-product-add-3.png';
-import imgProductAdd4 from '/public/img/image-product-add-4.png';
-import like from '/public/img/logo-heart.svg';
-import arrowSlide from '/public/img/tool-arrow-slide-right.svg';
-import recycleBin from '/public/img/icon-recycle-bin.svg';
+import '@/app/components/Product/Product.scss';
+import { Rate } from '@/app/components/Rate';
+import { Review } from '@/app/components/Review';
+import { PopUp } from '@/app/components/PopUp';
+import { scrollToTop } from '@/app/utils/_scroll';
+import imgProductMain1 from '@/app/img/image-product-main.png';
+import imgProductMain2 from '@/app/img/image-product-main-2.png';
+import imgProductMain3 from '@/app/img/image-product-main-3.png';
+import imgProductMain4 from '@/app/img/image-product-main-4.png';
+import imgProductAdd1 from '@/app/img/image-product-add-1.png';
+import imgProductAdd2 from '@/app/img/image-product-add-2.png';
+import imgProductAdd3 from '@/app/img/image-product-add-3.png';
+import imgProductAdd4 from '@/app/img/image-product-add-4.png';
+import like from '@/app/img/logo-heart.svg';
+import arrowSlide from '@/app/img/tool-arrow-slide-right.svg';
+import recycleBin from '@/app/img/icon-recycle-bin.svg';
 
 const MAIN_IMAGES = [imgProductMain1, imgProductMain2, imgProductMain3, imgProductMain4];
 
-export const Product: React.FC = () => {
+export function Product() {
   const [quantityProducts, setQuantityProducts] = useState(1);
   const [selectedImage, setSelectedImage] = useState(0);
   const [startPosReview, setStartPosReview] = useState(0);
@@ -56,7 +58,7 @@ export const Product: React.FC = () => {
     showButtonReview.addEventListener('click', () => {
       popupReview.classList.remove('hidden');
     });
-    
+
     showButtonBuy.addEventListener('click', () => {
       popupBuy.classList.remove('hidden');
     });
@@ -282,7 +284,7 @@ export const Product: React.FC = () => {
             />
             <div className="Pop-up__stars" id="stars">
               <div
-                className="Pop-up__star-icon" 
+                className="Pop-up__star-icon"
                 onClick={() => {
                   setCountReviewStars(1);
                   setIsValidReview(true);
@@ -342,7 +344,7 @@ export const Product: React.FC = () => {
               id="image"
               accept="image/*"
             />
-            <label htmlFor="image" className="Pop-up__head Pop-up__head--2 Pop-up__head--upload"> 
+            <label htmlFor="image" className="Pop-up__head Pop-up__head--2 Pop-up__head--upload">
               <div className="Pop-up__image-picture"></div>
               Add image
             </label>
@@ -384,56 +386,56 @@ export const Product: React.FC = () => {
           </div>
 
           <div className="form-buy__plus-minus">
-              <button
-                type="button"
-                className="form-buy__controls"
-                onClick={() => setQuantityProducts(
-                  current => current > 1 ? current - 1 : current
-                )}
-              >
-                -
-              </button>
-              <span className="Product__quantity form-buy__quantity">{quantityProducts}</span>
-              <button
-                type="button"
-                className="form-buy__controls"
-                onClick={() => setQuantityProducts(
-                  current => current + 1)
-                }
-              >
-                +
-              </button>
+            <button
+              type="button"
+              className="form-buy__controls"
+              onClick={() => setQuantityProducts(
+                current => current > 1 ? current - 1 : current
+              )}
+            >
+              -
+            </button>
+            <span className="Product__quantity form-buy__quantity">{quantityProducts}</span>
+            <button
+              type="button"
+              className="form-buy__controls"
+              onClick={() => setQuantityProducts(
+                current => current + 1)
+              }
+            >
+              +
+            </button>
+          </div>
+
+          <div className="Pop-up__options">
+            <div className="Pop-up__price">
+              <p>4240 ₴</p>
             </div>
 
-            <div className="Pop-up__options">
-              <div className="Pop-up__price">
-                <p>4240 ₴</p>
-              </div>
+            <div className="Pop-up__remove">
+              <Image src={recycleBin} alt="Remove" />
+            </div>
+          </div>
 
-              <div className="Pop-up__remove">
-                <Image src={recycleBin} alt="Remove" />
-              </div>
+          <div className="Pop-up__checkout">
+            <div className="Pop-up__amount">
+              <p>Order amount</p>
+              <p>4240 ₴</p>
             </div>
 
-            <div className="Pop-up__checkout">
-              <div className="Pop-up__amount">
-                <p>Order amount</p>
-                <p>4240 ₴</p>
-              </div>
+            <hr className="Pop-up__line" />
 
-              <hr className="Pop-up__line" />
-
-              <div className="Pop-up__total">
-                <p>Total</p>
-                <p>4240 ₴</p>
-              </div>
-
-              <hr className="Pop-up__line" />
-
-              <button className="Pop-up__submit">Checkout</button>
+            <div className="Pop-up__total">
+              <p>Total</p>
+              <p>4240 ₴</p>
             </div>
+
+            <hr className="Pop-up__line" />
+
+            <button className="Pop-up__submit">Checkout</button>
+          </div>
         </form>
       </PopUp>
     </>
   )
-};
+}

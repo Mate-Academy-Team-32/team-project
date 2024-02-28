@@ -1,29 +1,33 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import { useLocation, Link } from 'react-router-dom';
-import cn from 'classnames';
-import './Sign.scss';
-import { scrollToTop } from '../../utils/_scroll';
-import { Input } from '../../types/types';
+'use client';
 
-export const Sign: React.FC = () => {
-  const searchPath = useLocation().search;
+import React, { useCallback, useEffect, useState } from 'react';
+import cn from 'classnames';
+import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
+import '@/app/components/Sign/Sign.scss';
+import { scrollToTop } from '@/app/utils/_scroll';
+import { Input } from '@/app/types/types';
+
+export function Sign() {
+  const searchParams = useSearchParams();
+  const signType = searchParams.get('type');
 
   useEffect(() => {
     scrollToTop();
-  }, [searchPath]);
+  }, [searchParams]);
 
-  if (searchPath === '?type=in') {
+  if (signType === 'in') {
     return <SignIn />;
-  } else if (searchPath === '?type=up') {
+  } else if (signType === 'up') {
     return <SignUp />;
-  } else if (searchPath === '?type=forgot') {
+  } else if (signType === 'forgot') {
     return <Forgot />;
   } else {
     return <SignIn />;
   }
-};
+}
 
-const SignIn: React.FC = () => {
+function SignIn() {
   const [isError, setIsError] = useState(false);
   const [typeOfInput, setTypeOfInput] = useState<Input>('password');
 
@@ -100,8 +104,7 @@ const SignIn: React.FC = () => {
         }
 
         <Link
-          to="/sign?type=forgot"
-          relative="path"
+          href="/sign?type=forgot"
           className="Sign__link Sign__link--pos-right"
         >
           Forgot Password?
@@ -123,14 +126,14 @@ const SignIn: React.FC = () => {
         <div className="Sign__account-options">
           Don’t have an account?
           {' '}
-          <Link to="/sign?type=up" relative="path" className="Sign__link Sign__link--bold">Sign Up</Link>
+          <Link href="/sign?type=up" className="Sign__link Sign__link--bold">Sign Up</Link>
         </div>
       </form>
     </section>
   );
-};
+}
 
-const SignUp: React.FC = () => {
+function SignUp() {
   const [isError, setIsError] = useState(false);
   const [errorMsg, setErrorMsg] = useState('E-mail and/or password fields are incorrectly filled!');
   const [typeOfInput, setTypeOfInput] = useState<Input>('password');
@@ -290,14 +293,14 @@ const SignUp: React.FC = () => {
         <div className="Sign__account-options">
           Already have an account?
           {' '}
-          <Link to="/sign?type=in" relative="path" className="Sign__link Sign__link--bold">Sign In here</Link>
+          <Link href="/sign?type=in" className="Sign__link Sign__link--bold">Sign In here</Link>
         </div>
       </form>
     </section>
   );
-};
+}
 
-const Forgot: React.FC = () => {
+function Forgot() {
   const handleSubmit = (event: React.ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
   };
@@ -335,9 +338,9 @@ const Forgot: React.FC = () => {
         <div className="Sign__account-options Sign__account-options--color--black">
           Go back to
           {' '}
-          <Link to="/sign?type=in" relative="path" className="Sign__link Sign__link--size--16 Sign__link--bold">Sign In</Link>
+          <Link href="/sign?type=in" className="Sign__link Sign__link--size--16 Sign__link--bold">Sign In</Link>
         </div>
       </form>
     </section>
   );
-};
+}

@@ -1,24 +1,32 @@
-import React, { useEffect, useState } from 'react';
+'use client';
+
+import { useEffect, useState } from 'react';
 import cn from 'classnames';
 import Image from 'next/image';
-import { scrollToTop } from '../../utils/_scroll';
 import MultiRangeSlider from 'multi-range-slider-react';
+import '@/app/components/Catalog/Catalog.scss';
+import { scrollToTop } from '@/app/utils/_scroll';
 import { Card } from '../Card';
-import './Catalog.scss';
-import { View, Sort, Label } from '../../types/types';
-import priceDollar from '/public/img/icon-dollar.svg';
-import cards from '../../data/cards.json';
+import { View, Sort, Label } from '@/app/types/types';
+import priceDollar from '@/app/img/icon-dollar.svg';
+import cards from '@/app/data/cards.json';
+import imageCatalog1 from '@/app/img/image-catalog-1.png';
+import imageCatalog2 from '@/app/img/image-catalog-2.png';
+import imageCatalog3 from '@/app/img/image-catalog-3.png';
+import imageCatalog4 from '@/app/img/image-catalog-4.png';
+import imageCatalog5 from '@/app/img/image-catalog-5.png';
+import imageCatalog6 from '@/app/img/image-catalog-6.png';
 
 const IMAGES = [
-  '/public/img/image-catalog-1.png',
-  '/public/img/image-catalog-2.png',
-  '/public/img/image-catalog-3.png',
-  '/public/img/image-catalog-4.png',
-  '/public/img/image-catalog-5.png',
-  '/public/img/image-catalog-6.png'
+  imageCatalog1,
+  imageCatalog2,
+  imageCatalog3,
+  imageCatalog4,
+  imageCatalog5,
+  imageCatalog6
 ];
 
-export const Catalog: React.FC = () => {
+export function Catalog() {
   const [view, setView] = useState<View>('List');
   const [isGrid, setIsGrid] = useState(false);
   const [numberOfProducts, setNumberOfProducts] = useState(6);
@@ -491,4 +499,4 @@ export const Catalog: React.FC = () => {
       </section>
     </>
   );
-};
+}

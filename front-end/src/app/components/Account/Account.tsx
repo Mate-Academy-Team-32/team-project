@@ -1,7 +1,6 @@
-import React from 'react';
-import './Account.scss';
+import '@/app/components/Account/Account.scss';
 
-export const Account: React.FC = () => {
+export function Account() {
   return (
     <section className="Account">
       <form
@@ -57,4 +56,4 @@ export const Account: React.FC = () => {
       </form>
     </section>
   );
-};
+}

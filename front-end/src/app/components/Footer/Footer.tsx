@@ -1,18 +1,20 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './Footer.scss';
+'use client';
 
-export const Footer: React.FC = () => {
+import React from 'react';
+import Link from 'next/link';
+import '@/app/components/Footer/Footer.scss';
+
+export function Footer() {
   const handleSubmit = (event: React.ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
-    (document.querySelector('.Footer__form') as HTMLFormElement).reset();
+    event.target.reset();
   }
 
   return (
     <footer className="Footer">
       <article className="Footer__info">
         <section className="Footer__subscribe">
-          <Link to="/" className="Footer__logo">
+          <Link href="/" className="Footer__logo">
             <div className="logo">
               Perfu
               <span className="logo__highlight">Me</span>
@@ -218,4 +220,4 @@ export const Footer: React.FC = () => {
       </div>
     </footer>
   );
-};
+}

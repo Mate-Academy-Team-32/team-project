@@ -1,16 +1,18 @@
-import React, { Dispatch, SetStateAction, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Image from 'next/image';
+'use client';
+
+import { Dispatch, SetStateAction, useState } from 'react';
+import Image, { StaticImageData } from 'next/image';
+import { useRouter } from 'next/navigation';
 import cn from 'classnames';
-import { Rate } from '../Rate';
-import './Card.scss';
-import { Label } from '../../types/types';
-import like from '/public/img/icon-heart-no-filled.svg';
-import likeFocused from '/public/img/icon-heart-focused.svg';
+import '@/app/components/Card/Card.scss';
+import { Rate } from '@/app/components/Rate';
+import { Label } from '@/app/types/types';
+import like from '@/app/img/icon-heart-no-filled.svg';
+import likeFocused from '@/app/img/icon-heart-focused.svg';
 
 type Props = {
   id: number;
-  image: string;
+  image: StaticImageData;
   category: Label;
   title: string;
   price: number[];
@@ -21,7 +23,7 @@ type Props = {
   isGrid?: boolean;
 };
 
-export const Card: React.FC<Props> = ({
+export function Card({
   id,
   image,
   category,
@@ -32,8 +34,8 @@ export const Card: React.FC<Props> = ({
   countStars = 5,
   countReviews = 10,
   isGrid = false,
-}) => {
-  const navigate = useNavigate();
+}: Props) {
+  const router = useRouter();
   const [isLiked, setIsLiked] = useState(false);
   const [volumeIndex, setVolumeIndex] = useState(0);
 
@@ -74,7 +76,7 @@ export const Card: React.FC<Props> = ({
             alt="Product"
             className="Card__product"
             onClick={() => {
-              navigate(`/product?id=${id}`);
+              router.push(`/product?id=${id}`);
             }}
           />
           <div className="Card__description">
@@ -132,4 +134,4 @@ export const Card: React.FC<Props> = ({
       </article>
     </section>
   );
-};
+}

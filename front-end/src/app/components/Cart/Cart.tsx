@@ -1,7 +1,8 @@
-import React from 'react';
-import './Cart.scss';
+'use client';
 
-export const Cart: React.FC = () => {
+import '@/app/components/Cart/Cart.scss';
+
+export function Cart() {
   return (
     <section className="Cart">
       <h1 className="Navigation__head">Checkout</h1>
@@ -95,4 +96,4 @@ export const Cart: React.FC = () => {
       </form>
     </section>
   );
-};
+}

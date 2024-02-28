@@ -1,14 +1,16 @@
-import React, { useCallback, useEffect, useState } from 'react';
+'use client';
+
+import { useCallback, useEffect, useState } from 'react';
 import Image from 'next/image';
-import './Slider.scss';
-import { Image as Picture } from '../../types/types';
+import '@/app/components/Slider/Slider.scss';
+import { Image as Picture } from '@/app/types/types';
 
 type Props = {
   images: Picture[];
   timeUpdate?: number;
 };
 
-export const Slider: React.FC<Props> = ({ images, timeUpdate = 1 }) => {
+export function Slider({ images, timeUpdate = 1 }: Props) {
   const [currentSlide, setCurrentSlide] = useState(1);
   const [isPressed, setIsPressed] = useState(false);
   const countSlides = images.length;
@@ -115,4 +117,4 @@ export const Slider: React.FC<Props> = ({ images, timeUpdate = 1 }) => {
       </div>
     </section>
   );
-};
+}
