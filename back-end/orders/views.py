@@ -1,5 +1,6 @@
-from rest_framework import mixins, viewsets
+from rest_framework import mixins, viewsets, status
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
 
 from carts.models import CartItem
 from orders.models import Order, OrderItem
@@ -20,7 +21,6 @@ class OrderViewSet(
         return Order.objects.filter(created_by=user)
 
     def perform_create(self, serializer, *args, **kwargs):
-        print(self.request.query_params)
         items = self.request.query_params.get("items").split(",")
 
         if items:
@@ -28,6 +28,10 @@ class OrderViewSet(
 
             for item in items:
                 cart_item = CartItem.objects.get(id=item)
+
+                if cart_item.quantity > cart_item.stock_item.quantity:
+                    return Response({"detail": "Not enough stock available"}, status=status.HTTP_400_BAD_REQUEST)
+
                 OrderItem.objects.create(
                     order=new_order,
                     quantity=cart_item.quantity,
@@ -36,6 +40,9 @@ class OrderViewSet(
                 # cart_item.stock_item.quantity -= cart_item.quantity
                 cart_item.delete()
         else:
-            return False
+            return Response(
+                {"detail": "No items provided"},
+                status=status.HTTP_400_BAD_REQUEST
+            )
 
         return new_order
