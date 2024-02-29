@@ -6,9 +6,7 @@ import { Footer } from '@/app/components/Footer';
 export default function HomePage() {
   return (
     <Layout>
-      <Header />
       <Main />
-      <Footer />
     </Layout>
   );
 }

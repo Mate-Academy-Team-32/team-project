@@ -77,7 +77,7 @@ export function Slider({ images, timeUpdate = 1 }: Props) {
               return <Image
                 key={image.id}
                 src={image.pathImg}
-                width={100}
+                width={1440}
                 height={536}
                 alt={(index + 1).toString()}
               />;

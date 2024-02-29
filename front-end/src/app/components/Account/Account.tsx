@@ -1,3 +1,5 @@
+'use client';
+
 import '@/app/components/Account/Account.scss';
 
 export function Account() {

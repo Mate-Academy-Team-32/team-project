@@ -80,19 +80,19 @@ export function Main() {
             From <span>classic</span> to <span>exclusive!</span> Over <span>20,000</span> tested perfumes. Only <span>original products</span> of global and Ukrainian manufacturers.
           </div>
           <div className="advantages__cell cell">
-            <Image src={imgAdv1} alt="Advantages 2" />
+            <Image src={imgAdv1} width={400} height={400} alt="Advantages 2" />
           </div>
           <div className="advantages__cell cell cell--text">
             Discover the world of reincarnations. Get <span>inspired, admire, conspire.</span> Don&apos;t miss the <span>hot discounts!</span>
           </div>
           <div className="advantages__cell cell">
-            <Image src={imgAdv2} alt="Advantages 1" />
+            <Image src={imgAdv2} width={400} height={400} alt="Advantages 1" />
           </div>
           <div className="advantages__cell cell cell--text cell--color--light">
             <span>Join us!</span> We want you to be interesting with us, so that you feel that with us, you can afford <span>high-quality elite perfumery.</span>
           </div>
           <div className="advantages__cell cell">
-            <Image src={imgAdv3} alt="Advantages 3" />
+            <Image src={imgAdv3} width={400} height={400} alt="Advantages 3" />
           </div>
         </div>
       </section>
