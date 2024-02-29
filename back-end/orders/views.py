@@ -12,7 +12,7 @@ class OrderViewSet(
     mixins.CreateModelMixin,
     viewsets.GenericViewSet,
 ):
-    queryset = Order.objects.all()
+    queryset = Order.objects.all().prefetch_related("order_items")
     serializer_class = OrderSerializer
     permission_classes = (IsAuthenticated,)
 
@@ -23,26 +23,38 @@ class OrderViewSet(
     def perform_create(self, serializer, *args, **kwargs):
         items = self.request.query_params.get("items").split(",")
 
-        if items:
-            new_order = serializer.save(created_by=self.request.user, *args, **kwargs)
-
-            for item in items:
-                cart_item = CartItem.objects.get(id=item)
-
-                if cart_item.quantity > cart_item.stock_item.quantity:
-                    return Response({"detail": "Not enough stock available"}, status=status.HTTP_400_BAD_REQUEST)
-
-                OrderItem.objects.create(
-                    order=new_order,
-                    quantity=cart_item.quantity,
-                    stock_item=cart_item.stock_item
-                )
-                # cart_item.stock_item.quantity -= cart_item.quantity
-                cart_item.delete()
-        else:
+        if not items:
             return Response(
                 {"detail": "No items provided"},
                 status=status.HTTP_400_BAD_REQUEST
             )
 
-        return new_order
+        try:
+            new_order = serializer.save(created_by=self.request.user, *args, **kwargs)
+        except Exception as e:
+            return Response({"detail": str(e)}, status=status.HTTP_400_BAD_REQUEST)
+
+        for item in items:
+            try:
+                cart_item = CartItem.objects.get(id=item)
+            except CartItem.DoesNotExist:
+                return Response(
+                    {"detail": f"CartItem with id {item} does not exist"}, status=status.HTTP_400_BAD_REQUEST
+                )
+
+            if cart_item.quantity > cart_item.stock_item.stock:
+                new_order.delete()
+                return Response({"detail": "Not enough stock available"}, status=status.HTTP_400_BAD_REQUEST)
+
+            order_item = OrderItem.objects.create(
+                order=new_order,
+                quantity=cart_item.quantity,
+                stock_item=cart_item.stock_item
+            )
+
+            cart_item.stock_item.stock -= order_item.quantity
+            cart_item.stock_item.save()
+            cart_item.delete()
+
+        serializer = self.get_serializer(new_order)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)

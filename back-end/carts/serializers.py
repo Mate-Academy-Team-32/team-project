@@ -13,8 +13,22 @@ class FavoriteListSerializer(CoreModelSerializer, serializers.ModelSerializer):
 
 
 class CartSerializer(CoreModelSerializer, serializers.ModelSerializer):
-    # stock_item = ItemShortSerializer()  # Change to StockItem when done
 
     class Meta:
         model = CartItem
         fields = ("id", "stock_item", "quantity") + CoreModelSerializer.Meta.fields
+
+    def validate(self, data):
+        """
+        Check if the quantity exceeds the available stock quantity.
+        """
+        stock_item = data.get('stock_item')
+        quantity = data.get('quantity')
+
+        if stock_item and quantity:
+            if quantity > stock_item.stock:
+                raise serializers.ValidationError(
+                    "Quantity exceeds available stock quantity."
+                )
+
+        return data

@@ -1,7 +1,6 @@
 from django.db import models
 
-from items.models import Item, CoreModel
-
+from items.models import Item, CoreModel, StockItem
 
 PAYMENT_STATUS_CHOICES = (("PENDING", "Pending"), ("PAID", "Paid"))
 ORDER_STATUS_CHOICES = (("ACTIVE", "Active"), ("CANCELLED", "Cancelled"))
@@ -14,7 +13,7 @@ class Order(CoreModel, models.Model):
 class OrderItem(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name="order_items")
     quantity = models.PositiveIntegerField(default=1)
-    stock_item = models.ForeignKey(Item, on_delete=models.CASCADE)  # Change to StockItem when its ready
+    stock_item = models.ForeignKey(StockItem, on_delete=models.CASCADE)
 
 
 # class Payment(models.Model):
