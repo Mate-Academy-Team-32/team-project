@@ -1,5 +1,6 @@
-@import "../../utils/vars";
-@import "../../utils/mixins";
+@import 'bulma/css/bulma.css';
+@import "@/app/utils/vars";
+@import "@/app/utils/mixins";
 
 .Header {
   position: fixed;

@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import { Montserrat } from "next/font/google";
-import Head from 'next/head';
 import { App } from '@/app/components/App';
 
 const montserrat = Montserrat({ subsets: ["latin"] });
@@ -13,9 +12,9 @@ export const metadata: Metadata = {
 export default function Layout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <Head>
-        <link rel="icon" href="./favicon.png" />
-      </Head>
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+      </head>
 
       <body className={montserrat.className}>
         <App>

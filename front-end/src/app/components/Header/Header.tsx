@@ -5,7 +5,7 @@ import cn from 'classnames';
 import Image from 'next/image';
 import Link from 'next/link';
 import '@/app/components/Header/Header.scss';
-import { checkHeader } from '@/app/utils/_cheak-header';
+import { checkHeader } from '@/app/utils/_check-header';
 import iconAccount from '@/app/img/icon-account.svg';
 import iconHeart from '@/app/img/icon-heart-white.svg';
 import iconBag from '@/app/img/icon-bag-white.svg';
