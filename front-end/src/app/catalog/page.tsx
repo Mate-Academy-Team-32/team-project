@@ -1,5 +1,5 @@
 import Layout from '@/app/layout';
-import { Catalog } from '@/app/components/Catalog';
+import { Catalog } from '@/components/Catalog';
 
 export default function CatalogPage() {
   return (

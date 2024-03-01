@@ -1,5 +1,5 @@
 import Layout from '@/app/layout';
-import { Product } from '@/app/components/Product';
+import { Product } from '@/components/Product';
 
 export default function ProductPage() {
   return (

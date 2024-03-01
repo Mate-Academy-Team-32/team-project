@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Montserrat } from "next/font/google";
-import { App } from '@/app/components/App';
+import { App } from '@/components/App';
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
