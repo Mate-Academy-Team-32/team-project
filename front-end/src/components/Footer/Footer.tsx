@@ -8,7 +8,7 @@ export function Footer() {
   const handleSubmit = (event: React.ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
     event.target.reset();
-  }
+  };
 
   return (
     <footer className="Footer">
@@ -31,9 +31,9 @@ export function Footer() {
 
           <form
             action="/"
-            method='post'
+            method="post"
             onSubmit={handleSubmit}
-            className='Footer__form'
+            className="Footer__form"
           >
             <input
               type="email"
@@ -42,7 +42,9 @@ export function Footer() {
               className="focus:ring-transparent"
               required
             />
-            <button type="submit" className="Footer__button">Submit</button>
+            <button type="submit" className="Footer__button">
+              Submit
+            </button>
           </form>
 
           <nav className="Footer__share">
@@ -87,7 +89,7 @@ export function Footer() {
             href="/sign?type=in"
             target="_blank"
             rel="noopener noreferrer"
-            className='catalog__link'
+            className="catalog__link"
           >
             Sign In
           </a>
@@ -95,7 +97,7 @@ export function Footer() {
             href="/sign?type=up"
             target="_blank"
             rel="noopener noreferrer"
-            className='catalog__link'
+            className="catalog__link"
           >
             Sign Up
           </a>
@@ -103,7 +105,7 @@ export function Footer() {
             href="/cart"
             target="_blank"
             rel="noopener noreferrer"
-            className='catalog__link'
+            className="catalog__link"
           >
             My orders
           </a>
@@ -115,7 +117,7 @@ export function Footer() {
             href="/catalog"
             target="_blank"
             rel="noopener noreferrer"
-            className='catalog__link'
+            className="catalog__link"
           >
             Catalog
           </a>
@@ -123,7 +125,7 @@ export function Footer() {
             href="/about"
             target="_blank"
             rel="noopener noreferrer"
-            className='catalog__link'
+            className="catalog__link"
           >
             About us
           </a>
@@ -131,7 +133,7 @@ export function Footer() {
             href="/contacts"
             target="_blank"
             rel="noopener noreferrer"
-            className='catalog__link'
+            className="catalog__link"
           >
             Contact us
           </a>
@@ -143,7 +145,7 @@ export function Footer() {
             href="/bla-bla"
             target="_blank"
             rel="noopener noreferrer"
-            className='catalog__link'
+            className="catalog__link"
           >
             Payments
           </a>
@@ -151,7 +153,7 @@ export function Footer() {
             href="/bla-bla"
             target="_blank"
             rel="noopener noreferrer"
-            className='catalog__link'
+            className="catalog__link"
           >
             Delivery options
           </a>
@@ -159,7 +161,7 @@ export function Footer() {
             href="/bla-bla"
             target="_blank"
             rel="noopener noreferrer"
-            className='catalog__link'
+            className="catalog__link"
           >
             Buyer protection
           </a>
@@ -171,7 +173,7 @@ export function Footer() {
             href="/bla-bla"
             target="_blank"
             rel="noopener noreferrer"
-            className='catalog__link'
+            className="catalog__link"
           >
             Help center
           </a>
@@ -179,7 +181,7 @@ export function Footer() {
             href="/bla-bla"
             target="_blank"
             rel="noopener noreferrer"
-            className='catalog__link'
+            className="catalog__link"
           >
             Terms & Conditions
           </a>
@@ -187,7 +189,7 @@ export function Footer() {
             href="/bla-bla"
             target="_blank"
             rel="noopener noreferrer"
-            className='catalog__link'
+            className="catalog__link"
           >
             Privacy policy
           </a>
@@ -195,7 +197,7 @@ export function Footer() {
             href="/bla-bla"
             target="_blank"
             rel="noopener noreferrer"
-            className='catalog__link'
+            className="catalog__link"
           >
             Returns & refund
           </a>
@@ -203,7 +205,7 @@ export function Footer() {
             href="/bla-bla"
             target="_blank"
             rel="noopener noreferrer"
-            className='catalog__link'
+            className="catalog__link"
           >
             Survey & feedback
           </a>
@@ -213,9 +215,7 @@ export function Footer() {
       <hr className="Footer__line" />
 
       <div className="Footer__copyright">
-        <time className='year'>
-          {new Date().getFullYear()}
-        </time>
+        <time className="year">{new Date().getFullYear()}</time>
         Local Face Inc. All rights reserved
       </div>
     </footer>

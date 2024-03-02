@@ -1,27 +1,27 @@
 'use client';
 
-import { Dispatch, SetStateAction, useState } from 'react';
-import Image, { StaticImageData } from 'next/image';
+import { type Dispatch, type SetStateAction, useState } from 'react';
+import Image, { type StaticImageData } from 'next/image';
 import { useRouter } from 'next/navigation';
 import cn from 'classnames';
 import '@/components/Card/Card.scss';
 import { Rate } from '@/components/Rate';
-import { Label } from '@/app/types/types';
+import { type Label } from '@/app/types/types';
 import like from '/public/img/icon-heart-no-filled.svg';
 import likeFocused from '/public/img/icon-heart-focused.svg';
 
-type Props = {
+interface Props {
   id: number;
   image: StaticImageData;
   category: Label;
   title: string;
   price: number[];
   volume: number[];
-  countProducts: [number, Dispatch<SetStateAction<number>>],
+  countProducts: [number, Dispatch<SetStateAction<number>>];
   countStars?: number;
   countReviews?: number;
   isGrid?: boolean;
-};
+}
 
 export function Card({
   id,
@@ -40,29 +40,31 @@ export function Card({
   const [volumeIndex, setVolumeIndex] = useState(0);
 
   return (
-    <section className={cn(
-      'Card',
-      isGrid && 'Card--grid',
-      !isGrid && 'Card--list',
-    )}>
+    <section
+      className={cn('Card', isGrid && 'Card--grid', !isGrid && 'Card--list')}
+    >
       <nav className="Card__top-bar">
         <span
           className={cn(
-            "Card__label",
-            category === 'top' && "Card__label--top",
-            category === 'women' && "Card__label--women",
-            category === 'men' && "Card__label--men",
-            category === 'new' && "Card__label--new",
-            category === 'sale' && "Card__label--sale",
+            'Card__label',
+            category === 'top' && 'Card__label--top',
+            category === 'women' && 'Card__label--women',
+            category === 'men' && 'Card__label--men',
+            category === 'new' && 'Card__label--new',
+            category === 'sale' && 'Card__label--sale',
           )}
-        >{category}</span>
+        >
+          {category}
+        </span>
         <div className="Card__like">
           <Image
             src={!isLiked ? like : likeFocused}
             width={24}
             height={24}
             alt="Like"
-            onClick={() => setIsLiked(prevValue => !prevValue)}
+            onClick={() => {
+              setIsLiked((prevValue) => !prevValue);
+            }}
           />
         </div>
       </nav>
@@ -81,13 +83,18 @@ export function Card({
           />
           <div className="Card__description">
             <h1 className="Card__title">{title}</h1>
-            {
-              isGrid &&
+            {isGrid && (
               <p className="Card__text">
-                The exquisite fragrance of Kirke perfume from the famous Italian perfume house Tiziana Terenzi captivates and inspires, creating a magical aura of sophistication and sensuality.
+                The exquisite fragrance of Kirke perfume from the famous Italian
+                perfume house Tiziana Terenzi captivates and inspires, creating
+                a magical aura of sophistication and sensuality.
               </p>
-            }
-            <Rate className="Card__rate" countStars={countStars} countReviews={countReviews} />
+            )}
+            <Rate
+              className="Card__rate"
+              countStars={countStars}
+              countReviews={countReviews}
+            />
             <div className="Card__parameters">
               <p className="Card__price">$ {price[volumeIndex].toFixed(2)}</p>
               <div className="select is-primary">
@@ -123,9 +130,11 @@ export function Card({
           type="button"
           className="Card__button"
           onClick={() => {
-            const countBag = document.querySelector('#bag') as HTMLAnchorElement;
+            const countBag = document.querySelector(
+              '#bag',
+            ) as HTMLAnchorElement;
 
-            countProducts[1](currentCount => currentCount + 1);
+            countProducts[1]((currentCount) => currentCount + 1);
             countBag.setAttribute('data-count', countProducts[0].toString());
           }}
         >

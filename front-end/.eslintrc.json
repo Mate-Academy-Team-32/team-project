@@ -15,8 +15,11 @@
   },
   "plugins": ["react", "prettier"],
   "rules": {
-    "prettier/prettier": [
-			"error"
-		]
+    "prettier/prettier": "off",
+    "import/no-absolute-path": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/non-nullable-type-assertion-style": "off",
+    "@typescript-eslint/no-unnecessary-type-assertion": "off",
+    "@typescript-eslint/triple-slash-reference": "off"
   }
 }

@@ -34,22 +34,52 @@ export function Header() {
           </Link>
 
           <nav className="nav nav--links">
-            <Link href="/" className="nav__link">Home</Link>
-            <Link href="/catalog" className="nav__link" id="catalog">Catalog</Link>
+            <Link href="/" className="nav__link">
+              Home
+            </Link>
+            <Link href="/catalog" className="nav__link" id="catalog">
+              Catalog
+            </Link>
             <nav className="nav nav--catalog hidden">
-              <Link href="/catalog?filter=top-10" className="nav__link nav__link--upper">Top 10</Link>
-              <Link href="/catalog?filter=women" className="nav__link nav__link--upper">Women`s perfumery</Link>
-              <Link href="/catalog?filter=men" className="nav__link nav__link--upper">Men`s perfumery</Link>
-              <Link href="/catalog?filter=unisex" className="nav__link nav__link--upper">Unisex</Link>
+              <Link
+                href="/catalog?filter=top-10"
+                className="nav__link nav__link--upper"
+              >
+                Top 10
+              </Link>
+              <Link
+                href="/catalog?filter=women"
+                className="nav__link nav__link--upper"
+              >
+                Women`s perfumery
+              </Link>
+              <Link
+                href="/catalog?filter=men"
+                className="nav__link nav__link--upper"
+              >
+                Men`s perfumery
+              </Link>
+              <Link
+                href="/catalog?filter=unisex"
+                className="nav__link nav__link--upper"
+              >
+                Unisex
+              </Link>
             </nav>
-            <Link href="/about" className="nav__link">About Us</Link>
-            <Link href="/contacts" className="nav__link">Contact Us</Link>
+            <Link href="/about" className="nav__link">
+              About Us
+            </Link>
+            <Link href="/contacts" className="nav__link">
+              Contact Us
+            </Link>
           </nav>
-
 
           <nav className="nav nav--sign">
             <div className="nav__input--search">
-              <button type="button" className="lens lens--close hidden"></button>
+              <button
+                type="button"
+                className="lens lens--close hidden"
+              ></button>
               <input
                 id="search"
                 type="text"
@@ -60,61 +90,99 @@ export function Header() {
             </div>
 
             <Link href="/account">
-              <div className={cn(
-                "dropdown",
-                isClickedSign && "is-active"
-              )}>
+              <div className={cn('dropdown', isClickedSign && 'is-active')}>
                 <div className="dropdown-trigger">
                   <Image
                     className="sign-in"
                     src={iconAccount}
                     alt="Sign in"
-                    onMouseEnter={() => setIsClickedSign(currentState => !currentState)}
+                    onMouseEnter={() => {
+                      setIsClickedSign((currentState) => !currentState);
+                    }}
                   />
                 </div>
-                {isSigned
-                  ? (
-                    <div className="dropdown-menu" id="dropdown-menu1" role="menu">
-                      <div className="dropdown-content">
-                        <div className="dropdown-item" onClick={() => setIsClickedSign(false)}>
-                          <p>Account details</p>
-                        </div>
-                        <hr className="dropdown-divider" />
-                        <div className="dropdown-item" onClick={() => setIsClickedSign(false)}>
-                          <p>My orders</p>
-                        </div>
-                        <hr className="dropdown-divider" />
-                        <div className="dropdown-item" onClick={() => setIsClickedSign(false)}>
-                          <p>Sign out</p>
-                        </div>
+                {isSigned ? (
+                  <div
+                    className="dropdown-menu"
+                    id="dropdown-menu1"
+                    role="menu"
+                  >
+                    <div className="dropdown-content">
+                      <div
+                        className="dropdown-item"
+                        onClick={() => {
+                          setIsClickedSign(false);
+                        }}
+                      >
+                        <p>Account details</p>
+                      </div>
+                      <hr className="dropdown-divider" />
+                      <div
+                        className="dropdown-item"
+                        onClick={() => {
+                          setIsClickedSign(false);
+                        }}
+                      >
+                        <p>My orders</p>
+                      </div>
+                      <hr className="dropdown-divider" />
+                      <div
+                        className="dropdown-item"
+                        onClick={() => {
+                          setIsClickedSign(false);
+                        }}
+                      >
+                        <p>Sign out</p>
                       </div>
                     </div>
-                  ) : (
-                    <div className="dropdown-menu" id="dropdown-menu1" role="menu">
-                      <div className="dropdown-content">
-                        <div className="dropdown-item" onClick={() => setIsClickedSign(false)}>
-                          <p><Link href="/sign?type=in" className="dropdown__text dropdown__text--size--16">Sign In</Link></p>
-                        </div>
-                        <hr className="dropdown-divider" />
-                        <div className="dropdown-item" onClick={() => setIsClickedSign(false)}>
-                          <p className="dropdown__text dropdown__text--color--light">
-                            Don`t have an account?
-                            {' '}
-                            <Link href="/sign?type=up" className="dropdown__text dropdown__text--bold">Sign Up</Link></p>
-                        </div>
+                  </div>
+                ) : (
+                  <div
+                    className="dropdown-menu"
+                    id="dropdown-menu1"
+                    role="menu"
+                  >
+                    <div className="dropdown-content">
+                      <div
+                        className="dropdown-item"
+                        onClick={() => {
+                          setIsClickedSign(false);
+                        }}
+                      >
+                        <p>
+                          <Link
+                            href="/sign?type=in"
+                            className="dropdown__text dropdown__text--size--16"
+                          >
+                            Sign In
+                          </Link>
+                        </p>
+                      </div>
+                      <hr className="dropdown-divider" />
+                      <div
+                        className="dropdown-item"
+                        onClick={() => {
+                          setIsClickedSign(false);
+                        }}
+                      >
+                        <p className="dropdown__text dropdown__text--color--light">
+                          Don`t have an account?{' '}
+                          <Link
+                            href="/sign?type=up"
+                            className="dropdown__text dropdown__text--bold"
+                          >
+                            Sign Up
+                          </Link>
+                        </p>
                       </div>
                     </div>
-                  )
-                }
+                  </div>
+                )}
               </div>
             </Link>
 
             <Link href="/likes" id="icon--like">
-              <Image
-                className="Header__icon"
-                src={iconHeart}
-                alt="Heart"
-              />
+              <Image className="Header__icon" src={iconHeart} alt="Heart" />
             </Link>
 
             <Link href="/cart" id="bag">
@@ -126,7 +194,7 @@ export function Header() {
             </Link>
           </nav>
         </section>
-      </header >
+      </header>
 
       <div className="margin" style={{ marginTop: headerHight }}></div>
     </>

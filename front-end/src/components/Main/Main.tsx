@@ -30,46 +30,66 @@ export function Main() {
           {
             id: 1,
             color: '#000000',
-            pathImg: slide1
+            pathImg: slide1,
           },
           {
             id: 2,
             color: '#ffffff',
-            pathImg: slide2
+            pathImg: slide2,
           },
           {
             id: 3,
             color: '#000000',
-            pathImg: slide3
+            pathImg: slide3,
           },
           {
             id: 4,
             color: '#f4d2b7',
-            pathImg: slide4
+            pathImg: slide4,
           },
           {
             id: 5,
             color: '#eedde3',
-            pathImg: slide5
+            pathImg: slide5,
           },
         ]}
         timeUpdate={3}
       />
 
       <section className="Main__partners">
-        <a href="https://www.dolcegabbana.com/en-it/" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://www.dolcegabbana.com/en-it/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <Image src={logoPartner1} alt="1" />
         </a>
-        <a href="https://www.gucci.com/int/en/" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://www.gucci.com/int/en/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <Image src={logoPartner2} alt="2" />
         </a>
-        <a href="https://www.armani.com/en-wx" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://www.armani.com/en-wx"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <Image src={logoPartner3} alt="3" />
         </a>
-        <a href="https://www.givenchy.com/" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://www.givenchy.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <Image src={logoPartner4} alt="4" />
         </a>
-        <a href="https://www.chanel.com/gb/" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://www.chanel.com/gb/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <Image src={logoPartner5} alt="5" />
         </a>
       </section>
@@ -77,19 +97,26 @@ export function Main() {
       <section className="Main__advantages advantages">
         <div className="advantages__content">
           <div className="advantages__cell cell cell--text">
-            From <span>classic</span> to <span>exclusive!</span> Over <span>20,000</span> tested perfumes. Only <span>original products</span> of global and Ukrainian manufacturers.
+            From <span>classic</span> to <span>exclusive!</span> Over{' '}
+            <span>20,000</span> tested perfumes. Only{' '}
+            <span>original products</span> of global and Ukrainian
+            manufacturers.
           </div>
           <div className="advantages__cell cell">
             <Image src={imgAdv1} width={400} height={400} alt="Advantages 2" />
           </div>
           <div className="advantages__cell cell cell--text">
-            Discover the world of reincarnations. Get <span>inspired, admire, conspire.</span> Don&apos;t miss the <span>hot discounts!</span>
+            Discover the world of reincarnations. Get{' '}
+            <span>inspired, admire, conspire.</span> Don&apos;t miss the{' '}
+            <span>hot discounts!</span>
           </div>
           <div className="advantages__cell cell">
             <Image src={imgAdv2} width={400} height={400} alt="Advantages 1" />
           </div>
           <div className="advantages__cell cell cell--text cell--color--light">
-            <span>Join us!</span> We want you to be interesting with us, so that you feel that with us, you can afford <span>high-quality elite perfumery.</span>
+            <span>Join us!</span> We want you to be interesting with us, so that
+            you feel that with us, you can afford{' '}
+            <span>high-quality elite perfumery.</span>
           </div>
           <div className="advantages__cell cell">
             <Image src={imgAdv3} width={400} height={400} alt="Advantages 3" />

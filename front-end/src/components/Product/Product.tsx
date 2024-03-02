@@ -19,7 +19,12 @@ import like from '/public/img/logo-heart.svg';
 import arrowSlide from '/public/img/tool-arrow-slide-right.svg';
 import recycleBin from '/public/img/icon-recycle-bin.svg';
 
-const MAIN_IMAGES = [imgProductMain1, imgProductMain2, imgProductMain3, imgProductMain4];
+const MAIN_IMAGES = [
+  imgProductMain1,
+  imgProductMain2,
+  imgProductMain3,
+  imgProductMain4,
+];
 
 export function Product() {
   const [quantityProducts, setQuantityProducts] = useState(1);
@@ -35,10 +40,12 @@ export function Product() {
         return (
           <Review
             key={i}
-            from={"Courtney Henry " + i}
+            from={'Courtney Henry ' + i}
             timeAgo={2}
             countStars={4}
-            feedback={"Consequat velit qui adipisicing sunt do rependerit ad laborum tempor ullamco exercitation. Ullamco tempor adipisicing et voluptate duis sit esse aliqua Consequat velit qui adipisicing sunt do rependerit ad laborum tempor ullamco exercitation. Ullamco tempor adipisicing etUllamco tempor adipisicing et voluptate duis sit esse aliqua"}
+            feedback={
+              'Consequat velit qui adipisicing sunt do rependerit ad laborum tempor ullamco exercitation. Ullamco tempor adipisicing et voluptate duis sit esse aliqua Consequat velit qui adipisicing sunt do rependerit ad laborum tempor ullamco exercitation. Ullamco tempor adipisicing etUllamco tempor adipisicing et voluptate duis sit esse aliqua'
+            }
           />
         );
       })
@@ -48,12 +55,22 @@ export function Product() {
   };
 
   useEffect(() => {
-    const popupReview = document.querySelector('.Pop-up--review') as HTMLDivElement;
+    const popupReview = document.querySelector(
+      '.Pop-up--review',
+    ) as HTMLDivElement;
     const popupBuy = document.querySelector('.Pop-up--buy') as HTMLDivElement;
-    const showButtonReview = document.querySelector('.Product__leave-review-button') as HTMLButtonElement;
-    const showButtonBuy = document.querySelector('.Product__buy-now-button') as HTMLButtonElement;
-    const closeButtonReview = document.querySelectorAll('.Pop-up__close')[0] as HTMLSpanElement;
-    const closeButtonBuy = document.querySelectorAll('.Pop-up__close')[1] as HTMLSpanElement;
+    const showButtonReview = document.querySelector(
+      '.Product__leave-review-button',
+    ) as HTMLButtonElement;
+    const showButtonBuy = document.querySelector(
+      '.Product__buy-now-button',
+    ) as HTMLButtonElement;
+    const closeButtonReview = document.querySelectorAll(
+      '.Pop-up__close',
+    )[0] as HTMLSpanElement;
+    const closeButtonBuy = document.querySelectorAll(
+      '.Pop-up__close',
+    )[1] as HTMLSpanElement;
 
     showButtonReview.addEventListener('click', () => {
       popupReview.classList.remove('hidden');
@@ -85,7 +102,9 @@ export function Product() {
 
   return (
     <>
-      <h2 className="Navigation__head">Home {'>'} Top 10 {'>'} Tiziana Terenzi Kirke</h2>
+      <h2 className="Navigation__head">
+        Home {'>'} Top 10 {'>'} Tiziana Terenzi Kirke
+      </h2>
 
       <section className="Product">
         <div className="Product__collage">
@@ -99,25 +118,33 @@ export function Product() {
               src={imgProductAdd1}
               alt="Main product"
               className="Product__image Product__image--additional"
-              onClick={() => setSelectedImage(0)}
+              onClick={() => {
+                setSelectedImage(0);
+              }}
             />
             <Image
               src={imgProductAdd2}
               alt="Main product"
               className="Product__image Product__image--additional"
-              onClick={() => setSelectedImage(1)}
+              onClick={() => {
+                setSelectedImage(1);
+              }}
             />
             <Image
               src={imgProductAdd3}
               alt="Main product"
               className="Product__image Product__image--additional"
-              onClick={() => setSelectedImage(2)}
+              onClick={() => {
+                setSelectedImage(2);
+              }}
             />
             <Image
               src={imgProductAdd4}
               alt="Main product"
               className="Product__image Product__image--additional"
-              onClick={() => setSelectedImage(3)}
+              onClick={() => {
+                setSelectedImage(3);
+              }}
             />
           </aside>
         </div>
@@ -136,10 +163,15 @@ export function Product() {
             </div>
             <div className="description__text">
               <p>
-                The exquisite fragrance of Kirke perfume from the famous Italian perfume house Tiziana Terenzi captivates and inspires, creating a magical aura of sophistication and sensuality.
+                The exquisite fragrance of Kirke perfume from the famous Italian
+                perfume house Tiziana Terenzi captivates and inspires, creating
+                a magical aura of sophistication and sensuality.
               </p>
               <p>
-                The fruity and chypre elite composition chooses as its heroine a luxurious woman whose manners and education are admired by those around her. She is a real queen, owner of the sea, elements and earthly wealth. She is a goddess.
+                The fruity and chypre elite composition chooses as its heroine a
+                luxurious woman whose manners and education are admired by those
+                around her. She is a real queen, owner of the sea, elements and
+                earthly wealth. She is a goddess.
               </p>
             </div>
           </div>
@@ -148,16 +180,40 @@ export function Product() {
             <h1 className="char__title">Characteristics</h1>
             <div className="char__about">
               <div className="char__left">
-                <p><span style={{ color: "#707070" }}>The premiere of the fragrance:</span> 2015</p>
-                <p><span style={{ color: "#707070" }}>TM country:</span> Italy</p>
-                <p><span style={{ color: "#707070" }}>Gender:</span> unisex</p>
-                <p><span style={{ color: "#707070" }}>Classification:</span> niche</p>
-                <p><span style={{ color: "#707070" }}>Type of aroma:</span> fruity, chypre</p>
+                <p>
+                  <span style={{ color: '#707070' }}>
+                    The premiere of the fragrance:
+                  </span>{' '}
+                  2015
+                </p>
+                <p>
+                  <span style={{ color: '#707070' }}>TM country:</span> Italy
+                </p>
+                <p>
+                  <span style={{ color: '#707070' }}>Gender:</span> unisex
+                </p>
+                <p>
+                  <span style={{ color: '#707070' }}>Classification:</span>{' '}
+                  niche
+                </p>
+                <p>
+                  <span style={{ color: '#707070' }}>Type of aroma:</span>{' '}
+                  fruity, chypre
+                </p>
               </div>
               <div className="char__right">
-                <p><span style={{ color: "#707070" }}>Top note:</span> Black currant leaves, Raspberry, Passion fruit, Peach</p>
-                <p><span style={{ color: "#707070" }}>Heart note:</span> lily of the valley</p>
-                <p><span style={{ color: "#707070" }}>End note:</span>  Vanilla, Heliotrope, Musk, Patchouli, Sandalwood</p>
+                <p>
+                  <span style={{ color: '#707070' }}>Top note:</span> Black
+                  currant leaves, Raspberry, Passion fruit, Peach
+                </p>
+                <p>
+                  <span style={{ color: '#707070' }}>Heart note:</span> lily of
+                  the valley
+                </p>
+                <p>
+                  <span style={{ color: '#707070' }}>End note:</span> Vanilla,
+                  Heliotrope, Musk, Patchouli, Sandalwood
+                </p>
               </div>
             </div>
           </div>
@@ -176,30 +232,41 @@ export function Product() {
             action="/product"
             method="post"
             className="Product__form-buy form-buy"
-            onSubmit={(e) => e.preventDefault()}
+            onSubmit={(e) => {
+              e.preventDefault();
+            }}
           >
             <div className="form-buy__plus-minus">
               <button
                 type="button"
                 className="form-buy__controls"
-                onClick={() => setQuantityProducts(
-                  current => current > 1 ? current - 1 : current
-                )}
+                onClick={() => {
+                  setQuantityProducts((current) =>
+                    current > 1 ? current - 1 : current,
+                  );
+                }}
               >
                 -
               </button>
-              <span className="Product__quantity form-buy__quantity">{quantityProducts}</span>
+              <span className="Product__quantity form-buy__quantity">
+                {quantityProducts}
+              </span>
               <button
                 type="button"
                 className="form-buy__controls"
-                onClick={() => setQuantityProducts(
-                  current => current + 1)
-                }
+                onClick={() => {
+                  setQuantityProducts((current) => current + 1);
+                }}
               >
                 +
               </button>
             </div>
-            <button type="submit" className="Product__buy-now-button form-buy__submit">Buy now</button>
+            <button
+              type="submit"
+              className="Product__buy-now-button form-buy__submit"
+            >
+              Buy now
+            </button>
             <button type="button" className="form-buy__like">
               <Image src={like} alt="Like" />
             </button>
@@ -207,7 +274,9 @@ export function Product() {
 
           <div className="Product__status">
             <p>In Stock!</p>
-            <p>Product code: <span style={{ color: "#a4a4a4" }}>267819</span></p>
+            <p>
+              Product code: <span style={{ color: '#a4a4a4' }}>267819</span>
+            </p>
           </div>
         </div>
       </section>
@@ -215,41 +284,43 @@ export function Product() {
       <section className="Product__reviews-content">
         <h1 className="Product__title">Reviews</h1>
 
-        <main className="Product__reviews">
-          {
-            showReviews()
-          }
-        </main>
+        <main className="Product__reviews">{showReviews()}</main>
 
         <div className="Product__arrows">
           <Image
             src={arrowSlide}
             alt="Arrow left"
             className="Product__arrow Product__arrow--left"
-            onClick={() => setStartPosReview(currentState => {
-              if (currentState > 0) {
-                return currentState - 3;
-              }
+            onClick={() => {
+              setStartPosReview((currentState) => {
+                if (currentState > 0) {
+                  return currentState - 3;
+                }
 
-              return currentState;
-            })}
+                return currentState;
+              });
+            }}
           />
           <Image
             src={arrowSlide}
             alt="Arrow right"
             className="Product__arrow Product__arrow--right"
-            onClick={() => setStartPosReview(currentState => {
-              if (currentState < 3) {
-                return currentState + 3;
-              }
+            onClick={() => {
+              setStartPosReview((currentState) => {
+                if (currentState < 3) {
+                  return currentState + 3;
+                }
 
-              return currentState;
-            })}
+                return currentState;
+              });
+            }}
           />
         </div>
 
         <div className="Product__leave-review">
-          <button type="button" className="Product__leave-review-button">Leave a review</button>
+          <button type="button" className="Product__leave-review-button">
+            Leave a review
+          </button>
         </div>
       </section>
 
@@ -270,11 +341,13 @@ export function Product() {
               return;
             }
 
-            e.preventDefault()
+            e.preventDefault();
           }}
         >
           <div className="Pop-up__field">
-            <label htmlFor="stars" className="Pop-up__head Pop-up__head--2">Your rating</label>
+            <label htmlFor="stars" className="Pop-up__head Pop-up__head--2">
+              Your rating
+            </label>
             <input
               type="number"
               id="stars"
@@ -322,7 +395,9 @@ export function Product() {
           </div>
 
           <div className="Pop-up__field">
-            <label htmlFor="name" className="Pop-up__head Pop-up__head--2">Display name</label>
+            <label htmlFor="name" className="Pop-up__head Pop-up__head--2">
+              Display name
+            </label>
             <input
               type="text"
               className="Pop-up__input Pop-up__input--name"
@@ -333,8 +408,13 @@ export function Product() {
           </div>
 
           <div className="Pop-up__field">
-            <label htmlFor="message" className="Pop-up__head Pop-up__head--2">Text message</label>
-            <textarea id="message" className="Pop-up__input Pop-up__input--message"></textarea>
+            <label htmlFor="message" className="Pop-up__head Pop-up__head--2">
+              Text message
+            </label>
+            <textarea
+              id="message"
+              className="Pop-up__input Pop-up__input--message"
+            ></textarea>
           </div>
 
           <div className="Pop-up__field Pop-up__field--row">
@@ -344,15 +424,28 @@ export function Product() {
               id="image"
               accept="image/*"
             />
-            <label htmlFor="image" className="Pop-up__head Pop-up__head--2 Pop-up__head--upload">
+            <label
+              htmlFor="image"
+              className="Pop-up__head Pop-up__head--2 Pop-up__head--upload"
+            >
               <div className="Pop-up__image-picture"></div>
               Add image
             </label>
           </div>
 
           <div className="Pop-up__buttons">
-            <button type="submit" className="Pop-up__button Pop-up__button--submit">Add review</button>
-            <button type="reset" className="Pop-up__button Pop-up__button--clear">Clear</button>
+            <button
+              type="submit"
+              className="Pop-up__button Pop-up__button--submit"
+            >
+              Add review
+            </button>
+            <button
+              type="reset"
+              className="Pop-up__button Pop-up__button--clear"
+            >
+              Clear
+            </button>
           </div>
         </form>
       </PopUp>
@@ -369,7 +462,9 @@ export function Product() {
           action="/"
           method="post"
           className="Pop-up__buy"
-          onSubmit={(e) => e.preventDefault()}
+          onSubmit={(e) => {
+            e.preventDefault();
+          }}
         >
           <div className="Pop-up__picture">
             <Image
@@ -389,19 +484,23 @@ export function Product() {
             <button
               type="button"
               className="form-buy__controls"
-              onClick={() => setQuantityProducts(
-                current => current > 1 ? current - 1 : current
-              )}
+              onClick={() => {
+                setQuantityProducts((current) =>
+                  current > 1 ? current - 1 : current,
+                );
+              }}
             >
               -
             </button>
-            <span className="Product__quantity form-buy__quantity">{quantityProducts}</span>
+            <span className="Product__quantity form-buy__quantity">
+              {quantityProducts}
+            </span>
             <button
               type="button"
               className="form-buy__controls"
-              onClick={() => setQuantityProducts(
-                current => current + 1)
-              }
+              onClick={() => {
+                setQuantityProducts((current) => current + 1);
+              }}
             >
               +
             </button>
@@ -437,5 +536,5 @@ export function Product() {
         </form>
       </PopUp>
     </>
-  )
+  );
 }

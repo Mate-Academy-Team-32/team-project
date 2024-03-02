@@ -3,12 +3,12 @@
 import { useCallback, useEffect, useState } from 'react';
 import Image from 'next/image';
 import '@/components/Slider/Slider.scss';
-import { Image as Picture } from '@/app/types/types';
+import { type Image as Picture } from '@/app/types/types';
 
-type Props = {
+interface Props {
   images: Picture[];
   timeUpdate?: number;
-};
+}
 
 export function Slider({ images, timeUpdate = 1 }: Props) {
   const [currentSlide, setCurrentSlide] = useState(1);
@@ -17,7 +17,7 @@ export function Slider({ images, timeUpdate = 1 }: Props) {
   const [timeStart, setTimeStart] = useState(0);
 
   const handleClickBack = () => {
-    setCurrentSlide(slide => slide > 1 ? slide - 1 : countSlides);
+    setCurrentSlide((slide) => (slide > 1 ? slide - 1 : countSlides));
     setIsPressed(true);
 
     if (currentSlide > 0) {
@@ -28,7 +28,7 @@ export function Slider({ images, timeUpdate = 1 }: Props) {
   };
 
   const handleClickNext = () => {
-    setCurrentSlide(slide => slide < countSlides ? slide + 1 : 1);
+    setCurrentSlide((slide) => (slide < countSlides ? slide + 1 : 1));
     setIsPressed(true);
 
     if (currentSlide < countSlides) {
@@ -38,22 +38,27 @@ export function Slider({ images, timeUpdate = 1 }: Props) {
     }
   };
 
-  const changeSelectedPage = useCallback((index: number) => {
-    const pages = document.querySelectorAll('.page') as NodeListOf<HTMLButtonElement>;
+  const changeSelectedPage = useCallback(
+    (index: number) => {
+      const pages = document.querySelectorAll(
+        '.page',
+      ) as NodeListOf<HTMLButtonElement>;
 
-    for (let i = 0; i < countSlides; i++) {
-      pages[i].classList.remove('page--selected');
-    }
+      for (let i = 0; i < countSlides; i++) {
+        pages[i].classList.remove('page--selected');
+      }
 
-    pages[index].classList.add('page--selected');
-  }, [countSlides]);
+      pages[index].classList.add('page--selected');
+    },
+    [countSlides],
+  );
 
   useEffect(() => {
     if (isPressed) return;
 
     const intervalId = setInterval(() => {
       setTimeStart(timeStart + 1);
-      setCurrentSlide(slide => {
+      setCurrentSlide((slide) => {
         if (slide >= countSlides) {
           changeSelectedPage(0);
           return 1;
@@ -64,23 +69,33 @@ export function Slider({ images, timeUpdate = 1 }: Props) {
       });
     }, timeUpdate * 1000);
 
-    return () => clearInterval(intervalId);
+    return () => {
+      clearInterval(intervalId);
+    };
   }, [timeStart, changeSelectedPage, countSlides, isPressed, timeUpdate]);
 
   return (
-    <section className='Slider' style={{ backgroundColor: images[currentSlide - 1].color }}>
+    <section
+      className="Slider"
+      style={{ backgroundColor: images[currentSlide - 1].color }}
+    >
       <div className="Slider__content">
-        <button className="Slider__button Slider__button--left" onClick={handleClickBack}></button>
+        <button
+          className="Slider__button Slider__button--left"
+          onClick={handleClickBack}
+        ></button>
         <div className="Slider__image">
           {images.map((image, index) => {
             if (currentSlide === index + 1) {
-              return <Image
-                key={image.id}
-                src={image.pathImg}
-                width={1440}
-                height={536}
-                alt={(index + 1).toString()}
-              />;
+              return (
+                <Image
+                  key={image.id}
+                  src={image.pathImg}
+                  width={1440}
+                  height={536}
+                  alt={(index + 1).toString()}
+                />
+              );
             }
 
             return '';
@@ -91,7 +106,7 @@ export function Slider({ images, timeUpdate = 1 }: Props) {
       </div>
 
       <div className="Slider__pages">
-        {images.map((image, index) => (
+        {images.map((image, index) =>
           index === 0 ? (
             <button
               key={image.id}
@@ -100,8 +115,7 @@ export function Slider({ images, timeUpdate = 1 }: Props) {
                 setCurrentSlide(image.id);
                 changeSelectedPage(image.id - 1);
               }}
-            >
-            </button>
+            ></button>
           ) : (
             <button
               key={image.id}
@@ -110,10 +124,9 @@ export function Slider({ images, timeUpdate = 1 }: Props) {
                 setCurrentSlide(image.id);
                 changeSelectedPage(image.id - 1);
               }}
-            >
-            </button>
-          )
-        ))}
+            ></button>
+          ),
+        )}
       </div>
     </section>
   );

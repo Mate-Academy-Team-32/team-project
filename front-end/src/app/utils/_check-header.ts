@@ -1,15 +1,23 @@
-import { Dispatch, SetStateAction } from 'react';
+import { type Dispatch, type SetStateAction } from 'react';
 
-export const checkHeader = (setHeaderHeight: Dispatch<SetStateAction<number>>) => {
-  (document.querySelector('#bag') as HTMLAnchorElement)
-    .setAttribute('data-count', '0');
+export const checkHeader = (
+  setHeaderHeight: Dispatch<SetStateAction<number>>,
+) => {
+  (document.querySelector('#bag') as HTMLAnchorElement).setAttribute(
+    'data-count',
+    '0',
+  );
 
   const searchInput = document.querySelector('.nav__input') as HTMLInputElement;
   const lensOpen = document.querySelector('.lens--open') as HTMLDivElement;
   const lensClose = document.querySelector('.lens--close') as HTMLDivElement;
-  const textLinks = document.querySelectorAll('.nav__link') as NodeListOf<HTMLLinkElement>;
+  const textLinks = document.querySelectorAll(
+    '.nav__link',
+  ) as NodeListOf<HTMLLinkElement>;
   const catalogLink = document.querySelector('#catalog') as HTMLLinkElement;
-  const catalogBlock = document.querySelector('.nav--catalog') as HTMLDivElement;
+  const catalogBlock = document.querySelector(
+    '.nav--catalog',
+  ) as HTMLDivElement;
   const header = document.querySelector('.Header') as HTMLDivElement;
   const dropdown = document.querySelector('.dropdown') as HTMLDivElement;
 
