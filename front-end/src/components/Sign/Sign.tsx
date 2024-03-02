@@ -4,7 +4,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import cn from 'classnames';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
-import '@/app/components/Sign/Sign.scss';
+import '@/components/Sign/Sign.scss';
 import { scrollToTop } from '@/app/utils/_scroll';
 import { type Input } from '@/app/types/types';
 

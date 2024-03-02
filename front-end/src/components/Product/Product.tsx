@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import '@/app/components/Product/Product.scss';
+import '@/components/Product/Product.scss';
 import { Rate } from '@/components/Rate';
 import { Review } from '@/components/Review';
 import { PopUp } from '@/components/PopUp';
