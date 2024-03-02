@@ -173,7 +173,7 @@
     height: 32px;
     font-size: 30px;
     cursor: pointer;
-    background-image: url("/public/img/tool-close.svg");
+    background-image: url("/img/tool-close.svg");
   }
 
   &__review {
@@ -200,11 +200,11 @@
   &__star-icon {
     width: 24px;
     height: 24px;
-    background-image: url("/public/img/icon-star-gray.svg");
+    background-image: url("/img/icon-star-gray.svg");
     cursor: pointer;
 
     &:hover {
-      background-image: url("/public/img/icon-star.svg");
+      background-image: url("/img/icon-star.svg");
     }
   }
 
@@ -240,7 +240,7 @@
   &__image-picture {
     width: 32px;
     height: 28px;
-    background-image: url("/public/img/icon-upload-image.svg");
+    background-image: url("/img/icon-upload-image.svg");
   }
 
   &__buttons {

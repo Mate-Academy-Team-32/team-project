@@ -7,8 +7,8 @@ import cn from 'classnames';
 import '@/components/Card/Card.scss';
 import { Rate } from '@/components/Rate';
 import { Label } from '@/app/types/types';
-import like from '@/app/img/icon-heart-no-filled.svg';
-import likeFocused from '@/app/img/icon-heart-focused.svg';
+import like from '/public/img/icon-heart-no-filled.svg';
+import likeFocused from '/public/img/icon-heart-focused.svg';
 
 type Props = {
   id: number;

@@ -7,17 +7,17 @@ import { Rate } from '@/components/Rate';
 import { Review } from '@/components/Review';
 import { PopUp } from '@/components/PopUp';
 import { scrollToTop } from '@/app/utils/_scroll';
-import imgProductMain1 from '@/app/img/image-product-main.png';
-import imgProductMain2 from '@/app/img/image-product-main-2.png';
-import imgProductMain3 from '@/app/img/image-product-main-3.png';
-import imgProductMain4 from '@/app/img/image-product-main-4.png';
-import imgProductAdd1 from '@/app/img/image-product-add-1.png';
-import imgProductAdd2 from '@/app/img/image-product-add-2.png';
-import imgProductAdd3 from '@/app/img/image-product-add-3.png';
-import imgProductAdd4 from '@/app/img/image-product-add-4.png';
-import like from '@/app/img/logo-heart.svg';
-import arrowSlide from '@/app/img/tool-arrow-slide-right.svg';
-import recycleBin from '@/app/img/icon-recycle-bin.svg';
+import imgProductMain1 from '/public/img/image-product-main.png';
+import imgProductMain2 from '/public/img/image-product-main-2.png';
+import imgProductMain3 from '/public/img/image-product-main-3.png';
+import imgProductMain4 from '/public/img/image-product-main-4.png';
+import imgProductAdd1 from '/public/img/image-product-add-1.png';
+import imgProductAdd2 from '/public/img/image-product-add-2.png';
+import imgProductAdd3 from '/public/img/image-product-add-3.png';
+import imgProductAdd4 from '/public/img/image-product-add-4.png';
+import like from '/public/img/logo-heart.svg';
+import arrowSlide from '/public/img/tool-arrow-slide-right.svg';
+import recycleBin from '/public/img/icon-recycle-bin.svg';
 
 const MAIN_IMAGES = [imgProductMain1, imgProductMain2, imgProductMain3, imgProductMain4];
 

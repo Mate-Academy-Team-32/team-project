@@ -6,10 +6,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import '@/components/Header/Header.scss';
 import { checkHeader } from '@/app/utils/_check-header';
-import iconAccount from '@/app/img/icon-account.svg';
-import iconHeart from '@/app/img/icon-heart-white.svg';
-import iconBag from '@/app/img/icon-bag-white.svg';
-import iconBurger from '@/app/img/icon-burger.svg';
+import iconAccount from '/public/img/icon-account.svg';
+import iconHeart from '/public/img/icon-heart-white.svg';
+import iconBag from '/public/img/icon-bag-white.svg';
+import iconBurger from '/public/img/icon-burger.svg';
 
 export function Header() {
   const [isSigned] = useState(false);

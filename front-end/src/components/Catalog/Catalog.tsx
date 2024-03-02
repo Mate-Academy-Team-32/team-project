@@ -8,14 +8,14 @@ import '@/components/Catalog/Catalog.scss';
 import { scrollToTop } from '@/app/utils/_scroll';
 import { Card } from '../Card';
 import { View, Sort, Label } from '@/app/types/types';
-import priceDollar from '@/app/img/icon-dollar.svg';
 import cards from '@/app/data/cards.json';
-import imageCatalog1 from '@/app/img/image-catalog-1.png';
-import imageCatalog2 from '@/app/img/image-catalog-2.png';
-import imageCatalog3 from '@/app/img/image-catalog-3.png';
-import imageCatalog4 from '@/app/img/image-catalog-4.png';
-import imageCatalog5 from '@/app/img/image-catalog-5.png';
-import imageCatalog6 from '@/app/img/image-catalog-6.png';
+import priceDollar from '/public/img/icon-dollar.svg';
+import imageCatalog1 from '/public/img/image-catalog-1.png';
+import imageCatalog2 from '/public/img/image-catalog-2.png';
+import imageCatalog3 from '/public/img/image-catalog-3.png';
+import imageCatalog4 from '/public/img/image-catalog-4.png';
+import imageCatalog5 from '/public/img/image-catalog-5.png';
+import imageCatalog6 from '/public/img/image-catalog-6.png';
 
 const IMAGES = [
   imageCatalog1,

@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import '@/components/Review/Review.scss';
 import { Rate } from '@/components/Rate';
-import avatarDefault from '@/app/img/image-avatar-default.png';
+import avatarDefault from '/public/img/image-avatar-default.png';
 
 type Props = {
   from: string;

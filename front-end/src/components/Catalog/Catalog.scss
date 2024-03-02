@@ -54,11 +54,11 @@
     }
 
     &--List::before {
-      background-image: url("/public/img/icon-view-list.svg");
+      background-image: url("/img/icon-view-list.svg");
     }
 
     &--Grid::before {
-      background-image: url("/public/img/icon-view-grid.svg");
+      background-image: url("/img/icon-view-grid.svg");
     }
   }
 
@@ -153,7 +153,7 @@
       display: inline-block;
       width: 24px;
       height: 24px;
-      background-image: url("/public/img/tool-arrow-down.svg");
+      background-image: url("/img/tool-arrow-down.svg");
     }
 
     &--clicked {
@@ -179,7 +179,7 @@
   height: 24px;
   border: none;
   background-color: transparent;
-  background-image: url("/public/img/tool-arrow-down.svg");
+  background-image: url("/img/tool-arrow-down.svg");
   cursor: pointer;
 
   &--reversed {
@@ -204,7 +204,7 @@
       display: block;
       width: 20px;
       height: 20px;
-      background-image: url("/public/img/icon-checkmark.svg");
+      background-image: url("/img/icon-checkmark.svg");
     }
   }
 }
@@ -323,7 +323,7 @@
       display: inline-block;
       width: 18px;
       height: 18px;
-      background-image: url("/public/img/icon-refresh.svg");
+      background-image: url("/img/icon-refresh.svg");
     }
   }
 

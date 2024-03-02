@@ -42,7 +42,7 @@
     height: 56px;
     border: none;
     border-radius: 50%;
-    background-image: url("/front-end/src/app/img/tool-arrow-white.svg");
+    background-image: url("/img/tool-arrow-white.svg");
     background-repeat: no-repeat;
     background-position: center;
     transition: all 1s;
@@ -112,9 +112,9 @@
   width: 10px;
   height: 10px;
   background-repeat: no-repeat;
-  background-image: url("/front-end/src/app/img/tool-circle-gray.svg");
+  background-image: url("/img/tool-circle-gray.svg");
 
   &--selected {
-    background-image: url("/front-end/src/img/tool-circle-white.svg");
+    background-image: url("/img/tool-circle-white.svg");
   }
 }

@@ -3,8 +3,8 @@
 import cn from 'classnames';
 import Image from 'next/image';
 import '@/components/Rate/Rate.scss';
-import starSelected from '@/app/img/icon-star.svg';
-import starDefault from '@/app/img/icon-star-empty.svg';
+import starSelected from '/public/img/icon-star.svg';
+import starDefault from '/public/img/icon-star-empty.svg';
 
 type Props = {
   countStars: number;

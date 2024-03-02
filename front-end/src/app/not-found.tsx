@@ -69,7 +69,6 @@ export default function Custom404() {
             }}
           >homepage</Link>
         </button>
-
       </section>
     </article>
   );
