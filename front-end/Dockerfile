@@ -1,4 +1,4 @@
-FROM node:16-alpine
+FROM node:20-alpine
 
 WORKDIR /app/frontend/
 
@@ -8,4 +8,4 @@ RUN npm install --force
 COPY . /app/frontend/
 
 RUN npm run build
-RUN npm start
+CMD ["npm", "start"]
