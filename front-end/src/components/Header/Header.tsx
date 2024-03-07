@@ -116,16 +116,21 @@ export function Header() {
             <button type="button" className="lens lens--open"></button>
           </div>
 
-          <Link href="/account">
+          <Link
+            href="/account"
+            onMouseEnter={() => {
+              setIsClickedSign((currentState) => !currentState);
+            }}
+            onMouseLeave={() => {
+              setIsClickedSign((currentState) => !currentState);
+            }}
+          >
             <div className={cn('dropdown', isClickedSign && 'is-active')}>
               <div className="dropdown-trigger">
                 <Image
                   className="sign-in"
                   src={iconAccount}
                   alt="Sign in"
-                  onMouseEnter={() => {
-                    setIsClickedSign((currentState) => !currentState);
-                  }}
                 />
               </div>
               {isSigned ? (
