@@ -120,15 +120,6 @@
     flex-direction: row;
   }
 
-  &--catalog {
-    position: absolute;
-    top: 100px;
-    transform: translate(50%);
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 24px;
-  }
-
   &__link {
     text-decoration: none;
     font-family: Montserrat, sans-serif;

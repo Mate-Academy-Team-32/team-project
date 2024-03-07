@@ -5,7 +5,6 @@ import cn from 'classnames';
 import Image from 'next/image';
 import Link from 'next/link';
 import '@/components/Header/Header.scss';
-import { checkHeader } from '@/app/utils/_check-header';
 import iconAccount from '/public/img/icon-account.svg';
 import iconHeart from '/public/img/icon-heart-white.svg';
 import iconBag from '/public/img/icon-bag-white.svg';
@@ -17,12 +16,61 @@ export function Header() {
   const [isClickedSign, setIsClickedSign] = useState(false);
 
   useEffect(() => {
-    checkHeader(setHeaderHeight);
+    (document.querySelector('#bag') as HTMLAnchorElement).setAttribute(
+      'data-count',
+      '0',
+    );
+  
+    const searchInput = document.querySelector('.nav__input') as HTMLInputElement;
+    const lensOpen = document.querySelector('.lens--open') as HTMLDivElement;
+    const lensClose = document.querySelector('.lens--close') as HTMLDivElement;
+    const textLinks = document.querySelectorAll(
+      '.nav__link',
+    ) as NodeListOf<HTMLLinkElement>;
+    const dropdown = document.querySelector('.dropdown') as HTMLDivElement;
+  
+    const showSearch = () => {
+      textLinks.forEach((textLink) => {
+        textLink.classList.add('hidden');
+      });
+  
+      searchInput.classList.remove('hidden');
+      searchInput.focus();
+      lensClose.classList.remove('hidden');
+      lensOpen.classList.add('hidden');
+    };
+  
+    const hideSearch = () => {
+      textLinks.forEach((textLink) => {
+        textLink.classList.remove('hidden');
+      });
+  
+      searchInput.classList.add('hidden');
+      searchInput.focus();
+      lensClose.classList.add('hidden');
+      lensOpen.classList.remove('hidden');
+    };
+  
+    lensOpen.addEventListener('click', () => {
+      showSearch();
+    });
+  
+    lensClose.addEventListener('click', () => {
+      hideSearch();
+    });
+  
+    searchInput.addEventListener('blur', () => {
+      hideSearch();
+    });
+  
+    dropdown.addEventListener('mouseleave', () => {
+      dropdown.classList.remove('is-active');
+    });
   }, [setHeaderHeight]);
 
   return (
     <header className="Header" style={{ height: headerHight }}>
-      <section className="Header__top-bar">
+      <section className="Header__top-bar" style={{ height: headerHight }}>
         <Image src={iconBurger} alt="burger-menu" className="Header__menu" />
 
         <Link href="/" className="Header__logo">
@@ -39,32 +87,6 @@ export function Header() {
           <Link href="/catalog" className="nav__link" id="catalog">
             Catalog
           </Link>
-          <nav className="nav nav--catalog hidden">
-            <Link
-              href="/catalog?filter=top-10"
-              className="nav__link nav__link--upper"
-            >
-              Top 10
-            </Link>
-            <Link
-              href="/catalog?filter=women"
-              className="nav__link nav__link--upper"
-            >
-              Women`s perfumery
-            </Link>
-            <Link
-              href="/catalog?filter=men"
-              className="nav__link nav__link--upper"
-            >
-              Men`s perfumery
-            </Link>
-            <Link
-              href="/catalog?filter=unisex"
-              className="nav__link nav__link--upper"
-            >
-              Unisex
-            </Link>
-          </nav>
           <Link href="/about" className="nav__link">
             About Us
           </Link>
