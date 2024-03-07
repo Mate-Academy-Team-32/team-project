@@ -4,11 +4,14 @@ import React, { useEffect, useState } from 'react';
 import cn from 'classnames';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Kodchasan } from 'next/font/google';
 import '@/components/Header/Header.scss';
 import iconAccount from '/public/img/icon-account.svg';
 import iconHeart from '/public/img/icon-heart-white.svg';
 import iconBag from '/public/img/icon-bag-white.svg';
 import iconBurger from '/public/img/icon-burger.svg';
+
+const kodchasan = Kodchasan({ weight: "600", subsets: ['latin'] });
 
 export function Header() {
   const [isSigned] = useState(false);
@@ -74,7 +77,10 @@ export function Header() {
         <Image src={iconBurger} alt="burger-menu" className="Header__menu" />
 
         <Link href="/" className="Header__logo">
-          <div className="logo">
+          <div className={cn(
+            "logo",
+            kodchasan.className
+          )}>
             Perfu
             <span className="logo__highlight">Me</span>
           </div>

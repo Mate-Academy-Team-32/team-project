@@ -1,8 +1,12 @@
 'use client';
 
 import React from 'react';
+import cn from 'classnames';
 import Link from 'next/link';
+import { Kodchasan } from 'next/font/google';
 import '@/components/Footer/Footer.scss';
+
+const kodchasan = Kodchasan({ weight: "600", subsets: ['latin'] });
 
 export function Footer() {
   const handleSubmit = (event: React.ChangeEvent<HTMLFormElement>) => {
@@ -15,7 +19,10 @@ export function Footer() {
       <article className="Footer__info">
         <section className="Footer__subscribe">
           <Link href="/" className="Footer__logo">
-            <div className="logo">
+            <div className={cn(
+              "logo",
+              kodchasan.className
+            )}>
               Perfu
               <span className="logo__highlight">Me</span>
             </div>
