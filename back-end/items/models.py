@@ -37,7 +37,7 @@ class Tag(CoreModel):
 
 class Brand(CoreModel):
     label = models.CharField(max_length=255, unique=True)
-    logo_img = models.ImageField()
+    logo_img = models.ImageField(upload_to=get_image_file_path)
 
     def __str__(self):
         return self.label
