@@ -33,8 +33,8 @@ def password_reset_token_created(
         ),
     }
 
-    # email_html_message = render_to_string("email/password_reset_email.html", context)
-    # todo: Create html for reset password letter
+    email_html_message = render_to_string("password_reset_email.html", context)
+
     greeting_text = (
         f"Hello {context.get('username')}"
         if context.get("username").strip()
@@ -52,6 +52,6 @@ def password_reset_token_created(
         EMAIL_HOST_USER,
         [reset_password_token.user.email],
     )
-    # msg.attach_alternative(email_html_message, "text/html")
-    # todo: Create html for reset password letter
+
+    msg.attach_alternative(email_html_message, "text/html")
     msg.send()
