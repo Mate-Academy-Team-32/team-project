@@ -3,6 +3,7 @@ from celery.utils.log import get_task_logger
 from django.conf.global_settings import EMAIL_HOST_USER
 from django.contrib.auth import get_user_model
 from django.core.mail import EmailMultiAlternatives, get_connection
+from django.template.loader import render_to_string
 
 from newsletter.models import Newsletter
 
@@ -20,6 +21,15 @@ def get_newsletter_emails(newsletter, subscribers):
             EMAIL_HOST_USER,
             [subscriber.email],
         )
+
+        context = {
+            "current_user": subscriber,
+            "email": subscriber.email,
+        }
+        if newsletter.html_file:
+            template_path = newsletter.html_file.path
+            email_html_message = render_to_string(template_path, context)
+            msg.attach_alternative(email_html_message, "text/html")
 
         messages.append(msg)
 
