@@ -11,23 +11,26 @@ import { type Input } from '../../types/';
 export function Sign() {
   const searchParams = useSearchParams();
   const signType = searchParams.get('type');
+  const [currentSign, setCurrentSign] = useState('in');
 
   useEffect(() => {
     scrollToTop();
   }, [searchParams]);
 
-  if (signType === 'in') {
-    return <SignIn />;
-  } else if (signType === 'up') {
+  if (signType === 'in' || currentSign === 'in') {
+    return <SignIn setCurrentSign={setCurrentSign} />;
+  } else if (signType === 'up' || currentSign === 'up') {
     return <SignUp />;
-  } else if (signType === 'forgot') {
+  } else if (signType === 'forgot' || currentSign === 'forgot') {
     return <Forgot />;
   } else {
-    return <SignIn />;
+    return <SignIn setCurrentSign={setCurrentSign} />;
   }
 }
 
-function SignIn() {
+export function SignIn({ setCurrentSign }: {
+  setCurrentSign: React.Dispatch<React.SetStateAction<string>>
+}) {
   const [isError, setIsError] = useState(false);
   const [typeOfInput, setTypeOfInput] = useState<Input>('password');
 
@@ -103,12 +106,12 @@ function SignIn() {
           </p>
         )}
 
-        <Link
-          href="/sign?type=forgot"
+        <div
           className="Sign__link Sign__link--pos-right"
+          onClick={() => { setCurrentSign('forgot') }}
         >
           Forgot Password?
-        </Link>
+        </div>
 
         <div className="Sign__signed">
           <input
@@ -128,17 +131,20 @@ function SignIn() {
         </button>
 
         <div className="Sign__account-options">
-          Don’t have an account?{' '}
-          <Link href="/sign?type=up" className="Sign__link Sign__link--bold">
+          Don&apos;t have an account?{' '}
+          <div
+            className="Sign__link Sign__link--bold"
+            onClick={() => { setCurrentSign('up') }}
+          >
             Sign Up
-          </Link>
+          </div>
         </div>
       </form>
     </section>
   );
 }
 
-function SignUp() {
+export function SignUp() {
   const [isError, setIsError] = useState(false);
   const [errorMsg, setErrorMsg] = useState(
     'E-mail and/or password fields are incorrectly filled!',
@@ -311,7 +317,7 @@ function SignUp() {
   );
 }
 
-function Forgot() {
+export function Forgot() {
   const handleSubmit = (event: React.ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
   };

@@ -194,6 +194,7 @@
 .sign-in {
   width: 24px;
   height: 24px;
+  cursor: pointer;
 }
 
 .hidden {
@@ -247,4 +248,10 @@
       font-weight: 700;
     }
   }
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 35px;
+  left: -295px;
 }

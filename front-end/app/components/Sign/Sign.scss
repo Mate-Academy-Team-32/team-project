@@ -1,10 +1,13 @@
+@import "../../utils/vars";
+
 .Sign {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 56px 80px;
+  padding: 32px;
   font-family: Montserrat, sans-serif;
+  background-color: $white-color;
 
   &__content {
     position: relative;
