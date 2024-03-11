@@ -1,18 +1,23 @@
 from django.db import transaction
 from django.shortcuts import get_object_or_404
+from django.views import View
 from rest_framework import mixins, viewsets, status
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
+from rest_framework.viewsets import GenericViewSet
 
 from carts.models import CartItem
-from orders.models import Order, OrderItem
-from orders.serializers import OrderSerializer
+from items.views import CoreModelMixin
+from orders.models import Order, OrderItem, Payment
+from orders.serializers import OrderSerializer, PaymentSerializer
+from orders.utils import create_new_payment
 
 
 class OrderViewSet(
     mixins.ListModelMixin,
     mixins.CreateModelMixin,
     viewsets.GenericViewSet,
+    CoreModelMixin,
 ):
     queryset = Order.objects.all().prefetch_related("order_items")
     serializer_class = OrderSerializer
@@ -58,3 +63,26 @@ class OrderViewSet(
 
         serializer = self.get_serializer(new_order)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+    def create(self, request, *args, **kwargs):
+        response = super().create(request, *args, **kwargs)
+        pk = response.data.get("id")
+        order = Order.objects.get(id=pk)
+
+        create_new_payment(order)
+
+        return response
+
+
+class PaymentViewSet(
+    mixins.ListModelMixin,
+    mixins.RetrieveModelMixin,
+    GenericViewSet,
+):
+    def get_queryset(self):
+        if self.request.user.is_superuser:
+            return Payment.objects.all()
+
+        return Payment.objects.filter(order__created_by=self.request.user)
+
+    serializer_class = PaymentSerializer
