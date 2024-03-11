@@ -1,3 +1,4 @@
+from django.contrib.auth import get_user_model
 from django.db.models import Avg, Count
 from django.db.models.functions import Round
 from drf_spectacular.types import OpenApiTypes
@@ -21,7 +22,17 @@ from items.serializers import (
 
 class CoreModelMixin:
     def perform_create(self, serializer, *args, **kwargs):
-        return serializer.save(created_by=self.request.user, *args, **kwargs)
+        if self.request.user.is_superuser and 'created_by' in self.request.data:
+            created_by_id = self.request.data.pop('created_by')
+            created_by = get_user_model().objects.get(pk=created_by_id)
+            return serializer.save(created_by=created_by, *args, **kwargs)
+        else:
+            return serializer.save(created_by=self.request.user, *args, **kwargs)
+
+    def update(self, instance, validated_data):
+        # Remove the created_by field from validated_data during updates
+        validated_data.pop('created_by', None)
+        return super().update(instance, validated_data)
 
 
 class ItemViewSet(CoreModelMixin, viewsets.ModelViewSet):

@@ -19,7 +19,7 @@ class CoreModel(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, editable=False)
     created_by = models.ForeignKey(
         to=get_user_model(),
-        editable=False,
+        editable=True,
         on_delete=models.CASCADE,
         related_name="%(class)s",
     )
