@@ -5,7 +5,7 @@ from items.serializers import ItemShortSerializer, CoreModelSerializer
 
 
 class FavoriteListSerializer(CoreModelSerializer, serializers.ModelSerializer):
-    item_info = ItemShortSerializer(read_only=True)
+    item_info = ItemShortSerializer(read_only=True, source="item")
 
     class Meta:
         model = FavoriteItem
@@ -32,3 +32,7 @@ class CartSerializer(CoreModelSerializer, serializers.ModelSerializer):
                 )
 
         return data
+
+
+class ClearOperationSerializer(serializers.Serializer):
+    message = serializers.CharField(max_length=100, read_only=True)
