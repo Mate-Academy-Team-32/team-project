@@ -106,14 +106,13 @@ class StockItemSerializer(CoreModelSerializer, serializers.ModelSerializer):
         ) + CoreModelSerializer.Meta.fields
 
 
-class ItemShortSerializer(ItemSerializer):
+class ItemShortSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Item
         fields = (
             "id",
-            "label",
+            "brand",
             "name",
             "logo_img",
-            "price"
         )
