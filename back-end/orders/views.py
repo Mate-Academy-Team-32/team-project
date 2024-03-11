@@ -1,3 +1,5 @@
+from django.db import transaction
+from django.shortcuts import get_object_or_404
 from rest_framework import mixins, viewsets, status
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
@@ -20,8 +22,9 @@ class OrderViewSet(
         user = self.request.user
         return Order.objects.filter(created_by=user)
 
+    @transaction.atomic
     def perform_create(self, serializer, *args, **kwargs):
-        items = self.request.query_params.get("items").split(",")
+        items = self.request.query_params.get("items")
 
         if not items:
             return Response(
@@ -34,13 +37,10 @@ class OrderViewSet(
         except Exception as e:
             return Response({"detail": str(e)}, status=status.HTTP_400_BAD_REQUEST)
 
+        items = items.split(",")
+
         for item in items:
-            try:
-                cart_item = CartItem.objects.get(id=item)
-            except CartItem.DoesNotExist:
-                return Response(
-                    {"detail": f"CartItem with id {item} does not exist"}, status=status.HTTP_400_BAD_REQUEST
-                )
+            cart_item = get_object_or_404(CartItem, id=item)
 
             if cart_item.quantity > cart_item.stock_item.stock:
                 new_order.delete()
