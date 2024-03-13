@@ -1,7 +1,7 @@
 import stripe
 from django.conf import settings
 
-from orders.models import OrderItem, Order, Payment
+from orders.models import Order, Payment
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
@@ -11,7 +11,6 @@ def create_new_checkout_session(order: Order) -> stripe.checkout.Session:
     line_items = []
 
     for item in order_items:
-        # item = OrderItem.objects.get(id=item)
 
         item_dict = {
             "price_data": {
@@ -29,6 +28,9 @@ def create_new_checkout_session(order: Order) -> stripe.checkout.Session:
 
     checkout_session = stripe.checkout.Session.create(
         line_items=line_items,
+        metadata={
+            "order_id": order.id
+        },
         mode='payment',
         success_url="https://google.com",  # Update in production!!!
         cancel_url="https://facebook.com",  # Update in production!!!
@@ -48,3 +50,11 @@ def create_new_payment(order: Order) -> Payment:
     )
 
     return payment
+
+
+def fulfill_order(session):
+    order_id = session["metadata"]["order_id"]
+    payment = Payment.objects.get(order_id=order_id)
+
+    payment.status = "PAID"
+    payment.save()
