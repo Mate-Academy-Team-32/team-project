@@ -96,7 +96,7 @@ export function Header() {
             About Us
           </Link>
           <Link href="/contacts" className="nav__link">
-            Contact Us
+            Contacts Us
           </Link>
         </nav>
 
