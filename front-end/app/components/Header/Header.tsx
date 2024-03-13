@@ -6,7 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Kodchasan } from 'next/font/google';
 import './Header.scss';
-import { SignIn } from '../Sign';
+import { Sign } from '../Sign';
 import iconAccount from '/public/img/icon-account.svg';
 import iconHeart from '/public/img/icon-heart-white.svg';
 import iconBag from '/public/img/icon-bag-white.svg';
@@ -126,7 +126,7 @@ export function Header() {
             </div>
 
             <div className="dropdown-menu" role="menu">
-              <SignIn />
+              <Sign />
             </div>
           </div>
 
