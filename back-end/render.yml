@@ -1,0 +1,25 @@
+services:
+  api:
+    buildCommand: docker build -f back-end/Dockerfile -t api .
+    startCommand: docker run -p 8000:8000 --env-file ./back-end/.env --volume ./back-end:/api --volume ./back-end/media:/vol/web/media api sh -c "python manage.py migrate && python manage.py initadmin && python manage.py runserver 0.0.0.0:8000"
+
+  worker:
+    buildCommand: docker build -f back-end/Dockerfile -t worker .
+    startCommand: docker run --restart unless-stopped --env-file ./back-end/.env --volume ./back-end:/api worker celery -A PerfuMe_API worker -l info
+    dependsOn:
+      - service: api
+        name: api
+      - service: redis
+        name: redis
+
+  redis:
+    image: redis:7-alpine
+
+  stripe-cli:
+    image: stripe/stripe-cli
+    startCommand: stripe listen --api-key sk_test_51Ot0jZKlgtcDuxQLPOw0TBt6xP0pG6kQdpOjyxgJBZrTOSUsxag2cHywF3KQ86nVlGyHXCHacjJgIJrDAqtvqR8000jQs0QTNU --forward-to api:8000/api/webhooks/stripe
+    dependsOn:
+      - service: api
+        name: api
+      - service: worker
+        name: worker
