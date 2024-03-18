@@ -1,15 +1,57 @@
 version: "3.8"
 
 services:
-  app:
+  api:
     build:
       context: .
       dockerfile: back-end/Dockerfile
     ports:
       - "8000:8000"
     volumes:
-      - ./back-end:/app
+      - ./back-end:/api
       - ./back-end/media:/vol/web/media
     command: >
       sh -c "python manage.py migrate &&
-             python manage.py runserver 0.0.0.0:8000"
+      python manage.py initadmin &&
+      python manage.py runserver 0.0.0.0:8000"
+    env_file:
+      - ./back-end/.env
+
+  worker:
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: back-end/Dockerfile
+    volumes:
+      - ./back-end:/api
+    command: celery -A PerfuMe_API worker -l info
+    env_file:
+      - ./back-end/.env
+    depends_on:
+      - api
+      - redis
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+
+  web:
+    build:
+      context: .
+      dockerfile: front-end/Dockerfile
+    ports:
+        - "3000:3000"
+
+    depends_on:
+      - api
+
+  stripe-cli:
+    image: stripe/stripe-cli
+    container_name: stripe-cli
+    command: "listen --api-key sk_test_51Ot0jZKlgtcDuxQLPOw0TBt6xP0pG6kQdpOjyxgJBZrTOSUsxag2cHywF3KQ86nVlGyHXCHacjJgIJrDAqtvqR8000jQs0QTNU --forward-to api:8000/api/webhooks/stripe"
+    env_file:
+      - back-end/.env
+    depends_on:
+      - api
+      - worker
