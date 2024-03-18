@@ -113,15 +113,22 @@ def stripe_webhook(request):
         # Invalid signature
         return HttpResponse(status=400)
 
-    if event['type'] == 'checkout.session.completed':
+    if event["type"] == "checkout.session.completed":
         # Retrieve the session. If you require line items in the response, you may include them by expanding line_items.
         session = stripe.checkout.Session.retrieve(
-            event['data']['object']['id'],
-            expand=['line_items'],
+            event["data"]["object"]["id"],
+            expand=["line_items"],
         )
 
         # Fulfill the purchase...
         fulfill_order(session)
 
+    if event["type"] == "checkout.session.expired":
+        session = stripe.checkout.Session.retrieve(
+            event["data"]["object"]["id"],
+            expand=["line_items"],
+        )
+
+        cancel_order(session)
     # Passed signature verification
     return HttpResponse(status=200)
