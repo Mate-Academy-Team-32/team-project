@@ -58,3 +58,13 @@ def fulfill_order(session):
 
     payment.status = "PAID"
     payment.save()
+
+
+def cancel_order(session):
+    order_id = session["metadata"]["order_id"]
+    order = Order.objects.get(id=order_id)
+    order.status = "CANCELLED"
+    order.save()
+
+    payment = Payment.objects.get(order_id=order_id)
+    payment.delete()
