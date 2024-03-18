@@ -14,7 +14,7 @@ from carts.models import CartItem
 from items.views import CoreModelMixin
 from orders.models import Order, OrderItem, Payment
 from orders.serializers import OrderSerializer, PaymentSerializer
-from orders.utils import create_new_payment, fulfill_order
+from orders.utils import create_new_payment, fulfill_order, cancel_order
 
 
 class OrderViewSet(
