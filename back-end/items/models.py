@@ -35,6 +35,14 @@ class Tag(CoreModel):
         return self.name
 
 
+class Note(CoreModel):
+    name = models.CharField(max_length=64)
+    tag = models.ForeignKey(Tag, on_delete=models.CASCADE, related_name="notes")
+
+    def __str__(self):
+        return f"{self.tag} - {self.name}"
+
+
 class Brand(CoreModel):
     label = models.CharField(max_length=255, unique=True)
     logo_img = models.ImageField(upload_to=get_image_file_path)
