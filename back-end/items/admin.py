@@ -1,6 +1,15 @@
 from django.contrib import admin
 
-from items.models import Tag, Review, Item, ItemImage, Brand, StockItem
+from items.models import (
+    Tag,
+    Review,
+    Item,
+    ItemImage,
+    Brand,
+    StockItem,
+    Note,
+    NoteCategory,
+)
 
 
 class CoreModelAdmin(admin.ModelAdmin):
@@ -23,6 +32,12 @@ class BrandAdmin(CoreModelAdmin):
     list_display = ("label",) + CoreModelAdmin.list_display
 
 
+class NoteCategoryInline(admin.TabularInline):
+    model = NoteCategory
+    autocomplete_fields = ("note",)
+    max_num = 3
+
+
 @admin.register(Item)
 class ItemAdmin(CoreModelAdmin):
     list_display = (
@@ -37,6 +52,8 @@ class ItemAdmin(CoreModelAdmin):
         "brand",
         "name",
     ) + CoreModelAdmin.ordering
+    autocomplete_fields = ("brand",)
+    inlines = (NoteCategoryInline,)
 
 
 @admin.register(StockItem)
@@ -57,6 +74,7 @@ class StockItemAdmin(CoreModelAdmin):
         "item__name",
         "-volume",
     ) + CoreModelAdmin.ordering
+    autocomplete_fields = ("item",)
 
 
 @admin.register(Review)
@@ -70,6 +88,7 @@ class ReviewAdmin(CoreModelAdmin):
         "item",
         "rate",
     ) + CoreModelAdmin.ordering
+    autocomplete_fields = ("item",)
 
 
 @admin.register(ItemImage)
@@ -80,9 +99,23 @@ class ItemImageAdmin(CoreModelAdmin):
         "item",
         "image",
     ) + CoreModelAdmin.list_display
+    autocomplete_fields = ("item",)
 
 
 @admin.register(Tag)
 class TagAdmin(CoreModelAdmin):
     search_fields = ("name",) + CoreModelAdmin.search_fields
     list_display = ("name",) + CoreModelAdmin.list_display
+
+
+@admin.register(Note)
+class NoteAdmin(CoreModelAdmin):
+    search_fields = (
+        "name",
+        "tag",
+    ) + CoreModelAdmin.search_fields
+    list_display = (
+        "name",
+        "tag",
+    ) + CoreModelAdmin.list_display
+    autocomplete_fields = ("tag",)
