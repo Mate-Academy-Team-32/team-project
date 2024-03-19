@@ -104,16 +104,15 @@ class ItemListSerializer(ItemSerializer):
 
 
 class ItemDetailSerializer(ItemSerializer):
-    rating_avg = serializers.FloatField(read_only=True)
-    rating_count = serializers.IntegerField(read_only=True)
     item_images = ItemImageSerializer(many=True, read_only=True)
+    tags = TagSerializer(many=True, read_only=True)
+    strength = serializers.CharField(source="get_strength_display", read_only=True)
+    gender = serializers.CharField(source="get_gender_display", read_only=True)
 
     class Meta:
         model = Item
         fields = ItemSerializer.Meta.fields + (
             "reviews",
-            "rating_avg",
-            "rating_count",
             "item_images",
         )
 
