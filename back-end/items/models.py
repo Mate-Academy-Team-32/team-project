@@ -86,7 +86,9 @@ class NoteCategory(models.Model):
         HEART = "heart", "Heart"
         END = "end", "End"
 
-    item = models.ForeignKey(Item, on_delete=models.CASCADE)
+    item = models.ForeignKey(
+        Item, on_delete=models.CASCADE, related_name="note_categories"
+    )
     note = models.ManyToManyField(Note, related_name="note_categories")
     category = models.CharField(max_length=5, choices=Category.choices)
 
