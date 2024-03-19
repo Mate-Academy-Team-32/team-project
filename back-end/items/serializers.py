@@ -127,3 +127,31 @@ class StockItemSerializer(CoreModelSerializer, serializers.ModelSerializer):
             "item",
             "stock",
         ) + CoreModelSerializer.Meta.fields
+
+
+class StockItemListSerializer(StockItemSerializer):
+    item = ItemListSerializer(read_only=True)
+
+    class Meta:
+        model = StockItem
+        fields = (
+            "id",
+            "volume",
+            "price",
+            "item",
+            "stock",
+        ) + StockItemSerializer.Meta.fields
+
+
+class StockItemDetailSerializer(StockItemSerializer):
+    item = ItemDetailSerializer(read_only=True)
+
+    class Meta:
+        model = StockItem
+        fields = (
+            "id",
+            "volume",
+            "price",
+            "item",
+            "stock",
+        ) + StockItemSerializer.Meta.fields
