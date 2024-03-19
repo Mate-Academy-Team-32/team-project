@@ -51,6 +51,10 @@ class ItemImageDetailSerializer(ItemImageSerializer):
 
 
 class ItemSerializer(CoreModelSerializer, serializers.ModelSerializer):
+    tags = serializers.SerializerMethodField(read_only=True)
+    rating_avg = serializers.SerializerMethodField(read_only=True)
+    rating_count = serializers.SerializerMethodField(read_only=True)
+
     class Meta:
         model = Item
         fields = (
@@ -59,12 +63,29 @@ class ItemSerializer(CoreModelSerializer, serializers.ModelSerializer):
             "name",
             "logo_img",
             "gender",
+            "rating_avg",
+            "rating_count",
             "strength",
             "description",
             "release_date",
             "country",
             "tags",
         ) + CoreModelSerializer.Meta.fields
+
+    def get_rating_avg(self, obj):
+        reviews = obj.reviews.all()
+        total_rating = sum(review.rate for review in reviews)
+        avg_rating = total_rating / len(reviews) if reviews else 0
+
+        return round(avg_rating, 2)
+
+    def get_tags(self, obj):
+        note_categories = obj.note_categories.all()
+        tags = note_categories.values_list("note__tag", flat=True).distinct()
+        return list(tags)
+
+    def get_rating_count(self, obj):
+        return obj.reviews.count()
 
 
 class ItemListSerializer(ItemSerializer):
