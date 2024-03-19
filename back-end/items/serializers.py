@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from items.models import Item, Tag, Review, ItemImage, Brand, StockItem
+from items.models import Item, Tag, Review, ItemImage, Brand, StockItem, Note
 
 
 class CoreModelSerializer(serializers.Serializer):
@@ -14,6 +14,12 @@ class TagSerializer(CoreModelSerializer, serializers.ModelSerializer):
     class Meta:
         model = Tag
         fields = ("id", "name") + CoreModelSerializer.Meta.fields
+
+
+class NoteSerializer(CoreModelSerializer, serializers.ModelSerializer):
+    class Meta:
+        model = Note
+        fields = ("id", "name", "tag") + CoreModelSerializer.Meta.fields
 
 
 class BrandSerializer(CoreModelSerializer, serializers.ModelSerializer):
