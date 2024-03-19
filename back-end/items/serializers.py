@@ -89,9 +89,6 @@ class ItemSerializer(CoreModelSerializer, serializers.ModelSerializer):
 
 
 class ItemListSerializer(ItemSerializer):
-    rating_avg = serializers.FloatField(read_only=True)
-    rating_count = serializers.IntegerField(read_only=True)
-
     class Meta:
         model = Item
         fields = (
@@ -100,9 +97,9 @@ class ItemListSerializer(ItemSerializer):
             "name",
             "logo_img",
             "gender",
-            "reviews",
             "rating_avg",
             "rating_count",
+            "tags",
         )
 
 
