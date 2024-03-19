@@ -34,7 +34,7 @@ class BrandAdmin(CoreModelAdmin):
 
 class NoteCategoryInline(admin.TabularInline):
     model = NoteCategory
-    autocomplete_fields = ("note",)
+    autocomplete_fields = ("notes",)
     max_num = 3
 
 

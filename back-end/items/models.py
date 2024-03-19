@@ -89,7 +89,7 @@ class NoteCategory(models.Model):
     item = models.ForeignKey(
         Item, on_delete=models.CASCADE, related_name="note_categories"
     )
-    note = models.ManyToManyField(Note, related_name="note_categories")
+    notes = models.ManyToManyField(Note, related_name="note_categories")
     category = models.CharField(max_length=5, choices=Category.choices)
 
     def __str__(self):

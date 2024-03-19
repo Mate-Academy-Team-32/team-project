@@ -6,7 +6,7 @@ from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 from api.permissions import IsOwnerOrReadCreate
-from items.models import Item, ItemImage, Tag, Review, Brand, StockItem
+from items.models import Item, ItemImage, Tag, Review, Brand, StockItem, Note
 from items.serializers import (
     ItemSerializer,
     ItemListSerializer,
@@ -16,6 +16,9 @@ from items.serializers import (
     ReviewSerializer,
     BrandSerializer,
     StockItemSerializer,
+    NoteSerializer,
+    StockItemListSerializer,
+    StockItemDetailSerializer,
 )
 
 
