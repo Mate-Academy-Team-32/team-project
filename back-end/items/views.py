@@ -153,6 +153,11 @@ class TagViewSet(CoreModelMixin, viewsets.ModelViewSet):
     serializer_class = TagSerializer
 
 
+class NoteViewSet(CoreModelMixin, viewsets.ModelViewSet):
+    queryset = Note.objects.all()
+    serializer_class = NoteSerializer
+
+
 class BrandViewSet(CoreModelMixin, viewsets.ModelViewSet):
     queryset = Brand.objects.all()
     serializer_class = BrandSerializer
