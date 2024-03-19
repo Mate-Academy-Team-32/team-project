@@ -122,7 +122,21 @@ class StockItemViewSet(CoreModelMixin, viewsets.ModelViewSet):
         return queryset
 
     def get_queryset(self):
-        return self.filter_queryset(self.queryset)
+        queryset = self.queryset
+
+        if self.action != "create":
+            queryset.select_related("item")
+
+        return self.filter_queryset(queryset)
+
+    def get_serializer_class(self):
+        if self.action == "list":
+            return StockItemListSerializer
+
+        if self.action == "retrieve":
+            return StockItemDetailSerializer
+
+        return StockItemSerializer
 
     @extend_schema(
         parameters=[
