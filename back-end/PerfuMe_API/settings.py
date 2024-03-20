@@ -61,10 +61,16 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = "PerfuMe_API.urls"
 
+MEDIA_URL = "/media/"
+MEDIA_ROOT = "./vol/web/media"
+
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [
+            os.path.join(BASE_DIR, "templates/"),
+            os.path.join(BASE_DIR, MEDIA_ROOT, "templates/"),
+        ],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
