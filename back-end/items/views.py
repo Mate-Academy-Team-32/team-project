@@ -37,7 +37,6 @@ class ItemViewSet(CoreModelMixin, viewsets.ModelViewSet):
             "gender",
             "strength",
             "country",
-            "tags",
         ]
 
         for param in query_params:
@@ -52,6 +51,11 @@ class ItemViewSet(CoreModelMixin, viewsets.ModelViewSet):
                 )
                 queryset = queryset.filter(**filter_kwargs)
 
+        tags = self.request.query_params.getlist("tag_id")
+        if tags:
+            filter_kwargs = {"note_categories__notes__tag__in": tags}
+            queryset = queryset.filter(**filter_kwargs).distinct()
+
         return queryset
 
     def get_queryset(self):
@@ -63,7 +67,9 @@ class ItemViewSet(CoreModelMixin, viewsets.ModelViewSet):
         queryset = self.filter_queryset(queryset)
 
         if self.action != "create":
-            queryset.select_related("reviews", "item_images").prefetch_related("tags")
+            queryset.select_related("reviews", "item_images").prefetch_related(
+                "note_categories"
+            )
 
         return queryset
 
@@ -88,7 +94,7 @@ class ItemViewSet(CoreModelMixin, viewsets.ModelViewSet):
                 ("country", OpenApiTypes.STR, "France"),
                 ("strength", OpenApiTypes.INT, 2),
                 ("gender", OpenApiTypes.STR, "F"),
-                ("tags", OpenApiTypes.INT, 2),
+                ("tag_id", OpenApiTypes.INT, 2),
             ]
         ]
     )
@@ -107,27 +113,33 @@ class StockItemViewSet(CoreModelMixin, viewsets.ModelViewSet):
     pagination_class = StockItemPagination
 
     def filter_queryset(self, queryset):
-        query_params = [
-            "volume",
-            "item_id",
-        ]
+        query_params = {
+            "gender": "item__gender__in",
+            "brand": "item__brand__label__in",
+            "strength": "item__strength__in",
+            "country": "item__country__in",
+            "tag_id": "item__note_categories__notes__tag__in",
+            "volume": "volume__in",
+            "item_id": "item_id__in",
+            "min_price": "price__gt",
+            "max_price": "price__lt",
+        }
 
-        for param in query_params:
-            val = self.request.query_params.getlist(param)
-            print(f"Parameter: {param}, Values: {val}")
+        for param_name, param in query_params.items():
+            val = (
+                self.request.query_params.getlist(param_name)
+                if "price" not in param_name
+                else self.request.query_params.get(param_name)
+            )
+            print(f"Parameter: {param_name}, Values: {val}")
 
             if val:
-                filter_kwargs = {f"{param}__in": val}
-                queryset = queryset.filter(**filter_kwargs)
-
-        min_price = self.request.query_params.get("min_price")
-        max_price = self.request.query_params.get("max_price")
-
-        if min_price:
-            queryset = queryset.filter(price__gt=min_price)
-
-        if max_price:
-            queryset = queryset.filter(price__lt=max_price)
+                filter_kwargs = {f"{param}": val}
+                queryset = (
+                    queryset.filter(**filter_kwargs).distinct()
+                    if param_name == "tag_id"
+                    else queryset.filter(**filter_kwargs)
+                )
 
         return queryset
 
@@ -156,6 +168,11 @@ class StockItemViewSet(CoreModelMixin, viewsets.ModelViewSet):
                 description=f"Filter by {name} (ex. ?{name}={example})",
             )
             for name, type_, example in [
+                ("brand", OpenApiTypes.STR, "Chanel"),
+                ("country", OpenApiTypes.STR, "France"),
+                ("strength", OpenApiTypes.INT, 2),
+                ("gender", OpenApiTypes.STR, "F"),
+                ("tag_id", OpenApiTypes.INT, 2),
                 ("min_price", OpenApiTypes.DECIMAL, 100),
                 ("max_price", OpenApiTypes.DECIMAL, 100),
                 ("volume", OpenApiTypes.INT, 250),
