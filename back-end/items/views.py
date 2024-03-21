@@ -3,6 +3,7 @@ from django.db.models.functions import Round
 from drf_spectacular.types import OpenApiTypes
 from drf_spectacular.utils import extend_schema, OpenApiParameter
 from rest_framework import viewsets
+from rest_framework.pagination import PageNumberPagination
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 from api.permissions import IsOwnerOrReadCreate
@@ -95,9 +96,15 @@ class ItemViewSet(CoreModelMixin, viewsets.ModelViewSet):
         return super().list(request, *args, **kwargs)
 
 
+class StockItemPagination(PageNumberPagination):
+    page_size = 12
+    page_size_query_param = "page_size"
+
+
 class StockItemViewSet(CoreModelMixin, viewsets.ModelViewSet):
     queryset = StockItem.objects.all()
     serializer_class = StockItemSerializer
+    pagination_class = StockItemPagination
 
     def filter_queryset(self, queryset):
         query_params = [
