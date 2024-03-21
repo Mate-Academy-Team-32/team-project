@@ -9,7 +9,7 @@ urlpatterns = [
     ),
     path(
         "",
-        include("carts.urls", namespace="carts")
+        include("carts.urls", namespace="cart")
     ),
     path("doc/", SpectacularAPIView.as_view(), name="schema"),
     path(
