@@ -18,11 +18,13 @@ def create_new_checkout_session(order: Order) -> stripe.checkout.Session:
                 "unit_amount": int(item.stock_item.price * 100),
                 "product_data": {
                     "name": f"{item.stock_item.item.name}, {item.stock_item.item.brand}",
-                    # "images": [item.stock_item.item.logo_img, ]
                 },
             },
             "quantity": item.quantity,
         }
+
+        if item.stock_item.item.logo_img:
+            item_dict["price_data"]["product_data"]["images"] = [item.stock_item.item.logo_img]
 
         line_items.append(item_dict)
 
