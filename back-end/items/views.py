@@ -6,7 +6,7 @@ from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 from api.permissions import IsOwnerOrReadCreate
-from items.models import Item, ItemImage, Tag, Review, Brand, StockItem
+from items.models import Item, ItemImage, Tag, Review, Brand, StockItem, Note
 from items.serializers import (
     ItemSerializer,
     ItemListSerializer,
@@ -16,6 +16,9 @@ from items.serializers import (
     ReviewSerializer,
     BrandSerializer,
     StockItemSerializer,
+    NoteSerializer,
+    StockItemListSerializer,
+    StockItemDetailSerializer,
 )
 
 
@@ -122,7 +125,21 @@ class StockItemViewSet(CoreModelMixin, viewsets.ModelViewSet):
         return queryset
 
     def get_queryset(self):
-        return self.filter_queryset(self.queryset)
+        queryset = self.queryset
+
+        if self.action != "create":
+            queryset.select_related("item")
+
+        return self.filter_queryset(queryset)
+
+    def get_serializer_class(self):
+        if self.action == "list":
+            return StockItemListSerializer
+
+        if self.action == "retrieve":
+            return StockItemDetailSerializer
+
+        return StockItemSerializer
 
     @extend_schema(
         parameters=[
@@ -151,6 +168,11 @@ class ItemImageViewSet(CoreModelMixin, viewsets.ModelViewSet):
 class TagViewSet(CoreModelMixin, viewsets.ModelViewSet):
     queryset = Tag.objects.all()
     serializer_class = TagSerializer
+
+
+class NoteViewSet(CoreModelMixin, viewsets.ModelViewSet):
+    queryset = Note.objects.all()
+    serializer_class = NoteSerializer
 
 
 class BrandViewSet(CoreModelMixin, viewsets.ModelViewSet):

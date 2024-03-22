@@ -35,6 +35,14 @@ class Tag(CoreModel):
         return self.name
 
 
+class Note(CoreModel):
+    name = models.CharField(max_length=64)
+    tag = models.ForeignKey(Tag, on_delete=models.CASCADE, related_name="notes")
+
+    def __str__(self):
+        return f"{self.tag} - {self.name}"
+
+
 class Brand(CoreModel):
     label = models.CharField(max_length=255, unique=True)
     logo_img = models.ImageField(upload_to=get_image_file_path)
@@ -63,10 +71,29 @@ class Item(CoreModel):
     description = models.TextField()
     release_date = models.DateField(blank=True, null=True)
     country = models.CharField(max_length=64)
-    tags = models.ManyToManyField(Tag, related_name="items", blank=True)
 
     def __str__(self):
         return f"{self.brand}. {self.name}"
+
+
+class NoteCategory(models.Model):
+    class Meta:
+        verbose_name = "Note Category"
+        verbose_name_plural = "Note Categories"
+
+    class Category(models.TextChoices):
+        TOP = "top", "Top"
+        HEART = "heart", "Heart"
+        END = "end", "End"
+
+    item = models.ForeignKey(
+        Item, on_delete=models.CASCADE, related_name="note_categories"
+    )
+    notes = models.ManyToManyField(Note, related_name="note_categories")
+    category = models.CharField(max_length=5, choices=Category.choices)
+
+    def __str__(self):
+        return f"{self.item} - {self.category}"
 
 
 class StockItem(CoreModel):
