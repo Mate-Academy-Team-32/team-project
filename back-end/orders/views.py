@@ -23,7 +23,7 @@ class OrderViewSet(
     viewsets.GenericViewSet,
     CoreModelMixin,
 ):
-    queryset = Order.objects.all().prefetch_related("order_items")
+    queryset = Order.objects.all().prefetch_related("order_items", "payment")
     serializer_class = OrderSerializer
     permission_classes = (IsAuthenticated,)
 
@@ -49,7 +49,7 @@ class OrderViewSet(
         items = items.split(",")
 
         for item in items:
-            cart_item = get_object_or_404(CartItem, id=item)
+            cart_item = get_object_or_404(CartItem, id=item, created_by_id=self.request.user)
 
             if cart_item.quantity > cart_item.stock_item.stock:
                 new_order.delete()
@@ -130,5 +130,5 @@ def stripe_webhook(request):
         )
 
         cancel_order(session)
-    # Passed signature verification
+
     return HttpResponse(status=200)

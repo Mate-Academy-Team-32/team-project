@@ -1,7 +1,7 @@
 import stripe
 from django.conf import settings
 
-from orders.models import Order, Payment
+from orders.models import Order, Payment, OrderItem
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
@@ -18,7 +18,7 @@ def create_new_checkout_session(order: Order) -> stripe.checkout.Session:
                 "unit_amount": int(item.stock_item.price * 100),
                 "product_data": {
                     "name": f"{item.stock_item.item.name}, {item.stock_item.item.brand}",
-                    "images": [item.stock_item.item.logo_img, ]
+                    # "images": [item.stock_item.item.logo_img, ]
                 },
             },
             "quantity": item.quantity,
@@ -62,6 +62,12 @@ def fulfill_order(session):
 
 def cancel_order(session):
     order_id = session["metadata"]["order_id"]
+    order_items_queryset = OrderItem.objects.filter(order_id=order_id)
+
+    for order_item in order_items_queryset:
+        order_item.stock_item.volume += order_item.quantity
+        order_item.stock_item.save()
+
     order = Order.objects.get(id=order_id)
     order.status = "CANCELLED"
     order.save()
