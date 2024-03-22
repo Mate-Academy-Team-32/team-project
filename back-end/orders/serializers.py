@@ -15,6 +15,13 @@ class PaymentSerializer(CoreModelSerializer, serializers.ModelSerializer):
         )
 
 
+class ShortPaymentSerializer(PaymentSerializer):
+
+    class Meta:
+        model = Payment
+        fields = ("id", "status", "session_url", "money_to_pay")
+
+
 class OrderItemSerializer(CoreModelSerializer, serializers.ModelSerializer):
     class Meta:
         model = OrderItem
@@ -23,8 +30,9 @@ class OrderItemSerializer(CoreModelSerializer, serializers.ModelSerializer):
 
 class OrderSerializer(CoreModelSerializer, serializers.ModelSerializer):
     order_items = OrderItemSerializer(many=True, read_only=True)
+    payment = ShortPaymentSerializer(read_only=True, many=True)
 
     class Meta:
         model = Order
         fields = ("id", "order_items", "payment") + CoreModelSerializer.Meta.fields
-        read_only_fields = ('payment',)
+        read_only_fields = ("payment",)
