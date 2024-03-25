@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 import os
 from datetime import timedelta
 from pathlib import Path
+import cloudinary_storage
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -47,6 +48,8 @@ INSTALLED_APPS = [
     "items",
     "carts",
     "orders",
+    "cloudinary",
+    "cloudinary_storage"
 ]
 
 MIDDLEWARE = [
@@ -139,9 +142,6 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 
-MEDIA_URL = "media/"
-MEDIA_ROOT = os.path.join(BASE_DIR, "vol", "web", "media")
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
@@ -194,3 +194,11 @@ CELERY_RESULT_BACKEND = os.environ.get("CELERY_BACKEND", "redis://localhost:6379
 STRIPE_PUBLIC_KEY = os.environ.get("STRIPE_PUBLIC_KEY")
 STRIPE_SECRET_KEY = os.environ.get("STRIPE_SECRET_KEY")
 STRIPE_WEBHOOK_SECRET = os.environ.get("STRIPE_WEBHOOK_SECRET")
+
+CLOUDINARY_STORAGE = {
+    "CLOUD_NAME": os.environ.get("CLOUD_NAME"),
+    "API_KEY": os.environ.get("CLOUDINARY_API_KEY"),
+    "API_SECRET": os.environ.get("CLOUDINARY_API_SECRET")
+}
+
+DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
