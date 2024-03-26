@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "django_rest_passwordreset",
     "drf_spectacular",
+    "django_filters",
     "newsletter",
     "users",
     "items",
@@ -149,6 +150,7 @@ REST_FRAMEWORK = {
     ),
     "DEFAULT_PERMISSION_CLASSES": ("api.permissions.IsAdminOrReadOnly",),
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+    "ORDERING_PARAM": "sort",
 }
 
 SPECTACULAR_SETTINGS = {
