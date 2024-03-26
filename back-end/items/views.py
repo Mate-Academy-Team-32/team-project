@@ -1,8 +1,10 @@
 from django.db.models import Avg, Count
 from django.db.models.functions import Round
-from drf_spectacular.types import OpenApiTypes
-from drf_spectacular.utils import extend_schema, OpenApiParameter
+from django_filters import filters
+from django_filters.filterset import FilterSet
+from django_filters.rest_framework.backends import DjangoFilterBackend
 from rest_framework import viewsets
+from rest_framework.filters import OrderingFilter, SearchFilter
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
@@ -28,34 +30,35 @@ class CoreModelMixin:
         return serializer.save(created_by=self.request.user, *args, **kwargs)
 
 
+class ItemFilter(FilterSet):
+    tags = filters.NumberFilter(field_name="note_categories__notes__tag", distinct=True)
+    brand = filters.AllValuesFilter(field_name="brand__label")
+
+    class Meta:
+        model = Item
+        fields = {
+            "gender": ["exact"],
+            "strength": ["exact"],
+            "country": ["iexact"],
+        }
+
+
+class ItemPagination(PageNumberPagination):
+    page_size = 12
+    page_size_query_param = "page_size"
+
+
 class ItemViewSet(CoreModelMixin, viewsets.ModelViewSet):
     queryset = Item.objects.all()
+    pagination_class = ItemPagination
+    filter_backends = [DjangoFilterBackend, OrderingFilter, SearchFilter]
+    filterset_class = ItemFilter
+    ordering_fields = ["release_date", "name", "rating_avg"]
+    search_fields = ["name", "brand__label"]
 
     def filter_queryset(self, queryset):
-        query_params = [
-            "brand",
-            "gender",
-            "strength",
-            "country",
-        ]
-
-        for param in query_params:
-            val = self.request.query_params.getlist(param)
-            print(f"Parameter: {param}, Values: {val}")
-
-            if val:
-                filter_kwargs = (
-                    {"brand__label__in": val}
-                    if param == "brand"
-                    else {f"{param}__in": val}
-                )
-                queryset = queryset.filter(**filter_kwargs)
-
-        tags = self.request.query_params.getlist("tag_id")
-        if tags:
-            filter_kwargs = {"note_categories__notes__tag__in": tags}
-            queryset = queryset.filter(**filter_kwargs).distinct()
-
+        for backend in self.filter_backends:
+            queryset = backend().filter_queryset(self.request, queryset, view=self)
         return queryset
 
     def get_queryset(self):
