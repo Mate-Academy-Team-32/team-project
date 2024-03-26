@@ -85,69 +85,41 @@ class ItemViewSet(CoreModelMixin, viewsets.ModelViewSet):
 
         return ItemSerializer
 
-    @extend_schema(
-        parameters=[
-            OpenApiParameter(
-                name,
-                type=type_,
-                description=f"Filter by {name} (ex. ?{name}={example})",
-            )
-            for name, type_, example in [
-                ("brand", OpenApiTypes.STR, "Chanel"),
-                ("country", OpenApiTypes.STR, "France"),
-                ("strength", OpenApiTypes.INT, 2),
-                ("gender", OpenApiTypes.STR, "F"),
-                ("tag_id", OpenApiTypes.INT, 2),
-            ]
-        ]
+
+class StockItemFilter(FilterSet):
+    brand = filters.AllValuesFilter(field_name="item__brand__label")
+    country = filters.AllValuesFilter(field_name="item__country")
+    strength = filters.AllValuesFilter(field_name="item__strength")
+    gender = filters.AllValuesFilter(field_name="item__gender")
+    volume = filters.AllValuesFilter()
+    item__id = filters.AllValuesFilter()
+    price = filters.RangeFilter()
+    tags = filters.AllValuesFilter(
+        field_name="item__note_categories__notes__tag", distinct=True
     )
-    def list(self, request, *args, **kwargs):
-        return super().list(request, *args, **kwargs)
 
-
-class StockItemPagination(PageNumberPagination):
-    page_size = 12
-    page_size_query_param = "page_size"
+    class Meta:
+        model = StockItem
+        fields = []
 
 
 class StockItemViewSet(CoreModelMixin, viewsets.ModelViewSet):
     queryset = StockItem.objects.all()
-    serializer_class = StockItemSerializer
-    pagination_class = StockItemPagination
+    pagination_class = ItemPagination
+    filter_backends = [DjangoFilterBackend, OrderingFilter, SearchFilter]
+    filterset_class = StockItemFilter
+    ordering_fields = ["price", "item__name", "rating_avg"]
+    search_fields = ["item__name", "item__brand__label"]
 
     def filter_queryset(self, queryset):
-        query_params = {
-            "gender": "item__gender__in",
-            "brand": "item__brand__label__in",
-            "strength": "item__strength__in",
-            "country": "item__country__in",
-            "tag_id": "item__note_categories__notes__tag__in",
-            "volume": "volume__in",
-            "item_id": "item_id__in",
-            "min_price": "price__gt",
-            "max_price": "price__lt",
-        }
-
-        for param_name, param in query_params.items():
-            val = (
-                self.request.query_params.getlist(param_name)
-                if "price" not in param_name
-                else self.request.query_params.get(param_name)
-            )
-            print(f"Parameter: {param_name}, Values: {val}")
-
-            if val:
-                filter_kwargs = {f"{param}": val}
-                queryset = (
-                    queryset.filter(**filter_kwargs).distinct()
-                    if param_name == "tag_id"
-                    else queryset.filter(**filter_kwargs)
-                )
-
+        for backend in self.filter_backends:
+            queryset = backend().filter_queryset(self.request, queryset, view=self)
         return queryset
 
     def get_queryset(self):
-        queryset = self.queryset
+        queryset = self.queryset.annotate(
+            rating_avg=(Round(Avg("item__reviews__rate"), 2)),
+        )
 
         if self.action != "create":
             queryset.select_related("item")
@@ -162,29 +134,6 @@ class StockItemViewSet(CoreModelMixin, viewsets.ModelViewSet):
             return StockItemDetailSerializer
 
         return StockItemSerializer
-
-    @extend_schema(
-        parameters=[
-            OpenApiParameter(
-                name,
-                type=type_,
-                description=f"Filter by {name} (ex. ?{name}={example})",
-            )
-            for name, type_, example in [
-                ("brand", OpenApiTypes.STR, "Chanel"),
-                ("country", OpenApiTypes.STR, "France"),
-                ("strength", OpenApiTypes.INT, 2),
-                ("gender", OpenApiTypes.STR, "F"),
-                ("tag_id", OpenApiTypes.INT, 2),
-                ("min_price", OpenApiTypes.DECIMAL, 100),
-                ("max_price", OpenApiTypes.DECIMAL, 100),
-                ("volume", OpenApiTypes.INT, 250),
-                ("item_id", OpenApiTypes.INT, 250),
-            ]
-        ]
-    )
-    def list(self, request, *args, **kwargs):
-        return super().list(request, *args, **kwargs)
 
 
 class ItemImageViewSet(CoreModelMixin, viewsets.ModelViewSet):
