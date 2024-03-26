@@ -1,0 +1,190 @@
+@import "../../utils/vars";
+
+.Footer {
+  height: 516px;
+  font-family: Roboto, sans-serif;
+  background-color: $main-color;
+
+  &__info {
+    padding: 100px $default-side-margins 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  &__subscribe {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    max-width: 350px;
+    font-family: Montserrat, sans-serif;
+    line-height: 19px;
+    color: #808080;
+  }
+
+  &__logo {
+    line-height: 52px;
+    text-decoration: none;
+    font-family: Kodchasan, sans-serif;
+    font-size: 40px;
+    font-weight: 500;
+    color: #fff;
+  }
+
+  &__text {
+    font-size: 16px;
+
+    &--size-24 {
+      font-size: 24px;
+    }
+
+    &--color-light {
+      color: #a9a9a9;
+    }
+  }
+
+  &__form {
+    display: flex;
+    align-items: center;
+    width: 344px;
+
+    input {
+      box-sizing: border-box;
+      padding: 12px;
+      width: 75%;
+      height: 40px;
+      font-size: 14px;
+      border: 1px solid #444343;
+      outline: none;
+      background-color: transparent;
+      color: #fff;
+    }
+
+    input:-webkit-autofill,
+    input:-webkit-autofill:focus {
+      transition: background-color 0s 600000s, color 0s 600000s;
+    }
+  }
+
+  &__button {
+    padding: 5px 10px;
+    width: 25%;
+    height: 40px;
+    border: none;
+    transition: all 0.5s;
+    font-size: 16px;
+    background-color: #fff !important;
+    color: #000;
+
+    &:hover {
+      background-color: #71b360;
+    }
+  }
+
+  &__share {
+    display: flex;
+    gap: 12px;
+  }
+
+  &__icon {
+    width: 36px;
+    height: 36px;
+    transition: all $transition-time;
+    transition-timing-function: ease-out;
+    color: transparent;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    &--twitter {
+      background-image: url("../../img/icon-twitter.svg");
+    }
+
+    &--facebook {
+      background-image: url("../../img/icon-facebook.svg");
+    }
+
+    &--linkedin {
+      background-image: url("../../img/icon-linkedin.svg");
+    }
+
+    &--instagram {
+      background-image: url("../../img/icon-instagram.svg");
+    }
+  }
+
+  &__catalog {
+    position: relative;
+    top: 50px;
+  }
+
+  &__line {
+    margin: 0 $default-side-margins;
+    border: 1px solid #444343;
+  }
+
+  &__copyright {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 36px 0 0;
+    font-family: Montserrat, sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: #fff;
+
+    &::before {
+      content: "\00A9";
+      position: relative;
+      right: 5px;
+    }
+  }
+}
+
+.logo {
+  font-family: Kodchasan, sans-serif;
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 52px;
+  color: #fff;
+
+  &__highlight {
+    color: #caa79e;
+  }
+}
+
+.catalog {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  &__title {
+    padding-left: 10px;
+    line-height: 26px;
+    font-family: Montserrat, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #b7b6b6;
+  }
+
+  &__link {
+    padding-left: 10px;
+    line-height: 20px;
+    text-decoration: none;
+    font-family: Montserrat, sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    transition: all 0.2s;
+    color: #b7b6b6;
+
+    &:hover {
+      transform: translateX(10px);
+    }
+  }
+}
+
+.year {
+  padding-right: 5px;
+}

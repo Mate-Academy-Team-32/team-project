@@ -15,3 +15,18 @@ class UserProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = get_user_model()
         fields = ("first_name", "last_name", "email")
+
+
+class ChangePasswordSerializer(serializers.Serializer):
+    old_password = serializers.CharField(required=True)
+    new_password = serializers.CharField(required=True)
+
+
+class ResetPasswordEmailSerializer(serializers.Serializer):
+    email = serializers.EmailField(required=True)
+
+
+class SubscriptionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = get_user_model()
+        fields = ("newsletter_subscription",)

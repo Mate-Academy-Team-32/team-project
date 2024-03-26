@@ -1,18 +1,26 @@
 {
-  "name": "react_default_project",
+  "name": "team_project",
+  "version": "1.0.0",
   "homepage": ".",
-  "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.11.3",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.5.2",
     "@types/node": "^16.18.71",
+    "bootstrap": "^5.3.2",
+    "classnames": "^2.5.1",
+    "flowbite": "^2.2.1",
+    "flowbite-react": "^0.7.2",
+    "multi-range-slider-react": "^2.0.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.21.3",
     "react-scripts": "5.0.1",
     "sass": "^1.70.0",
+    "styled-components": "^6.1.8",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
   },
@@ -43,8 +51,12 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@types/react": "^18.2.48",
     "@types/react-dom": "^18.2.18",
-    "gh-pages": "^6.1.1"
+    "autoprefixer": "^10.4.17",
+    "gh-pages": "^6.1.1",
+    "postcss": "^8.4.33",
+    "tailwindcss": "^3.4.1"
   }
 }

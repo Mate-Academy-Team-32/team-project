@@ -19,7 +19,7 @@ class CoreModel(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, editable=False)
     created_by = models.ForeignKey(
         to=get_user_model(),
-        editable=False,
+        editable=True,
         on_delete=models.CASCADE,
         related_name="%(class)s",
     )
@@ -35,6 +35,14 @@ class Tag(CoreModel):
         return self.name
 
 
+class Brand(CoreModel):
+    label = models.CharField(max_length=255, unique=True)
+    logo_img = models.ImageField()
+
+    def __str__(self):
+        return self.label
+
+
 class Item(CoreModel):
     class Gender(models.TextChoices):
         FEMALE = "F", "Female"
@@ -47,21 +55,33 @@ class Item(CoreModel):
         EDP = 3, "Eau de parfum"
         PERFUME = 4, "Parfum"
 
-    label = models.CharField(max_length=64)
+    brand = models.ForeignKey(Brand, on_delete=models.CASCADE, related_name="items")
     name = models.CharField(max_length=255)
     logo_img = models.ImageField(null=True, blank=True, upload_to=get_image_file_path)
     gender = models.CharField(choices=Gender.choices, max_length=1)
     strength = models.IntegerField(choices=Strength.choices)
-    size = models.PositiveIntegerField()
     description = models.TextField()
     release_date = models.DateField(blank=True, null=True)
     country = models.CharField(max_length=64)
     tags = models.ManyToManyField(Tag, related_name="items", blank=True)
-    price = models.DecimalField(max_digits=6, decimal_places=2)
-    inventory = models.PositiveIntegerField()
 
     def __str__(self):
-        return f"{self.label}.{self.name}"
+        return f"{self.brand}. {self.name}"
+
+
+class StockItem(CoreModel):
+    item = models.ForeignKey(Item, on_delete=models.CASCADE, related_name="stock_items")
+    volume = models.PositiveIntegerField()
+    price = models.DecimalField(max_digits=6, decimal_places=2)
+    stock = models.PositiveIntegerField()
+
+    class Meta:
+        constraints = [
+            UniqueConstraint(fields=["item", "volume"], name="unique_volume_stock_item")
+        ]
+
+    def __str__(self):
+        return f"{self.item.name} - Vol: {self.volume}, Price: {self.price}, Stock: {self.stock}"
 
 
 class Review(CoreModel):
