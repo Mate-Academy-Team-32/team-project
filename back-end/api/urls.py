@@ -7,6 +7,10 @@ urlpatterns = [
         "items/",
         include("items.urls", namespace="item"),
     ),
+    path(
+        "cart/",
+        include("cart.urls", namespace="cart")
+    ),
     path("doc/", SpectacularAPIView.as_view(), name="schema"),
     path(
         "doc/swagger/",
@@ -17,4 +21,5 @@ urlpatterns = [
         "password_reset/",
         include("django_rest_passwordreset.urls", namespace="password_reset"),
     ),
+    path("", include("orders.urls", namespace="orders"))
 ]

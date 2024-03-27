@@ -46,3 +46,12 @@ services:
     depends_on:
       - api
 
+  stripe-cli:
+    image: stripe/stripe-cli
+    container_name: stripe-cli
+    command: "listen --api-key sk_test_51Ot0jZKlgtcDuxQLPOw0TBt6xP0pG6kQdpOjyxgJBZrTOSUsxag2cHywF3KQ86nVlGyHXCHacjJgIJrDAqtvqR8000jQs0QTNU --forward-to api:8000/api/webhooks/stripe"
+    env_file:
+      - back-end/.env
+    depends_on:
+      - api
+      - worker
