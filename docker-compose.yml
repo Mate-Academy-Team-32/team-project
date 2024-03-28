@@ -36,16 +36,6 @@ services:
     ports:
       - "6379:6379"
 
-  web:
-    build:
-      context: .
-      dockerfile: front-end/Dockerfile
-    ports:
-        - "3000:3000"
-
-    depends_on:
-      - api
-
   stripe-cli:
     image: stripe/stripe-cli
     container_name: stripe-cli
