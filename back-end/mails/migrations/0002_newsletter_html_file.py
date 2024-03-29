@@ -11,7 +11,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.AddField(
-            model_name="mails",
+            model_name="newsletter",
             name="html_file",
             field=models.FileField(
                 blank=True, null=True, upload_to=mails.models.get_file_path
