@@ -24,3 +24,11 @@ class Newsletter(CoreModel):
 
     def __str__(self):
         return f"{self.subject} - {self.scheduled_time}"
+
+
+class Subscription(models.Model):
+    email = models.EmailField(max_length=254, unique=True)
+    created_at = models.DateTimeField(auto_now_add=True, editable=False)
+
+    def __str__(self):
+        return f"{self.email} created at {self.created_at}"
