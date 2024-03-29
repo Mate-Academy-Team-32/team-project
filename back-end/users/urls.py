@@ -9,7 +9,6 @@ from users.views import (
     RegisterView,
     UserProfileViewSet,
     ChangePasswordView,
-    SubscriptionViewSet,
 )
 
 urlpatterns = [
@@ -23,10 +22,5 @@ urlpatterns = [
             {"get": "retrieve", "put": "update", "patch": "update"}
         ),
         name="profile",
-    ),
-    path(
-        "subscription/",
-        SubscriptionViewSet.as_view({"get": "retrieve", "put": "update"}),
-        name="subscription",
     ),
 ]

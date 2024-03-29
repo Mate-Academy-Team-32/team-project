@@ -24,9 +24,3 @@ class ChangePasswordSerializer(serializers.Serializer):
 
 class ResetPasswordEmailSerializer(serializers.Serializer):
     email = serializers.EmailField(required=True)
-
-
-class SubscriptionSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = get_user_model()
-        fields = ("newsletter_subscription",)

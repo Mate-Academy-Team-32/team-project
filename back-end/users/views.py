@@ -8,7 +8,6 @@ from users.serializers import (
     UserSerializer,
     UserProfileSerializer,
     ChangePasswordSerializer,
-    SubscriptionSerializer,
 )
 
 
@@ -55,14 +54,3 @@ class ChangePasswordView(generics.CreateAPIView):
             )
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-
-class SubscriptionViewSet(
-    mixins.RetrieveModelMixin, mixins.UpdateModelMixin, viewsets.GenericViewSet
-):
-    permission_classes = (IsAuthenticated,)
-    authentication_classes = (JWTAuthentication,)
-    serializer_class = SubscriptionSerializer
-
-    def get_object(self):
-        return self.request.user
