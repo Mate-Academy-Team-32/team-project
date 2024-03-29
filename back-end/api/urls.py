@@ -11,6 +11,10 @@ urlpatterns = [
         "cart/",
         include("cart.urls", namespace="cart")
     ),
+    path(
+        "mails/",
+        include("mails.urls", namespace="mail"),
+    ),
     path("doc/", SpectacularAPIView.as_view(), name="schema"),
     path(
         "doc/swagger/",
