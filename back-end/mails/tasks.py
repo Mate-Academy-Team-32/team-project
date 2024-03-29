@@ -5,7 +5,7 @@ from django.contrib.auth import get_user_model
 from django.core.mail import EmailMultiAlternatives, get_connection
 from django.template.loader import render_to_string
 
-from newsletter.models import Newsletter
+from mails.models import Newsletter
 
 
 logger = get_task_logger(__name__)
