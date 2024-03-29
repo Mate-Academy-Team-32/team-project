@@ -1,10 +1,12 @@
 from django.core.mail import EmailMessage, get_connection
-from rest_framework import generics, status
+from rest_framework import viewsets, generics, mixins, status
 from rest_framework.response import Response
 from rest_framework.permissions import AllowAny
 
 from PerfuMe_API.settings import EMAIL_HOST_USER
-from mails.serializers import FeedbackSerializer
+from api.permissions import IsAdminOrOwnerOrReadCreate
+from mails.serializers import FeedbackSerializer, SubscriptionSerializer
+from mails.models import Subscription
 
 
 class SendFeedbackView(generics.CreateAPIView):
@@ -78,3 +80,15 @@ class SendFeedbackView(generics.CreateAPIView):
                 {"message": "Failed to send feedback.", "error": str(e)},
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR,
             )
+
+
+class SubscriptionViewSet(
+    mixins.RetrieveModelMixin,
+    mixins.CreateModelMixin,
+    mixins.ListModelMixin,
+    mixins.DestroyModelMixin,
+    viewsets.GenericViewSet,
+):
+    queryset = Subscription.objects.all()
+    serializer_class = SubscriptionSerializer
+    permission_classes = (IsAdminOrOwnerOrReadCreate,)
