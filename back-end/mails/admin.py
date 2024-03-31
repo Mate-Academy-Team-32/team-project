@@ -3,8 +3,8 @@ from django.utils import timezone
 from rest_framework.exceptions import ValidationError
 
 from items.admin import CoreModelAdmin
-from newsletter.models import Newsletter
-from newsletter.tasks import newsletter_schedule_create
+from mails.models import Newsletter
+from mails.tasks import newsletter_schedule_create
 
 
 @admin.register(Newsletter)
