@@ -8,7 +8,7 @@ from mails.tasks import newsletter_schedule_create
 
 
 @admin.register(Newsletter)
-class ItemAdmin(CoreModelAdmin):
+class NewsletterAdmin(CoreModelAdmin):
     search_fields = ("subject",) + CoreModelAdmin.search_fields
     ordering = ("-scheduled_time",) + CoreModelAdmin.ordering
     list_display = (
