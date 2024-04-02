@@ -73,14 +73,6 @@ class FavoriteItemViewSet(
         user = self.request.user
         return FavoriteItem.objects.filter(created_by=user)
 
-    def create(self, request, *args, **kwargs):
-        item_id = request.POST.get("item")
-        liked_item = self.queryset.filter(item_id=item_id)
-        if liked_item:
-            liked_item.delete()
-            return Response({"detail": "Item removed"}, status=status.HTTP_200_OK)
-
-        return super().create(request, *args, **kwargs)
 
     @action(detail=False, methods=["post"], serializer_class=ClearOperationSerializer)
     def clear_favorite(self, *args, **kwargs):
