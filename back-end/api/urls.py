@@ -9,7 +9,7 @@ urlpatterns = [
     ),
     path(
         "cart/",
-        include("cart.urls", namespace="cart")
+        include("carts.urls", namespace="cart")
     ),
     path(
         "mails/",
