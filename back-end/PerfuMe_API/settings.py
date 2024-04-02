@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     "django_rest_passwordreset",
     "drf_spectacular",
     "django_filters",
-    "newsletter",
+    "mails",
     "users",
     "items",
     "carts",
