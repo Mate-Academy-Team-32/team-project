@@ -15,3 +15,7 @@ class CartItem(CoreModel):
 
 class FavoriteItem(CoreModel):
     item = models.ForeignKey(Item, on_delete=models.CASCADE)
+
+
+    class Meta:
+        unique_together = ("created_by", "item")
