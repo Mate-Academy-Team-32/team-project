@@ -1,0 +1,30 @@
+name: Docker Compose Workflow
+
+on:
+  push:
+    branches:
+      - main  # Adjust branch name as needed
+  pull_request:
+    branches:
+      - main  # Adjust branch name as needed
+
+jobs:
+  build-and-deploy:
+    name: Build Docker Images and Deploy
+    runs-on: self-hosted
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Get env file
+      - run: |
+          touch . env
+          echo "${{ secrets.PROD_ENV_FILE }}" > .env
+      
+      - name: Build Docker Images
+        run: docker-compose build
+      
+      # Optionally, you can run tests here if you have any
+      
+      - name: Start Docker Containers
+        run: docker-compose up -d
