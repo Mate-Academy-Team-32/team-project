@@ -60,7 +60,7 @@ def send_emails_with_data(emails_data: list[dict]):
                 "connection": connection,
             }
 
-            html_message = email_data["html_message"]
+            html_message = email_data.get("html_message")
             if html_message:
                 msg = EmailMultiAlternatives(**msg_data)
                 msg.attach_alternative(html_message, "text/html")
