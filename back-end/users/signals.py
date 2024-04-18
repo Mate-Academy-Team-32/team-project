@@ -1,10 +1,10 @@
-from django.conf.global_settings import EMAIL_HOST_USER
-from django.core.mail import EmailMultiAlternatives
 from django.dispatch import receiver
 from django.template.loader import render_to_string
 from django.urls import reverse
 
 from django_rest_passwordreset.signals import reset_password_token_created
+
+from mails.tasks import send_emails_with_data
 
 
 @receiver(reset_password_token_created)
@@ -46,12 +46,10 @@ def password_reset_token_created(
         f"below to reset your password: {context.get('reset_password_url')}"
     )
 
-    msg = EmailMultiAlternatives(
-        "Password reset for PerfuMe",
-        email_plaintext_message,
-        EMAIL_HOST_USER,
-        [reset_password_token.user.email],
-    )
-
-    msg.attach_alternative(email_html_message, "text/html")
-    msg.send()
+    reset_password_data = {
+        "subject": "Password reset for PerfuMe",
+        "message": email_plaintext_message,
+        "email": reset_password_token.user.email,
+        "html_message": email_html_message,
+    }
+    send_emails_with_data.delay([reset_password_data])

@@ -1,12 +1,11 @@
-from django.core.mail import EmailMessage, get_connection
 from rest_framework import viewsets, generics, mixins, status
 from rest_framework.response import Response
 from rest_framework.permissions import AllowAny
 
-from PerfuMe_API.settings import EMAIL_HOST_USER
 from api.permissions import IsAdminOrOwnerOrReadCreate
 from mails.serializers import FeedbackSerializer, SubscriptionSerializer
 from mails.models import Subscription
+from mails.tasks import send_emails_with_data
 
 
 class SendFeedbackView(generics.CreateAPIView):
@@ -59,16 +58,7 @@ class SendFeedbackView(generics.CreateAPIView):
             feedback_data = self.get_feedback_data(serializer)
             confirmation_data = self.get_confirmation_data(serializer)
 
-            with get_connection() as connection:
-                for data in [feedback_data, confirmation_data]:
-                    msg = EmailMessage(
-                        data["subject"],
-                        data["message"],
-                        EMAIL_HOST_USER,
-                        [data.get("email", EMAIL_HOST_USER)],
-                        connection=connection,
-                    )
-                    msg.send()
+            send_emails_with_data.delay([feedback_data, confirmation_data])
 
             return Response(
                 {"message": "Feedback sent successfully."},
