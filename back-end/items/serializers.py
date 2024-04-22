@@ -137,6 +137,8 @@ class ItemDetailSerializer(ItemSerializer):
 
 
 class StockItemSerializer(CoreModelSerializer, serializers.ModelSerializer):
+    liked = serializers.BooleanField(default=False)
+
     class Meta:
         model = StockItem
         fields = (
@@ -145,6 +147,7 @@ class StockItemSerializer(CoreModelSerializer, serializers.ModelSerializer):
             "price",
             "item",
             "stock",
+            "liked"
         ) + CoreModelSerializer.Meta.fields
 
 
