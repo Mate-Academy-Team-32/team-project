@@ -30,4 +30,4 @@ class NewsletterAdmin(CoreModelAdmin):
             )
 
         else:
-            newsletter_schedule_create.apply_async(args=[obj.pk], eta=None)
+            newsletter_schedule_create.delay(obj.pk)
