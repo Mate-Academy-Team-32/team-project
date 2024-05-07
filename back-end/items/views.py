@@ -3,6 +3,8 @@ from django.db.models import Avg, Count, F, Max, Min
 from django.db.models.fields import Field
 from django.db.models.functions import Round, Coalesce
 from django.db.models import Avg, OuterRef, Subquery, Exists, Value, BooleanField
+from django.forms import ChoiceField
+
 from django_filters import filters
 from django_filters.filterset import FilterSet
 from django_filters.rest_framework.backends import DjangoFilterBackend
@@ -10,8 +12,9 @@ from rest_framework import viewsets, status
 from rest_framework.views import APIView
 from rest_framework.filters import OrderingFilter, SearchFilter
 from rest_framework.pagination import PageNumberPagination
-from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from rest_framework.permissions import IsAuthenticatedOrReadOnly, AllowAny
 from rest_framework.response import Response
+from rest_framework.decorators import action
 
 from api.permissions import IsOwnerOrReadCreate
 from items.models import Item, ItemImage, Tag, Review, Brand, StockItem, Note
@@ -187,6 +190,21 @@ class StockItemViewSet(CoreModelMixin, viewsets.ModelViewSet):
             return StockItemDetailSerializer
 
         return StockItemSerializer
+
+
+    @action(detail=False, methods=["get"], permission_classes=[AllowAny])
+    def get_filters(self, request):
+        filterset = self.filterset_class(data=request.GET, queryset=self.queryset)
+        filterset.is_valid()
+        available_filters = {}
+
+        for name, field in filterset.form.fields.items():
+            if isinstance(field, ChoiceField):
+                choices = [value[0] for value in field.choices if value[0]]
+                available_filters[name] = choices
+
+        return Response(available_filters)
+
 
 
 class ItemImageViewSet(CoreModelMixin, viewsets.ModelViewSet):
