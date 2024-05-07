@@ -1,4 +1,5 @@
 from rest_framework import routers
+from django.urls import path
 
 from items.views import (
     ItemViewSet,
@@ -8,6 +9,7 @@ from items.views import (
     BrandViewSet,
     StockItemViewSet,
     NoteViewSet,
+    FilterKeysAPIView,
 )
 
 router = routers.DefaultRouter()
@@ -19,6 +21,8 @@ router.register("reviews", ReviewViewSet)
 router.register("stock_items", StockItemViewSet)
 router.register("", ItemViewSet)
 
-urlpatterns = router.urls
+urlpatterns = [
+    path('filter-keys/', FilterKeysAPIView.as_view(), name='filter_keys'),
+] + router.urls
 
 app_name = "items"

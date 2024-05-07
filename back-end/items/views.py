@@ -1,14 +1,17 @@
 from django.contrib.auth import get_user_model
-from django.db.models import Avg, Count
+from django.db.models import Avg, Count, F, Max, Min
+from django.db.models.fields import Field
 from django.db.models.functions import Round, Coalesce
 from django.db.models import Avg, OuterRef, Subquery, Exists, Value, BooleanField
 from django_filters import filters
 from django_filters.filterset import FilterSet
 from django_filters.rest_framework.backends import DjangoFilterBackend
-from rest_framework import viewsets
+from rest_framework import viewsets, status
+from rest_framework.views import APIView
 from rest_framework.filters import OrderingFilter, SearchFilter
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from rest_framework.response import Response
 
 from api.permissions import IsOwnerOrReadCreate
 from items.models import Item, ItemImage, Tag, Review, Brand, StockItem, Note
@@ -54,6 +57,37 @@ class ItemFilter(FilterSet):
             "strength": ["exact"],
             "country": ["iexact"],
         }
+
+class FilterKeysAPIView(APIView):
+    def get(self, request):
+        queryset = Item.objects.all().select_related("stock_items")
+
+        special_filters = ("price", "item__id", "tags")
+
+        filter_fields = set(StockItemFilter.get_filters().keys()) - set(special_filters)
+        filter_values = {}
+
+        for field_name in filter_fields:
+            if not hasattr(Item, field_name):
+                field_name = "stock_items__" + field_name
+
+            # item_field = getattr(Item, field_name)
+            # if hasattr(item_field, "name") or hasattr(item_field, "label"):
+            #     stock_item_values = queryset.values_list(field_name + "__name", flat=True).distinct()
+            # else:
+            stock_item_values = queryset.values_list(field_name, flat=True).distinct()
+
+            filter_values[field_name] = list(stock_item_values)
+
+        price_aggregate = StockItem.objects.aggregate(
+            max_price=Max('price'),
+            min_price=Min('price')
+        )
+
+        filter_values["price"] = [price_aggregate['min_price'], price_aggregate['max_price']]
+        filter_values["tags"] = Tag.objects.values_list("name", flat=True).distinct()
+
+        return Response(filter_values, status=status.HTTP_200_OK)
 
 
 class ItemPagination(PageNumberPagination):
@@ -117,7 +151,7 @@ class StockItemFilter(FilterSet):
 
 
 class StockItemViewSet(CoreModelMixin, viewsets.ModelViewSet):
-    queryset = StockItem.objects.all()
+    queryset = StockItem.objects.all().select_related('item')
     pagination_class = ItemPagination
     filter_backends = [DjangoFilterBackend, OrderingFilter, SearchFilter]
     filterset_class = StockItemFilter
