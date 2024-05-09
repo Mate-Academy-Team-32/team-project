@@ -1,6 +1,7 @@
 from django.contrib.auth import get_user_model
 from django.db.models import Avg, Count
-from django.db.models.functions import Round
+from django.db.models.functions import Round, Coalesce
+from django.db.models import Avg, OuterRef, Subquery, Exists, Value, BooleanField
 from django_filters import filters
 from django_filters.filterset import FilterSet
 from django_filters.rest_framework.backends import DjangoFilterBackend
@@ -11,6 +12,7 @@ from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 from api.permissions import IsOwnerOrReadCreate
 from items.models import Item, ItemImage, Tag, Review, Brand, StockItem, Note
+from carts.models import FavoriteItem
 from items.serializers import (
     ItemSerializer,
     ItemListSerializer,
@@ -132,6 +134,12 @@ class StockItemViewSet(CoreModelMixin, viewsets.ModelViewSet):
     def get_queryset(self):
         queryset = self.queryset.annotate(
             rating_avg=(Round(Avg("item__reviews__rate"), 2)),
+        ).annotate(
+            liked=Exists(
+                FavoriteItem.objects.filter(item_id=OuterRef('item_id'), created_by=self.request.user.id)
+            )
+        ).annotate(
+            liked=Coalesce('liked', Value(False), output_field=BooleanField())
         )
 
         if self.action != "create":
