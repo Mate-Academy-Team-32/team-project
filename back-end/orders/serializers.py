@@ -31,8 +31,9 @@ class OrderItemSerializer(CoreModelSerializer, serializers.ModelSerializer):
 class OrderSerializer(CoreModelSerializer, serializers.ModelSerializer):
     order_items = OrderItemSerializer(many=True, read_only=True)
     payment = ShortPaymentSerializer(read_only=True, many=True)
+    created_by = serializers.HiddenField(default=serializers.CurrentUserDefault())
 
     class Meta:
         model = Order
-        fields = ("id", "order_items", "payment") + CoreModelSerializer.Meta.fields
+        fields = ("id", "order_items", "payment", "created_by") + CoreModelSerializer.Meta.fields
         read_only_fields = ("payment",)

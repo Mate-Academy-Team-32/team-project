@@ -32,54 +32,45 @@ class OrderViewSet(
         user = self.request.user
         return Order.objects.filter(created_by=user)
 
-    @transaction.atomic
-    def perform_create(self, serializer, *args, **kwargs):
-        items = self.request.query_params.get("items")
 
-        if not items:
-            return Response(
-                {"detail": "No items provided"},
-                status=status.HTTP_400_BAD_REQUEST
-            )
+    @transaction.atomic
+    def create(self, request, *args, **kwargs):
+        items = request.data.get('order_items_id', [])
+
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
 
         try:
-            new_order = serializer.save(created_by=self.request.user, *args, **kwargs)
+            new_order = serializer.save(*args, **kwargs)
         except Exception as e:
             return Response({"detail": str(e)}, status=status.HTTP_400_BAD_REQUEST)
 
-        items = items.split(",")
-
         for item in items:
-            cart_item = get_object_or_404(CartItem, id=item, created_by_id=self.request.user)
+            cart_item = get_object_or_404(CartItem, id=item, created_by=self.request.user)
 
             if cart_item.quantity > cart_item.stock_item.stock:
                 new_order.delete()
                 return Response({"detail": "Not enough stock available"}, status=status.HTTP_400_BAD_REQUEST)
 
             order_item = OrderItem.objects.create(
-                order=new_order,
-                quantity=cart_item.quantity,
-                stock_item=cart_item.stock_item
+                        order=new_order,
+                        quantity=cart_item.quantity,
+                        stock_item=cart_item.stock_item
             )
 
-            cart_item.stock_item.stock -= order_item.quantity
-            cart_item.stock_item.save()
-            cart_item.delete()
+        cart_item.stock_item.stock -= order_item.quantity
+        cart_item.stock_item.save()
+        cart_item.delete()
+
+
+        create_new_payment(new_order)
 
         serializer = self.get_serializer(new_order)
+  
+        order_created_signal.send(sender=self, order=order)
+        
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
-    @transaction.atomic
-    def create(self, request, *args, **kwargs):
-        response = super().create(request, *args, **kwargs)
-        pk = response.data.get("id")
-        order = Order.objects.get(id=pk)
-
-        create_new_payment(order)
-
-        order_created_signal.send(sender=self, order=order)
-
-        return response
 
 
 class PaymentViewSet(
