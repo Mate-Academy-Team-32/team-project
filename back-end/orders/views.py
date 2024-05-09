@@ -14,6 +14,7 @@ from carts.models import CartItem
 from items.views import CoreModelMixin
 from orders.models import Order, OrderItem, Payment
 from orders.serializers import OrderSerializer, PaymentSerializer
+from orders.signals import order_created_signal
 from orders.utils import create_new_payment, fulfill_order, cancel_order
 
 
@@ -65,7 +66,11 @@ class OrderViewSet(
         create_new_payment(new_order)
 
         serializer = self.get_serializer(new_order)
+  
+        order_created_signal.send(sender=self, order=order)
+        
         return Response(serializer.data, status=status.HTTP_201_CREATED)
+
 
 
 class PaymentViewSet(
@@ -88,7 +93,7 @@ stripe.api_key = settings.STRIPE_SECRET_KEY
 @csrf_exempt
 def stripe_webhook(request):
     payload = request.body
-    sig_header = request.META['HTTP_STRIPE_SIGNATURE']
+    sig_header = request.META["HTTP_STRIPE_SIGNATURE"]
     event = None
 
     try:

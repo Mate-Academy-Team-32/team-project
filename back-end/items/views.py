@@ -36,8 +36,8 @@ from items.serializers import (
 
 class CoreModelMixin:
     def perform_create(self, serializer, *args, **kwargs):
-        if self.request.user.is_superuser and 'created_by' in self.request.data:
-            created_by_id = self.request.data.pop('created_by')
+        if self.request.user.is_superuser and "created_by" in self.request.data:
+            created_by_id = self.request.data.pop("created_by")
             created_by = get_user_model().objects.get(pk=created_by_id)
             return serializer.save(created_by=created_by, *args, **kwargs)
         else:
@@ -45,13 +45,15 @@ class CoreModelMixin:
 
     def update(self, instance, validated_data):
         # Remove the created_by field from validated_data during updates
-        validated_data.pop('created_by', None)
+        validated_data.pop("created_by", None)
         return super().update(instance, validated_data)
 
 
 class ItemFilter(FilterSet):
-    tags = filters.NumberFilter(field_name="note_categories__notes__tag", distinct=True)
-    brand = filters.AllValuesFilter(field_name="brand__label")
+    tags = filters.MultipleChoiceFilter(
+        field_name="note_categories__notes__tag", distinct=True
+    )
+    brand = filters.AllValuesMultipleFilter(field_name="brand__label")
 
     class Meta:
         model = Item
@@ -137,15 +139,15 @@ class ItemViewSet(CoreModelMixin, viewsets.ModelViewSet):
 
 
 class StockItemFilter(FilterSet):
-    brand = filters.AllValuesFilter(field_name="item__brand__label")
-    country = filters.AllValuesFilter(field_name="item__country")
-    strength = filters.AllValuesFilter(field_name="item__strength")
-    gender = filters.AllValuesFilter(field_name="item__gender")
-    volume = filters.AllValuesFilter()
-    item__id = filters.AllValuesFilter()
+    brand = filters.AllValuesMultipleFilter(field_name="item__brand__label")
+    country = filters.AllValuesMultipleFilter(field_name="item__country")
+    strength = filters.AllValuesMultipleFilter(field_name="item__strength")
+    gender = filters.AllValuesMultipleFilter(field_name="item__gender")
+    volume = filters.AllValuesMultipleFilter()
+    item__id = filters.AllValuesMultipleFilter()
     price = filters.RangeFilter()
-    tags = filters.AllValuesFilter(
-        field_name="item__note_categories__notes__tag", distinct=True
+    tags = filters.AllValuesMultipleFilter(
+        field_name="item__note_categories__notes__tag"
     )
 
     class Meta:
