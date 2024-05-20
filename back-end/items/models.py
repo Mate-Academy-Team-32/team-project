@@ -45,7 +45,7 @@ class Note(CoreModel):
 
 class Brand(CoreModel):
     label = models.CharField(max_length=255, unique=True)
-    logo_img = models.ImageField(upload_to=get_image_file_path)
+    logo_img = models.ImageField(upload_to=get_image_file_path, blank=True, null=True, max_length=255)
 
     def __str__(self):
         return self.label
@@ -65,7 +65,7 @@ class Item(CoreModel):
 
     brand = models.ForeignKey(Brand, on_delete=models.CASCADE, related_name="items")
     name = models.CharField(max_length=255)
-    logo_img = models.ImageField(null=True, blank=True, upload_to=get_image_file_path)
+    logo_img = models.ImageField(null=True, blank=True, upload_to=get_image_file_path, max_length=255)
     gender = models.CharField(choices=Gender.choices, max_length=1)
     strength = models.IntegerField(choices=Strength.choices)
     description = models.TextField()
@@ -131,7 +131,7 @@ class Review(CoreModel):
 
 class ItemImage(CoreModel):
     item = models.ForeignKey(Item, on_delete=models.CASCADE, related_name="item_images")
-    image = models.ImageField(null=True, blank=True, upload_to=get_image_file_path)
+    image = models.ImageField(null=True, blank=True, upload_to=get_image_file_path, max_length=255)
 
     def __str__(self):
         return str(self.item)
