@@ -1,44 +1,72 @@
 from celery import shared_task
 from celery.utils.log import get_task_logger
-from django.conf.global_settings import EMAIL_HOST_USER
-from django.core.mail import EmailMultiAlternatives, get_connection
+from django.core.mail import EmailMultiAlternatives, get_connection, EmailMessage
 from django.template.loader import render_to_string
 
+from PerfuMe_API.settings import EMAIL_HOST_USER
 from mails.models import Newsletter, Subscription
 
 logger = get_task_logger(__name__)
 
 
-def get_newsletter_emails(newsletter, subscribers):
-    messages = []
+def get_newsletters_data(newsletter, subscribers):
+    newsletters_data = []
 
     for subscriber in subscribers:
-        msg = EmailMultiAlternatives(
-            newsletter.subject,
-            newsletter.text_content,
-            EMAIL_HOST_USER,
-            [subscriber.email],
-        )
+        newsletter_data = {
+            "subject": newsletter.subject,
+            "message": newsletter.text_content,
+            "email": subscriber.email,
+            "html_message": newsletter.html_file,
+        }
 
         if newsletter.html_file:
             template_path = newsletter.html_file.path
             email_html_message = render_to_string(template_path)
-            msg.attach_alternative(email_html_message, "text/html")
+            newsletter_data["html_message"] = email_html_message
 
-        messages.append(msg)
+        newsletters_data.append(newsletter_data)
 
-    return messages
+    return newsletters_data
 
 
 @shared_task
-def newsletter_schedule_create(newsletter_id, *args, **kwargs):
+def newsletter_schedule_create(newsletter_id):
     newsletter = Newsletter.objects.get(pk=newsletter_id)
     subscribers = Subscription.objects.all()
 
-    connection = get_connection()
-    messages = get_newsletter_emails(newsletter, subscribers)
-    connection.send_messages(messages)
+    newsletters_data = get_newsletters_data(newsletter, subscribers)
+    send_emails_with_data(newsletters_data)
 
     logger.info(
         f"Newsletter creation is scheduled successfully. Newsletter ID: {newsletter_id}"
     )
+
+
+@shared_task
+def send_emails_with_data(emails_data: list[dict]):
+    """
+    Celery task to send emails with provided data.
+
+    :param emails_data: a list of email contents, with keys: `subject`, `message` and `email` (optional)
+    """
+    with get_connection() as connection:
+        for email_data in emails_data:
+            msg_data = {
+                "subject": email_data.get("subject"),
+                "body": email_data["message"],
+                "from_email": EMAIL_HOST_USER,
+                "to": [email_data.get("email", EMAIL_HOST_USER)],
+                "connection": connection,
+            }
+
+            html_message = email_data.get("html_message")
+            if html_message:
+                msg = EmailMultiAlternatives(**msg_data)
+                msg.attach_alternative(html_message, "text/html")
+            else:
+                msg = EmailMessage(**msg_data)
+
+            msg.send()
+
+            logger.info(f"Email to {msg_data['to']} sent successfully.")

@@ -1,7 +1,8 @@
 from django.contrib.auth import get_user_model
 from django.db.models import Avg, Count
-from django.db.models.functions import Round
 from django.forms import ChoiceField
+from django.db.models.functions import Round, Coalesce
+from django.db.models import Avg, OuterRef, Subquery, Exists, Value, BooleanField
 from django_filters import filters
 from django_filters.filterset import FilterSet
 from django_filters.rest_framework.backends import DjangoFilterBackend
@@ -14,6 +15,7 @@ from rest_framework.response import Response
 
 from api.permissions import IsOwnerOrReadCreate
 from items.models import Item, ItemImage, Tag, Review, Brand, StockItem, Note
+from carts.models import FavoriteItem
 from items.serializers import (
     ItemSerializer,
     ItemListSerializer,
@@ -31,8 +33,8 @@ from items.serializers import (
 
 class CoreModelMixin:
     def perform_create(self, serializer, *args, **kwargs):
-        if self.request.user.is_superuser and 'created_by' in self.request.data:
-            created_by_id = self.request.data.pop('created_by')
+        if self.request.user.is_superuser and "created_by" in self.request.data:
+            created_by_id = self.request.data.pop("created_by")
             created_by = get_user_model().objects.get(pk=created_by_id)
             return serializer.save(created_by=created_by, *args, **kwargs)
         else:
@@ -40,13 +42,15 @@ class CoreModelMixin:
 
     def update(self, instance, validated_data):
         # Remove the created_by field from validated_data during updates
-        validated_data.pop('created_by', None)
+        validated_data.pop("created_by", None)
         return super().update(instance, validated_data)
 
 
 class ItemFilter(FilterSet):
-    tags = filters.NumberFilter(field_name="note_categories__notes__tag", distinct=True)
-    brand = filters.AllValuesFilter(field_name="brand__label")
+    tags = filters.MultipleChoiceFilter(
+        field_name="note_categories__notes__tag", distinct=True
+    )
+    brand = filters.AllValuesMultipleFilter(field_name="brand__label")
 
     class Meta:
         model = Item
@@ -114,15 +118,15 @@ class ItemViewSet(CoreModelMixin, viewsets.ModelViewSet):
 
 
 class StockItemFilter(FilterSet):
-    brand = filters.AllValuesFilter(field_name="item__brand__label")
-    country = filters.AllValuesFilter(field_name="item__country")
-    strength = filters.AllValuesFilter(field_name="item__strength")
-    gender = filters.AllValuesFilter(field_name="item__gender")
-    volume = filters.AllValuesFilter()
-    item__id = filters.AllValuesFilter()
+    brand = filters.AllValuesMultipleFilter(field_name="item__brand__label")
+    country = filters.AllValuesMultipleFilter(field_name="item__country")
+    strength = filters.AllValuesMultipleFilter(field_name="item__strength")
+    gender = filters.AllValuesMultipleFilter(field_name="item__gender")
+    volume = filters.AllValuesMultipleFilter()
+    item__id = filters.AllValuesMultipleFilter()
     price = filters.RangeFilter()
-    tags = filters.AllValuesFilter(
-        field_name="item__note_categories__notes__tag", distinct=True
+    tags = filters.AllValuesMultipleFilter(
+        field_name="item__note_categories__notes__tag"
     )
 
     class Meta:
@@ -146,6 +150,12 @@ class StockItemViewSet(CoreModelMixin, viewsets.ModelViewSet):
     def get_queryset(self):
         queryset = self.queryset.annotate(
             rating_avg=(Round(Avg("item__reviews__rate"), 2)),
+        ).annotate(
+            liked=Exists(
+                FavoriteItem.objects.filter(item_id=OuterRef('item_id'), created_by=self.request.user.id)
+            )
+        ).annotate(
+            liked=Coalesce('liked', Value(False), output_field=BooleanField())
         )
 
         if self.action != "create":
