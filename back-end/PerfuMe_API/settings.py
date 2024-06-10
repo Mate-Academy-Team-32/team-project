@@ -177,7 +177,7 @@ SPECTACULAR_SETTINGS = {
 }
 
 SIMPLE_JWT = {
-    "AUTH_HEADER_NAME": "HTTP_AUTHORIZE",  # Change in prod!
+    "AUTH_HEADER_NAME": "HTTP_AUTHORIZATION",  # Change in prod!
 }
 
 CORS_ORIGIN_WHITELIST = ["http://localhost:3000"]
