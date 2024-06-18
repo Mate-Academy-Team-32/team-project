@@ -1,4 +1,11 @@
-from django.contrib.auth import update_session_auth_hash
+import random
+import string
+from django.utils import timezone
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
+from django.core.mail import send_mail
+from rest_framework.views import APIView
+from django.contrib.auth import update_session_auth_hash, get_user_model
 from rest_framework import generics, viewsets, mixins, status
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
@@ -8,7 +15,11 @@ from users.serializers import (
     UserSerializer,
     UserProfileSerializer,
     ChangePasswordSerializer,
+    PasswordResetRequestSerializer,
+    PasswordResetConfirmSerializer,
 )
+
+User = get_user_model()
 
 
 class RegisterView(generics.CreateAPIView):
@@ -54,3 +65,45 @@ class ChangePasswordView(generics.CreateAPIView):
             )
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class PasswordResetRequestView(APIView):
+    permission_classes = (AllowAny,)
+    def post(self, request):
+        serializer = PasswordResetRequestSerializer(data=request.data)
+        if serializer.is_valid():
+            email = serializer.validated_data["email"]
+            user = User.objects.filter(email=email).first()
+            if user:
+                code = ''.join(random.choices(string.digits, k=6))
+                user.password_reset_code = code
+                user.password_reset_code_expiry = timezone.now() + timezone.timedelta(minutes=15)
+                user.save()
+                html_message = render_to_string("password_reset_email.html", {"code": code})
+                plain_message = strip_tags(html_message)
+                send_mail(
+                    "Password Reset Confirmation Code",
+                    plain_message,
+                    "from@example.com",
+                    [email],
+                    html_message=html_message,
+                    fail_silently=False,
+                )
+                return Response({"message": "Confirmation code sent to email"}, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class PasswordResetConfirmView(APIView):
+    def post(self, request):
+        serializer = PasswordResetConfirmSerializer(data=request.data)
+        if serializer.is_valid():
+            email = serializer.validated_data["email"]
+            code = serializer.validated_data["code"]
+            new_password = serializer.validated_data["new_password"]
+            user = User.objects.filter(email=email, password_reset_code=code).first()
+            if user and user.password_reset_code_expiry > timezone.now():
+                user.set_password(new_password)
+                user.password_reset_code = None
+                user.password_reset_code_expiry = None
+                user.save()
+                return Response({"message": "Password has been reset"}, status=status.HTTP_200_OK)
+        return Response({"error": "Invalid code or email"}, status=status.HTTP_400_BAD_REQUEST)
