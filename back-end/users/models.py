@@ -35,6 +35,9 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractBaseUser, PermissionsMixin):
+    password_reset_code = models.CharField(max_length=6, blank=True, null=True)
+    password_reset_code_expiry = models.DateTimeField(blank=True, null=True)
+
     email = models.EmailField(max_length=254, unique=True)
     first_name = models.CharField(max_length=254, null=True, blank=True)
     last_name = models.CharField(max_length=254, null=True, blank=True)

@@ -9,6 +9,8 @@ from users.views import (
     RegisterView,
     UserProfileViewSet,
     ChangePasswordView,
+    PasswordResetRequestView,
+    PasswordResetConfirmView,
 )
 
 urlpatterns = [
@@ -23,4 +25,6 @@ urlpatterns = [
         ),
         name="profile",
     ),
+    path("password-reset/", PasswordResetRequestView.as_view(), name="password_reset_request"),
+    path("password-reset/confirm/", PasswordResetConfirmView.as_view(), name="password_reset_confirm"),
 ]
